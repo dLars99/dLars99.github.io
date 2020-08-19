@@ -1,7 +1,7 @@
 # Personal Portfolio Website
 ## David P. Larsen
 
-#### Based on the TXT template from html5up.net
+#### Adapted from the TXT template from html5up.net
 TXT by HTML5 UP
 html5up.net | @ajlkn
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
