@@ -2323,7 +2323,15 @@ table.default thead {
 	margin: 0 0 1.5em 0;
 }
 
+.box.highlight p.text {
+	text-align: left;
+}
+
 .box.feature {
+	text-align: left;
+}
+
+.box.feature h3 {
 	text-align: center;
 }
 
@@ -2685,7 +2693,11 @@ body {
 
 #footer {
 	text-align: center;
-	padding: 8em 0 8em 0;
+	padding: 8em 3em 8em 3em;
+}
+
+#footer p.about {
+	text-align: left;
 }
 
 #footer a {
