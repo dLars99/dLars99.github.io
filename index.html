@@ -27,22 +27,21 @@
 			<ul>
 				<li class="current"><a href="index.html">Home</a></li>
 				<li>
-					<a href="#projects">Projects</a>
+					<a href="#projects" class="scrolly">Projects</a>
 					<ul>
-						<li><a href="#greener">Grass is Greener</a></li>
-						<li><a href="#nutshell">Nutshell</a></li>
+						<li><a href="#greener" class="scrolly">Grass is Greener</a></li>
+						<li><a href="#nutshell" class="scrolly">Nutshell</a></li>
 						<li>
-							<a href="#holiday">Holiday Road</a></li>
+							<a href="#holiday" class="scrolly">Holiday Road</a></li>
 						<li><a href="#">TBD</a></li>
 					</ul>
 				</li>
-				<li><a href="#">About Me</a></li>
-				<li><a href="#">Technologies</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a href="#about" class="scrolly">About Me</a></li>
+				<li><a href="#techs" class="scrolly">Technologies</a></li>
+				<li><a href="#contact" class="scrolly">Contact</a></li>
 			</ul>
 		</nav>
 
-		<!-- PICTURE? -->
 		<!-- Banner -->
 		<section id="banner">
 			<div class="content">
@@ -69,7 +68,7 @@
 										<!-- Feature -->
 										<section class="box feature" id="greener">
 											<a href="#" class="image featured"><img src="images/greener-dash.png"
-													alt="" /></a>
+													alt="Grass is Greener screenshot" /></a>
 											<h3><a href="#">Grass is Greener</a></h3>
 											<p>
 												NSS Front-End Capstone. Lets the user track different lawn care
@@ -137,7 +136,7 @@
 					<div class="col-12">
 
 						<!-- Highlight -->
-						<section class="box highlight">
+						<section class="box highlight" id="techs">
 							<ul class="special">
 								<li><a href="https://reactjs.org" class="icon brands fa-react"><span
 											class="label">React</span></a>
@@ -170,103 +169,6 @@
 						</section>
 
 					</div>
-					<!-- <div class="col-12">
-
-						<!-- Blog
-						<section class="box blog">
-							<h2 class="major"><span>Blog</span></h2>
-							<div>
-								<div class="row">
-									<div class="col-9 col-12-medium">
-										<div class="content">
-
-											<!-- Featured Post
-											<article class="box post">
-												<header>
-													<h3><a href="#">Bits o' knowledge</a></h3>
-													<p>Things I learn as I work</p>
-													<ul class="meta">
-														<li class="icon fa-clock">15 minutes ago</li>
-														<li class="icon fa-comments"><a href="#">8</a></li>
-													</ul>
-												</header>
-												<a href="#" class="image featured"><img src="images/pic05.jpg"
-														alt="" /></a>
-												<p>
-													I know our mythic history, King Arthur's and Sir Caradoc's;
-													I answer hard acrostics, I've a pretty taste for paradox,
-													I quote in elegiacs all the crimes of Heliogabalus,
-													In conics I can floor peculiarities parabolous;
-													I can tell undoubted Raphaels from Gerard Dows and Zoffanies,
-													I know the croaking chorus from The Frogs of Aristophanes!
-													Then I can hum a fugue of which I've heard the music's din afore,[b]
-													And whistle all the airs from that infernal nonsense Pinafore.
-												</p>
-												<a href="#" class="button">Continue Reading</a>
-											</article>
-
-										</div>
-									</div>
-									<div class="col-3 col-12-medium">
-										<div class="sidebar">
-
-											<!-- Archives
-											<ul class="divided">
-												<li>
-													<article class="box post-summary">
-														<h3><a href="#">These</a></h3>
-														<ul class="meta">
-															<li class="icon fa-clock">6 hours ago</li>
-															<li class="icon fa-comments"><a href="#">34</a></li>
-														</ul>
-													</article>
-												</li>
-												<li>
-													<article class="box post-summary">
-														<h3><a href="#">Posts</a></h3>
-														<ul class="meta">
-															<li class="icon fa-clock">9 hours ago</li>
-															<li class="icon fa-comments"><a href="#">27</a></li>
-														</ul>
-													</article>
-												</li>
-												<li>
-													<article class="box post-summary">
-														<h3><a href="#">Aren't</a></h3>
-														<ul class="meta">
-															<li class="icon fa-clock">Yesterday</li>
-															<li class="icon fa-comments"><a href="#">184</a></li>
-														</ul>
-													</article>
-												</li>
-												<li>
-													<article class="box post-summary">
-														<h3><a href="#">Made</a></h3>
-														<ul class="meta">
-															<li class="icon fa-clock">2 days ago</li>
-															<li class="icon fa-comments"><a href="#">286</a></li>
-														</ul>
-													</article>
-												</li>
-												<li>
-													<article class="box post-summary">
-														<h3><a href="#">Yet</a></h3>
-														<ul class="meta">
-															<li class="icon fa-clock">3 days ago</li>
-															<li class="icon fa-comments"><a href="#">8,086</a></li>
-														</ul>
-													</article>
-												</li>
-											</ul>
-											<a href="#" class="button alt">Archives</a>
-
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-
-					</div> -->
 				</div>
 			</div>
 		</section>
@@ -278,7 +180,7 @@
 					<div class="col-12">
 
 						<!-- About -->
-						<section>
+						<section id="about">
 							<h2 class="major"><span>New Site, Who Dis?</span></h2>
 							<p class="about">
 								I am the very model of a modern Major-General,
@@ -296,15 +198,20 @@
 					<div class="col-12">
 
 						<!-- Contact -->
-						<section>
-							<h2 class="major"><span>Get in touch</span></h2>
+						<section id="contact">
+							<h2 class="major"><span>Let's talk</span></h2>
 							<ul class="contact">
-								<li><a class="icon brands fa-github" href="https://www.github.com/dlars99"><span
-											class="label">GitHub</span></a>
+								<li><a class="icon solid fa-envelope" href="mailto:davidplarsen@gmail.com"><span
+											class="label">Email</span></a>
 								</li>
 								<li><a class="icon brands fa-linkedin-in"
 										href="https://www.linkedin.com/in/david-larsen-nashville"><span
 											class="label">LinkedIn</span></a></li>
+								<li><a class="icon brands fa-github" href="https://www.github.com/dlars99"><span
+											class="label">GitHub</span></a>
+								</li>
+								<li><a class="icon solid fa-voicemail" href="tel:6156012977"><span
+											class="label">Phone</span></a></li>
 							</ul>
 						</section>
 
