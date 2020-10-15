@@ -12,6 +12,12 @@ btn.onclick = function () {
     modal.style.display = "block";
 }
 
+function stopVideo(id) {
+    var src = $j('iframe.' + id).attr('src');
+    $j('iframe.' + id).attr('src', '');
+    $j('iframe.' + id).attr('src', src);
+}
+
 // When the user clicks on <span> (x), close the modal
 span.onclick = function () {
     modal.style.display = "none";
@@ -20,6 +26,7 @@ span.onclick = function () {
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
     if (event.target == modal) {
+        stopVideo("demoVideo")
         modal.style.display = "none";
     }
 }
