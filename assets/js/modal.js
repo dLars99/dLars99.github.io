@@ -69,6 +69,20 @@ span4.onclick = () => {
     modal4.style.display = "none";
 }
 
+window.onclick = function (event) {
+    switch (event.target) {
+        case modal1:
+            modal1.style.display = "none";
+        case modal2:
+            modal2.style.display = "none";
+        case modal3:
+            modal3.style.display = "none";
+        case modal4:
+            modal4.style.display = "none";
+        default:
+    }
+}
+
 function stopVideo(id) {
     var src = $j('iframe.' + id).attr('src');
     $j('iframe.' + id).attr('src', '');
