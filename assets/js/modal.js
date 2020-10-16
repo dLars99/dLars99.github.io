@@ -1,32 +1,76 @@
-// Get the modal
-var modal = document.getElementById("myModal");
+const modal1 = document.getElementById(`projectModal-1`);
+const btn1 = document.getElementById("modalButton-1");
+const title1 = document.getElementById("modalTitle-1");
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+btn1.onclick = () => {
+    modal1.style.display = "block";
+}
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+title1.onclick = () => {
+    modal1.style.display = "block";
+}
 
-// When the user clicks on the button, open the modal
-btn.onclick = function () {
-    modal.style.display = "block";
+
+const modal2 = document.getElementById(`projectModal-2`);
+const btn2 = document.getElementById("modalButton-2");
+const title2 = document.getElementById("modalTitle-2");
+
+btn2.onclick = () => {
+    modal2.style.display = "block";
+}
+
+title2.onclick = () => {
+    modal2.style.display = "block";
+}
+
+const modal3 = document.getElementById(`projectModal-3`);
+const btn3 = document.getElementById("modalButton-3");
+const title3 = document.getElementById("modalTitle-3");
+
+btn3.onclick = () => {
+    modal3.style.display = "block";
+}
+
+title3.onclick = () => {
+    modal3.style.display = "block";
+}
+
+const modal4 = document.getElementById(`projectModal-4`);
+const btn4 = document.getElementById("modalButton-4");
+const title4 = document.getElementById("modalTitle-4");
+
+btn4.onclick = () => {
+    modal4.style.display = "block";
+}
+
+title4.onclick = () => {
+    modal4.style.display = "block";
+}
+
+var span1 = document.getElementsByClassName("close")[0];
+
+span1.onclick = () => {
+    modal1.style.display = "none";
+}
+var span2 = document.getElementsByClassName("close")[1];
+
+span2.onclick = () => {
+    modal2.style.display = "none";
+}
+
+var span3 = document.getElementsByClassName("close")[2];
+
+span3.onclick = () => {
+    modal3.style.display = "none";
+}
+var span4 = document.getElementsByClassName("close")[3];
+
+span4.onclick = () => {
+    modal4.style.display = "none";
 }
 
 function stopVideo(id) {
     var src = $j('iframe.' + id).attr('src');
     $j('iframe.' + id).attr('src', '');
     $j('iframe.' + id).attr('src', src);
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        stopVideo("demoVideo")
-        modal.style.display = "none";
-    }
 }
