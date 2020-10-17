@@ -2077,28 +2077,28 @@ ul.contact li:hover {
 	top: -5px;
 }
 
-ul.contact li:hover a.fa-facebook {
-	background-color: #3C5A98;
+ul.contact li:hover a.fa-envelope {
+	background-color: #EA4335;
 }
 
 ul.contact li:hover a.fa-twitter {
 	background-color: #2DAAE4;
 }
 
-ul.contact li:hover a.fa-dribbble {
-	background-color: #C4376B;
+ul.contact li:hover a.fa-voicemail {
+	background-color: #3285DC;
 }
 
-ul.contact li:hover a.fa-linkedin {
+ul.contact li:hover a.fa-linkedin-in {
 	background-color: #006599;
 }
 
-ul.contact li:hover a.fa-instagram {
-	background-color: #2E5E86;
+ul.contact li:hover a.fa-github {
+	background-color: #333;
 }
 
-ul.contact li:hover a.fa-google-plus {
-	background-color: #DA2713;
+ul.contact li:hover a.fa-file-pdf {
+	background-color: #FF0000;
 }
 
 ul.contact li:active {
@@ -3309,6 +3309,16 @@ body {
 	/* Black w/ opacity */
 }
 
+.flex-center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.mb {
+	margin-bottom: .5rem;
+}
+
 /* Modal Content/Box */
 .modal-content {
 	background-color: #fefefe;
@@ -3341,12 +3351,16 @@ body {
 .modal-img {
 	flex: 0 1 auto;
 	height: 50vh;
-	margin: 3px auto;
+	margin: 3px auto 1rem;
+	padding: .5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .modal-img img {
 	max-height: 100%;
-	min-width: 50%;
+	min-width: 33%;
 	object-fit: cover;
 	border-radius: 8px;
 }
@@ -3381,4 +3395,14 @@ body {
 	to {
 		transform: scale(1)
 	}
+}
+
+.customlogo {
+	-webkit-filter: grayscale(1);
+	/* Webkit */
+	filter: gray;
+	/* IE6-9 */
+	filter: grayscale(1);
+	/* W3C */
+	height: 2.25em;
 }
