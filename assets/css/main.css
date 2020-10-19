@@ -2077,28 +2077,28 @@ ul.contact li:hover {
 	top: -5px;
 }
 
-ul.contact li:hover a.fa-facebook {
-	background-color: #3C5A98;
+ul.contact li:hover a.fa-envelope {
+	background-color: #EA4335;
 }
 
 ul.contact li:hover a.fa-twitter {
 	background-color: #2DAAE4;
 }
 
-ul.contact li:hover a.fa-dribbble {
-	background-color: #C4376B;
+ul.contact li:hover a.fa-voicemail {
+	background-color: #3285DC;
 }
 
-ul.contact li:hover a.fa-linkedin {
+ul.contact li:hover a.fa-linkedin-in {
 	background-color: #006599;
 }
 
-ul.contact li:hover a.fa-instagram {
-	background-color: #2E5E86;
+ul.contact li:hover a.fa-github {
+	background-color: #333;
 }
 
-ul.contact li:hover a.fa-google-plus {
-	background-color: #DA2713;
+ul.contact li:hover a.fa-file-pdf {
+	background-color: #FF0000;
 }
 
 ul.contact li:active {
@@ -2124,6 +2124,9 @@ ul.special li {
 	display: inline-block;
 	top: 0;
 	padding: 2em 0 0 2em;
+	-webkit-filter: grayscale(1);
+	filter: gray;
+	filter: grayscale(1);
 }
 
 ul.special li a {
@@ -2132,10 +2135,6 @@ ul.special li a {
 }
 
 ul.special li a:before {
-	-moz-transition: background-color .2s ease-in-out;
-	-webkit-transition: background-color .2s ease-in-out;
-	-ms-transition: background-color .2s ease-in-out;
-	transition: background-color .2s ease-in-out;
 	display: block;
 	text-align: center;
 	background: #c1cac5;
@@ -2149,6 +2148,8 @@ ul.special li a:before {
 
 ul.special li:hover {
 	top: -1em;
+	-webkit-filter: grayscale(0%);
+	filter: none;
 }
 
 ul.special li:hover a:before {
@@ -3281,4 +3282,122 @@ body {
 		font-size: 10pt;
 	}
 
+}
+
+.modal-trigger {
+	cursor: pointer;
+}
+
+/* The Modal (background) */
+.modal {
+	display: none;
+	/* Hidden by default */
+	position: fixed;
+	/* Stay in place */
+	z-index: 1;
+	/* Sit on top */
+	top: 0;
+	left: 0;
+	width: 100%;
+	/* Full width */
+	height: 100%;
+	/* Full height */
+	overflow: auto;
+	/* Enable scroll if needed */
+	background-color: rgb(0, 0, 0);
+	/* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4);
+	/* Black w/ opacity */
+}
+
+.flex-center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.mb {
+	margin-bottom: .5rem;
+}
+
+/* Modal Content/Box */
+.modal-content {
+	background-color: #fefefe;
+	margin: 5% auto;
+	/* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	border-radius: 8px;
+	width: 60%;
+	/* Could be more or less, depending on screen size */
+}
+
+.modal-flex {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 20px 0 10px 0;
+}
+
+.modal-gallery {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 100%;
+	padding: 0;
+	padding-top: 20px;
+}
+
+.modal-img {
+	flex: 0 1 auto;
+	height: 50vh;
+	margin: 3px auto 1rem;
+	padding: .5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.modal-img img {
+	max-height: 100%;
+	min-width: 33%;
+	object-fit: cover;
+	border-radius: 8px;
+}
+
+/* The Close Button */
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content,
+#caption {
+	animation-name: zoom;
+	animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+	from {
+		transform: scale(0)
+	}
+
+	to {
+		transform: scale(1)
+	}
+}
+
+.customlogo {
+	height: 5rem;
 }
