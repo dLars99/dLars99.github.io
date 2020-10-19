@@ -2124,6 +2124,9 @@ ul.special li {
 	display: inline-block;
 	top: 0;
 	padding: 2em 0 0 2em;
+	-webkit-filter: grayscale(1);
+	filter: gray;
+	filter: grayscale(1);
 }
 
 ul.special li a {
@@ -2132,10 +2135,6 @@ ul.special li a {
 }
 
 ul.special li a:before {
-	-moz-transition: background-color .2s ease-in-out;
-	-webkit-transition: background-color .2s ease-in-out;
-	-ms-transition: background-color .2s ease-in-out;
-	transition: background-color .2s ease-in-out;
 	display: block;
 	text-align: center;
 	background: #c1cac5;
@@ -2149,6 +2148,8 @@ ul.special li a:before {
 
 ul.special li:hover {
 	top: -1em;
+	-webkit-filter: grayscale(0%);
+	filter: none;
 }
 
 ul.special li:hover a:before {
@@ -3398,11 +3399,5 @@ body {
 }
 
 .customlogo {
-	-webkit-filter: grayscale(1);
-	/* Webkit */
-	filter: gray;
-	/* IE6-9 */
-	filter: grayscale(1);
-	/* W3C */
-	height: 2.25em;
+	height: 5rem;
 }
