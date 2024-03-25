@@ -1,7 +1,17 @@
 import { extendTheme } from "@chakra-ui/react";
 const theme = {
   colors: {
-    primary: "rebeccapurple",
+    primary: "green",
+  },
+  styles: {
+    global: {
+      a: {
+        color: "blue.600",
+        _hover: {
+          textDecoration: "underline",
+        },
+      },
+    },
   },
 };
 
