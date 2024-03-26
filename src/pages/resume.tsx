@@ -1,7 +1,9 @@
 import React from "react";
 
-export const VirtualResumePage = () => (
+const VirtualResumePage = () => (
   <main>
     <h1>Resume</h1>
   </main>
 );
+
+export default VirtualResumePage;

@@ -1,21 +1,27 @@
 import React, { FC } from "react";
 import { Link, type HeadFC, type PageProps } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+import NavBar from "../components/NavBar/NavBar";
+import Summary from "../components/Summary/Summary";
+import Skills from "../components/Skills/Skills";
+import { Box, Divider } from "@chakra-ui/layout";
+import Contact from "../components/Contact/Contact";
 
 const IndexPage: FC<PageProps> = () => {
   return (
-    <main>
-      <h1>Portfolio Site Goes Here</h1>
+    <Box as="main" px={16} py={8}>
+      <NavBar />
 
-      <Link to="/about">About</Link>
+      <Summary />
 
-      <p>Todo: fill this in with real content</p>
+      <Divider my={4} />
 
-      <StaticImage
-        alt="David Larsen"
-        src="../images/david-larsen-profile.jpg"
-      />
-    </main>
+      <Skills />
+
+      <Divider my={4} />
+
+      <Contact />
+    </Box>
   );
 };
 
