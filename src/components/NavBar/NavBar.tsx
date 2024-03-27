@@ -23,7 +23,7 @@ const menuItems = [
 
 const NavBar: FC = () => {
   return (
-    <Box as="header" p={3}>
+    <Box as="header" bg="primary" p={3}>
       <Center>
         <Heading as="h1">David P Larsen</Heading>
       </Center>
@@ -36,9 +36,14 @@ const NavBar: FC = () => {
         <Box as="nav" mt={3} p={2} w="50%">
           <Grid as="ul" gap={4} templateColumns="repeat(2, 1fr)">
             {menuItems.map((menuItem) => (
-              <GridItem as="li" bg="gray.200" p={2} sx={{ listStyle: "none" }}>
+              <GridItem
+                as="li"
+                bgColor="secondary"
+                p={2}
+                sx={{ listStyle: "none" }}
+              >
                 <Center>
-                  <ChakraLink as={GatsbyLink} to={menuItem.to}>
+                  <ChakraLink as={GatsbyLink} color="white" to={menuItem.to}>
                     {menuItem.label}
                   </ChakraLink>
                 </Center>

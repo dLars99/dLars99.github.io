@@ -2087,6 +2087,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/nunito-sans@^5.0.12":
+  version "5.0.12"
+  resolved "https://registry.yarnpkg.com/@fontsource/nunito-sans/-/nunito-sans-5.0.12.tgz#1c3936ded6f82ab674f5c333424aa9c6ffc28899"
+  integrity sha512-ioEnbfAUb8D6sDa+mqNBBpFTDkydZ3Dwz9NRrEVJRJQe69SAgkeM6YaiWXmlKqWZksakw8KHM77aDWpUC0BUwg==
+
 "@gatsbyjs/parcel-namer-relative-to-cwd@^2.13.1":
   version "2.13.1"
   resolved "https://registry.yarnpkg.com/@gatsbyjs/parcel-namer-relative-to-cwd/-/parcel-namer-relative-to-cwd-2.13.1.tgz#79d2692330a942394200c9bf3e820a4e55075ffb"

@@ -9,16 +9,16 @@ import Contact from "../components/Contact/Contact";
 
 const IndexPage: FC<PageProps> = () => {
   return (
-    <Box as="main" px={16} py={8}>
+    <Box as="main" py={8}>
       <NavBar />
 
       <Summary />
 
       <Divider my={4} />
 
-      <Skills />
+      {/* <Skills /> */}
 
-      <Divider my={4} />
+      {/* <Divider my={4} /> */}
 
       <Contact />
     </Box>
