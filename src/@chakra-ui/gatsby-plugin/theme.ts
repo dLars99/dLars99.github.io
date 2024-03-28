@@ -2,18 +2,33 @@ import { extendTheme } from "@chakra-ui/react";
 import "@fontsource/nunito-sans";
 
 const theme = {
+  // colors: {
+  //   primary: "#9FC97E",
+  //   secondary: "#160C6E",
+  //   black: "#141414",
+  //   blue: {
+  //     800: "#160C6E",
+  //   },
+  //   green: {
+  //     200: "#9FC97E",
+  //   },
+  //   gray: {
+  //     400: "#B7B3BD",
+  //   },
+  // },
   colors: {
-    primary: "#9FC97E",
-    secondary: "#160C6E",
-    black: "#141414",
+    primary: "#08430E",
+    secondary: "#A2AF9F",
     blue: {
-      800: "#160C6E",
-    },
-    green: {
-      200: "#9FC97E",
+      300: "#007699",
+      600: "#004566",
     },
     gray: {
-      400: "#B7B3BD",
+      200: "#A2AF9F",
+      400: "#6E7A6C",
+    },
+    green: {
+      700: "#08430E",
     },
   },
   fonts: {
@@ -38,3 +53,10 @@ export default extendTheme(theme);
 // blue: 160C6E
 // green: 9FC97E
 // black: 141414
+
+// Alternate
+// green: #08430E
+// lt gray: #A2AF9F
+// dark gray: #6E7A6C
+// blue: #004566
+// lt blue: #007699
