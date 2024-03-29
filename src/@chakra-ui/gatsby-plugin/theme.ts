@@ -39,9 +39,9 @@ const theme = {
     global: {
       a: {
         color: "blue.600",
-        _hover: {
-          textDecoration: "underline",
-        },
+        // _hover: {
+        //   textDecoration: "underline",
+        // },
       },
     },
   },

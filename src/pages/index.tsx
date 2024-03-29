@@ -1,27 +1,13 @@
 import React, { FC } from "react";
-import { Link, type HeadFC, type PageProps } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
-import NavBar from "../components/NavBar/NavBar";
-import Summary from "../components/Summary/Summary";
-import Skills from "../components/Skills/Skills";
-import { Box, Divider } from "@chakra-ui/layout";
-import Contact from "../components/Contact/Contact";
-import NavBubble from "../components/NavBubble/NavBubble";
+import { type HeadFC, type PageProps } from "gatsby";
+import { Intro, NavBubble } from "../components/Homepage";
+import { Box } from "@chakra-ui/layout";
 
 const IndexPage: FC<PageProps> = () => {
   return (
-    <Box as="main" height="100vh" py={8} width="100vw">
-      {/* <NavBar /> */}
+    <Box as="main" height="100vh" pt={16} pl={16} width="100vw">
+      <Intro />
 
-      <Summary />
-
-      <Divider my={4} />
-
-      {/* <Skills /> */}
-
-      {/* <Divider my={4} /> */}
-
-      <Contact />
       <NavBubble position="absolute" bottom={0} right={0} />
     </Box>
   );
