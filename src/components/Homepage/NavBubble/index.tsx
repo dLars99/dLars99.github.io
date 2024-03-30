@@ -34,23 +34,33 @@ export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
   return (
     <Box
       borderRadius="100% 0 0 0"
-      bg="secondary"
+      boxShadow="1px 1px 15px #A2AF9F"
+      bg="radial-gradient(ellipse at bottom right, #6E7A6C, #A2AF9F, #FFFFFF 75%)"
       ref={ref}
       height="50%"
       width="60%"
       {...boxProps}
     >
       {navItems.map((navItem) => (
-        <Box position="absolute" sx={{ ...placeOnBubble(navItem.angle) }}>
+        <Box
+          borderRadius="50%"
+          _hover={{
+            backdropFilter: "blur(3px) saturate(5)",
+          }}
+          position="absolute"
+          sx={{ ...placeOnBubble(navItem.angle) }}
+          transition="backdrop-filter 0.1s"
+        >
           <ChakraLink
             as={GatsbyLink}
+            color="#004566"
             fontSize="3xl"
             fontWeight="black"
             _hover={{
               fontSize: "5xl",
             }}
             textTransform="capitalize"
-            transition="font-size 0.2s ease-in-out"
+            transition="font-size 0.1s"
             to={"/" + navItem.name}
           >
             {navItem.name}
