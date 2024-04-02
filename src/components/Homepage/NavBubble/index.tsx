@@ -11,11 +11,11 @@ const navItems = [
   },
   {
     name: "work",
-    angle: 30,
+    angle: 28,
   },
   {
     name: "projects",
-    angle: 60,
+    angle: 58,
   },
 ];
 
@@ -26,47 +26,53 @@ export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
     const [width, height] = dimensions;
     const [x, y] = pointOnEllipse(width, height, angle);
     return {
-      bottom: `calc(${y}px - 2rem)`,
-      right: `calc(${x}px - 4rem)`,
+      bottom: `calc(${y}px - 3rem)`,
+      right: `calc(${x}px - 5rem)`,
     };
   };
 
   return (
     <Box
+      as="nav"
       borderRadius="100% 0 0 0"
       boxShadow="1px 1px 15px #A2AF9F"
-      bg="radial-gradient(ellipse at bottom right, #6E7A6C, #A2AF9F, #FFFFFF 75%)"
+      bg="radial-gradient(ellipse at bottom right, #007699, #A2AF9F, #FFFFFF 85%)"
       ref={ref}
       height="50%"
       width="60%"
       {...boxProps}
     >
-      {navItems.map((navItem) => (
-        <Box
-          borderRadius="50%"
-          _hover={{
-            backdropFilter: "blur(3px) saturate(5)",
-          }}
-          position="absolute"
-          sx={{ ...placeOnBubble(navItem.angle) }}
-          transition="backdrop-filter 0.1s"
-        >
-          <ChakraLink
-            as={GatsbyLink}
-            color="#004566"
-            fontSize="3xl"
-            fontWeight="black"
+      <Box as="ul" role="menubar">
+        {navItems.map((navItem) => (
+          <Box
+            as="li"
+            borderRadius="50%"
             _hover={{
-              fontSize: "5xl",
+              backdropFilter: "blur(3px) saturate(3)",
             }}
-            textTransform="capitalize"
-            transition="font-size 0.1s"
-            to={"/" + navItem.name}
+            listStyleType="none"
+            role="menuitem"
+            position="absolute"
+            sx={{ ...placeOnBubble(navItem.angle) }}
+            transition="backdrop-filter 0.1s"
           >
-            {navItem.name}
-          </ChakraLink>
-        </Box>
-      ))}
+            <ChakraLink
+              as={GatsbyLink}
+              color="#004566"
+              fontSize="3xl"
+              fontWeight="black"
+              _hover={{
+                fontSize: "5xl",
+              }}
+              textTransform="capitalize"
+              transition="font-size 0.1s"
+              to={"/" + navItem.name}
+            >
+              {navItem.name}
+            </ChakraLink>
+          </Box>
+        ))}
+      </Box>
     </Box>
   );
 };
