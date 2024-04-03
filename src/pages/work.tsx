@@ -1,9 +1,9 @@
 import React from "react";
 
-const VirtualResumePage = () => (
+const WorkPage = () => (
   <main>
     <h1>Resume</h1>
   </main>
 );
 
-export default VirtualResumePage;
+export default WorkPage;

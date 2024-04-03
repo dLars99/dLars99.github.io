@@ -20,6 +20,8 @@ const IndexPage: FC<PageProps> = () => {
   );
 };
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+export const Head: HeadFC = () => (
+  <title>David P Larsen: Javascript Software Engineer</title>
+);
 
 export default IndexPage;
