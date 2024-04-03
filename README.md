@@ -1,35 +1,49 @@
-# Personal Portfolio Website
-## David P. Larsen
+<p align="center">
+  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  Gatsby Minimal TypeScript Starter
+</h1>
 
-#### Adapted from the TXT template from html5up.net
-TXT by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+## 🚀 Quick start
 
+1.  **Create a Gatsby site.**
 
-A new, fully responsive portfolio/business style website template. I've been experimenting
-with minimalist styles lately and this design is one of many in the works that exemplifies
-this new direction. Hope you enjoy it.
+    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+    ```shell
+    # create a new Gatsby site using the minimal TypeScript starter
+    npm init gatsby -- -ts
+    ```
 
-(* = Not included)
+2.  **Start developing.**
 
-Feedback, bug reports, and comments are not only welcome, but strongly encouraged :)
+    Navigate into your new site’s directory and start it up.
 
-AJ
-aj@lkn.io | @ajlkn
+    ```shell
+    cd my-gatsby-site/
+    npm run develop
+    ```
 
+3.  **Open the code and start customizing!**
 
-Credits:
+    Your site is now running at http://localhost:8000!
 
-	Demo Images:
-		Unsplash (unsplash.com)
+    Edit `src/pages/index.tsx` to see your site update in real-time!
 
-	Icons:
-		Font Awesome (fontawesome.io)
+4.  **Learn more**
 
-	Other:
-		jQuery (jquery.com)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+
+## 🚀 Quick start (Netlify)
+
+Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+
+[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
