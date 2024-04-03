@@ -1,26 +1,19 @@
 import React, { FC } from "react";
-import { Box, BoxProps, Link as ChakraLink } from "@chakra-ui/react";
+import {
+  Box,
+  BoxProps,
+  Link as ChakraLink,
+  useBreakpoint,
+} from "@chakra-ui/react";
 import { Link as GatsbyLink } from "gatsby-link";
 import { useDimensions } from "./useDimensions";
 import { pointOnEllipse } from "./coordinatesOnEllipse";
-
-const navItems = [
-  {
-    name: "about",
-    angle: 12,
-  },
-  {
-    name: "work",
-    angle: 28,
-  },
-  {
-    name: "projects",
-    angle: 58,
-  },
-];
+import { useNavItems } from "./useNavItems";
 
 export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
   const { dimensions, ref } = useDimensions();
+  const breakpoint = useBreakpoint();
+  const navItems = useNavItems(breakpoint);
 
   const placeOnBubble = (angle: number) => {
     const [width, height] = dimensions;
@@ -34,16 +27,17 @@ export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
   return (
     <Box
       as="nav"
-      borderRadius="100% 0 0 0"
+      borderRadius={["40% 40% 10% 10% / 15% 15% 0% 0% ", "100% 0 0 0"]}
       boxShadow="1px 1px 15px #A2AF9F"
       bg="radial-gradient(ellipse at bottom right, #007699, #A2AF9F, #FFFFFF 85%)"
+      height={["60%", "50%"]}
       ref={ref}
-      height="50%"
-      width="60%"
+      textAlign={["center", "left"]}
+      width={["100%", "60%"]}
       {...boxProps}
     >
       <Box as="ul" role="menubar">
-        {navItems.map((navItem) => (
+        {navItems.map((navItem, index) => (
           <Box
             as="li"
             borderRadius="50%"
@@ -52,8 +46,11 @@ export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
             }}
             listStyleType="none"
             role="menuitem"
-            position="absolute"
-            sx={{ ...placeOnBubble(navItem.angle) }}
+            position={["static", "absolute"]}
+            mt={[8, 0]}
+            sx={
+              breakpoint !== "base" ? { ...placeOnBubble(navItem.angle) } : {}
+            }
             transition="backdrop-filter 0.1s"
           >
             <ChakraLink
@@ -64,6 +61,8 @@ export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
               _hover={{
                 fontSize: "5xl",
               }}
+              pl={[index === 2 ? 16 : 0, 0]}
+              pr={[index === 1 ? 24 : 0, 0]}
               textTransform="capitalize"
               transition="font-size 0.1s"
               to={"/" + navItem.name}

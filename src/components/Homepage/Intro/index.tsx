@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Box, Container, Heading, Text } from "@chakra-ui/react";
 
 export const Intro: FC = () => (
-  <Box as="header" maxWidth="40%">
+  <Box as="header" maxWidth={["100%", "40%"]}>
     <Container
       borderBottom="1px solid"
       borderColor="primary"
