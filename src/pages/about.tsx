@@ -1,18 +1,23 @@
 import React, { FC } from "react";
-import { HeadFC, Link } from "gatsby";
+import { HeadFC, PageProps } from "gatsby";
+import { Header, Main } from "../components/Layouts";
+import { Bio } from "../components/Bio";
+import { Box, SimpleGrid } from "@chakra-ui/react";
 
-const AboutPage: FC = () => {
+const AboutPage: FC<PageProps> = () => {
   return (
-    <main>
-      <h1>About</h1>
+    <Main>
+      <Header title="About" />
 
-      <Link to="/">Home</Link>
+      <SimpleGrid columns={2}>
+        <Box />
 
-      <p>TODO: Fill this in with intriguing details</p>
-    </main>
+        <Bio />
+      </SimpleGrid>
+    </Main>
   );
 };
 
-export const Head: HeadFC = () => <title>About</title>;
+export const Head: HeadFC = () => <title>David P Larsen: Info</title>;
 
 export default AboutPage;
