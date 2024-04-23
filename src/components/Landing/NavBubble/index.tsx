@@ -17,9 +17,10 @@ export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
 
   const placeOnBubble = (angle: number) => {
     const [width, height] = dimensions;
-    const [x, y] = pointOnEllipse(width, height, angle);
+    const halfHeight = height / 2;
+    const [x, y] = pointOnEllipse(width, halfHeight, angle);
     return {
-      bottom: `calc(${y}px - 3rem)`,
+      bottom: `calc(${y}px + ${halfHeight}px - 3rem)`,
       right: `calc(${x}px - 5rem)`,
     };
   };
@@ -27,10 +28,13 @@ export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
   return (
     <Box
       as="nav"
-      borderRadius={["40% 40% 10% 10% / 15% 15% 0% 0% ", "100% 0 0 0"]}
+      borderRadius={[
+        "40% 40% 40% 40% / 10% 10% 10% 10% ",
+        "100% 0 0 100% / 50% 50% 50% 50%",
+      ]}
       boxShadow="1px 1px 15px #A2AF9F"
-      bg="radial-gradient(ellipse at bottom right, #007699, #A2AF9F, #FFFFFF 85%)"
-      height={["60%", "50%"]}
+      bg="radial-gradient(ellipse at bottom right, #007699, #A2AF9F, #FFFFFF 95%)"
+      height={["120%", "100%"]}
       ref={ref}
       textAlign={["center", "left"]}
       width={["100%", "60%"]}

@@ -8,7 +8,7 @@ const LandingPage: FC = () => {
     <Section>
       <Intro />
 
-      <NavBubble position="absolute" bottom={0} right={0} />
+      <NavBubble position="absolute" bottom="-50%" right={0} />
     </Section>
   );
 };
