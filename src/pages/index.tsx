@@ -1,14 +1,15 @@
 import React, { FC } from "react";
 import { HeadFC, PageProps } from "gatsby";
-import { Intro, NavBubble } from "../components/Homepage";
+import LandingPage from "../components/Landing";
 import { Main } from "../components/Layouts";
+import About from "../components/About";
 
 const IndexPage: FC<PageProps> = () => {
   return (
     <Main>
-      <Intro />
+      <LandingPage />
 
-      <NavBubble position="absolute" bottom={0} right={0} />
+      <About />
     </Main>
   );
 };

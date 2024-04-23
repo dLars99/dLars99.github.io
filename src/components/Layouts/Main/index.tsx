@@ -1,17 +1,15 @@
 import { Box } from "@chakra-ui/react";
 import React, { FC, ReactNode } from "react";
 
-type LayoutProps = {
+type MainProps = {
   children: ReactNode;
 };
 
-export const Main: FC<LayoutProps> = ({ children }) => (
+export const Main: FC<MainProps> = ({ children }) => (
   <Box
     as="main"
-    bgGradient="linear(to-br, #FFFFFF 40%, #A2AF9F)"
-    height="100vh"
-    pt={16}
-    pl={[0, 16]}
+    bgGradient="linear(to-br, #FFFFFF 20%, #A2AF9F)"
+    minHeight="100vh"
     width="100vw"
   >
     {children}

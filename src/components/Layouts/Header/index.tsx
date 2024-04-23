@@ -3,10 +3,11 @@ import React, { FC, ReactNode } from "react";
 
 type HeaderProps = {
   children?: ReactNode;
+  id?: string;
   title: string;
 };
 
-export const Header: FC<HeaderProps> = ({ children, title }) => (
+export const Header: FC<HeaderProps> = ({ children, id, title }) => (
   <Box as="header" maxWidth={["100%", "40%"]}>
     <Container
       borderBottom="1px solid"
@@ -16,7 +17,7 @@ export const Header: FC<HeaderProps> = ({ children, title }) => (
       textAlign="center"
       width={80}
     >
-      <Heading as="h1" color="primary">
+      <Heading as="h2" color="primary" id={id}>
         {title}
       </Heading>
     </Container>

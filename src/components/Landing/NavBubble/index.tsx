@@ -5,10 +5,10 @@ import {
   Link as ChakraLink,
   useBreakpoint,
 } from "@chakra-ui/react";
-import { Link as GatsbyLink } from "gatsby-link";
 import { useDimensions } from "./useDimensions";
 import { pointOnEllipse } from "./coordinatesOnEllipse";
 import { useNavItems } from "./useNavItems";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
   const { dimensions, ref } = useDimensions();
@@ -44,6 +44,7 @@ export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
             _hover={{
               backdropFilter: "blur(3px) saturate(3)",
             }}
+            key={navItem.name}
             listStyleType="none"
             role="menuitem"
             position={["static", "absolute"]}
@@ -54,7 +55,7 @@ export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
             transition="backdrop-filter 0.1s"
           >
             <ChakraLink
-              as={GatsbyLink}
+              as={AnchorLink}
               color="#004566"
               fontSize="3xl"
               fontWeight="black"
@@ -64,10 +65,11 @@ export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
               pl={[index === 2 ? 16 : 0, 0]}
               pr={[index === 1 ? 24 : 0, 0]}
               textTransform="capitalize"
+              title={navItem.name}
               transition="font-size 0.1s"
-              to={"/" + navItem.name}
+              to={"/#" + navItem.name}
             >
-              {navItem.name}
+              <span>{navItem.name}</span>
             </ChakraLink>
           </Box>
         ))}
