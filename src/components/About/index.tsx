@@ -6,8 +6,8 @@ import { Section } from "../Layouts/Section";
 
 const AboutPage: FC = () => {
   return (
-    <Section>
-      <Header id="about" title="About" />
+    <Section id="about">
+      <Header title="About" />
 
       <SimpleGrid columns={2}>
         <Box />
