@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import { Box, Text } from "@chakra-ui/react";
-import { BioBlock } from "./BioBlock";
+import { BioBlock } from "../BioBlock";
 
 export const Bio: FC = () => (
-  <Box>
+  <Box mt={12}>
     <BioBlock>
       <Text>Hi. I'm David.</Text>
     </BioBlock>

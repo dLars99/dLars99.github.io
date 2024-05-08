@@ -29,7 +29,8 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-anchor-links",
       options: {
-        offset: -200,
+        duration: 500,
+        // offset: 100,
       },
     },
     "gatsby-plugin-image",

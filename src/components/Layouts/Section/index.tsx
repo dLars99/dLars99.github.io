@@ -9,8 +9,9 @@ type SectionProps = {
 export const Section: FC<SectionProps> = ({ children, id }) => (
   <Box
     as="section"
-    height="100vh"
     id={id}
+    height="100%"
+    minHeight="100vh"
     position="relative"
     pt={16}
     pl={[0, 16]}

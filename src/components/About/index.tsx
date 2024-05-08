@@ -9,7 +9,7 @@ const AboutPage: FC = () => {
     <Section id="about">
       <Header title="About" />
 
-      <SimpleGrid columns={2}>
+      <SimpleGrid columns={[1, 2]}>
         <Box />
 
         <Bio />
