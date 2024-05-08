@@ -33,7 +33,7 @@ export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
         "100% 0 0 100% / 50% 50% 50% 50%",
       ]}
       boxShadow="1px 1px 15px #A2AF9F"
-      bg="radial-gradient(ellipse at bottom right, #007699, #A2AF9F, #FFFFFF 95%)"
+      bg="radial-gradient(ellipse at right, #007699, #A2AF9F, #FFFFFF 85%)"
       height={["120%", "100%"]}
       ref={ref}
       textAlign={["center", "left"]}
