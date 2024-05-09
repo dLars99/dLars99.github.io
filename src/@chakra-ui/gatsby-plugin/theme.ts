@@ -19,7 +19,11 @@ const theme = {
   colors: {
     primary: "#08430E",
     secondary: "#A2AF9F",
+    background: {
+      transparent: "rgb(235, 250, 255, 0.5)",
+    },
     blue: {
+      100: "#EBFAFF",
       300: "#007699",
       600: "#004566",
     },

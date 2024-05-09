@@ -3,7 +3,14 @@ import { Box, Text } from "@chakra-ui/react";
 import { BioBlock } from "../BioBlock";
 
 export const Bio: FC = () => (
-  <Box mt={12}>
+  <Box
+    background="background.transparent"
+    borderRadius="5%"
+    mt={12}
+    mx={["auto", 0]}
+    p={8}
+    width="90%"
+  >
     <BioBlock>
       <Text>Hi. I'm David.</Text>
     </BioBlock>
