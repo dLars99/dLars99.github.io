@@ -1,5 +1,7 @@
-import { Box, Button, Collapse, Flex, Heading } from "@chakra-ui/react";
 import React, { FC, ReactNode, useState } from "react";
+import { Box, Button, Collapse, Flex, Heading } from "@chakra-ui/react";
+import { FaExpand } from "@react-icons/all-files/fa/FaExpand";
+import { FaWindowMinimize } from "@react-icons/all-files/fa/FaWindowMinimize";
 
 export interface ResumeJobProps {
   children: ReactNode;
@@ -14,7 +16,9 @@ export const ResumeJob: FC<ResumeJobProps> = ({ children, title }) => {
       <Flex justifyContent="space-between">
         <Heading as="h3">{title}</Heading>
 
-        <Button onClick={() => setIsOpen(!isOpen)}>Open!</Button>
+        <Button onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <FaWindowMinimize /> : <FaExpand />}
+        </Button>
       </Flex>
 
       <Collapse in={isOpen}>{children}</Collapse>

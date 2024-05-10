@@ -21,6 +21,7 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@fontsource/nunito-sans": "^5.0.12",
+    "@react-icons/all-files": "^4.1.0",
     "framer-motion": "^11.0.20",
     "gatsby": "^5.13.3",
     "gatsby-plugin-anchor-links": "^1.2.1",
