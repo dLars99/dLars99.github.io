@@ -3,6 +3,7 @@ import { HeadFC, PageProps } from "gatsby";
 import LandingPage from "../components/Landing";
 import { Main } from "../components/Layouts";
 import About from "../components/About";
+import Work from "../components/Work";
 
 const IndexPage: FC<PageProps> = () => {
   return (
@@ -10,6 +11,8 @@ const IndexPage: FC<PageProps> = () => {
       <LandingPage />
 
       <About />
+
+      <Work />
     </Main>
   );
 };
