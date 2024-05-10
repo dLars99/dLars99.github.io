@@ -26,6 +26,13 @@ const config: GatsbyConfig = {
         portalZIndex: undefined,
       },
     },
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        duration: 500,
+        // offset: 100,
+      },
+    },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
   ],

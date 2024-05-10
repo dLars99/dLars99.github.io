@@ -5,10 +5,10 @@ import {
   Link as ChakraLink,
   useBreakpoint,
 } from "@chakra-ui/react";
-import { Link as GatsbyLink } from "gatsby-link";
 import { useDimensions } from "./useDimensions";
 import { pointOnEllipse } from "./coordinatesOnEllipse";
 import { useNavItems } from "./useNavItems";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
   const { dimensions, ref } = useDimensions();
@@ -17,9 +17,10 @@ export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
 
   const placeOnBubble = (angle: number) => {
     const [width, height] = dimensions;
-    const [x, y] = pointOnEllipse(width, height, angle);
+    const halfHeight = height / 2;
+    const [x, y] = pointOnEllipse(width, halfHeight, angle);
     return {
-      bottom: `calc(${y}px - 3rem)`,
+      bottom: `calc(${y}px + ${halfHeight}px - 3rem)`,
       right: `calc(${x}px - 5rem)`,
     };
   };
@@ -27,10 +28,16 @@ export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
   return (
     <Box
       as="nav"
-      borderRadius={["40% 40% 10% 10% / 15% 15% 0% 0% ", "100% 0 0 0"]}
+      borderRadius={[
+        "40% 40% 40% 40% / 10% 10% 10% 10% ",
+        "100% 0 0 100% / 50% 50% 50% 50%",
+      ]}
       boxShadow="1px 1px 15px #A2AF9F"
-      bg="radial-gradient(ellipse at bottom right, #007699, #A2AF9F, #FFFFFF 85%)"
-      height={["60%", "50%"]}
+      bg={[
+        "radial-gradient(ellipse 100% 65%, #007699, #A2AF9F, #FFFFFF 85%)",
+        "radial-gradient(ellipse at right, #007699, #A2AF9F, #FFFFFF 85%)",
+      ]}
+      height={["100%", "100%"]}
       ref={ref}
       textAlign={["center", "left"]}
       width={["100%", "60%"]}
@@ -44,6 +51,7 @@ export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
             _hover={{
               backdropFilter: "blur(3px) saturate(3)",
             }}
+            key={navItem.name}
             listStyleType="none"
             role="menuitem"
             position={["static", "absolute"]}
@@ -54,7 +62,7 @@ export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
             transition="backdrop-filter 0.1s"
           >
             <ChakraLink
-              as={GatsbyLink}
+              as={AnchorLink}
               color="#004566"
               fontSize="3xl"
               fontWeight="black"
@@ -64,10 +72,11 @@ export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
               pl={[index === 2 ? 16 : 0, 0]}
               pr={[index === 1 ? 24 : 0, 0]}
               textTransform="capitalize"
+              title={navItem.name}
               transition="font-size 0.1s"
-              to={"/" + navItem.name}
+              to={"/#" + navItem.name}
             >
-              {navItem.name}
+              <span>{navItem.name}</span>
             </ChakraLink>
           </Box>
         ))}
