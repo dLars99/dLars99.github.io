@@ -16,6 +16,10 @@ export const WorkPage: FC<WorkPageProps> = ({}) => {
 
       <Container as="article">
         <ResumeJob title="Little Caesars">Content</ResumeJob>
+        <ResumeJob title="FanPower (formerly Pickup)">Content</ResumeJob>
+        <ResumeJob title="SAFE Health">Content</ResumeJob>
+        <ResumeJob title="Nashville Software School">Content</ResumeJob>
+        <ResumeJob title="Earlier Experiences">Content</ResumeJob>
       </Container>
     </Section>
   );

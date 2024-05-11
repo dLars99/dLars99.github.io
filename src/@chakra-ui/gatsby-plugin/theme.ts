@@ -2,20 +2,6 @@ import { extendTheme } from "@chakra-ui/react";
 import "@fontsource/nunito-sans";
 
 const theme = {
-  // colors: {
-  //   primary: "#9FC97E",
-  //   secondary: "#160C6E",
-  //   black: "#141414",
-  //   blue: {
-  //     800: "#160C6E",
-  //   },
-  //   green: {
-  //     200: "#9FC97E",
-  //   },
-  //   gray: {
-  //     400: "#B7B3BD",
-  //   },
-  // },
   colors: {
     primary: "#08430E",
     secondary: "#A2AF9F",
@@ -43,9 +29,6 @@ const theme = {
     global: {
       a: {
         color: "blue.600",
-        // _hover: {
-        //   textDecoration: "underline",
-        // },
       },
     },
   },

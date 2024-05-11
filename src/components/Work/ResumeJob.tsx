@@ -12,16 +12,28 @@ export const ResumeJob: FC<ResumeJobProps> = ({ children, title }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <Box>
-      <Flex justifyContent="space-between">
-        <Heading as="h3">{title}</Heading>
+    <Box my={8}>
+      <Flex
+        alignItems="center"
+        bg="background.transparent"
+        px={6}
+        py={4}
+        justifyContent="space-between"
+      >
+        <Heading as="h3" fontSize="xl">
+          {title}
+        </Heading>
 
-        <Button onClick={() => setIsOpen(!isOpen)}>
+        <Button bg="transparent" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <FaWindowMinimize /> : <FaExpand />}
         </Button>
       </Flex>
 
-      <Collapse in={isOpen}>{children}</Collapse>
+      <Collapse in={isOpen}>
+        <Box bg="whiteAlpha.500" mx="auto" p={6} w="95%">
+          {children}
+        </Box>
+      </Collapse>
     </Box>
   );
 };
