@@ -17,7 +17,7 @@ const WorkPage: FC<WorkPageProps> = ({}) => {
 
       <Container as="article">
         {jobData.map((job) => (
-          <ResumeJob job={job} />
+          <ResumeJob job={job} key={job.name} />
         ))}
       </Container>
     </Section>

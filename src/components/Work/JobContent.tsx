@@ -29,7 +29,7 @@ const JobContent: FC<JobContentProps> = ({ job }) => {
       </Text>
       <UnorderedList>
         {job.bulletPoints.map((bulletPoint) => (
-          <ListItem>{bulletPoint}</ListItem>
+          <ListItem key={bulletPoint.substring(8)}>{bulletPoint}</ListItem>
         ))}
       </UnorderedList>
     </>
