@@ -2,13 +2,15 @@ import React, { FC, ReactNode, useState } from "react";
 import { Box, Button, Collapse, Flex, Heading } from "@chakra-ui/react";
 import { FaExpand } from "@react-icons/all-files/fa/FaExpand";
 import { FaWindowMinimize } from "@react-icons/all-files/fa/FaWindowMinimize";
+import { Job } from "./jobData";
+import JobContent from "./JobContent";
 
 export interface ResumeJobProps {
-  children: ReactNode;
-  title: string;
+  children?: ReactNode;
+  job: Job;
 }
 
-export const ResumeJob: FC<ResumeJobProps> = ({ children, title }) => {
+const ResumeJob: FC<ResumeJobProps> = ({ children, job }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
@@ -21,7 +23,7 @@ export const ResumeJob: FC<ResumeJobProps> = ({ children, title }) => {
         justifyContent="space-between"
       >
         <Heading as="h3" fontSize="xl">
-          {title}
+          {job.name}
         </Heading>
 
         <Button bg="transparent" onClick={() => setIsOpen(!isOpen)}>
@@ -30,8 +32,9 @@ export const ResumeJob: FC<ResumeJobProps> = ({ children, title }) => {
       </Flex>
 
       <Collapse in={isOpen}>
+        {children}
         <Box bg="whiteAlpha.500" mx="auto" p={6} w="95%">
-          {children}
+          <JobContent job={job} />
         </Box>
       </Collapse>
     </Box>
