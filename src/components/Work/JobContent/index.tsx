@@ -14,12 +14,15 @@ export interface JobContentProps {
 }
 
 const dateFormat = "MMMM Y";
+
 const JobContent: FC<JobContentProps> = ({ job }) => {
+  const formattedStartDate = job.startDate
+    ? format(job.startDate, dateFormat) + " - "
+    : "Before ";
   const formattedEndDate = job.endDate
     ? format(job.endDate, dateFormat)
     : "Present";
-  const formattedDates =
-    format(job.startDate, dateFormat) + " - " + formattedEndDate;
+  const formattedDates = formattedStartDate + formattedEndDate;
 
   return (
     <Container bg="whiteAlpha.500" mx="auto" p={6}>

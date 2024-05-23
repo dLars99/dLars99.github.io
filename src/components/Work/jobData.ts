@@ -1,9 +1,9 @@
 export type Job = {
   name: string;
   endDate?: Date;
-  location: string;
+  location?: string;
   remote: boolean;
-  startDate: Date;
+  startDate?: Date;
   title?: string;
   bulletPoints: string[];
 };
@@ -60,9 +60,11 @@ export const jobData: Job[] = [
   },
   {
     name: "Earlier Experiences",
-    location: "Detroit, MI",
-    remote: true,
-    startDate: new Date("September 15, 2012"),
-    bulletPoints: [],
+    remote: false,
+    endDate: new Date("April 15, 2020"),
+    bulletPoints: [
+      "Provided IT support to individuals and small- to medium-size businesses",
+      "Professional musician, including 5 years full-time",
+    ],
   },
 ];

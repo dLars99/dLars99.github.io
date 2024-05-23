@@ -39,11 +39,7 @@ const ResumeJob: FC<ResumeJobProps> = ({ children, job }) => {
         </Button>
       </Flex>
 
-      <Collapse
-        // animateOpacity={false}
-        in={isOpen}
-        transition={{ enter: { height: { duration: 5 } } }}
-      >
+      <Collapse in={isOpen}>
         {children}
 
         <JobContent job={job} />
