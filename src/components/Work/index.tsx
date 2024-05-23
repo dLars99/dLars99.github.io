@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Container, Text } from "@chakra-ui/react";
+import { Box, Container, Text } from "@chakra-ui/react";
 import { Section } from "../Layouts/Section";
 import { Header } from "../Layouts";
 import ResumeJob from "./ResumeJob";
@@ -15,11 +15,11 @@ const WorkPage: FC<WorkPageProps> = ({}) => {
       <Header title="Work" />
       <Text>Downloadable resume</Text>
 
-      <Container as="article">
+      <Box as="article" mx="auto" maxWidth="64ch" width="100%">
         {jobData.map((job) => (
           <ResumeJob job={job} key={job.name} />
         ))}
-      </Container>
+      </Box>
     </Section>
   );
 };

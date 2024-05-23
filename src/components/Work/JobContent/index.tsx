@@ -1,7 +1,13 @@
 import React, { FC } from "react";
-import { Job } from "./jobData";
-import { ListItem, Text, UnorderedList } from "@chakra-ui/react";
+import {
+  Container,
+  Heading,
+  ListItem,
+  Text,
+  UnorderedList,
+} from "@chakra-ui/react";
 import { format } from "date-fns";
+import { Job } from "../jobData";
 
 export interface JobContentProps {
   job: Job;
@@ -16,8 +22,10 @@ const JobContent: FC<JobContentProps> = ({ job }) => {
     format(job.startDate, dateFormat) + " - " + formattedEndDate;
 
   return (
-    <>
-      <Text>{job.title}</Text>
+    <Container bg="whiteAlpha.500" mx="auto" p={6}>
+      <Heading as="h4" fontSize="lg">
+        {job.title}
+      </Heading>
       <Text>{formattedDates}</Text>
       <Text>
         {job.location}
@@ -32,7 +40,7 @@ const JobContent: FC<JobContentProps> = ({ job }) => {
           <ListItem key={bulletPoint.substring(8)}>{bulletPoint}</ListItem>
         ))}
       </UnorderedList>
-    </>
+    </Container>
   );
 };
 
