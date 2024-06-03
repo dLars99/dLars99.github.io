@@ -28,7 +28,7 @@ const ResumeJob: FC<ResumeJobProps> = ({ children, job }) => {
         px={6}
         py={4}
         justifyContent="space-between"
-        width={"64ch"}
+        width="100%"
       >
         <Heading as="h3" fontSize="2xl">
           {job.name}
