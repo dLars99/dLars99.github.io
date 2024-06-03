@@ -1,9 +1,10 @@
 import React, { FC } from "react";
-import { Box, Container, Text } from "@chakra-ui/react";
+import { Box, Container, Link } from "@chakra-ui/react";
 import { Section } from "../Layouts/Section";
 import { Header } from "../Layouts";
 import ResumeJob from "./ResumeJob";
 import { jobData } from "./jobData";
+import resume from "../../assets/files/David Larsen Resume Downloadable.pdf";
 
 export interface WorkPageProps {}
 
@@ -13,7 +14,13 @@ const WorkPage: FC<WorkPageProps> = ({}) => {
   return (
     <Section id="work">
       <Header title="Work" />
-      <Text>Downloadable resume</Text>
+      <Box maxWidth={["100%", "40%"]} mt={3}>
+        <Container textAlign="center" width={80}>
+          <Link href={resume} download color="blue.600">
+            Downloadable resume
+          </Link>
+        </Container>
+      </Box>
 
       <Box as="article" mx="auto" maxWidth="64ch" width="100%">
         {jobData.map((job) => (
