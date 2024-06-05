@@ -9,15 +9,13 @@ import {
 } from "@chakra-ui/react";
 import { FaExpand } from "@react-icons/all-files/fa/FaExpand";
 import { FaWindowMinimize } from "@react-icons/all-files/fa/FaWindowMinimize";
-import { Job } from "../jobData";
-import JobContent from "../JobContent";
 
-export interface ResumeJobProps {
+export interface ExpandableChipProps {
   children?: ReactNode;
-  job: Job;
+  name: string;
 }
 
-const ResumeJob: FC<ResumeJobProps> = ({ children, job }) => {
+const ExpandableChip: FC<ExpandableChipProps> = ({ children, name }) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -31,7 +29,7 @@ const ResumeJob: FC<ResumeJobProps> = ({ children, job }) => {
         width="100%"
       >
         <Heading as="h3" fontSize="2xl">
-          {job.name}
+          {name}
         </Heading>
 
         <Button bg="transparent" onClick={onToggle}>
@@ -39,13 +37,9 @@ const ResumeJob: FC<ResumeJobProps> = ({ children, job }) => {
         </Button>
       </Flex>
 
-      <Collapse in={isOpen}>
-        {children}
-
-        <JobContent job={job} />
-      </Collapse>
+      <Collapse in={isOpen}>{children}</Collapse>
     </Box>
   );
 };
 
-export default ResumeJob;
+export default ExpandableChip;
