@@ -3,35 +3,30 @@ import { Box } from "@chakra-ui/react";
 import { Section } from "../Layouts/Section";
 import { Header } from "../Layouts";
 import ExpandableChip from "../Layouts/ExpandableChip";
+import ReactRoutingTabs from "./ReactRoutingTabs";
 
-export interface ProjectPageProps {}
+const ProjectPage: FC = () => (
+  <Section id="projects">
+    <Header title="Projects" />
 
-const ProjectPage: FC<ProjectPageProps> = ({}) => {
-  console.log("Logic Placeholder");
+    <Box as="article" mx="auto" width="100%">
+      <ExpandableChip name="React Routing Tabs">
+        <ReactRoutingTabs />
+      </ExpandableChip>
 
-  return (
-    <Section id="projects">
-      <Header title="Projects" />
+      <ExpandableChip name="Barkeep">
+        <h1>Hi!</h1>
+      </ExpandableChip>
 
-      <Box as="article" mx="auto" maxWidth="64ch" width="100%">
-        <ExpandableChip name="React Routing Tabs">
-          <h1>Hi!</h1>
-        </ExpandableChip>
+      <ExpandableChip name="GearPatch">
+        <h1>Hi!</h1>
+      </ExpandableChip>
 
-        <ExpandableChip name="Barkeep">
-          <h1>Hi!</h1>
-        </ExpandableChip>
-
-        <ExpandableChip name="GearPatch">
-          <h1>Hi!</h1>
-        </ExpandableChip>
-
-        <ExpandableChip name="Greener">
-          <h1>Hi!</h1>
-        </ExpandableChip>
-      </Box>
-    </Section>
-  );
-};
+      <ExpandableChip name="Greener">
+        <h1>Hi!</h1>
+      </ExpandableChip>
+    </Box>
+  </Section>
+);
 
 export default ProjectPage;

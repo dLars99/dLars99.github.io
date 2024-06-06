@@ -23,6 +23,8 @@ const ExpandableChip: FC<ExpandableChipProps> = ({ children, name }) => {
       <Flex
         alignItems="center"
         bg="background.transparent"
+        maxWidth="64ch"
+        mx="auto"
         px={6}
         py={4}
         justifyContent="space-between"
