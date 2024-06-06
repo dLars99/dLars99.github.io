@@ -1,16 +1,20 @@
 import React, { FC } from "react";
 import { Box, SimpleGrid } from "@chakra-ui/react";
 import RrtDescription from "./RrtDescription";
+import RrtLinks from "./RrtLinks";
 
 const ReactRoutingTabs: FC = () => {
   console.log("Logic Placeholder");
 
   return (
-    <SimpleGrid columns={[1, 2]}>
-      <Box>Demo</Box>
+    <Box>
+      <RrtLinks />
+      <SimpleGrid columns={[1, 2]}>
+        <Box>Demo</Box>
 
-      <RrtDescription />
-    </SimpleGrid>
+        <RrtDescription />
+      </SimpleGrid>
+    </Box>
   );
 };
 
