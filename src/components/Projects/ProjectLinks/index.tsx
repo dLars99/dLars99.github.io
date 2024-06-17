@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Flex, Link } from "@chakra-ui/react";
 import { StaticImage } from "gatsby-plugin-image";
 
-type ProjectLink = {
+export type ProjectLink = {
   name: string;
   url: string;
   type: LinkType;
@@ -24,7 +24,7 @@ const linkImages = {
   npm: "../../../images/npm.png",
 };
 
-const RrtLinks: FC<RrtLinksProps> = ({ links }) => {
+const ProjectLinks: FC<RrtLinksProps> = ({ links }) => {
   const getAltText = (name: string, type: LinkType) =>
     `Link to ${name} on ${linkDisplayNames[type]}`;
 
@@ -45,4 +45,4 @@ const RrtLinks: FC<RrtLinksProps> = ({ links }) => {
   ) : null;
 };
 
-export default RrtLinks;
+export default ProjectLinks;
