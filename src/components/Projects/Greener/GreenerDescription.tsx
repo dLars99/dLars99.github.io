@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Text } from "@chakra-ui/react";
 
-const BarkeepDescription = () => (
+const GreenerDescription = () => (
   <Box pr={[12, 16]}>
     <Text>Initial completion: May 2024</Text>
 
@@ -26,4 +26,4 @@ const BarkeepDescription = () => (
   </Box>
 );
 
-export default BarkeepDescription;
+export default GreenerDescription;

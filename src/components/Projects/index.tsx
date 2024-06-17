@@ -4,6 +4,9 @@ import { Section } from "../Layouts/Section";
 import { Header } from "../Layouts";
 import ExpandableChip from "../Layouts/ExpandableChip";
 import ReactRoutingTabs from "./ReactRoutingTabs";
+import Barkeep from "./Barkeep";
+import GearPatch from "./GearPatch";
+import Greener from "./Greener";
 
 const ProjectPage: FC = () => (
   <Section id="projects">
@@ -15,15 +18,15 @@ const ProjectPage: FC = () => (
       </ExpandableChip>
 
       <ExpandableChip name="Barkeep">
-        <h1>Hi!</h1>
+        <Barkeep />
       </ExpandableChip>
 
       <ExpandableChip name="GearPatch">
-        <h1>Hi!</h1>
+        <GearPatch />
       </ExpandableChip>
 
       <ExpandableChip name="Greener">
-        <h1>Hi!</h1>
+        <Greener />
       </ExpandableChip>
     </Box>
   </Section>
