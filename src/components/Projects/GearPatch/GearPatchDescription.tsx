@@ -3,26 +3,25 @@ import { Box, Text } from "@chakra-ui/react";
 
 const GearPatchDescription = () => (
   <Box pr={[12, 16]}>
-    <Text>Initial completion: May 2024</Text>
+    <Text>Initial completion: November 2020</Text>
 
-    <Text>An open-source tab library of my creation</Text>
+    <Text>A peer-to-peer network for renting musical equipment</Text>
 
     <Box>
       <Text>
-        Creating tabs for your router is easy. Making them meet WAI-ARIA
-        accessibility standards is not.
+        GearPatch is a platform for musicians to make some money on their extra
+        equipment by renting it to other musicians. A user can request a rental,
+        which is then confirmed by the owner.
       </Text>
 
       <Text>
-        Lots of tab libraries give you accessible tabs. Connecting them to your
-        router, though, means jumping through lots of hoops.
-      </Text>
-
-      <Text>
-        React Routing Tabs gives you accessible tabs that connect to your router
-        with minimal effort.
+        This was my fullstack capstone for Nashville Software School, right as I
+        was starting my software career. The full project was built in roughly
+        ten days.
       </Text>
     </Box>
+
+    <Text>SQL, C#/.NET API, React client</Text>
   </Box>
 );
 

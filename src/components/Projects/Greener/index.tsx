@@ -19,9 +19,9 @@ const Greener: FC = () => {
       <ProjectLinks links={greenerLinks} />
 
       <SimpleGrid columns={[1, 2]}>
-        <Box>Screenshots</Box>
-
         <GreenerDescription />
+
+        <Box>Screenshots</Box>
       </SimpleGrid>
     </Box>
   );

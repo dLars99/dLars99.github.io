@@ -4,6 +4,7 @@ import { Box, Link, ListItem, Text, UnorderedList } from "@chakra-ui/react";
 const BarkeepDescription = () => (
   <Box pr={[12, 16]}>
     <Text>Initial completion: July 2022</Text>
+
     <Text>Last update: October 2022</Text>
 
     <Text>A cocktail catalog for personal use</Text>
@@ -41,6 +42,8 @@ const BarkeepDescription = () => (
         server.
       </Text>
     </Box>
+
+    <Text>PostgreSQL, Javascript (Express API, React client)</Text>
   </Box>
 );
 

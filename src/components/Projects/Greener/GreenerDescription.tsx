@@ -1,28 +1,41 @@
 import React from "react";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, ListItem, Text, UnorderedList } from "@chakra-ui/react";
 
 const GreenerDescription = () => (
   <Box pr={[12, 16]}>
-    <Text>Initial completion: May 2024</Text>
+    <Text>Initial completion: August 2020</Text>
 
-    <Text>An open-source tab library of my creation</Text>
+    <Text>Helping you grow a greener lawn</Text>
 
     <Box>
       <Text>
-        Creating tabs for your router is easy. Making them meet WAI-ARIA
-        accessibility standards is not.
+        Greener is designed for personal use for individuals who want to keep
+        better track of their lawn care. Features include:
       </Text>
 
-      <Text>
-        Lots of tab libraries give you accessible tabs. Connecting them to your
-        router, though, means jumping through lots of hoops.
-      </Text>
+      <UnorderedList>
+        <ListItem>Log for tracking lawn care chores</ListItem>
+
+        <ListItem>
+          Fully-automated schedule of seasonal tasks with reminders
+        </ListItem>
+
+        <ListItem>Weather data and alerts</ListItem>
+
+        <ListItem>
+          Precipitation monitoring to let the user know if water is needed
+        </ListItem>
+
+        <ListItem>Tips and tricks for a greener lawn</ListItem>
+      </UnorderedList>
 
       <Text>
-        React Routing Tabs gives you accessible tabs that connect to your router
-        with minimal effort.
+        This was my frontend capstone at Nashville Software School. The full
+        application was built with a mobile-first design in about two weeks.
       </Text>
     </Box>
+
+    <Text>React / Javascript</Text>
   </Box>
 );
 
