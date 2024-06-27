@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Box, Container, Link } from "@chakra-ui/react";
-import { Section } from "../../../../src/layouts/Section";
+import { Section } from "../../../../src/layouts/Section/Section.astro";
 import { Header } from "../../../../src/layouts";
 import ResumeJob from "./ResumeJob";
 import { jobData } from "./jobData";

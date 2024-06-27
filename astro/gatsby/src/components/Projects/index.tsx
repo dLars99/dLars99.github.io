@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Box } from "@chakra-ui/react";
-import { Section } from "../../../../src/layouts/Section";
+import { Section } from "../../../../src/layouts/Section/Section.astro";
 import { Header } from "../../../../src/layouts";
 import ExpandableChip from "../../../../src/layouts/ExpandableChip";
 import ReactRoutingTabs from "./ReactRoutingTabs";

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Section } from "../../../../src/layouts/Section";
+import { Section } from "../../../../src/layouts/Section/Section.astro";
 import { Intro } from "./Intro";
 import { NavBubble } from "./NavBubble";
 

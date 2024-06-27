@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Header } from "../../../../src/layouts";
-import { Bio } from "./Bio";
+import { Bio } from "./Bio/Bio.astro";
 import { Box, SimpleGrid } from "@chakra-ui/react";
 import { Section } from "../../../../src/layouts/Section/Section.astro";
 
