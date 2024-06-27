@@ -32,8 +32,22 @@ const config: GatsbyConfig = {
         duration: 500,
       },
     },
-    "gatsby-plugin-image",
+    {
+      resolve: "gatsby-plugin-image",
+      options: {
+        placeholder: "blurred",
+      },
+    },
     "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: `${__dirname}/src/images/`,
+      },
+      __key: "images",
+    },
   ],
 };
 

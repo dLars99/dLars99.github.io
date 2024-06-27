@@ -4,6 +4,7 @@ import LandingPage from "../components/Landing";
 import { Main } from "../components/Layouts";
 import About from "../components/About";
 import Work from "../components/Work";
+import Projects from "../components/Projects";
 
 const IndexPage: FC<PageProps> = () => {
   return (
@@ -13,6 +14,8 @@ const IndexPage: FC<PageProps> = () => {
       <About />
 
       <Work />
+
+      <Projects />
     </Main>
   );
 };
