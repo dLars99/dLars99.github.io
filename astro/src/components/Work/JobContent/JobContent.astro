@@ -1,0 +1,48 @@
+---
+import { format } from "date-fns";
+import { type Job } from "../jobData";
+
+interface JobContentProps {
+  job: Job;
+}
+
+const { job } = Astro.props;
+const dateFormat = "MMMM Y";
+
+const formattedStartDate = job.startDate
+  ? format(job.startDate, dateFormat) + " - "
+  : "Before ";
+const formattedEndDate = job.endDate
+  ? format(job.endDate, dateFormat)
+  : "Present";
+const formattedDates = formattedStartDate + formattedEndDate;
+const displayLocation = job.location + job.remote ? " (Remote)" : "";
+---
+
+<div class:list={["container", "job"]}>
+  <h4>{job.title}</h4>
+  <p>{formattedDates}</p>
+  <p>
+    {displayLocation}
+  </p>
+  <ul>
+    {job.bulletPoints.map((bulletPoint: string) => <li>{bulletPoint}</li>)}
+  </ul>
+</div>
+
+<style>
+  h4 {
+    font-size: 1.125rem;
+  }
+
+  span {
+    margin-left: 0.25rem;
+  }
+
+  .job {
+    /* TODO: whiteAlpha.500 */
+    background-color: rgba(255, 255, 255, 0.36);
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+</style>

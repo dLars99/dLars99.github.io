@@ -3,7 +3,7 @@ import { HeadFC, PageProps } from "gatsby";
 
 import About from "../components/About";
 import Work from "../components/Work";
-import Projects from "../components/Projects";
+import Projects from "../../../src/components/Projects/Projects.astro";
 
 const IndexPage: FC<PageProps> = () => {
   return (

@@ -1,0 +1,37 @@
+---
+import RrtDescription from "./RrtDescription.astro";
+import ProjectLinks, {
+  type ProjectLink,
+} from "../ProjectLinks/ProjectLinks.astro";
+
+const rrtLinks: ProjectLink[] = [
+  {
+    name: "React Routing Tabs",
+    url: "https://www.npmjs.com/package/react-routing-tabs",
+    type: "npm",
+  },
+  {
+    name: "React Routing Tabs",
+    url: "https://github.com/dLars99/react-routing-tabs",
+    type: "github",
+  },
+];
+---
+
+<div>
+  <ProjectLinks links={rrtLinks} />
+
+  <div class="grid">
+    <div>Demo</div>
+
+    <RrtDescription />
+  </div>
+</div>
+
+<style>
+  .grid {
+    display: grid;
+    /* TODO: [1, 2] */
+    grid-template-columns: repeat(2, 1fr);
+  }
+</style>

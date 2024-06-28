@@ -2,7 +2,7 @@
 import resume from "../../assets/files/David Larsen Resume Downloadable.pdf";
 import Header from "../../layouts/Header.astro";
 import Section from "../../layouts/Section.astro";
-import ResumeJob from "./ResumeJob";
+import ResumeJob from "./ResumeJob/ResumeJob.astro";
 import { jobData } from "./jobData";
 ---
 
@@ -10,7 +10,7 @@ import { jobData } from "./jobData";
   <Header title="Work" />
   <div class="resume-block">
     <div class:list={["container", "resume"]}>
-      <a href={resume} download color="blue.600"> Downloadable resume </a>
+      <a href={resume} download> Downloadable resume </a>
     </div>
   </div>
 
@@ -29,6 +29,10 @@ import { jobData } from "./jobData";
   .container.resume {
     text-align: center;
     width: 20rem;
+  }
+
+  a {
+    color: #004566;
   }
 
   .article {

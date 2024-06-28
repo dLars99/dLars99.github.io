@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import npmImage from "../../../images/npm.png";
+import githubImage from "../../../images/github.png";
+
+export type ProjectLink = {
+  name: string;
+  url: string;
+  type: LinkType;
+};
+
+type LinkType = "github" | "npm";
+
+interface Props {
+  links: ProjectLink[];
+}
+
+const { links } = Astro.props;
+
+const images = {
+  npm: npmImage,
+  github: githubImage,
+};
+
+const linkDisplayNames = {
+  github: "GitHub",
+  npm: "NPM",
+};
+const getAltText = (name: string, type: LinkType) =>
+  `Link to ${name} on ${linkDisplayNames[type]}`;
+---
+
+{
+  links.length > 0 ? (
+    <div class="projectLink">
+      {links.map((link) => (
+        <a href={link.url} target="_blank">
+          <Image
+            alt={getAltText(link.name, link.type)}
+            src={images[link.type]}
+          />
+        </a>
+      ))}
+    </div>
+  ) : null
+}
+
+<style>
+  .projectLink {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 1rem 0;
+  }
+</style>

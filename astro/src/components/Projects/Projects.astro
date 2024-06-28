@@ -1,0 +1,34 @@
+---
+import Header from "../../layouts/Header.astro";
+import Section from "../../layouts/Section.astro";
+import ExpandableChip from "../ExpandableChip";
+---
+
+<Section id="projects">
+  <Header title="Projects" />
+
+  <article>
+    <ExpandableChip name="React Routing Tabs">
+      <ReactRoutingTabs />
+    </ExpandableChip>
+
+    <ExpandableChip name="Barkeep">
+      <Barkeep />
+    </ExpandableChip>
+
+    <ExpandableChip name="GearPatch">
+      <GearPatch />
+    </ExpandableChip>
+
+    <ExpandableChip name="Greener">
+      <Greener />
+    </ExpandableChip>
+  </article>
+</Section>
+
+<style>
+  article {
+    margin: 0 auto;
+    width: 100%;
+  }
+</style>
