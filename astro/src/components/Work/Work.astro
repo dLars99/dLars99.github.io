@@ -1,0 +1,39 @@
+---
+import resume from "../../assets/files/David Larsen Resume Downloadable.pdf";
+import Header from "../../layouts/Header.astro";
+import Section from "../../layouts/Section.astro";
+import ResumeJob from "./ResumeJob";
+import { jobData } from "./jobData";
+---
+
+<Section id="work">
+  <Header title="Work" />
+  <div class="resume-block">
+    <div class:list={["container", "resume"]}>
+      <a href={resume} download color="blue.600"> Downloadable resume </a>
+    </div>
+  </div>
+
+  <article>
+    {jobData.map((job) => <ResumeJob job={job} />)}
+  </article>
+</Section>
+
+<style>
+  .resume-block {
+    /* TODO: [100%, 40%] */
+    margin-top: 0.75rem;
+    max-width: 40%;
+  }
+
+  .container.resume {
+    text-align: center;
+    width: 20rem;
+  }
+
+  .article {
+    margin: 0 auto;
+    max-width: 64ch;
+    width: 100%;
+  }
+</style>

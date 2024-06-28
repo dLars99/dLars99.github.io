@@ -1,0 +1,17 @@
+---
+import { type Job } from "../jobData";
+import JobContent from "../JobContent";
+import ExpandableChip from "../../ExpandableChip";
+
+export interface Props {
+  job: Job;
+}
+
+const { job } = Astro.props;
+---
+
+<ExpandableChip name={job.name}>
+  <slot />
+
+  <JobContent job={job} />
+</ExpandableChip>

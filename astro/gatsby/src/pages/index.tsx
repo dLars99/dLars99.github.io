@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { HeadFC, PageProps } from "gatsby";
-import LandingPage from "../components/Landing";
-import { Main } from "../../../src/layouts";
+
 import About from "../components/About";
 import Work from "../components/Work";
 import Projects from "../components/Projects";

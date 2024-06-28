@@ -1,0 +1,23 @@
+---
+import Header from "../../layouts/Header.astro";
+import Section from "../../layouts/Section.astro";
+import Bio from "./Bio/Bio.astro";
+---
+
+<Section id="about">
+  <Header title="About" />
+
+  <div>
+    <div></div>
+
+    <Bio />
+  </div>
+</Section>
+
+<style>
+  .grid {
+    display: grid;
+    /* TODO: [1, 2] */
+    grid-template-columns: repeat(2, 1fr);
+  }
+</style>
