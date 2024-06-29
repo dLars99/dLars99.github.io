@@ -1,0 +1,29 @@
+---
+import ProjectLinks, { type ProjectLink } from "../ProjectLinks/ProjectLinks.astro";
+import GreenerDescription from "./GreenerDescription.astro";
+
+const greenerLinks: ProjectLink[] = [
+  {
+    name: "Greener - NSS Frontend Capstone",
+    url: "https://github.com/dLars99/greener",
+    type: "github",
+  },
+];
+---
+    <div>
+      <ProjectLinks links={greenerLinks} />
+
+      <div class="grid" >
+        <GreenerDescription />
+
+        <div>Screenshots</div>
+      </div>
+    </div>
+
+    <style>
+  .grid {
+    display: grid;
+    /* TODO: [1, 2] */
+    grid-template-columns: repeat(2, 1fr);
+  }
+    </style>

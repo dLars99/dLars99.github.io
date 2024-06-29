@@ -1,0 +1,34 @@
+---
+import ProjectLinks, {type ProjectLink } from "../ProjectLinks/ProjectLinks.astro";
+import BarkeepDescription from "./BarkeepDescription.astro";
+
+const barkeepLinks: ProjectLink[] = [
+  {
+    name: "Barkeep Backend",
+    url: "https://github.com/dLars99/barkeep",
+    type: "github",
+  },
+  {
+    name: "Barkeep Frontend",
+    url: "https://github.com/dLars99/barkeep-frontend",
+    type: "github",
+  },
+];
+---
+<div>
+  <ProjectLinks links={barkeepLinks} />
+
+  <div class="grid">
+    <BarkeepDescription />
+
+    <div>Screenshots</div>
+  </div>
+</div>
+
+<style>
+  .grid {
+    display: grid;
+    /* TODO: [1, 2] */
+    grid-template-columns: repeat(2, 1fr);
+  }
+</style>
