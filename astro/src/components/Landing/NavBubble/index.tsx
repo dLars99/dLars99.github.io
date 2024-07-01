@@ -1,18 +1,14 @@
-import React, { FC } from "react";
-import {
-  Box,
-  BoxProps,
-  Link as ChakraLink,
-  useBreakpoint,
-} from "@chakra-ui/react";
+import React, { type FC, type HTMLAttributes } from "react";
 import { useDimensions } from "./useDimensions";
 import { pointOnEllipse } from "./coordinatesOnEllipse";
 import { useNavItems } from "./useNavItems";
-import { AnchorLink } from "gatsby-plugin-anchor-links";
 
-export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
+interface NavBubbleProps extends HTMLAttributes<HTMLDivElement> {}
+
+export const NavBubble: FC<NavBubbleProps> = () => {
   const { dimensions, ref } = useDimensions();
-  const breakpoint = useBreakpoint();
+  // const breakpoint = useBreakpoint();
+  const breakpoint = "lg";
   const navItems = useNavItems(breakpoint);
 
   const placeOnBubble = (angle: number) => {
@@ -25,62 +21,98 @@ export const NavBubble: FC<BoxProps> = ({ ...boxProps }) => {
     };
   };
 
+  // TODO: responsive nav styles
+  // borderRadius: [
+  //   "40% 40% 40% 40% / 10% 10% 10% 10% ",
+  //   "100% 0 0 100% / 50% 50% 50% 50%",
+  // ],
+  // boxShadow: "1px 1px 15px #A2AF9F",
+  // bg: [
+  //   "radial-gradient(ellipse 100% 65%, #007699, #A2AF9F, #FFFFFF 85%)",
+  //   "radial-gradient(ellipse at right, #007699, #A2AF9F, #FFFFFF 85%)",
+  // ],
+  // height: ["100%", "100%"],
+  // textAlign: ["center", "left"],
+  // width: ["100%", "60%"],
+
+  // TODO: responsive li styles
+  // borderRadius="50%"
+  // _hover={{
+  //   backdropFilter: "blur(3px) saturate(3)",
+  // }}
+  // listStyleType="none"
+  // position={["static", "absolute"]}
+  // mt={[8, 0]}
+  // sx={
+  //   breakpoint !== "base" ? { ...placeOnBubble(navItem.angle) } : {}
+  // }
+  // transition="backdrop-filter 0.1s"
+
+  // TODO: a styles
+  // color="#004566"
+  // fontSize="3xl"
+  // fontWeight="black"
+  // _hover={{
+  //   fontSize: "5xl",
+  // }}
+  // pl={[index === 2 ? 16 : 0, 0]}
+  // pr={[index === 1 ? 24 : 0, 0]}
+  // textTransform="capitalize"
+  // title={navItem.name}
+  // transition="font-size 0.1s"
+
   return (
-    <Box
-      as="nav"
-      borderRadius={[
-        "40% 40% 40% 40% / 10% 10% 10% 10% ",
-        "100% 0 0 100% / 50% 50% 50% 50%",
-      ]}
-      boxShadow="1px 1px 15px #A2AF9F"
-      bg={[
-        "radial-gradient(ellipse 100% 65%, #007699, #A2AF9F, #FFFFFF 85%)",
-        "radial-gradient(ellipse at right, #007699, #A2AF9F, #FFFFFF 85%)",
-      ]}
-      height={["100%", "100%"]}
+    <nav
       ref={ref}
-      textAlign={["center", "left"]}
-      width={["100%", "60%"]}
-      {...boxProps}
+      style={{
+        borderRadius: "100% 0 0 100% / 50% 50% 50% 50%",
+        boxShadow: "1px 1px 15px #A2AF9F",
+        background:
+          "radial-gradient(ellipse at right, #007699, #A2AF9F, #FFFFFF 85%)",
+        height: "100%",
+        textAlign: "left",
+        width: "60%",
+      }}
+      // {...boxProps}
     >
-      <Box as="ul" role="menubar">
+      <ul role="menubar">
         {navItems.map((navItem, index) => (
-          <Box
-            as="li"
-            borderRadius="50%"
-            _hover={{
-              backdropFilter: "blur(3px) saturate(3)",
-            }}
+          <li
             key={navItem.name}
-            listStyleType="none"
             role="menuitem"
-            position={["static", "absolute"]}
-            mt={[8, 0]}
-            sx={
-              breakpoint !== "base" ? { ...placeOnBubble(navItem.angle) } : {}
-            }
-            transition="backdrop-filter 0.1s"
+            style={{
+              borderRadius: "50%",
+              // "&:hover": {
+              //   backdropFilter: "blur(3px) saturate(3)",
+              // },
+              listStyleType: "none",
+              position: "absolute",
+              marginTop: 0,
+              transition: "backdrop-filter 0.1s",
+              ...placeOnBubble(navItem.angle),
+            }}
           >
-            <ChakraLink
-              as={AnchorLink}
-              color="#004566"
-              fontSize="3xl"
-              fontWeight="black"
-              _hover={{
-                fontSize: "5xl",
+            <a
+              style={{
+                color: "#004566",
+                fontSize: "1.875rem",
+                fontWeight: "black",
+                // _hover: {{
+                //   fontSize: "5xl",
+                // }}
+                paddingLeft: 0,
+                paddingRight: 0,
+                textTransform: "capitalize",
+                transition: "font-size 0.1s",
               }}
-              pl={[index === 2 ? 16 : 0, 0]}
-              pr={[index === 1 ? 24 : 0, 0]}
-              textTransform="capitalize"
+              href={"/#" + navItem.name}
               title={navItem.name}
-              transition="font-size 0.1s"
-              to={"/#" + navItem.name}
             >
-              <span>{navItem.name}</span>
-            </ChakraLink>
-          </Box>
+              {navItem.name}
+            </a>
+          </li>
         ))}
-      </Box>
-    </Box>
+      </ul>
+    </nav>
   );
 };

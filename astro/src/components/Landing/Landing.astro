@@ -1,11 +1,11 @@
 ---
 import Section from "../../layouts/Section.astro";
-import { Intro } from "./Intro";
+import Intro from "./Intro/Intro.astro";
 import { NavBubble } from "./NavBubble";
 ---
 
 <Section>
   <Intro />
 
-  <NavBubble position="absolute" bottom="-50%" right={0} />
+  <NavBubble client:load style={{position: "absolute", bottom: "-50%", right: 0 }} />
 </Section>

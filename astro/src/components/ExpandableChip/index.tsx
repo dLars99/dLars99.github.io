@@ -1,14 +1,7 @@
-import React, { type FC, type ReactNode } from "react";
-import {
-  Box,
-  Button,
-  Collapse,
-  Flex,
-  Heading,
-  useDisclosure,
-} from "@chakra-ui/react";
+import React, { useState, type FC, type ReactNode } from "react";
 import { FaExpand } from "@react-icons/all-files/fa/FaExpand";
 import { FaWindowMinimize } from "@react-icons/all-files/fa/FaWindowMinimize";
+import * as Collapsible from "@radix-ui/react-collapsible";
 
 export interface ExpandableChipProps {
   children?: ReactNode;
@@ -16,31 +9,34 @@ export interface ExpandableChipProps {
 }
 
 const ExpandableChip: FC<ExpandableChipProps> = ({ children, name }) => {
-  const { isOpen, onToggle } = useDisclosure();
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <Box my={8}>
-      <Flex
-        alignItems="center"
-        bg="background.transparent"
-        maxWidth="64ch"
-        mx="auto"
-        px={6}
-        py={4}
-        justifyContent="space-between"
-        width="100%"
-      >
-        <Heading as="h3" fontSize="2xl">
-          {name}
-        </Heading>
+    <Collapsible.Root open={isOpen} onOpenChange={setIsOpen}>
+      <div style={{ margin: "2rem" }}>
+        <div
+          style={{
+            alignItems: "center",
+            background: "background.transparent",
+            maxWidth: "64ch",
+            margin: "0 auto",
+            padding: "1rem 1.5rem",
+            justifyContent: "space-between",
+            width: "100%",
+          }}
+        >
+          <h3 style={{ fontSize: "1.5rem" }}>{name}</h3>
 
-        <Button bg="transparent" onClick={onToggle}>
-          {isOpen ? <FaWindowMinimize /> : <FaExpand />}
-        </Button>
-      </Flex>
+          <Collapsible.Trigger asChild>
+            <button style={{ background: "transparent" }}>
+              {isOpen ? <FaWindowMinimize /> : <FaExpand />}
+            </button>
+          </Collapsible.Trigger>
+        </div>
 
-      <Collapse in={isOpen}>{children}</Collapse>
-    </Box>
+        <Collapsible.Content>{children}</Collapsible.Content>
+      </div>
+    </Collapsible.Root>
   );
 };
 
