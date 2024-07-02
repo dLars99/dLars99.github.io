@@ -10,7 +10,7 @@ export interface Props {
 const { job } = Astro.props;
 ---
 
-<ExpandableChip name={job.name}>
+<ExpandableChip client:visible name={job.name}>
   <slot />
 
   <JobContent job={job} />

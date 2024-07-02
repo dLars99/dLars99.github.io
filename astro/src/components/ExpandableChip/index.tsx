@@ -11,31 +11,45 @@ export interface ExpandableChipProps {
 const ExpandableChip: FC<ExpandableChipProps> = ({ children, name }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+  const onOpenChange = (open: boolean) => {
+    console.log("click", open);
+    setIsOpen(open);
+  };
+
   return (
-    <Collapsible.Root open={isOpen} onOpenChange={setIsOpen}>
-      <div style={{ margin: "2rem" }}>
-        <div
-          style={{
-            alignItems: "center",
-            background: "background.transparent",
-            maxWidth: "64ch",
-            margin: "0 auto",
-            padding: "1rem 1.5rem",
-            justifyContent: "space-between",
-            width: "100%",
-          }}
-        >
-          <h3 style={{ fontSize: "1.5rem" }}>{name}</h3>
+    <Collapsible.Root
+      open={isOpen}
+      onOpenChange={setIsOpen}
+      style={{ margin: "2rem" }}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          background: "rgb(235, 250, 255, 0.5)",
+          maxWidth: "64ch",
+          margin: "0 auto",
+          padding: "1rem 1.5rem",
+          justifyContent: "space-between",
+          width: "100%",
+        }}
+      >
+        <h3 style={{ fontSize: "1.5rem" }}>{name}</h3>
 
-          <Collapsible.Trigger asChild>
-            <button style={{ background: "transparent" }}>
-              {isOpen ? <FaWindowMinimize /> : <FaExpand />}
-            </button>
-          </Collapsible.Trigger>
-        </div>
-
-        <Collapsible.Content>{children}</Collapsible.Content>
+        <Collapsible.Trigger asChild>
+          <button
+            style={{
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            {isOpen ? <FaWindowMinimize /> : <FaExpand />}
+          </button>
+        </Collapsible.Trigger>
       </div>
+
+      <Collapsible.Content>{children}</Collapsible.Content>
     </Collapsible.Root>
   );
 };

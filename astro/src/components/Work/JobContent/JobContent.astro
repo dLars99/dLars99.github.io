@@ -7,7 +7,7 @@ interface JobContentProps {
 }
 
 const { job } = Astro.props;
-const dateFormat = "MMMM Y";
+const dateFormat = "MMMM y";
 
 const formattedStartDate = job.startDate
   ? format(job.startDate, dateFormat) + " - "

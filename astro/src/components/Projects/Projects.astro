@@ -12,19 +12,19 @@ import Greener from "./Greener/Greener.astro";
   <Header title="Projects" />
 
   <article>
-    <ExpandableChip name="React Routing Tabs">
+    <ExpandableChip client:visible name="React Routing Tabs">
       <ReactRoutingTabs />
     </ExpandableChip>
 
-    <ExpandableChip name="Barkeep">
+    <ExpandableChip client:visible name="Barkeep">
       <Barkeep />
     </ExpandableChip>
 
-    <ExpandableChip name="GearPatch">
+    <ExpandableChip client:visible name="GearPatch">
       <GearPatch />
     </ExpandableChip>
 
-    <ExpandableChip name="Greener">
+    <ExpandableChip client:visible name="Greener">
       <Greener />
     </ExpandableChip>
   </article>

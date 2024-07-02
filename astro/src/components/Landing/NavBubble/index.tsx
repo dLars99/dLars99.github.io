@@ -5,7 +5,7 @@ import { useNavItems } from "./useNavItems";
 
 interface NavBubbleProps extends HTMLAttributes<HTMLDivElement> {}
 
-export const NavBubble: FC<NavBubbleProps> = () => {
+export const NavBubble: FC<NavBubbleProps> = ({ style: navStyles }) => {
   const { dimensions, ref } = useDimensions();
   // const breakpoint = useBreakpoint();
   const breakpoint = "lg";
@@ -72,8 +72,8 @@ export const NavBubble: FC<NavBubbleProps> = () => {
         height: "100%",
         textAlign: "left",
         width: "60%",
+        ...navStyles,
       }}
-      // {...boxProps}
     >
       <ul role="menubar">
         {navItems.map((navItem, index) => (
