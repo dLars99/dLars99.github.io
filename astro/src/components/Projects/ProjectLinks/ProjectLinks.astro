@@ -38,6 +38,8 @@ const getAltText = (name: string, type: LinkType) =>
           <Image
             alt={getAltText(link.name, link.type)}
             src={images[link.type]}
+            width="40"
+            height="40"
           />
         </a>
       ))}
