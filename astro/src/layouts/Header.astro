@@ -1,34 +1,36 @@
 ---
+import { css } from "../../styled-system/css";
+
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+
+const headerStyles = {
+  maxWidth: ["100%", "40%"],
+};
+
+const containerStyles = {
+  borderBottom: "1px solid",
+  borderColor: "#08430e" /*primary,*/,
+  borderRadius: "42%",
+  /* TODO: spacing theme? */
+  paddingBottom: "0.75rem",
+  textAlign: "center",
+  width: "20rem",
+};
+
+const headerTextStyles = {
+  color: "#08430e",
+};
 ---
 
-<header>
-  <div class="container">
-    <h2 color="primary">
+<header class={css(headerStyles)}>
+  <div class={css(containerStyles)}>
+    <h2 class={css(headerTextStyles)}>
       {title}
     </h2>
   </div>
   <slot />
 </header>
-
-<style>
-  header {
-    /* TODO: responsive w/ 100% @ mobile */
-    max-width: 40%;
-  }
-
-  /* TODO: global for container, extend rest? */
-  .container {
-    border-bottom: 1px solid;
-    border-color: #08430e; /*primary;*/
-    border-radius: 42%;
-    /* TODO: spacing theme? */
-    padding-bottom: 0.75rem;
-    text-align: center;
-    width: 20rem;
-  }
-</style>

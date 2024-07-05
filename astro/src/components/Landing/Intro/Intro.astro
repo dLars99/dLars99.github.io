@@ -1,9 +1,18 @@
 ---
+import { css } from "../../../../styled-system/css";
 import Header from "../../../layouts/Header.astro";
+
+const styles = {
+  paddingY: 0,
+  paddingX: "0.25rem",
+  marginTop: "1rem",
+  width: "20rem",
+};
 ---
 
 <Header title="David P Larsen">
-  <article class:list={["container", "intro"]}>
+  <!-- TODO: container, styles -->
+  <article class={css(styles)}>
     <p>Software developer. I connect users to data</p>
     <p>through robust APIs and</p>
     <p>intuitive interfaces.</p>

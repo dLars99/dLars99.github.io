@@ -1,24 +1,22 @@
 ---
+import { css } from "../../styled-system/css";
+
 interface Props {
   id?: string;
 }
 
 const { id } = Astro.props;
+
+const styles = {
+  height: "100%",
+  minHeight: "100vh",
+  position: "relative",
+  paddingTop: "1rem",
+  paddingLeft: [0, "1rem"],
+  width: "100vw",
+};
 ---
 
-<section id={id}>
+<section class={css(styles)} id={id}>
   <slot />
 </section>
-
-<style>
-  section {
-    height: 100%;
-    min-height: 100vh;
-    position: relative;
-    padding-top: 1rem;
-    /* TODO: [0, 16] */
-    padding-left: 1rem;
-    width: 100vw;
-  }
-</style>
-);
