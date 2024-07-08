@@ -1,5 +1,8 @@
 ---
-import ProjectLinks, {type ProjectLink } from "../ProjectLinks/ProjectLinks.astro";
+import { css } from "../../../../styled-system/css";
+import ProjectLinks, {
+  type ProjectLink,
+} from "../ProjectLinks/ProjectLinks.astro";
 import BarkeepDescription from "./BarkeepDescription.astro";
 
 const barkeepLinks: ProjectLink[] = [
@@ -14,21 +17,19 @@ const barkeepLinks: ProjectLink[] = [
     type: "github",
   },
 ];
+
+const styles = {
+  display: "grid",
+  gridTemplateColumns: [1, 2],
+};
 ---
+
 <div>
   <ProjectLinks links={barkeepLinks} />
 
-  <div class="grid">
+  <div class={css(styles)}>
     <BarkeepDescription />
 
     <div>Screenshots</div>
   </div>
 </div>
-
-<style>
-  .grid {
-    display: grid;
-    /* TODO: [1, 2] */
-    grid-template-columns: repeat(2, 1fr);
-  }
-</style>

@@ -6,12 +6,18 @@ import Barkeep from "./Barkeep/Barkeep.astro";
 import ReactRoutingTabs from "./ReactRoutingTabs/ReactRoutingTabs.astro";
 import GearPatch from "./GearPatch/GearPath.astro";
 import Greener from "./Greener/Greener.astro";
+import { css } from "../../../styled-system/css";
+
+const styles = {
+  mx: "auto",
+  width: "100%",
+};
 ---
 
 <Section id="projects">
   <Header title="Projects" />
 
-  <article>
+  <article class={css(styles)}>
     <ExpandableChip client:visible name="React Routing Tabs">
       <ReactRoutingTabs />
     </ExpandableChip>
@@ -29,10 +35,3 @@ import Greener from "./Greener/Greener.astro";
     </ExpandableChip>
   </article>
 </Section>
-
-<style>
-  article {
-    margin: 0 auto;
-    width: 100%;
-  }
-</style>

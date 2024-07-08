@@ -11,7 +11,5 @@ const { job } = Astro.props;
 ---
 
 <ExpandableChip client:visible name={job.name}>
-  <slot />
-
   <JobContent job={job} />
 </ExpandableChip>

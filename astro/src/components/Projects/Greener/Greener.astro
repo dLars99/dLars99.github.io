@@ -1,5 +1,8 @@
 ---
-import ProjectLinks, { type ProjectLink } from "../ProjectLinks/ProjectLinks.astro";
+import { css } from "../../../../styled-system/css";
+import ProjectLinks, {
+  type ProjectLink,
+} from "../ProjectLinks/ProjectLinks.astro";
 import GreenerDescription from "./GreenerDescription.astro";
 
 const greenerLinks: ProjectLink[] = [
@@ -9,21 +12,19 @@ const greenerLinks: ProjectLink[] = [
     type: "github",
   },
 ];
+
+const styles = {
+  display: "grid",
+  gridTemplateColumns: [1, 2],
+};
 ---
-    <div>
-      <ProjectLinks links={greenerLinks} />
 
-      <div class="grid" >
-        <GreenerDescription />
+<div>
+  <ProjectLinks links={greenerLinks} />
 
-        <div>Screenshots</div>
-      </div>
-    </div>
+  <div class={css(styles)}>
+    <GreenerDescription />
 
-    <style>
-  .grid {
-    display: grid;
-    /* TODO: [1, 2] */
-    grid-template-columns: repeat(2, 1fr);
-  }
-    </style>
+    <div>Screenshots</div>
+  </div>
+</div>

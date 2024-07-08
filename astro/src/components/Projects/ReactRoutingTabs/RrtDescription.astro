@@ -1,8 +1,12 @@
 ---
+import { css } from "../../../../styled-system/css";
 
+const styles = {
+  pr: ["3rem", "4rem"],
+};
 ---
 
-<div>
+<div class={css(styles)}>
   <p>Initial completion: May 2024</p>
   <p>An open-source tab library of my creation</p>
   <div>
@@ -20,10 +24,3 @@
     </p>
   </div>
 </div>
-
-<style>
-  .description {
-    /* TODO: [12, 16] */
-    padding-right: 4rem;
-  }
-</style>

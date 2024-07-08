@@ -1,7 +1,12 @@
 ---
+import { css } from "../../../../styled-system/css";
 
+const styles = {
+  pr: ["3rem", "4rem"],
+};
 ---
-<div class=".description">
+
+<div class={css(styles)}>
   <p>Initial completion: August 2020</p>
 
   <p>Helping you grow a greener lawn</p>
@@ -15,15 +20,11 @@
     <ul>
       <li>Log for tracking lawn care chores</li>
 
-      <li>
-        Fully-automated schedule of seasonal tasks with reminders
-      </li>
+      <li>Fully-automated schedule of seasonal tasks with reminders</li>
 
       <li>Weather data and alerts</li>
 
-      <li>
-        Precipitation monitoring to let the user know if water is needed
-      </li>
+      <li>Precipitation monitoring to let the user know if water is needed</li>
 
       <li>Tips and tricks for a greener lawn</li>
     </ul>
@@ -36,10 +37,3 @@
 
   <p>React / Javascript</p>
 </div>
-
-<style>
-  .description {
-    /* TODO: [12, 16] */
-    padding-right: 1rem;
-  }
-</style>

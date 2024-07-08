@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import npmImage from "../../../images/npm.png";
 import githubImage from "../../../images/github.png";
+import { css } from "../../../../styled-system/css";
 
 export type ProjectLink = {
   name: string;
@@ -16,6 +17,13 @@ interface Props {
 }
 
 const { links } = Astro.props;
+
+const styles = {
+  display: "flex",
+  justifyContent: "center",
+  gap: "3rem",
+  my: "1rem",
+};
 
 const images = {
   npm: npmImage,
@@ -32,7 +40,7 @@ const getAltText = (name: string, type: LinkType) =>
 
 {
   links.length > 0 ? (
-    <div class="projectLink">
+    <div class={css(styles)}>
       {links.map((link) => (
         <a href={link.url} target="_blank">
           <Image
@@ -46,12 +54,3 @@ const getAltText = (name: string, type: LinkType) =>
     </div>
   ) : null
 }
-
-<style>
-  .projectLink {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin: 1rem 0;
-  }
-</style>

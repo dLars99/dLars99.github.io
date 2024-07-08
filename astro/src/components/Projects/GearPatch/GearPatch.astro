@@ -1,5 +1,8 @@
 ---
-import ProjectLinks, { type ProjectLink } from "../ProjectLinks/ProjectLinks.astro";
+import { css } from "../../../../styled-system/css";
+import ProjectLinks, {
+  type ProjectLink,
+} from "../ProjectLinks/ProjectLinks.astro";
 import GearPatchDescription from "./GearPatchDescription.astro";
 
 const gearPatchLinks: ProjectLink[] = [
@@ -9,21 +12,19 @@ const gearPatchLinks: ProjectLink[] = [
     type: "github",
   },
 ];
+
+const styles = {
+  display: "grid",
+  gridTemplateColumns: [1, 2],
+};
 ---
+
 <div>
   <ProjectLinks links={gearPatchLinks} />
 
-  <div class="grid"/>
+  <div class={css(styles)}>
     <div>Screenshots</div>
 
     <GearPatchDescription />
   </div>
 </div>
-
-<style>
-  .grid {
-    display: grid;
-    /* TODO: [1, 2] */
-    grid-template-columns: repeat(2, 1fr);
-  }
-</style>
