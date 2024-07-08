@@ -1,4 +1,5 @@
 import { defineConfig } from "@pandacss/dev";
+import { textStyles } from "./textStyles";
 
 export default defineConfig({
   // Whether to use css reset
@@ -15,7 +16,14 @@ export default defineConfig({
 
   // Useful for theme customization
   theme: {
-    extend: {},
+    extend: {
+      tokens: {
+        fonts: {
+          nunito: { value: `'Nunito Sans', Arial, sans-serif` },
+        },
+      },
+      textStyles,
+    },
   },
 
   // The output directory for your css system

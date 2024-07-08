@@ -1,5 +1,6 @@
 ---
 import { css } from "../../styled-system/css";
+import "@fontsource/nunito-sans";
 
 interface Props {
   title: string;
@@ -15,14 +16,16 @@ const containerStyles = {
   borderBottom: "1px solid",
   borderColor: "#08430e" /*primary,*/,
   borderRadius: "42%",
-  /* TODO: spacing theme? */
-  paddingBottom: "0.75rem",
+  paddingBottom: 3,
+  mx: "auto",
   textAlign: "center",
-  width: "20rem",
+  width: 80,
+  maxWidth: "prose",
 };
 
 const headerTextStyles = {
   color: "#08430e",
+  textStyle: "h2",
 };
 ---
 
