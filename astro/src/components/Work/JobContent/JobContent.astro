@@ -21,24 +21,25 @@ const parsedLocation = job.location ?? "";
 const displayLocation = parsedLocation + (job.remote ? " (Remote)" : "");
 
 const styles = {
-  heading: {
-    fontSize: "1.125rem",
-  },
   job: {
     backgroundColor: "rgba(255, 255, 255, 0.36)",
+    width: "100%",
     mx: "auto",
-    padding: "1.5rem",
+    maxWidth: "60ch",
+    px: 4,
+    padding: 6,
   },
+  li: {},
 };
 ---
 
 <div class={css(styles.job)}>
-  <h4 class={css(styles.heading)}>{job.title}</h4>
+  <h4 class={css({ textStyle: "h4" })}>{job.title}</h4>
   <p>{formattedDates}</p>
   <p>
     {displayLocation}
   </p>
-  <ul>
+  <ul class={css({ listStyleType: "disc", marginInlineStart: "1em" })}>
     {job.bulletPoints.map((bulletPoint: string) => <li>{bulletPoint}</li>)}
   </ul>
 </div>

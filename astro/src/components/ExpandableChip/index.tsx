@@ -10,14 +10,32 @@ export interface ExpandableChipProps {
 }
 
 const styles = {
-  display: "flex",
-  alignItems: "center",
-  background: "rgb(235, 250, 255, 0.5)",
-  maxWidth: "64ch",
-  margin: "0 auto",
-  padding: "1rem 1.5rem",
-  justifyContent: "space-between",
-  width: "100%",
+  root: {
+    my: 8,
+  },
+  innerFlex: {
+    display: "flex",
+    alignItems: "center",
+    background: "rgb(235, 250, 255, 0.5)",
+    maxWidth: "64ch",
+    mx: "auto",
+    px: 6,
+    py: 4,
+    justifyContent: "space-between",
+    width: "100%",
+  },
+  button: {
+    background: "transparent",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    border: "none",
+    cursor: "pointer",
+    height: 10,
+    minWidth: 10,
+    px: 4,
+    lineHeight: 1.2,
+  },
 };
 
 const ExpandableChip: FC<ExpandableChipProps> = ({ children, name }) => {
@@ -27,19 +45,13 @@ const ExpandableChip: FC<ExpandableChipProps> = ({ children, name }) => {
     <Collapsible.Root
       open={isOpen}
       onOpenChange={setIsOpen}
-      style={{ margin: "2rem" }}
+      className={css(styles.root)}
     >
-      <div className={css(styles)}>
-        <h3 style={{ fontSize: "1.5rem" }}>{name}</h3>
+      <div className={css(styles.innerFlex)}>
+        <h3 className={css({ textStyle: "h3" })}>{name}</h3>
 
         <Collapsible.Trigger asChild>
-          <button
-            style={{
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
+          <button className={css(styles.button)}>
             {isOpen ? <FaWindowMinimize /> : <FaExpand />}
           </button>
         </Collapsible.Trigger>
