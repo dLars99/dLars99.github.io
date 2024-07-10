@@ -47,7 +47,7 @@ export const jobData: Job[] = [
   {
     name: "SAFE Health",
     endDate: new Date("August 15, 2021"),
-    location: "Detroit, MI",
+    location: "Los Angeles, CA",
     remote: true,
     startDate: new Date("November 15, 2020"),
     title: "Software Engineer",
@@ -61,7 +61,7 @@ export const jobData: Job[] = [
   {
     name: "Nashville Software School",
     endDate: new Date("November 15, 2020"),
-    location: "Detroit, MI",
+    location: "Nashville, TN",
     remote: true,
     startDate: new Date("May 15, 2020"),
     bulletPoints: [
