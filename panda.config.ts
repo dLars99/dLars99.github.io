@@ -18,6 +18,25 @@ export default defineConfig({
   theme: {
     extend: {
       tokens: {
+        colors: {
+          primary: { value: "#08430E" },
+          secondary: { value: "#A2AF9F" },
+          background: {
+            transparent: { value: "rgba(235, 250, 255, 0.5)" },
+          },
+          blue: {
+            100: { value: "#EBFAFF" },
+            300: { value: "#007699" },
+            600: { value: "#004566" },
+          },
+          gray: {
+            200: { value: "#A2AF9F" },
+            400: { value: "#6E7A6C" },
+          },
+          green: {
+            700: { value: "#08430E" },
+          },
+        },
         fonts: {
           nunito: { value: `'Nunito Sans', Arial, sans-serif` },
         },

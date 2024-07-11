@@ -27,7 +27,7 @@ export const styles = {
   }),
   a: (index: number) =>
     css.raw({
-      color: "#004566",
+      color: "blue.600",
       fontSize: "3xl",
       fontWeight: "black",
       "&:hover": {

@@ -16,7 +16,7 @@ const styles = {
   innerFlex: {
     display: "flex",
     alignItems: "center",
-    background: "rgb(235, 250, 255, 0.5)",
+    background: "background.transparent",
     maxWidth: "64ch",
     mx: "auto",
     px: 6,
