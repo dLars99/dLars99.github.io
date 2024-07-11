@@ -1,0 +1,15 @@
+---
+import { css } from "../../../styled-system/css";
+import Section from "../../layouts/Section.astro";
+import Intro from "./Intro/Intro.astro";
+import { NavBubble } from "./NavBubble";
+---
+
+<Section>
+  <Intro />
+
+  <NavBubble
+    client:load
+    navStyles={css.raw({ position: "absolute", bottom: "-50%", right: 0 })}
+  />
+</Section>

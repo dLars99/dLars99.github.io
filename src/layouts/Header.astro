@@ -1,0 +1,39 @@
+---
+import { css } from "../../styled-system/css";
+import "@fontsource/nunito-sans";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+const headerStyles = {
+  maxWidth: ["100%", "40%"],
+};
+
+const containerStyles = {
+  borderBottom: "1px solid",
+  borderColor: "primary",
+  borderRadius: "42%",
+  paddingBottom: 3,
+  mx: "auto",
+  textAlign: "center",
+  width: 80,
+  maxWidth: "prose",
+};
+
+const headerTextStyles = {
+  color: "primary",
+  textStyle: "h2",
+};
+---
+
+<header class={css(headerStyles)}>
+  <div class={css(containerStyles)}>
+    <h2 class={css(headerTextStyles)}>
+      {title}
+    </h2>
+  </div>
+  <slot />
+</header>

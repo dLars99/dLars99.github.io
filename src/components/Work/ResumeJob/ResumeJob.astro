@@ -1,0 +1,15 @@
+---
+import { type Job } from "../jobData";
+import ExpandableChip from "../../ExpandableChip";
+import JobContent from "../JobContent/JobContent.astro";
+
+export interface Props {
+  job: Job;
+}
+
+const { job } = Astro.props;
+---
+
+<ExpandableChip client:visible name={job.name}>
+  <JobContent job={job} />
+</ExpandableChip>

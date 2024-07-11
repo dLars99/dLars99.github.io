@@ -1,0 +1,45 @@
+---
+import { format } from "date-fns";
+import { type Job } from "../jobData";
+import { css } from "../../../../styled-system/css";
+
+interface Props {
+  job: Job;
+}
+
+const { job } = Astro.props;
+const dateFormat = "MMMM y";
+
+const formattedStartDate = job.startDate
+  ? format(job.startDate, dateFormat) + " - "
+  : "Before ";
+const formattedEndDate = job.endDate
+  ? format(job.endDate, dateFormat)
+  : "Present";
+const formattedDates = formattedStartDate + formattedEndDate;
+const parsedLocation = job.location ?? "";
+const displayLocation = parsedLocation + (job.remote ? " (Remote)" : "");
+
+const styles = {
+  job: {
+    backgroundColor: "rgba(255, 255, 255, 0.36)",
+    width: "100%",
+    mx: "auto",
+    maxWidth: "60ch",
+    px: 4,
+    padding: 6,
+  },
+  li: {},
+};
+---
+
+<div class={css(styles.job)}>
+  <h4 class={css({ textStyle: "h4" })}>{job.title}</h4>
+  <p>{formattedDates}</p>
+  <p>
+    {displayLocation}
+  </p>
+  <ul class={css({ listStyleType: "disc", marginInlineStart: "1em" })}>
+    {job.bulletPoints.map((bulletPoint: string) => <li>{bulletPoint}</li>)}
+  </ul>
+</div>

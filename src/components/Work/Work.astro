@@ -1,0 +1,51 @@
+---
+import { css } from "../../../styled-system/css";
+import resume from "../../assets/files/David Larsen Resume Downloadable.pdf";
+import Header from "../../layouts/Header.astro";
+import Section from "../../layouts/Section.astro";
+import ResumeJob from "./ResumeJob/ResumeJob.astro";
+import { jobData } from "./jobData";
+
+const styles = {
+  downloadLink: {
+    color: "blue.600",
+    textDecoration: "underline transparent",
+    transition: "text-decoration .1s ease-in-out",
+    _hover: {
+      color: "blue.400",
+      textDecorationColor: "blue.400",
+    },
+  },
+  linkContainer: {
+    textAlign: "center",
+    width: 80,
+    mx: "auto",
+    maxWidth: "prose",
+    px: 4,
+  },
+  subHeader: {
+    marginTop: "0.75rem",
+    maxWidth: ["100%", "40%"],
+  },
+  resume: {
+    mx: "auto",
+    width: "100%",
+    maxWidth: "64ch",
+  },
+};
+---
+
+<Section id="work">
+  <Header title="Work" />
+  <div class={css(styles.subHeader)}>
+    <div class={css(styles.linkContainer)}>
+      <a class={css(styles.downloadLink)} href={resume} download>
+        Downloadable resume
+      </a>
+    </div>
+  </div>
+
+  <article class={css(styles.resume)}>
+    {jobData.map((job) => <ResumeJob job={job} />)}
+  </article>
+</Section>

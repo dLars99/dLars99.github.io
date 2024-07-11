@@ -1,0 +1,30 @@
+---
+import { css } from "../../../../styled-system/css";
+import ProjectLinks, {
+  type ProjectLink,
+} from "../ProjectLinks/ProjectLinks.astro";
+import GearPatchDescription from "./GearPatchDescription.astro";
+
+const gearPatchLinks: ProjectLink[] = [
+  {
+    name: "GearPatch - NSS Final Capstone",
+    url: "https://github.com/dLars99/GearPatch",
+    type: "github",
+  },
+];
+
+const styles = {
+  display: "grid",
+  gridTemplateColumns: [1, 2],
+};
+---
+
+<div>
+  <ProjectLinks links={gearPatchLinks} />
+
+  <div class={css(styles)}>
+    <div>Screenshots</div>
+
+    <GearPatchDescription />
+  </div>
+</div>

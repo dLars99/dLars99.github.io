@@ -1,0 +1,21 @@
+---
+import { css } from "../../../styled-system/css";
+import Header from "../../layouts/Header.astro";
+import Section from "../../layouts/Section.astro";
+import Bio from "./Bio/Bio.astro";
+
+const styles = {
+  display: "grid",
+  gridTemplateColumns: [1, 2],
+};
+---
+
+<Section id="about">
+  <Header title="About" />
+
+  <div class={css(styles)}>
+    <div></div>
+
+    <Bio />
+  </div>
+</Section>
