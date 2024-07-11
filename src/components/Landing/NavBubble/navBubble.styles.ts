@@ -7,10 +7,7 @@ export const styles = {
       "100% 0 0 100% / 50% 50% 50% 50%",
     ],
     boxShadow: "1px 1px 15px #A2AF9F",
-    bg: [
-      "radial-gradient(ellipse 100% 65%, #007699, #A2AF9F, #FFFFFF 85%)",
-      "radial-gradient(ellipse at right, #007699, #A2AF9F, #FFFFFF 85%)",
-    ],
+    bg: ["{gradients.ellipse.base}", "{gradients.ellipse.sm}"],
     height: "100%",
     textAlign: ["center", "left"],
     width: ["100%", "60%"],

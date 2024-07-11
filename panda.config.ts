@@ -40,6 +40,21 @@ export default defineConfig({
         fonts: {
           nunito: { value: `'Nunito Sans', Arial, sans-serif` },
         },
+        gradients: {
+          DEFAULT: {
+            value: "linear-gradient(to right bottom, #ffffff 20%, #a2af9f)",
+          },
+          ellipse: {
+            base: {
+              value:
+                "radial-gradient(ellipse 100% 65%, #007699, #A2AF9F, #FFFFFF 85%)",
+            },
+            sm: {
+              value:
+                "radial-gradient(ellipse at right, #007699, #A2AF9F, #FFFFFF 85%)",
+            },
+          },
+        },
       },
       textStyles,
     },
