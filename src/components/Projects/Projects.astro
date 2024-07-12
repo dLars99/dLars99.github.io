@@ -7,6 +7,7 @@ import ReactRoutingTabs from "./ReactRoutingTabs/ReactRoutingTabs.astro";
 import GearPatch from "./GearPatch/GearPatch.astro";
 import Greener from "./Greener/Greener.astro";
 import { css } from "../../../styled-system/css";
+import Portfolio from "./Portfolio/Portfolio.astro";
 
 const styles = {
   mx: "auto",
@@ -24,6 +25,10 @@ const styles = {
 
     <ExpandableChip client:visible name="Barkeep">
       <Barkeep />
+    </ExpandableChip>
+
+    <ExpandableChip client:visible name="This Website">
+      <Portfolio />
     </ExpandableChip>
 
     <ExpandableChip client:visible name="GearPatch">
