@@ -1,0 +1,34 @@
+---
+import { format } from "date-fns";
+import type { ProjectLink } from "../components/Projects/ProjectLinks/ProjectLinks.astro";
+
+export type ProjectFrontmatter = {
+  title: string;
+  description: string;
+  initialCompletionDate: string;
+  lastUpdatedDate: string;
+  links: ProjectLink[];
+  tech: string[];
+};
+
+interface Props {
+  frontmatter: ProjectFrontmatter;
+}
+
+const { frontmatter } = Astro.props;
+const dateFormat = "MMMM y";
+---
+
+<p>
+  Initial completion: {format(frontmatter.initialCompletionDate, dateFormat)}
+</p>
+
+<p>
+  Last update: {format(frontmatter.lastUpdatedDate, dateFormat)}
+</p>
+
+<p>{frontmatter.description}</p>
+
+<slot />
+
+<p>Tech: {frontmatter.tech}</p>

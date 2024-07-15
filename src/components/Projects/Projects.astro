@@ -3,12 +3,16 @@ import Header from "../../layouts/Header.astro";
 import Section from "../../layouts/Section.astro";
 import { css } from "../../../styled-system/css";
 import Project from "../../layouts/Project.astro";
-import { projectData } from "./projectData";
+import { type ProjectFrontmatter } from "../../layouts/ProjectDescriptionMD.astro";
 
 const styles = {
   mx: "auto",
   width: "100%",
 };
+
+const projectData = await Astro.glob<ProjectFrontmatter>(
+  "../../content/projects/*.md"
+);
 ---
 
 <Section id="projects">
@@ -16,15 +20,18 @@ const styles = {
 
   <article class={css(styles)}>
     {
-      projectData.map((project, index) => (
-        <Project
-          demoFirst={index % 2 === 1}
-          links={project.links}
-          title={project.title}
-        >
-          <project.Description slot="description" />
-        </Project>
-      ))
+      projectData.map((project, index) => {
+        const { Content } = project;
+        return (
+          <Project
+            demoFirst={index % 2 === 1}
+            links={project.frontmatter.links}
+            title={project.frontmatter.title}
+          >
+            <Content slot="description" />
+          </Project>
+        );
+      })
     }
   </article>
 </Section>
