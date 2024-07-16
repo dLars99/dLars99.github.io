@@ -2,8 +2,8 @@
 layout: "../../layouts/ProjectDescriptionMD.astro"
 title: "Barkeep"
 description: "A cocktail catalog for personal use"
-initialCompletionDate: "2022-07-01"
-lastUpdatedDate: "2022-10-01"
+initialCompletionDate: "2022-07-12"
+lastUpdatedDate: "2022-12-30"
 links:
   [
     {

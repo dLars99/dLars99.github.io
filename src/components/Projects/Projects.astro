@@ -13,6 +13,11 @@ const styles = {
 const projectData = await Astro.glob<ProjectFrontmatter>(
   "../../content/projects/*.md"
 );
+
+projectData.sort((a, b) => {
+  if (a.frontmatter.lastUpdatedDate === b.frontmatter.lastUpdatedDate) return 0;
+  return a.frontmatter.lastUpdatedDate > b.frontmatter.lastUpdatedDate ? -1 : 1;
+});
 ---
 
 <Section id="projects">
