@@ -1,6 +1,7 @@
 ---
 import { format } from "date-fns";
 import type { ProjectLink } from "../components/Projects/ProjectLinks/ProjectLinks.astro";
+import { css } from "../../styled-system/css";
 
 export type ProjectFrontmatter = {
   title: string;
@@ -17,18 +18,40 @@ interface Props {
 
 const { frontmatter } = Astro.props;
 const dateFormat = "MMMM y";
+
+const styles = {
+  backgroundColor: "rgba(255, 255, 255, 0.36)",
+  borderRadius: "5%",
+  width: "100%",
+  mx: "auto",
+  maxWidth: "60ch",
+  px: [12, 16],
+  padding: 6,
+  "& a": {
+    color: "blue.300",
+    cursor: "pointer",
+    "&:hover": {
+      textDecoration: "underline",
+    },
+    "&:visited": {
+      color: "blue.600",
+    },
+  },
+};
 ---
 
-<p>
-  Initial completion: {format(frontmatter.initialCompletionDate, dateFormat)}
-</p>
+<div class={css(styles)}>
+  <p>
+    Initial completion: {format(frontmatter.initialCompletionDate, dateFormat)}
+  </p>
 
-<p>
-  Last update: {format(frontmatter.lastUpdatedDate, dateFormat)}
-</p>
+  <p>
+    Last update: {format(frontmatter.lastUpdatedDate, dateFormat)}
+  </p>
 
-<p>{frontmatter.description}</p>
+  <p>{frontmatter.description}</p>
 
-<slot />
+  <slot />
 
-<p>Tech: {frontmatter.tech.join(", ")}</p>
+  <p>Tech: {frontmatter.tech.join(", ")}</p>
+</div>

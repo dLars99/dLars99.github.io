@@ -4,7 +4,6 @@ import ExpandableChip from "../components/ExpandableChip";
 import ProjectLinks, {
   type ProjectLink,
 } from "../components/Projects/ProjectLinks/ProjectLinks.astro";
-import ProjectDescription from "./ProjectDescription.astro";
 
 interface Props {
   demoFirst?: boolean;
@@ -15,8 +14,14 @@ interface Props {
 const { demoFirst = false, links, title } = Astro.props;
 
 const styles = {
-  display: "grid",
-  gridTemplateColumns: [1, 2],
+  grid: {
+    display: "grid",
+    gridTemplateColumns: [1, 2],
+  },
+  descriptionColumn: {
+    pr: demoFirst ? [0, 16] : 0,
+    pl: demoFirst ? 0 : [0, 16],
+  },
 };
 ---
 
@@ -24,26 +29,30 @@ const styles = {
   <div>
     <ProjectLinks links={links} />
 
-    <div class={css(styles)}>
+    <div class={css(styles.grid)}>
       {
         demoFirst && (
-          <slot name="demo">
-            <div>Screenshots</div>
-          </slot>
+          <div>
+            <slot name="demo">
+              <div>Screenshots</div>
+            </slot>
+          </div>
         )
       }
 
-      <ProjectDescription position={demoFirst ? "right" : "left"}>
+      <div class={css(styles.descriptionColumn)}>
         <slot name="description">
           <div>Description</div>
         </slot>
-      </ProjectDescription>
+      </div>
 
       {
         !demoFirst && (
-          <slot name="demo">
-            <div>Screenshots</div>
-          </slot>
+          <div>
+            <slot name="demo">
+              <div>Screenshots</div>
+            </slot>
+          </div>
         )
       }
     </div>
