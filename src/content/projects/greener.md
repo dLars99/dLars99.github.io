@@ -15,11 +15,13 @@ links:
 tech: ["React", "Javascript", "vanilla CSS"]
 ---
 
-GearPatch is a platform for musicians to make some money on their extra
-equipment by renting it to other musicians. A user can request a rental,
-which is then confirmed by the owner. The status of that rental is tracked
-in the owner's inventory.
+Greener is designed for personal use for individuals who want to keep better track of their lawn care. Features include:
 
-This was my fullstack capstone for Nashville Software School, right as I
-was starting my software career. The full project was built in roughly ten
-days.
+- Log for tracking lawn care chores
+- Fully-automated schedule of seasonal tasks with reminders
+- Weather data and alerts
+- Precipitation monitoring to let the user know if water is needed
+- Tips and tricks for a greener lawn
+
+This was my frontend capstone at Nashville Software School. The full
+application was built with a mobile-first design in about two weeks.
