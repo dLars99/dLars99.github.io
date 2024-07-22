@@ -1,5 +1,6 @@
 ---
-layout: "../../layouts/ProjectDescriptionMD.astro"
+layout: "../../layouts/ProjectDescription.astro"
+id: "greener"
 title: "Greener"
 description: "Helping you grow a greener lawn"
 initialCompletionDate: "2020-08-08"

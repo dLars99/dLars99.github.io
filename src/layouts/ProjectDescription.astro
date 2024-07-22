@@ -4,6 +4,7 @@ import type { ProjectLink } from "../components/Projects/ProjectLinks/ProjectLin
 import { css } from "../../styled-system/css";
 
 export type ProjectFrontmatter = {
+  id: string;
   title: string;
   description: string;
   initialCompletionDate: string;
@@ -28,6 +29,11 @@ const styles = {
     maxWidth: "60ch",
     px: [12, 16],
     padding: 6,
+  },
+  markdown: {
+    "& p": {
+      my: 4,
+    },
     "& a": {
       color: "blue.300",
       cursor: "pointer",
@@ -66,7 +72,9 @@ const styles = {
     <em>{frontmatter.description}</em>
   </p>
 
-  <slot />
+  <div class={css(styles.markdown)}>
+    <slot />
+  </div>
 
   <p class={css(styles.paragraph, { mb: 0 })}>
     <strong>Tech:</strong>

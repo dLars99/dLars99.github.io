@@ -1,5 +1,6 @@
 ---
-layout: "../../layouts/ProjectDescriptionMD.astro"
+layout: "../../layouts/ProjectDescription.astro"
+id: "rrt"
 title: "React Routing Tabs"
 description: "An open-source tab library of my creation"
 initialCompletionDate: "2024-05-17"

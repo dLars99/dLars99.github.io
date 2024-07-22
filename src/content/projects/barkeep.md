@@ -1,5 +1,6 @@
 ---
-layout: "../../layouts/ProjectDescriptionMD.astro"
+layout: "../../layouts/ProjectDescription.astro"
+id: "barkeep"
 title: "Barkeep"
 description: "A cocktail catalog for personal use"
 initialCompletionDate: "2022-07-12"

@@ -1,5 +1,6 @@
 ---
-layout: "../../layouts/ProjectDescriptionMD.astro"
+layout: "../../layouts/ProjectDescription.astro"
+id: "gearpatch"
 title: "GearPatch"
 description: "A peer-to-peer network for renting musical equipment"
 initialCompletionDate: "2020-11-04"
@@ -21,5 +22,5 @@ which is then confirmed by the owner. The status of that rental is tracked
 in the owner's inventory.
 
 This was my fullstack capstone for Nashville Software School, right as I
-was starting my software career. The full project was built in roughly ten
+was starting my software career. The full project was built in about ten
 days.

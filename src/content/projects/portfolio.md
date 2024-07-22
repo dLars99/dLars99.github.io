@@ -1,5 +1,6 @@
 ---
-layout: "../../layouts/ProjectDescriptionMD.astro"
+layout: "../../layouts/ProjectDescription.astro"
+id: "portfolio"
 title: "This Website"
 description: "My personal developer portfolio site"
 initialCompletionDate: "2024-07-31"

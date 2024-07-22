@@ -3,7 +3,8 @@ import Header from "../../layouts/Header.astro";
 import Section from "../../layouts/Section.astro";
 import { css } from "../../../styled-system/css";
 import Project from "../../layouts/Project.astro";
-import { type ProjectFrontmatter } from "../../layouts/ProjectDescriptionMD.astro";
+import { type ProjectFrontmatter } from "../../layouts/ProjectDescription.astro";
+import { demoMap } from "./Demos/demoMap";
 
 const styles = {
   mx: "auto",
@@ -27,6 +28,8 @@ projectData.sort((a, b) => {
     {
       projectData.map((project, index) => {
         const { Content } = project;
+        const Demo = demoMap[project.frontmatter.id];
+        console.log({ Demo, demoMap });
         return (
           <Project
             demoFirst={index % 2 === 1}
@@ -34,9 +37,12 @@ projectData.sort((a, b) => {
             title={project.frontmatter.title}
           >
             <Content slot="description" />
+
+            {Demo ? <Demo slot="demo" /> : null}
           </Project>
         );
       })
     }
   </article>
 </Section>
+k
