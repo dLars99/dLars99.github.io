@@ -24,12 +24,11 @@ projectData.sort((a, b) => {
 <Section id="projects">
   <Header title="Projects" />
 
-  <article class={css(styles)}>
+  <div class={css(styles)}>
     {
       projectData.map((project, index) => {
         const { Content } = project;
         const Demo = demoMap[project.frontmatter.id];
-        console.log({ Demo, demoMap });
         return (
           <Project
             demoFirst={index % 2 === 1}
@@ -43,6 +42,6 @@ projectData.sort((a, b) => {
         );
       })
     }
-  </article>
+  </div>
 </Section>
 k

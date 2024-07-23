@@ -25,36 +25,38 @@ const styles = {
 };
 ---
 
-<ExpandableChip client:visible name={title}>
-  <div>
-    <ProjectLinks links={links} />
+<article>
+  <ExpandableChip client:visible name={title}>
+    <div>
+      <ProjectLinks links={links} />
 
-    <div class={css(styles.grid)}>
-      {
-        demoFirst && (
-          <div>
-            <slot name="demo">
-              <div>Screenshots</div>
-            </slot>
-          </div>
-        )
-      }
+      <div class={css(styles.grid)}>
+        {
+          demoFirst && (
+            <div>
+              <slot name="demo">
+                <div>Screenshots</div>
+              </slot>
+            </div>
+          )
+        }
 
-      <div class={css(styles.descriptionColumn)}>
-        <slot name="description">
-          <div>Description</div>
-        </slot>
+        <div class={css(styles.descriptionColumn)}>
+          <slot name="description">
+            <div>Description</div>
+          </slot>
+        </div>
+
+        {
+          !demoFirst && (
+            <div>
+              <slot name="demo">
+                <div>Screenshots</div>
+              </slot>
+            </div>
+          )
+        }
       </div>
-
-      {
-        !demoFirst && (
-          <div>
-            <slot name="demo">
-              <div>Screenshots</div>
-            </slot>
-          </div>
-        )
-      }
     </div>
-  </div>
-</ExpandableChip>
+  </ExpandableChip>
+</article>
