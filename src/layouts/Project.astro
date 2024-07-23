@@ -1,0 +1,60 @@
+---
+import { css } from "../../styled-system/css";
+import ExpandableChip from "../components/ExpandableChip";
+import ProjectLinks, {
+  type ProjectLink,
+} from "../components/Projects/ProjectLinks/ProjectLinks.astro";
+
+interface Props {
+  demoFirst?: boolean;
+  links: ProjectLink[];
+  title: string;
+}
+
+const { demoFirst = false, links, title } = Astro.props;
+
+const styles = {
+  grid: {
+    display: "grid",
+    gridTemplateColumns: [1, 2],
+  },
+  descriptionColumn: {
+    pr: demoFirst ? [0, 16] : 0,
+    pl: demoFirst ? 0 : [0, 16],
+  },
+};
+---
+
+<ExpandableChip client:visible name={title}>
+  <div>
+    <ProjectLinks links={links} />
+
+    <div class={css(styles.grid)}>
+      {
+        demoFirst && (
+          <div>
+            <slot name="demo">
+              <div>Screenshots</div>
+            </slot>
+          </div>
+        )
+      }
+
+      <div class={css(styles.descriptionColumn)}>
+        <slot name="description">
+          <div>Description</div>
+        </slot>
+      </div>
+
+      {
+        !demoFirst && (
+          <div>
+            <slot name="demo">
+              <div>Screenshots</div>
+            </slot>
+          </div>
+        )
+      }
+    </div>
+  </div>
+</ExpandableChip>

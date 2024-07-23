@@ -17,6 +17,16 @@ export default defineConfig({
   // Useful for theme customization
   theme: {
     extend: {
+      keyframes: {
+        slideDown: {
+          "0%": { height: 0 },
+          "100%": { height: "var(--radix-collapsible-content-height)" },
+        },
+        slideUp: {
+          "0%": { height: "var(--radix-collapsible-content-height)" },
+          "100%": { height: 0 },
+        },
+      },
       tokens: {
         colors: {
           primary: { value: "#08430E" },

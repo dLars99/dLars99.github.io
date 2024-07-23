@@ -1,37 +1,48 @@
 ---
 import Header from "../../layouts/Header.astro";
 import Section from "../../layouts/Section.astro";
-import ExpandableChip from "../ExpandableChip";
-import Barkeep from "./Barkeep/Barkeep.astro";
-import ReactRoutingTabs from "./ReactRoutingTabs/ReactRoutingTabs.astro";
-import GearPatch from "./GearPatch/GearPatch.astro";
-import Greener from "./Greener/Greener.astro";
 import { css } from "../../../styled-system/css";
+import Project from "../../layouts/Project.astro";
+import { type ProjectFrontmatter } from "../../layouts/ProjectDescription.astro";
+import { demoMap } from "./Demos/demoMap";
 
 const styles = {
   mx: "auto",
   width: "100%",
 };
+
+const projectData = await Astro.glob<ProjectFrontmatter>(
+  "../../content/projects/*.md"
+);
+
+projectData.sort((a, b) => {
+  if (a.frontmatter.lastUpdatedDate === b.frontmatter.lastUpdatedDate) return 0;
+  return a.frontmatter.lastUpdatedDate > b.frontmatter.lastUpdatedDate ? -1 : 1;
+});
 ---
 
 <Section id="projects">
   <Header title="Projects" />
 
   <article class={css(styles)}>
-    <ExpandableChip client:visible name="React Routing Tabs">
-      <ReactRoutingTabs />
-    </ExpandableChip>
+    {
+      projectData.map((project, index) => {
+        const { Content } = project;
+        const Demo = demoMap[project.frontmatter.id];
+        console.log({ Demo, demoMap });
+        return (
+          <Project
+            demoFirst={index % 2 === 1}
+            links={project.frontmatter.links}
+            title={project.frontmatter.title}
+          >
+            <Content slot="description" />
 
-    <ExpandableChip client:visible name="Barkeep">
-      <Barkeep />
-    </ExpandableChip>
-
-    <ExpandableChip client:visible name="GearPatch">
-      <GearPatch />
-    </ExpandableChip>
-
-    <ExpandableChip client:visible name="Greener">
-      <Greener />
-    </ExpandableChip>
+            {Demo ? <Demo slot="demo" /> : null}
+          </Project>
+        );
+      })
+    }
   </article>
 </Section>
+k

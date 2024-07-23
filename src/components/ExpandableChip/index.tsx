@@ -36,6 +36,15 @@ const styles = {
     px: 4,
     lineHeight: 1.2,
   },
+  contentAnimation: {
+    overflow: "hidden",
+    "&[data-state='open']": {
+      animation: "slideDown 300ms ease-in-out",
+    },
+    "&[data-state='closed']": {
+      animation: "slideUp 300ms ease-in-out",
+    },
+  },
 };
 
 const ExpandableChip: FC<ExpandableChipProps> = ({ children, name }) => {
@@ -57,7 +66,9 @@ const ExpandableChip: FC<ExpandableChipProps> = ({ children, name }) => {
         </Collapsible.Trigger>
       </div>
 
-      <Collapsible.Content>{children}</Collapsible.Content>
+      <Collapsible.Content className={css(styles.contentAnimation)}>
+        {children}
+      </Collapsible.Content>
     </Collapsible.Root>
   );
 };
