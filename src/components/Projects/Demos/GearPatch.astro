@@ -4,77 +4,41 @@ import GearDetails from "../../../images/gearpatch/gearpatch-gear-details.png";
 import SearchResults from "../../../images/gearpatch/gearpatch-search-results.png";
 import Messages from "../../../images/gearpatch/gearpatch-messages.png";
 import Reservations from "../../../images/gearpatch/gearpatch-reservations.png";
-import { Image } from "astro:assets";
-import { css } from "../../../../styled-system/css";
+import type { DisplayImage } from "../../../layouts/StaggeredImages.astro";
+import StaggeredImages from "../../../layouts/StaggeredImages.astro";
 
-const styles = {
-  screenshots: {
-    display: "flex",
-    flexDirection: "column",
-    width: "100%",
+const images: DisplayImage[] = [
+  {
+    src: Homepage,
+    alt: "Gearpatch landing page with search bar",
+    caption: "Initial landing page",
+    width: 500,
   },
-  right: {
-    mb: 4,
-    right: 0,
-    alignSelf: "flex-end",
+  {
+    src: SearchResults,
+    alt: "Gearpatch search results",
+    caption: "Search results",
+    width: 500,
   },
-  left: {
-    mb: 4,
-    left: 0,
-    alignSelf: "flex-start",
+  {
+    src: GearDetails,
+    alt: "Gearpatch gear details page",
+    caption: "Gear details page",
+    width: 500,
   },
-  leftCaption: {
-    my: 1,
-    textAlign: "left",
+  {
+    src: Messages,
+    alt: "Gearpatch messages to request a gear reservation",
+    caption: "Messages to communicate reservation details",
+    width: 500,
   },
-  rightCaption: {
-    my: 1,
-    textAlign: "right",
+  {
+    src: Reservations,
+    alt: "Gearpatch reservations page showing current and upcoming gear rentals",
+    caption: "Reservations page showing current and upcoming gear rentals",
+    width: 500,
   },
-};
+];
 ---
 
-<div class={css(styles.screenshots)}>
-  <figure class={css(styles.left)}>
-    <Image
-      src={Homepage}
-      alt="Gearpatch landing page with search bar"
-      width={500}
-    />
-    <figcaption class={css(styles.leftCaption)}>
-      Initial landing page
-    </figcaption>
-  </figure>
-
-  <figure class={css(styles.right)}>
-    <Image src={SearchResults} alt="Gearpatch search results" width={500} />
-    <figcaption class={css(styles.rightCaption)}>Search results</figcaption>
-  </figure>
-
-  <figure class={css(styles.left)}>
-    <Image src={GearDetails} alt="Gearpatch gear details page" width={500} />
-    <figcaption class={css(styles.leftCaption)}>Gear details page</figcaption>
-  </figure>
-
-  <figure class={css(styles.right)}>
-    <Image
-      src={Messages}
-      alt="Gearpatch messages to request a gear reservation"
-      width={500}
-    />
-    <figcaption class={css(styles.rightCaption)}>
-      Messages to communicate reservation details
-    </figcaption>
-  </figure>
-
-  <figure class={css(styles.left)}>
-    <Image
-      src={Reservations}
-      alt="Gearpatch reservations page showing current and upcoming gear rentals"
-      width={500}
-    />
-    <figcaptionclass class={css(styles.leftCaption)}>
-      Reservations page showing current and upcoming gear rentals
-    </figcaptionclass>
-  </figure>
-</div>
+<StaggeredImages images={images} />
