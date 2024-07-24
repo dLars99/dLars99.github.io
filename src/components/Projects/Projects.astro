@@ -37,7 +37,12 @@ projectData.sort((a, b) => {
           >
             <Content slot="description" />
 
-            {Demo ? <Demo slot="demo" /> : null}
+            {Demo ? (
+              <Demo
+                slot="demo"
+                firstPosition={index % 2 === 1 ? "left" : "right"}
+              />
+            ) : null}
           </Project>
         );
       })

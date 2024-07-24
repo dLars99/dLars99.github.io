@@ -39,6 +39,8 @@ const images: DisplayImage[] = [
     width: 500,
   },
 ];
+
+const { firstPosition } = Astro.props;
 ---
 
-<StaggeredImages images={images} />
+<StaggeredImages firstPosition={firstPosition} images={images} />

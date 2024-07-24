@@ -12,10 +12,13 @@ export type DisplayImage = {
 };
 
 interface Props {
+  firstPosition?: "left" | "right";
   images: DisplayImage[];
 }
 
-const { images } = Astro.props;
+const { firstPosition = "left", images } = Astro.props;
+
+const leftIndicator = firstPosition === "left" ? 0 : 1;
 
 const styles = {
   display: "flex",
@@ -30,7 +33,7 @@ const styles = {
       <figure
         class={css({
           mb: 4,
-          alignSelf: index % 2 === 0 ? "flex-start" : "flex-end",
+          alignSelf: index % 2 === leftIndicator ? "flex-start" : "flex-end",
         })}
       >
         <Image
@@ -40,7 +43,10 @@ const styles = {
           width={image.width}
         />
         <figcaption
-          class={css({ mt: 1, textAlign: index % 2 === 0 ? "left" : "right" })}
+          class={css({
+            mt: 1,
+            textAlign: index % 2 === leftIndicator ? "left" : "right",
+          })}
         >
           {image.caption || image.alt}
         </figcaption>

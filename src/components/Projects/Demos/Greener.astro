@@ -1,7 +1,40 @@
 ---
+import Dashboard from "../../../images/greener/greener-dashboard.png";
+import Log from "../../../images/greener/greener-log.png";
+import Schedule from "../../../images/greener/greener-schedule.png";
+import Alerts from "../../../images/greener/greener-alerts.png";
+import type { DisplayImage } from "../../../layouts/StaggeredImages.astro";
+import StaggeredImages from "../../../layouts/StaggeredImages.astro";
 
+const images: DisplayImage[] = [
+  {
+    src: Dashboard,
+    alt: "Greener landing page with recent activities, weather summaries, and alerts",
+    caption: "Initial landing page",
+    width: 250,
+  },
+  {
+    src: Log,
+    alt: "Greener activity log",
+    caption: "Activity log",
+    width: 250,
+  },
+  {
+    src: Schedule,
+    alt: "Greener lawn care schedule",
+    caption: "Schedule of suggested tasks",
+    width: 250,
+  },
+  {
+    src: Alerts,
+    alt: "Closeup of alerts on the Greener landing page",
+    caption:
+      "Alerts show problematic weather conditions and due or overdue tasks",
+    width: 250,
+  },
+];
+
+const { firstPosition } = Astro.props;
 ---
 
-<div>
-  <h1>Greener screenshots</h1>
-</div>
+<StaggeredImages firstPosition={firstPosition} images={images} />
