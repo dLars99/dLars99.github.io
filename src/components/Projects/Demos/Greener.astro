@@ -4,7 +4,8 @@ import Log from "../../../images/greener/greener-log.png";
 import Schedule from "../../../images/greener/greener-schedule.png";
 import Alerts from "../../../images/greener/greener-alerts.png";
 import type { DisplayImage } from "../../../layouts/StaggeredImages.astro";
-import StaggeredImages from "../../../layouts/StaggeredImages.astro";
+import { css } from "../../../../styled-system/css";
+import { Image } from "astro:assets";
 
 const images: DisplayImage[] = [
   {
@@ -35,6 +36,43 @@ const images: DisplayImage[] = [
 ];
 
 const { firstPosition } = Astro.props;
+
+const styles = {
+  wrappedImages: {
+    pl: firstPosition === "left" ? 0 : [0, 16],
+    pr: firstPosition === "right" ? [0, 16] : 0,
+    display: "flex",
+    flexFlow: "row wrap",
+    flex: "1 1 250px",
+    justifyContent: "space-evenly",
+    width: "100%",
+  },
+  image: {
+    mb: 4,
+    width: "250px",
+  },
+  caption: {
+    mt: 1,
+    mx: "auto",
+    width: "fit-content",
+  },
+};
 ---
 
-<StaggeredImages firstPosition={firstPosition} images={images} />
+<div class={css(styles.wrappedImages)}>
+  {
+    images.map((image) => (
+      <figure class={css(styles.image)}>
+        <Image
+          alt={image.alt}
+          height={image.height}
+          src={image.src}
+          width={image.width}
+        />
+        <figcaption class={css(styles.caption)}>
+          {image.caption || image.alt}
+        </figcaption>
+      </figure>
+    ))
+  }
+</div>
