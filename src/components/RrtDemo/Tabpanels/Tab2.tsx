@@ -1,5 +1,5 @@
 import React, { type FC } from "react";
-import { Tabpanel } from "react-routing-tabs";
+import { TabpanelLayout } from "./TabpanelLayout";
 
 export interface Tab2Props {}
 
@@ -7,8 +7,8 @@ export const Tab2: FC<Tab2Props> = ({}) => {
   console.log("Logic Placeholder");
 
   return (
-    <Tabpanel>
+    <TabpanelLayout>
       <h1>Goodbye World</h1>
-    </Tabpanel>
+    </TabpanelLayout>
   );
 };

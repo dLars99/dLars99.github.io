@@ -1,6 +1,7 @@
 import React, { type FC } from "react";
 import { RoutingTabs, Tab, TabList, TabPanelWindow } from "react-routing-tabs";
-import { css } from "../../../styled-system/css";
+import { css, cx } from "../../../styled-system/css";
+import "./styleOverrides.css";
 
 export interface DemoTabsProps {}
 
@@ -18,7 +19,20 @@ export const DemoTabs: FC<DemoTabsProps> = ({}) => {
   ];
 
   return (
-    <div className={css({ width: "fit-content", mx: "auto", mt: 20 })}>
+    <div
+      className={css({
+        bg: "background",
+        color: "black",
+        borderRadius: "4px",
+        width: "fit-content",
+        minWidth: "60ch",
+        mx: "auto",
+        mt: 20,
+        "& li": {
+          border: "none",
+        },
+      })}
+    >
       <RoutingTabs config={config}>
         <TabList />
 

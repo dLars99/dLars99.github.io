@@ -1,0 +1,23 @@
+.tablist {
+  padding-inline: 0.5rem;
+}
+
+.tab {
+  border: none;
+}
+
+.tab__active {
+  box-shadow: none;
+  border-bottom: 4px solid darkgreen;
+}
+
+.tablist__horizontal .tab {
+  padding-inline: 1rem;
+  padding-top: 0.5rem;
+}
+
+.tabpanelWindow {
+  border: none;
+  border-top: solid black 1px;
+  border-radius: 0;
+}
