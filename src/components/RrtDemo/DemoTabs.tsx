@@ -1,16 +1,25 @@
 import React, { type FC } from "react";
-import { RoutingTabs, Tab, TabList, TabPanelWindow } from "react-routing-tabs";
-import { css, cx } from "../../../styled-system/css";
+import { RoutingTabs, TabList, TabPanelWindow } from "react-routing-tabs";
+import { css } from "../../../styled-system/css";
 import "./styleOverrides.css";
 
 export interface DemoTabsProps {}
 
+const styles = {
+  bg: "background",
+  color: "black",
+  borderRadius: "4px",
+  minWidth: "60ch",
+  maxWidth: "calc(65ch + 2rem)",
+  mx: "auto",
+  mt: 20,
+};
+
 export const DemoTabs: FC<DemoTabsProps> = ({}) => {
-  console.log("Logic Placeholder");
   const config = [
     {
-      name: "Tab 1",
-      route: "tab-1",
+      name: "Intro",
+      route: "intro",
     },
     {
       name: "Tab 2",
@@ -19,20 +28,7 @@ export const DemoTabs: FC<DemoTabsProps> = ({}) => {
   ];
 
   return (
-    <div
-      className={css({
-        bg: "background",
-        color: "black",
-        borderRadius: "4px",
-        width: "fit-content",
-        minWidth: "60ch",
-        mx: "auto",
-        mt: 20,
-        "& li": {
-          border: "none",
-        },
-      })}
-    >
+    <div className={css(styles)}>
       <RoutingTabs config={config}>
         <TabList />
 
