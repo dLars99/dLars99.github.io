@@ -2,7 +2,9 @@ import React, { type FC } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { DemoTabs } from "./DemoTabs";
 import { Intro } from "./Tabpanels/Intro";
-import { Tab2 } from "./Tabpanels/Tab2";
+import { HowToUse } from "./Tabpanels/HowToUse";
+import { Styling } from "./Tabpanels/Styling";
+import { Links } from "./Tabpanels/Links";
 
 export interface RrtProps {}
 
@@ -18,8 +20,16 @@ export const RrtDemo: FC<RrtProps> = ({}) => {
             element: <Intro />,
           },
           {
-            path: "/tab-2",
-            element: <Tab2 />,
+            path: "/how-to-use",
+            element: <HowToUse />,
+          },
+          {
+            path: "/styling",
+            element: <Styling />,
+          },
+          {
+            path: "/links",
+            element: <Links />,
           },
         ],
       },

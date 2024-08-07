@@ -1,6 +1,7 @@
 import React, { type FC, type ReactNode } from "react";
 import { Tabpanel } from "react-routing-tabs";
 import { css } from "../../../../styled-system/css";
+import "../styleOverrides.css";
 
 export interface TabpanelLayoutProps {
   children: ReactNode;

@@ -1,7 +1,6 @@
 import React, { type FC } from "react";
 import { RoutingTabs, TabList, TabPanelWindow } from "react-routing-tabs";
 import { css } from "../../../styled-system/css";
-import "./styleOverrides.css";
 
 export interface DemoTabsProps {}
 
@@ -21,8 +20,16 @@ export const routerConfig = [
     route: "intro",
   },
   {
-    name: "Tab 2",
-    route: "tab-2",
+    name: "How to Use",
+    route: "how-to-use",
+  },
+  {
+    name: "Styling",
+    route: "styling",
+  },
+  {
+    name: "Links",
+    route: "links",
   },
 ];
 
