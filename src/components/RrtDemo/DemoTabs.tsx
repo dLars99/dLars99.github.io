@@ -15,21 +15,21 @@ const styles = {
   mt: 20,
 };
 
-export const DemoTabs: FC<DemoTabsProps> = ({}) => {
-  const config = [
-    {
-      name: "Intro",
-      route: "intro",
-    },
-    {
-      name: "Tab 2",
-      route: "tab-2",
-    },
-  ];
+export const routerConfig = [
+  {
+    name: "Intro",
+    route: "intro",
+  },
+  {
+    name: "Tab 2",
+    route: "tab-2",
+  },
+];
 
+export const DemoTabs: FC<DemoTabsProps> = ({}) => {
   return (
     <div className={css(styles)}>
-      <RoutingTabs config={config}>
+      <RoutingTabs config={routerConfig}>
         <TabList />
 
         <TabPanelWindow />
@@ -37,3 +37,11 @@ export const DemoTabs: FC<DemoTabsProps> = ({}) => {
     </div>
   );
 };
+
+/** Tabs:
+ * 1. Intro
+ * 2. Styling
+ * 3. Syntax and important info (react-router-dom requirements, etc.)
+ * ?? Break 3 into sections for data, config, etc. ??
+ * 4. Links
+ */
