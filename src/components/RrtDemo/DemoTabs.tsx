@@ -9,9 +9,9 @@ const styles = {
   color: "black",
   borderRadius: "4px",
   minWidth: "60ch",
-  maxWidth: "calc(65ch + 2rem)",
+  width: ["95%", "calc(65ch + 2rem)"],
   mx: "auto",
-  mt: 20,
+  mt: 40,
 };
 
 export const routerConfig = [
@@ -44,11 +44,3 @@ export const DemoTabs: FC<DemoTabsProps> = ({}) => {
     </div>
   );
 };
-
-/** Tabs:
- * 1. Intro
- * 2. Styling
- * 3. Syntax and important info (react-router-dom requirements, etc.)
- * ?? Break 3 into sections for data, config, etc. ??
- * 4. Links
- */
