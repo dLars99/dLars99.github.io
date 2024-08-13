@@ -35,12 +35,9 @@ const images: DisplayImage[] = [
   },
 ];
 
-const { firstPosition } = Astro.props;
-
 const styles = {
   wrappedImages: {
-    pl: firstPosition === "left" ? 0 : [0, 16],
-    pr: firstPosition === "right" ? [0, 16] : 0,
+    px: [4, 8, 16],
     display: "flex",
     flexFlow: "row wrap",
     flex: "1 1 250px",

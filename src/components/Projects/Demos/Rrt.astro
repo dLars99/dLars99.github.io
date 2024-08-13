@@ -3,12 +3,9 @@ import { Image } from "astro:assets";
 import { css } from "../../../../styled-system/css";
 import RrtImage from "../../../images/rrt/rrt.png";
 
-const { firstPosition } = Astro.props;
-
 const styles = {
   layout: {
-    pl: firstPosition === "left" ? 0 : [0, 16],
-    pr: firstPosition === "right" ? [0, 16] : 0,
+    px: [4, 8, 16],
   },
   figure: {
     display: "flex",
