@@ -17,10 +17,20 @@ const styles = {
   grid: {
     display: "grid",
     gridTemplateColumns: [1, 2],
+    gridTemplateAreas: [
+      '"description" "demo"',
+      demoFirst ? '"demo description"' : '"description demo"',
+    ],
   },
   descriptionColumn: {
+    gridArea: "description",
     pr: demoFirst ? [0, 16] : [0, 4],
     pl: demoFirst ? [0, 4] : [0, 16],
+  },
+  demoColumn: {
+    gridArea: "demo",
+    px: [4, 8, 16],
+    pt: [8, 0],
   },
 };
 ---
@@ -31,31 +41,17 @@ const styles = {
       <ProjectLinks links={links} />
 
       <div class={css(styles.grid)}>
-        {
-          demoFirst && (
-            <div>
-              <slot name="demo">
-                <div>Screenshots</div>
-              </slot>
-            </div>
-          )
-        }
-
         <div class={css(styles.descriptionColumn)}>
           <slot name="description">
             <div>Description</div>
           </slot>
         </div>
 
-        {
-          !demoFirst && (
-            <div>
-              <slot name="demo">
-                <div>Screenshots</div>
-              </slot>
-            </div>
-          )
-        }
+        <div class={css(styles.demoColumn)}>
+          <slot name="demo">
+            <div>Screenshots</div>
+          </slot>
+        </div>
       </div>
     </div>
   </ExpandableChip>
