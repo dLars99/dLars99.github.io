@@ -7,8 +7,18 @@ import { type ProjectFrontmatter } from "../../layouts/ProjectDescription.astro"
 import { demoMap } from "./Demos/demoMap";
 
 const styles = {
-  mx: "auto",
-  width: "100%",
+  header: {
+    paddingY: 0,
+    paddingX: "0.25rem",
+    marginTop: "1rem",
+    width: "20rem",
+    maxWidth: "prose",
+    mx: "auto",
+  },
+  projectList: {
+    mx: "auto",
+    width: "100%",
+  },
 };
 
 const projectData = await Astro.glob<ProjectFrontmatter>(
@@ -22,14 +32,21 @@ projectData.sort((a, b) => {
 ---
 
 <Section id="projects">
-  <Header title="Projects" />
+  <Header title="Projects">
+    <div class={css(styles.header)}>
+      <p>I don't get a lot of time nowadasy to build</p>
+      <p>projects outside of my day job, and</p>
+      <p>and I consider myself an engineer far</p>
+      <p>more than I consider myself a designer,</p>
+      <p>but here are some of the things I have built.</p>
+    </div>
+  </Header>
 
-  <article class={css(styles)}>
+  <div class={css(styles.projectList)}>
     {
       projectData.map((project, index) => {
         const { Content } = project;
         const Demo = demoMap[project.frontmatter.id];
-        console.log({ Demo, demoMap });
         return (
           <Project
             demoFirst={index % 2 === 1}
@@ -38,11 +55,16 @@ projectData.sort((a, b) => {
           >
             <Content slot="description" />
 
-            {Demo ? <Demo slot="demo" /> : null}
+            {Demo ? (
+              <Demo
+                slot="demo"
+                firstPosition={index % 2 === 0 ? "left" : "right"}
+              />
+            ) : null}
           </Project>
         );
       })
     }
-  </article>
+  </div>
 </Section>
 k
