@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import { css } from "../../../../styled-system/css";
+import GitHubImage from "../../../images/icons/github.png";
+import LinkedInImage from "../../../images/icons/linkedin.png";
+
+const styles = {
+  container: {
+    paddingY: 0,
+    marginTop: "1rem",
+    width: ["fit-content", "17rem"],
+    mx: "auto",
+  },
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "max-content minmax(47px, 1fr)",
+    alignItems: "center",
+    gap: 4,
+  },
+};
+---
+
+<div class={css(styles.container)}>
+  <div class={css(styles.grid)}>
+    <p>GitHub:</p>
+    <a href="https://www.github.com/dlars99">
+      <Image
+        src={GitHubImage}
+        alt="GitHub Logo linking to the GitHub profile page of David Larsen"
+        width={40}
+        height={40}
+      />
+    </a>
+
+    <p>LinkedIn:</p>
+    <a href="https://www.linkedin.com/in/david-larsen-nashville">
+      <Image
+        src={LinkedInImage}
+        alt="LinkedIn Logo linking to the LinkedIn profile page of David Larsen"
+        width={47}
+        height={40}
+      />
+    </a>
+  </div>
+</div>
