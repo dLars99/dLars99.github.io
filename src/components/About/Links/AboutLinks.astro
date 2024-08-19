@@ -6,16 +6,20 @@ import LinkedInImage from "../../../images/icons/linkedin.png";
 
 const styles = {
   container: {
+    display: "flex",
+    justifyContent: "center",
+    gap: 4,
     paddingY: 0,
-    marginTop: "1rem",
-    width: ["fit-content", "17rem"],
-    mx: "auto",
+    marginBottom: "1rem",
+    width: ["fit-content", "90%"],
   },
   grid: {
     display: "grid",
     gridTemplateColumns: "max-content minmax(47px, 1fr)",
     alignItems: "center",
     gap: 4,
+    fontSize: "1.125rem",
+    fontWeight: 500,
   },
 };
 ---
@@ -31,7 +35,9 @@ const styles = {
         height={40}
       />
     </a>
+  </div>
 
+  <div class={css(styles.grid)}>
     <p>LinkedIn:</p>
     <a href="https://www.linkedin.com/in/david-larsen-nashville">
       <Image
