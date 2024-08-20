@@ -1,10 +1,11 @@
 import { useMemo } from "react";
 
 const anglesByBreakpoint: Record<string, [number, number, number]> = {
-  // base: [0, 0, 0],
-  // sm: [14, 35, 65],
-  // md: [12, 32, 63],
-  lg: [12, 28, 58],
+  sm: [0, 0, 0],
+  md: [14, 35, 65],
+  lg: [12, 32, 63],
+  xl: [12, 28, 58],
+  "2xl": [10, 25, 55],
 };
 
 export const useNavItems = (breakpoint: string) =>

@@ -6033,6 +6033,11 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
+use-breakpoint@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/use-breakpoint/-/use-breakpoint-4.0.1.tgz#1bbb57afb65f5b592ca15660c6906948f85d7fdc"
+  integrity sha512-Fa5Duxv3BY3bw8kmj/lmryTETXVUmBQeYJpBgPJ2yJRiIaGVG8rlMNKQE+JS2rywCZHWaggVUz+ytbr7sH/yyg==
+
 util-deprecate@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"

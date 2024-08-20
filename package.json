@@ -24,7 +24,8 @@
     "react-router-dom": "^6.24.1",
     "react-routing-tabs": "^0.2.0",
     "sharp": "^0.33.4",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.2",
+    "use-breakpoint": "^4.0.1"
   },
   "devDependencies": {
     "@pandacss/dev": "^0.41.0",
