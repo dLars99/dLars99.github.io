@@ -2,14 +2,15 @@ import { useMemo } from "react";
 
 const anglesByBreakpoint: Record<string, [number, number, number]> = {
   sm: [0, 0, 0],
-  md: [14, 35, 65],
-  lg: [12, 32, 63],
-  xl: [12, 28, 58],
-  "2xl": [10, 25, 55],
+  md: [15, 40, 67],
+  lg: [15, 40, 68],
+  xl: [15, 40, 70],
+  "2xl": [11, 28, 60],
 };
 
 export const useNavItems = (breakpoint: string) =>
   useMemo(() => {
+    console.log({ breakpoint });
     const angles = anglesByBreakpoint[breakpoint] || anglesByBreakpoint["lg"];
 
     return [

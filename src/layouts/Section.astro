@@ -3,9 +3,10 @@ import { css } from "../../styled-system/css";
 
 interface Props {
   id?: string;
+  hideOutOfBounds?: boolean;
 }
 
-const { id } = Astro.props;
+const { id, hideOutOfBounds = false } = Astro.props;
 
 const styles = {
   height: "100%",
@@ -14,6 +15,8 @@ const styles = {
   paddingTop: 16,
   paddingLeft: [0, 16],
   width: "100%",
+  maxHeight: hideOutOfBounds ? ["100vh", "100%"] : "100%",
+  overflowY: hideOutOfBounds ? ["hidden", "visible"] : "visible",
 };
 ---
 
