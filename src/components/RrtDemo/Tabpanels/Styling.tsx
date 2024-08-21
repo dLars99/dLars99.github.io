@@ -3,9 +3,7 @@ import { TabpanelLayout } from "./TabpanelLayout";
 
 export interface StylingProps {}
 
-export const Styling: FC<StylingProps> = ({}) => {
-  console.log("Logic Placeholder");
-
+export const Styling: FC<StylingProps> = () => {
   return (
     <TabpanelLayout>
       <h2>Customizable Styling</h2>

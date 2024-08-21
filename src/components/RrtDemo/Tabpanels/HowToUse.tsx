@@ -3,9 +3,7 @@ import { TabpanelLayout } from "./TabpanelLayout";
 
 export interface HowToUseProps {}
 
-export const HowToUse: FC<HowToUseProps> = ({}) => {
-  console.log("Logic Placeholder");
-
+export const HowToUse: FC<HowToUseProps> = () => {
   return (
     <TabpanelLayout>
       <h2>How To Use react-routing-tabs</h2>

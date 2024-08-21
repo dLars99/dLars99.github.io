@@ -10,7 +10,6 @@ const anglesByBreakpoint: Record<string, [number, number, number]> = {
 
 export const useNavItems = (breakpoint: string) =>
   useMemo(() => {
-    console.log({ breakpoint });
     const angles = anglesByBreakpoint[breakpoint] || anglesByBreakpoint["lg"];
 
     return [
