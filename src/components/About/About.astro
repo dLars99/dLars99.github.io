@@ -6,21 +6,23 @@ import Bio from "./Bio/Bio.astro";
 import AboutLinks from "./Links/AboutLinks.astro";
 
 const styles = {
-  display: "grid",
-  gridTemplateColumns: [1, 2],
-  marginTop: 12,
+  outer: {
+    display: "grid",
+    gridTemplateColumns: [1, 2],
+    marginTop: [6, 8],
+  },
 };
 ---
 
 <Section id="about">
   <Header title="About" />
 
-  <div class={css(styles)}>
+  <div class={css(styles.outer)}>
     <div></div>
     <div>
-      <AboutLinks />
-
       <Bio />
+
+      <AboutLinks />
     </div>
   </div>
 </Section>
