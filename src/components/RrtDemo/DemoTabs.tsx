@@ -8,7 +8,7 @@ const styles = {
   bg: "background",
   color: "black",
   borderRadius: "4px",
-  minWidth: "60ch",
+  maxWidth: "60ch",
   width: ["95%", "calc(65ch + 2rem)"],
   mx: "auto",
   mt: 40,

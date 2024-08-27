@@ -15,7 +15,7 @@ export const styles = {
   li: css.raw({
     borderRadius: "50%",
     "&:hover": {
-      backdropFilter: "blur(3px) saturate(3)",
+      backdropFilter: ["none", "none", "blur(3px) saturate(3)"],
     },
     listStyleType: "none",
     position: ["static", "absolute"],
@@ -28,7 +28,7 @@ export const styles = {
       fontSize: "3xl",
       fontWeight: "black",
       "&:hover": {
-        fontSize: "5xl",
+        fontSize: ["3xl", "3xl", "5xl"],
       },
       pl: [index === 2 ? 16 : 0, 0],
       pr: [index === 1 ? 24 : 0, 0],

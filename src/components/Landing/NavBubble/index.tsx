@@ -5,6 +5,7 @@ import { useNavItems } from "./useNavItems";
 import type { SystemStyleObject } from "../../../../styled-system/types";
 import { css } from "../../../../styled-system/css";
 import { styles } from "./navBubble.styles";
+import { useBreakpoint } from "../../../utilities";
 
 interface NavBubbleProps extends HTMLAttributes<HTMLDivElement> {
   navStyles: SystemStyleObject;
@@ -12,13 +13,12 @@ interface NavBubbleProps extends HTMLAttributes<HTMLDivElement> {
 
 export const NavBubble: FC<NavBubbleProps> = ({ navStyles }) => {
   const { dimensions, ref } = useDimensions();
-  // const breakpoint = useBreakpoint();
-  const breakpoint = "lg";
+  const breakpoint = useBreakpoint();
   const navItems = useNavItems(breakpoint);
 
   const placeOnBubble = (angle: number) => {
     let bubbleStyles = {};
-    if (breakpoint !== "base") {
+    if (breakpoint !== "sm") {
       const [width, height] = dimensions;
       const halfHeight = height / 2;
       const [x, y] = pointOnEllipse(width, halfHeight, angle);
@@ -26,8 +26,8 @@ export const NavBubble: FC<NavBubbleProps> = ({ navStyles }) => {
         bottom: `calc(${y}px + ${halfHeight}px - 3rem)`,
         right: `calc(${x}px - 5rem)`,
       };
+      return bubbleStyles;
     }
-    return bubbleStyles;
   };
 
   return (

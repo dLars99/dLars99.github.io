@@ -1,37 +1,50 @@
 ---
-import { css } from "../../styled-system/css";
+import { css, cva } from "../../styled-system/css";
 import "@fontsource/nunito-sans";
 
 interface Props {
+  color?: "dark" | "light";
   title: string;
 }
 
-const { title } = Astro.props;
+const { color = "dark", title } = Astro.props;
 
-const headerStyles = {
-  maxWidth: ["100%", "40%"],
-};
+const header = cva({
+  base: {
+    maxWidth: ["100%", "40%"],
+  },
+  variants: {
+    color: {
+      dark: {
+        color: "primary",
+      },
+      light: {
+        color: "blue.100",
+      },
+    },
+  },
+});
 
-const containerStyles = {
-  borderBottom: "1px solid",
-  borderColor: "primary",
-  borderRadius: "42%",
-  paddingBottom: 3,
-  mx: "auto",
-  textAlign: "center",
-  width: 80,
-  maxWidth: "prose",
-};
-
-const headerTextStyles = {
-  color: "primary",
-  textStyle: "h2",
+const styles = {
+  container: {
+    color: color,
+    borderBottom: `1px solid`,
+    borderRadius: "42%",
+    paddingBottom: 3,
+    mx: "auto",
+    textAlign: "center",
+    width: 80,
+    maxWidth: "prose",
+  },
+  text: {
+    textStyle: "h2",
+  },
 };
 ---
 
-<header class={css(headerStyles)}>
-  <div class={css(containerStyles)}>
-    <h2 class={css(headerTextStyles)}>
+<header class={header({ color })}>
+  <div class={css(styles.container)}>
+    <h2 class={css(styles.text)}>
       {title}
     </h2>
   </div>

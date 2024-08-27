@@ -7,13 +7,13 @@ import { type ProjectFrontmatter } from "../../layouts/ProjectDescription.astro"
 import { demoMap } from "./Demos/demoMap";
 
 const styles = {
-  header: {
+  blurb: {
     paddingY: 0,
-    paddingX: "0.25rem",
+    px: [4, 0],
     marginTop: "1rem",
-    width: "20rem",
+    width: "100%",
     maxWidth: "prose",
-    mx: "auto",
+    ml: [0, "calc((40% - 20rem) / 2)"],
   },
   projectList: {
     mx: "auto",
@@ -32,15 +32,15 @@ projectData.sort((a, b) => {
 ---
 
 <Section id="projects">
-  <Header title="Projects">
-    <div class={css(styles.header)}>
-      <p>I don't get a lot of time nowadasy to build</p>
-      <p>projects outside of my day job, and</p>
-      <p>and I consider myself an engineer far</p>
-      <p>more than I consider myself a designer,</p>
-      <p>but here are some of the things I have built.</p>
-    </div>
-  </Header>
+  <Header title="Projects" />
+  <div class={css(styles.blurb)}>
+    <p>
+      Though I consider myself an engineer far more than I consider myself a
+      designer, and I don't get a lot of time for side projects, I am able to
+      dabble once in a while.
+    </p>
+    <p>Here are some of those dabblings.</p>
+  </div>
 
   <div class={css(styles.projectList)}>
     {
@@ -67,4 +67,3 @@ projectData.sort((a, b) => {
     }
   </div>
 </Section>
-k
