@@ -9,12 +9,12 @@ import { jobData } from "./jobData";
 
 const styles = {
   downloadLink: {
-    color: "blue.600",
+    color: "blue.200",
     textDecoration: "underline transparent",
     transition: "text-decoration .1s ease-in-out",
     _hover: {
-      color: "blue.400",
-      textDecorationColor: "blue.400",
+      color: "blue.500",
+      textDecorationColor: "blue.500",
     },
   },
   linkContainer: {
@@ -36,8 +36,8 @@ const styles = {
 };
 ---
 
-<Section id="work">
-  <Header title="Work" />
+<Section background="contrast" id="work">
+  <Header color="light" title="Work" />
   <div class={css(styles.subHeader)}>
     <div class={css(styles.linkContainer)}>
       <a class={css(styles.downloadLink)} href={resume} download>

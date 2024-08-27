@@ -1,25 +1,57 @@
 ---
-import { css } from "../../styled-system/css";
+import { css, cva } from "../../styled-system/css";
+import { token, type Token } from "../../styled-system/tokens";
 
 interface Props {
+  background?: "none" | "contrast";
   id?: string;
   hideOutOfBounds?: boolean;
 }
 
-const { id, hideOutOfBounds = false } = Astro.props;
+const { background = "none", id, hideOutOfBounds = false } = Astro.props;
 
-const styles = {
-  height: "100%",
-  minHeight: "100vh",
-  position: "relative",
-  paddingTop: 16,
-  paddingLeft: [0, 16],
-  width: "100%",
-  maxHeight: hideOutOfBounds ? ["100vh", "100%"] : "100%",
-  overflowY: hideOutOfBounds ? ["hidden", "visible"] : "visible",
-};
+const section = cva({
+  base: {
+    height: "100%",
+    minHeight: "100vh",
+    position: "relative",
+    paddingTop: 16,
+    paddingLeft: [0, 16],
+    width: "100%",
+  },
+  variants: {
+    background: {
+      none: {
+        background: "transparent",
+      },
+      contrast: {
+        bg: "blue.600",
+      },
+    },
+    overflow: {
+      hidden: {
+        maxHeight: ["100vh", "100%"],
+        overflowY: ["hidden", "visible"],
+      },
+      visible: {
+        maxHeight: "100%",
+        overflowY: "visible",
+      },
+    },
+  },
+  defaultVariants: {
+    background: "none",
+    overflow: "visible",
+  },
+});
 ---
 
-<section class={css(styles)} id={id}>
+<section
+  class={section({
+    background,
+    overflow: hideOutOfBounds ? "hidden" : "visible",
+  })}
+  id={id}
+>
   <slot />
 </section>
