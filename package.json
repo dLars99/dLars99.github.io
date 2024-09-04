@@ -11,14 +11,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.7.0",
-    "@astrojs/mdx": "^3.1.2",
-    "@astrojs/react": "^3.6.0",
+    "@astrojs/check": "0.9.3",
+    "@astrojs/mdx": "3.1.5",
+    "@astrojs/react": "3.6.2",
     "@astrojs/sitemap": "^3.1.6",
     "@fontsource/nunito-sans": "^5.0.13",
     "@radix-ui/react-collapsible": "^1.1.0",
     "@react-icons/all-files": "^4.1.0",
-    "astro": "^4.11.3",
+    "astro": "4.15.2",
     "date-fns": "^3.6.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
