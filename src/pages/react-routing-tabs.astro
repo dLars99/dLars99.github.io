@@ -3,16 +3,16 @@ import "@fontsource/nunito-sans";
 import "../index.css";
 import { css } from "../../styled-system/css";
 import { RrtDemo } from "../components/RrtDemo";
+import Head from "../layouts/Head.astro";
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>react-routing-tabs Demo</title>
-  </head>
+  <Head
+    title="react-routing-tabs Live Demo"
+    description="Try this live demo of react-routing-tabs. RRT is an accessible tabs component that route using react-router-dom."
+    canonical="https://davidplarsen.com/react-routing-tabs"
+  />
+
   <body>
     <main
       class={css({
