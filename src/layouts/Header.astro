@@ -65,15 +65,17 @@ const styles = {
 <header class={header({ color })}>
   <div class={css(styles.container)}>
     {
-      returnToTop && (
-        <a href="#home">
-          <FcLeftUp2 className={css(styles.icon)} size={24} />
-        </a>
+      returnToTop ? (
+        <>
+          <a href="#home">
+            <FcLeftUp2 className={css(styles.icon)} size={24} />
+          </a>
+          <h2 class={css(styles.text)}>{title}</h2>
+        </>
+      ) : (
+        <h1 class={css(styles.text)}>{title}</h1>
       )
     }
-    <h2 class={css(styles.text)}>
-      {title}
-    </h2>
   </div>
   <slot />
 </header>
