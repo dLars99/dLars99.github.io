@@ -1,0 +1,14 @@
+---
+import { css } from "../../styled-system/css";
+
+const styles = {
+  background: "{gradients}",
+  height: "100%",
+  minHeight: "100vh",
+  // overflowX: "hidden",
+};
+---
+
+<main class={css(styles)}>
+  <slot />
+</main>

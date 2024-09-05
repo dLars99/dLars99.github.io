@@ -1,0 +1,38 @@
+---
+import About from "../components/About/About.astro";
+import Landing from "../components/Landing/Landing.astro";
+import Projects from "../components/Projects/Projects.astro";
+import Work from "../components/Work/Work.astro";
+import Main from "../layouts/Main.astro";
+import "@fontsource/nunito-sans";
+import "../index.css";
+import { css } from "../../styled-system/css";
+import Head from "../layouts/Head.astro";
+
+const styles = {
+  fontFamily: "nunito",
+  scrollBehavior: "smooth",
+  _motionReduce: {
+    scrollBehavior: "auto",
+  },
+};
+---
+
+<html lang="en" class={css(styles)}>
+  <Head
+    title="David P Larsen: Javascript Software Engineer"
+    description="Javascript web portfolio for software engineer David Larsen"
+  />
+
+  <body>
+    <Main>
+      <Landing />
+
+      <About />
+
+      <Work />
+
+      <Projects />
+    </Main>
+  </body>
+</html>

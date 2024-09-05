@@ -1,0 +1,16 @@
+---
+import { css } from "../../../../styled-system/css";
+
+const styles = {
+  width: "100%",
+  mx: "auto",
+  maxWidth: "prose",
+  mb: 4,
+};
+---
+
+<div class={css(styles)}>
+  <p>
+    <slot />
+  </p>
+</div>

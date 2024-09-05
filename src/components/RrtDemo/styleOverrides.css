@@ -1,0 +1,31 @@
+.tablist {
+  padding-inline: 0.5rem;
+}
+
+.tab {
+  border: none;
+  border-radius: 0;
+  border: 1px solid transparent;
+}
+
+.tab__active {
+  box-shadow: none;
+  border-bottom: 4px solid darkgreen;
+}
+
+.tablist__horizontal .tab {
+  padding-inline: 1rem;
+  padding-top: 0.5rem;
+  border-radius: 0;
+}
+
+.tabpanelWindow {
+  border: none;
+  border-top: solid black 1px;
+  border-radius: 0;
+}
+
+.tab__link:focus {
+  outline: none;
+  outline: 1px dotted darkgreen;
+}

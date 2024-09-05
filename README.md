@@ -1,35 +1,40 @@
 # Personal Portfolio Website
+
 ## David P. Larsen
 
-#### Adapted from the TXT template from html5up.net
-TXT by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+This is my portfolio site, built using [Astro](https://astro.build) and [React](https://react.dev).
 
+View the finished product at https://davidplarsen.com.
 
-A new, fully responsive portfolio/business style website template. I've been experimenting
-with minimalist styles lately and this design is one of many in the works that exemplifies
-this new direction. Hope you enjoy it.
+## Development
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+### Requirements
 
-(* = Not included)
+You will need:
 
-Feedback, bug reports, and comments are not only welcome, but strongly encouraged :)
+- Node 18+
+- Yarn 2+
 
-AJ
-aj@lkn.io | @ajlkn
+### Installation
 
+Installation should be pretty straightforward.
 
-Credits:
+After cloning the repo, run:
 
-	Demo Images:
-		Unsplash (unsplash.com)
+```sh
+yarn install
+```
 
-	Icons:
-		Font Awesome (fontawesome.io)
+### Running locally
 
-	Other:
-		jQuery (jquery.com)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+This, again, should be straightforward.
+
+```sh
+yarn start
+```
+
+If successful, you will see a message saying the project is running and its port. Default port is `4321`.
+
+### Styling
+
+Styling is done with [Panda CSS](https://panda-css.com).

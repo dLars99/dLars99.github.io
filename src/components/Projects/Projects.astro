@@ -1,0 +1,69 @@
+---
+import Header from "../../layouts/Header.astro";
+import Section from "../../layouts/Section.astro";
+import { css } from "../../../styled-system/css";
+import Project from "../../layouts/Project.astro";
+import { type ProjectFrontmatter } from "../../layouts/ProjectDescription.astro";
+import { demoMap } from "./Demos/demoMap";
+
+const styles = {
+  blurb: {
+    paddingY: 0,
+    px: [4, 0],
+    marginTop: "1rem",
+    width: "100%",
+    maxWidth: "prose",
+    ml: [0, "calc((40% - 20rem) / 2)"],
+  },
+  projectList: {
+    mx: "auto",
+    width: "100%",
+  },
+};
+
+const projectData = await Astro.glob<ProjectFrontmatter>(
+  "../../content/projects/*.md"
+);
+
+projectData.sort((a, b) => {
+  if (a.frontmatter.lastUpdatedDate === b.frontmatter.lastUpdatedDate) return 0;
+  return a.frontmatter.lastUpdatedDate > b.frontmatter.lastUpdatedDate ? -1 : 1;
+});
+---
+
+<Section id="projects">
+  <Header title="Projects" />
+  <div class={css(styles.blurb)}>
+    <p>
+      Though I consider myself an engineer far more than I consider myself a
+      designer, and I don't get a lot of time for side projects, I am able to
+      dabble once in a while.
+    </p>
+    <p>Here are some of those dabblings.</p>
+  </div>
+
+  <div class={css(styles.projectList)}>
+    {
+      projectData.map((project, index) => {
+        const { Content } = project;
+        const Demo = demoMap[project.frontmatter.id];
+        return (
+          <Project
+            demoFirst={index % 2 === 1}
+            links={project.frontmatter.links}
+            title={project.frontmatter.title}
+          >
+            <Content slot="description" />
+
+            {Demo ? (
+              <Demo
+                slot="demo"
+                firstPosition={index % 2 === 0 ? "left" : "right"}
+              />
+            ) : null}
+          </Project>
+        );
+      })
+    }
+  </div>
+</Section>

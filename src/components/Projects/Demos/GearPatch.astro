@@ -1,0 +1,46 @@
+---
+import Homepage from "../../../images/gearpatch/gearpatch-homepage.png";
+import GearDetails from "../../../images/gearpatch/gearpatch-gear-details.png";
+import SearchResults from "../../../images/gearpatch/gearpatch-search-results.png";
+import Messages from "../../../images/gearpatch/gearpatch-messages.png";
+import Reservations from "../../../images/gearpatch/gearpatch-reservations.png";
+import type { DisplayImage } from "../../../layouts/StaggeredImages.astro";
+import StaggeredImages from "../../../layouts/StaggeredImages.astro";
+
+const images: DisplayImage[] = [
+  {
+    src: Homepage,
+    alt: "Gearpatch landing page with search bar",
+    caption: "Initial landing page",
+    width: 500,
+  },
+  {
+    src: SearchResults,
+    alt: "Gearpatch search results",
+    caption: "Search results",
+    width: 500,
+  },
+  {
+    src: GearDetails,
+    alt: "Gearpatch gear details page",
+    caption: "Gear details page",
+    width: 500,
+  },
+  {
+    src: Messages,
+    alt: "Gearpatch messages to request a gear reservation",
+    caption: "Messages to communicate reservation details",
+    width: 500,
+  },
+  {
+    src: Reservations,
+    alt: "Gearpatch reservations page showing current and upcoming gear rentals",
+    caption: "Reservations page showing current and upcoming gear rentals",
+    width: 500,
+  },
+];
+
+const { firstPosition } = Astro.props;
+---
+
+<StaggeredImages firstPosition={firstPosition} images={images} />

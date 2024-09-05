@@ -1,0 +1,38 @@
+---
+import Menu from "../../../images/barkeep/barkeep-homepage.png";
+import DrinkMatch from "../../../images/barkeep/barkeep-drink-match.png";
+import DrinkDetail from "../../../images/barkeep/barkeep-drink-detail.png";
+import NewDrink from "../../../images/barkeep/barkeep-new-drink.png";
+import StaggeredImages from "../../../layouts/StaggeredImages.astro";
+
+const images = [
+  {
+    src: Menu,
+    alt: "Barkeep menu screen with options to search by name or ingredient and to create new ingredients and drinks",
+    caption: "Menu page",
+    width: 500,
+  },
+  {
+    src: DrinkMatch,
+    alt: "Barkeep search results screen with search term and selected ingredients",
+    caption: "Search results with selected ingredients",
+    width: 500,
+  },
+  {
+    src: DrinkDetail,
+    alt: "Barkeep drink detail popup with full instructions",
+    caption: "Drink detail with instructions",
+    width: 500,
+  },
+  {
+    src: NewDrink,
+    alt: "Barkeep new drink form",
+    caption: "New drink form",
+    width: 500,
+  },
+];
+
+const { firstPosition } = Astro.props;
+---
+
+<StaggeredImages firstPosition={firstPosition} images={images} />

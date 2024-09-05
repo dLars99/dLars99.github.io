@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+import { css } from "../../../../styled-system/css";
+import PortfolioImage from "../../../images/portfolio/portfolio.png";
+
+const styles = {
+  figure: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    mx: "auto",
+  },
+};
+---
+
+<div>
+  <figure class={css(styles.figure)}>
+    <Image
+      alt="A recursive screenshot showing the 'This Website' card in the 'Projects' section"
+      src={PortfolioImage}
+      width={500}
+    />
+    <figcaption class={css({ mt: 1 })}>A screenshot of this page</figcaption>
+  </figure>
+</div>

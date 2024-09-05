@@ -1,0 +1,81 @@
+---
+import { css, cva } from "../../styled-system/css";
+import { token } from "../../styled-system/tokens";
+import { FcLeftUp2 } from "@react-icons/all-files/fc/FcLeftUp2";
+import "@fontsource/nunito-sans";
+
+interface Props {
+  color?: "dark" | "light";
+  returnToTop?: boolean;
+  title: string;
+}
+
+const { color = "dark", returnToTop = true, title } = Astro.props;
+
+const header = cva({
+  base: {
+    maxWidth: ["100%", "40%"],
+  },
+  variants: {
+    color: {
+      dark: {
+        color: "primary",
+      },
+      light: {
+        color: "blue.100",
+      },
+    },
+  },
+});
+
+const styles = {
+  container: {
+    position: "relative",
+    color: color,
+    borderBottom: `1px solid`,
+    borderRadius: "42%",
+    paddingBottom: 3,
+    mx: "auto",
+    textAlign: "center",
+    width: 80,
+    maxWidth: "prose",
+  },
+  icon: {
+    position: "absolute",
+    top: 0,
+    left: 12,
+    cursor: "pointer",
+    "& *": {
+      color: color === "dark" ? "primary" : "blue.100",
+      fill: color === "dark" ? "primary" : "blue.100",
+    },
+    "&:hover": {
+      "& *": {
+        color: "secondary",
+        fill: "secondary",
+      },
+    },
+  },
+  text: {
+    textStyle: "h2",
+  },
+};
+---
+
+<header class={header({ color })}>
+  <div class={css(styles.container)}>
+    {
+      returnToTop ? (
+        <>
+          <a href="#home">
+            <FcLeftUp2 className={css(styles.icon)} size={24} />
+          </a>
+          <h2 class={css(styles.text)}>{title}</h2>
+        </>
+      ) : (
+        <h1 class={css(styles.text)}>{title}</h1>
+      )
+    }
+  </div>
+  <slot />
+</header>

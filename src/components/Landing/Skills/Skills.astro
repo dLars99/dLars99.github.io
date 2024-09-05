@@ -1,0 +1,36 @@
+---
+const skillSet = [
+  {
+    name: "React",
+    logo: "..",
+    link: "https://www.react.com",
+  },
+];
+---
+
+<section class="container">
+  <div class="center">
+    <h3>Skills</h3>
+  </div>
+  {
+    skillSet.map((skill) => (
+      <a href={skill.link}>
+        {/* <StaticImage alt={skill.name} src={skill.logo} /> */}
+      </a>
+    ))
+  }
+</section>
+
+<style>
+  .center {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+  }
+
+  h3 {
+    fontsize: 1.25rem;
+  }
+</style>

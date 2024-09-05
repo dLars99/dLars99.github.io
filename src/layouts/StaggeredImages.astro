@@ -1,0 +1,56 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import { css } from "../../styled-system/css";
+
+export type DisplayImage = {
+  src: ImageMetadata;
+  alt: string;
+  width?: number;
+  height?: number;
+  caption?: string;
+};
+
+interface Props {
+  firstPosition?: "left" | "right";
+  images: DisplayImage[];
+}
+
+const { firstPosition = "left", images } = Astro.props;
+
+const leftIndicator = firstPosition === "left" ? 0 : 1;
+
+const styles = {
+  display: "flex",
+  flexDirection: "column",
+  width: "100%",
+};
+---
+
+<div class={css(styles)}>
+  {
+    images.map((image, index) => (
+      <figure
+        class={css({
+          mb: 4,
+          alignSelf: index % 2 === leftIndicator ? "flex-start" : "flex-end",
+        })}
+      >
+        <Image
+          alt={image.alt}
+          height={image.height}
+          src={image.src}
+          width={image.width}
+        />
+        <figcaption
+          class={css({
+            mt: 1,
+            textAlign: index % 2 === leftIndicator ? "left" : "right",
+          })}
+        >
+          {image.caption || image.alt}
+        </figcaption>
+      </figure>
+    ))
+  }
+</div>

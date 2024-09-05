@@ -1,0 +1,74 @@
+---
+import Dashboard from "../../../images/greener/greener-dashboard.png";
+import Log from "../../../images/greener/greener-log.png";
+import Schedule from "../../../images/greener/greener-schedule.png";
+import Alerts from "../../../images/greener/greener-alerts.png";
+import type { DisplayImage } from "../../../layouts/StaggeredImages.astro";
+import { css } from "../../../../styled-system/css";
+import { Image } from "astro:assets";
+
+const images: DisplayImage[] = [
+  {
+    src: Dashboard,
+    alt: "Greener landing page with recent activities, weather summaries, and alerts",
+    caption: "Initial landing page",
+    width: 250,
+  },
+  {
+    src: Log,
+    alt: "Greener activity log",
+    caption: "Activity log",
+    width: 250,
+  },
+  {
+    src: Schedule,
+    alt: "Greener lawn care schedule",
+    caption: "Schedule of suggested tasks",
+    width: 250,
+  },
+  {
+    src: Alerts,
+    alt: "Closeup of alerts on the Greener landing page",
+    caption:
+      "Alerts show problematic weather conditions and due or overdue tasks",
+    width: 250,
+  },
+];
+
+const styles = {
+  wrappedImages: {
+    display: "flex",
+    flexFlow: "row wrap",
+    flex: "1 1 250px",
+    justifyContent: "space-evenly",
+    width: "100%",
+  },
+  image: {
+    mb: 4,
+    width: "250px",
+  },
+  caption: {
+    mt: 1,
+    mx: "auto",
+    width: "fit-content",
+  },
+};
+---
+
+<div class={css(styles.wrappedImages)}>
+  {
+    images.map((image) => (
+      <figure class={css(styles.image)}>
+        <Image
+          alt={image.alt}
+          height={image.height}
+          src={image.src}
+          width={image.width}
+        />
+        <figcaption class={css(styles.caption)}>
+          {image.caption || image.alt}
+        </figcaption>
+      </figure>
+    ))
+  }
+</div>

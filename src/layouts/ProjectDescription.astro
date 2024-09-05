@@ -1,0 +1,83 @@
+---
+import { format } from "date-fns";
+import type { ProjectLink } from "../components/Projects/ProjectLinks/ProjectLinks.astro";
+import { css } from "../../styled-system/css";
+
+export type ProjectFrontmatter = {
+  id: string;
+  title: string;
+  description: string;
+  initialCompletionDate: string;
+  lastUpdatedDate: string;
+  links: ProjectLink[];
+  tech: string[];
+};
+
+interface Props {
+  frontmatter: ProjectFrontmatter;
+}
+
+const { frontmatter } = Astro.props;
+const dateFormat = "MMMM y";
+
+const styles = {
+  sheet: {
+    backgroundColor: "rgba(255, 255, 255, 0.36)",
+    borderRadius: "5%",
+    width: "100%",
+    mx: "auto",
+    maxWidth: "60ch",
+    px: [12, 16],
+    padding: 6,
+  },
+  markdown: {
+    "& p": {
+      my: 4,
+    },
+    "& a": {
+      color: "blue.300",
+      cursor: "pointer",
+      "&:hover": {
+        textDecoration: "underline",
+      },
+      "&:visited": {
+        color: "blue.600",
+      },
+    },
+    "& ul": {
+      listStyleType: "disc",
+    },
+    "& li": {
+      ml: "2rem",
+    },
+  },
+  paragraph: {
+    my: 4,
+  },
+};
+---
+
+<div class={css(styles.sheet)}>
+  <p>
+    <strong>Initial completion:</strong>
+    {format(frontmatter.initialCompletionDate, dateFormat)}
+  </p>
+
+  <p class={css(styles.paragraph, { mt: 0 })}>
+    <strong>Last update:</strong>
+    {format(frontmatter.lastUpdatedDate, dateFormat)}
+  </p>
+
+  <p class={css(styles.paragraph)}>
+    <em>{frontmatter.description}</em>
+  </p>
+
+  <div class={css(styles.markdown)}>
+    <slot />
+  </div>
+
+  <p class={css(styles.paragraph, { mb: 0 })}>
+    <strong>Tech:</strong>
+    {frontmatter.tech.join(", ")}
+  </p>
+</div>
