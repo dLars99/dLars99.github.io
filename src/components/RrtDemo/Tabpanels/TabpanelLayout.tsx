@@ -10,6 +10,10 @@ export interface TabpanelLayoutProps {
 export const TabpanelLayout: FC<TabpanelLayoutProps> = ({ children }) => {
   const styles = {
     p: 4,
+    "& h1": {
+      fontSize: "20px",
+      color: "blue",
+    },
     "& h2": {
       fontSize: "20px",
       color: "blue",
