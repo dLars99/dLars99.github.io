@@ -29,4 +29,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - All files used by the old static site
 
 [unreleased]: https://github.com/dlars99/dLars99.github.io/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/davidplarsen/dLars99.github.io/releases/tag/v1.0.0
+[1.0.0]: https://github.com/dlars99/dLars99.github.io/releases/tag/v1.0.0
