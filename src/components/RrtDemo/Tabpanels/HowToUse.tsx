@@ -14,11 +14,10 @@ export const HowToUse: FC<HowToUseProps> = () => {
       </p>
 
       <p>Requirements:</p>
-      {/* ul */}
+
       <p>React v18</p>
 
       <p>react-router-dom v6+</p>
-      {/* /ul */}
 
       <p>
         For routing, make sure all your routes for the tabs and their content
