@@ -14,7 +14,7 @@ export const jobData: Job[] = [
     location: "Detroit, MI",
     remote: true,
     startDate: new Date("September 15, 2022"),
-    title: "Software Engineer II",
+    title: "Senior Software Engineer",
     bulletPoints: [
       "Led long-term frontend development for two project teams",
       "Led development of UI interface for management of product offerings through third-party platforms, opening significant new streams of revenue",
