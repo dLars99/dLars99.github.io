@@ -1,5 +1,5 @@
 ---
-import { RiFileDownloadLine } from "@react-icons/all-files/ri/RiFileDownloadLine";
+import { FaFilePdf } from "@react-icons/all-files/fa/FaFilePdf";
 import { css } from "../../../styled-system/css";
 import resume from "../../assets/files/David Larsen Resume Downloadable.pdf";
 import Header from "../../layouts/Header.astro";
@@ -41,9 +41,11 @@ const styles = {
   <div class={css(styles.subHeader)}>
     <div class={css(styles.linkContainer)}>
       <a class={css(styles.downloadLink)} href={resume} download>
-        <RiFileDownloadLine
+        <FaFilePdf
+          color="#B30B00"
           className={css({ display: "inline-block" })}
           size={24}
+          title="Download resume in PDF format"
         />
         Downloadable resume
       </a>
