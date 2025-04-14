@@ -1,7 +1,7 @@
 {
   "name": "astro",
   "type": "module",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "scripts": {
     "prepare": "panda codegen",
     "dev": "astro dev",
