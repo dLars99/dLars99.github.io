@@ -8,6 +8,7 @@ import "@fontsource/nunito-sans";
 import "../index.css";
 import { css } from "../../styled-system/css";
 import Head from "../layouts/Head.astro";
+import UselessKonamiCode from "../components/UselessKonamiCode";
 
 const styles = {
   fontFamily: "nunito",
@@ -25,6 +26,8 @@ const styles = {
   />
 
   <body>
+    <UselessKonamiCode client:load />
+
     <Main>
       <Landing />
 
