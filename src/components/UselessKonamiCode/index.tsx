@@ -2,7 +2,11 @@ import React from "react";
 import { useUselessKonamiCode } from "./useUselessKonamiCode";
 
 export default function UselessKonamiCode() {
-  useUselessKonamiCode();
+  const hasNoLife = useUselessKonamiCode();
 
-  return null;
+  return hasNoLife ? (
+    <div>
+      <p>30 Lives</p>
+    </div>
+  ) : null;
 }

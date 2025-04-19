@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const konamiCode = [
   "ArrowUp",
@@ -11,21 +11,20 @@ const konamiCode = [
   "ArrowRight",
   "b",
   "a",
-  "b",
-  "a",
-  "Enter",
 ];
 
 export const useUselessKonamiCode = () => {
+  const [activated, setActivated] = useState(false);
+
   useEffect(() => {
     let konamiCodeKeystroke = 0;
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      console.log("keydown");
       if (event.key === konamiCode[konamiCodeKeystroke]) {
         konamiCodeKeystroke++;
         if (konamiCodeKeystroke === konamiCode.length) {
           alert("Useless Konami Code activated!");
+          setActivated(true);
           konamiCodeKeystroke = 0;
         }
       } else {
@@ -39,4 +38,6 @@ export const useUselessKonamiCode = () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
+
+  return activated;
 };
