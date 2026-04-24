@@ -14,15 +14,15 @@ export const useNavItems = (breakpoint: string) =>
 
     return [
       {
-        name: "about",
+        name: "About",
         angle: angles[0],
       },
       {
-        name: "work",
+        name: "Work",
         angle: angles[1],
       },
       {
-        name: "projects",
+        name: "Projects",
         angle: angles[2],
       },
     ];

@@ -57,11 +57,11 @@ export default defineConfig({
           ellipse: {
             base: {
               value:
-                "radial-gradient(ellipse 100% 65%, #007699, #A2AF9F, #FFFFFF 85%)",
+                "radial-gradient(ellipse 100% 65%, rgba(0, 118, 153, 0.35), rgba(162, 175, 159, 0.2), rgba(255, 255, 255, 0.1) 85%)",
             },
             sm: {
               value:
-                "radial-gradient(ellipse at right, #007699, #A2AF9F, #FFFFFF 85%)",
+                "radial-gradient(ellipse at right, rgba(0, 118, 153, 0.35), rgba(162, 175, 159, 0.2), rgba(255, 255, 255, 0.1) 85%)",
             },
           },
         },
