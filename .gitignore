@@ -38,3 +38,7 @@ styled-system-studio
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# ai
+.instructions
+.superpowers
