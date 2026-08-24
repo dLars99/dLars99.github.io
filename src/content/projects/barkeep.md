@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/ProjectDescription.astro"
 id: "barkeep"
 title: "Barkeep"
 description: "A cocktail catalog for personal use"
@@ -18,7 +17,9 @@ links:
       type: "github",
     },
   ]
-tech: ["PostgreSQL", "Typescript (Express API, React client)"]
+tech: ["PostgreSQL", "TypeScript", "Express", "React"]
+role: "I designed and built both the Express/PostgreSQL API and the React client end-to-end, including the ingredient-based search schema and the recipe data model."
+challenges: "The core interface challenge was letting someone filter by a variable number of ingredients they already have on hand, then rank partial matches usefully instead of just showing exact matches. I solved it with a scored ingredient-overlap query rather than a strict WHERE-IN filter."
 ---
 
 Several years ago, my wife got into mixology, especially tiki cocktails. A

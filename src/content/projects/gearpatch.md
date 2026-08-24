@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/ProjectDescription.astro"
 id: "gearpatch"
 title: "GearPatch"
 description: "A peer-to-peer network for renting musical equipment"
@@ -13,7 +12,9 @@ links:
       type: "github",
     },
   ]
-tech: ["SQL", "C#/.NET API", "React client"]
+tech: ["SQL", "C#", ".NET", "React"]
+role: "Fullstack solo build for my Nashville Software School capstone: a C#/.NET API backed by SQL, and the React client that consumes it, built in about ten days."
+challenges: "Tracking a rental's lifecycle (requested, confirmed, returned) needed to update both the renter's and owner's views consistently without a real-time layer. I modeled rental status as a single source of truth on the server and re-fetched on every state-changing action to keep both sides honest."
 ---
 
 GearPatch is a platform for musicians to make some money on their extra

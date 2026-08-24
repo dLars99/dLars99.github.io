@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/ProjectDescription.astro"
 id: "greener"
 title: "Greener"
 description: "Helping you grow a greener lawn"
@@ -14,6 +13,8 @@ links:
     },
   ]
 tech: ["React", "Javascript", "vanilla CSS"]
+role: "Frontend capstone, solo build: a mobile-first React app for logging lawn care and surfacing weather-driven reminders."
+challenges: "The trickiest interface problem was surfacing a seasonal task schedule and live weather alerts on one small screen without burying the log itself. I split the view into a persistent log with a collapsible alerts/schedule panel above it, prioritizing the data the user checks most often."
 ---
 
 Greener is designed for personal use for individuals who want to keep better track of their lawn care. Features include:
