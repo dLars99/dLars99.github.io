@@ -22,13 +22,15 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  :root {
+    --motion-fast: 0.01ms;
+    --motion-base: 0.01ms;
+    --motion-moderate: 0.01ms;
+    --motion-slow: 0.01ms;
+  }
+
+  html {
+    scroll-behavior: auto;
   }
 }
 

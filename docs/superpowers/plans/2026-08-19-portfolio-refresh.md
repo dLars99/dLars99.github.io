@@ -143,6 +143,7 @@ git commit -m "chore: upgrade to Astro 7"
 
 **Interfaces:**
 - Produces: CSS custom properties consumed by every component written from Task 5 onward — `--color-canvas`, `--color-accent`, `--color-text-primary`, `--color-text-secondary`, `--color-border`, `--font-sans`, `--font-mono`, `--sidebar-width`, `--breakpoint-mobile-px` (documented only, media queries hardcode `768px` since CSS can't interpolate a custom property into a media query). Also produces the global keyframes `sheet-slide-up`, `sheet-slide-down`, `backdrop-fade-in`, consumed by Task 9 (`AuditLogMobile.tsx`) and Task 8 (`MobileNav.tsx`).
+- Produces four motion-duration tokens — `--motion-fast` (150ms), `--motion-base` (200ms), `--motion-moderate` (250ms), `--motion-slow` (320ms) — redefined to `0.01ms` under `prefers-reduced-motion: reduce`. Every animated component (Tasks 6, 8, 9, 15) references the matching token instead of hardcoding its duration, so the reduced-motion override doesn't have to out-specificity component-level rules with a global `!important` (decided during Task 2 review: a single blunt `!important` reset would otherwise need to beat every component's own transition/animation specificity, which is fragile against anything written later; per-token overrides sidestep that entirely, at the cost of each component needing to remember to use the token rather than a raw ms value).
 - This task does not wire these files into any page yet — that happens in Task 10 (`BaseLayout.astro`). Nothing existing is modified or removed.
 
 - [ ] **Step 1: Install the Geist font packages**
@@ -166,6 +167,12 @@ yarn add @fontsource/geist-sans @fontsource/geist-mono
   --font-mono: "Geist Mono", "Courier New", monospace;
 
   --sidebar-width: 280px;
+
+  /* Redefined to ~0 under prefers-reduced-motion in global.css. */
+  --motion-fast: 150ms;
+  --motion-base: 200ms;
+  --motion-moderate: 250ms;
+  --motion-slow: 320ms;
 }
 ```
 
@@ -197,13 +204,15 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  :root {
+    --motion-fast: 0.01ms;
+    --motion-base: 0.01ms;
+    --motion-moderate: 0.01ms;
+    --motion-slow: 0.01ms;
+  }
+
+  html {
+    scroll-behavior: auto;
   }
 }
 
@@ -822,7 +831,7 @@ const navItems = [
     border-radius: 50%;
     background: var(--color-accent);
     transform: translateY(calc(var(--active-index, 0) * 2.5rem));
-    transition: transform 200ms ease;
+    transition: transform var(--motion-base) ease;
     display: none;
   }
 </style>
@@ -1057,7 +1066,7 @@ git commit -m "feat: add persistent desktop AuditBar with manual entry cycling"
   inset: 0;
   z-index: 30;
   background: rgba(17, 17, 17, 0.4);
-  animation: backdrop-fade-in 150ms ease-out;
+  animation: backdrop-fade-in var(--motion-fast) ease-out;
 }
 
 .overlay {
@@ -1258,7 +1267,7 @@ git commit -m "feat: add MobileNav overlay with focus trap"
   inset: 0;
   z-index: 30;
   background: rgba(17, 17, 17, 0.4);
-  animation: backdrop-fade-in 150ms ease-out;
+  animation: backdrop-fade-in var(--motion-fast) ease-out;
 }
 
 .sheet {
@@ -1272,7 +1281,7 @@ git commit -m "feat: add MobileNav overlay with focus trap"
   padding: 1.5rem;
   border-radius: 16px 16px 0 0;
   background: var(--color-canvas);
-  animation: sheet-slide-up 320ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: sheet-slide-up var(--motion-slow) cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .entry {
@@ -2555,11 +2564,11 @@ git commit -m "feat: build real Project detail page"
 }
 
 .contentAnimation[data-state="open"] {
-  animation: chip-slide-down 250ms ease-in-out;
+  animation: chip-slide-down var(--motion-moderate) ease-in-out;
 }
 
 .contentAnimation[data-state="closed"] {
-  animation: chip-slide-up 250ms ease-in-out;
+  animation: chip-slide-up var(--motion-moderate) ease-in-out;
 }
 
 @keyframes chip-slide-down {

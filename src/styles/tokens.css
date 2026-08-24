@@ -9,4 +9,10 @@
   --font-mono: "Geist Mono", "Courier New", monospace;
 
   --sidebar-width: 280px;
+
+  /* Redefined to ~0 under prefers-reduced-motion in global.css. */
+  --motion-fast: 150ms;
+  --motion-base: 200ms;
+  --motion-moderate: 250ms;
+  --motion-slow: 320ms;
 }
