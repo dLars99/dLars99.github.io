@@ -1232,6 +1232,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource/geist-mono@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "@fontsource/geist-mono@npm:5.3.0"
+  checksum: 10c0/ad0dedd223b4ba2867f67d6d60d279b21b27f0a6ac12969f6706cf7cba2c557a34a80ec5783f3cd6e8083a071c413e9fb3af880e064cb37eee16563ecb706814
+  languageName: node
+  linkType: hard
+
+"@fontsource/geist-sans@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "@fontsource/geist-sans@npm:5.3.0"
+  checksum: 10c0/8df0e2aa46ad701195a2c9d7de9bd9165a5814c4086a10b97cfa76a4548ea2c602c259b3132b6c08906b1708d92d5df03c3e4d77b81a728bff259ff328e383a6
+  languageName: node
+  linkType: hard
+
 "@fontsource/nunito-sans@npm:^5.0.13":
   version: 5.0.13
   resolution: "@fontsource/nunito-sans@npm:5.0.13"
@@ -3377,6 +3391,8 @@ __metadata:
     "@astrojs/mdx": "npm:^7.0.7"
     "@astrojs/react": "npm:^6.0.4"
     "@astrojs/sitemap": "npm:^3.7.3"
+    "@fontsource/geist-mono": "npm:^5.3.0"
+    "@fontsource/geist-sans": "npm:^5.3.0"
     "@fontsource/nunito-sans": "npm:^5.0.13"
     "@pandacss/dev": "npm:^0.41.0"
     "@radix-ui/react-collapsible": "npm:^1.1.0"
