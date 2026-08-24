@@ -5,6 +5,7 @@ import { css } from "../../../styled-system/css";
 import Project from "../../layouts/Project.astro";
 import { type ProjectFrontmatter } from "../../layouts/ProjectDescription.astro";
 import { demoMap } from "./Demos/demoMap";
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 
 const styles = {
   blurb: {
@@ -21,11 +22,12 @@ const styles = {
   },
 };
 
-const projectData = await Astro.glob<ProjectFrontmatter>(
-  "../../content/projects/*.md"
-);
+const projectModules = import.meta.glob<{
+  frontmatter: ProjectFrontmatter;
+  Content: AstroComponentFactory;
+}>("../../content/projects/*.md", { eager: true });
 
-projectData.sort((a, b) => {
+const projectData = Object.values(projectModules).sort((a, b) => {
   if (a.frontmatter.lastUpdatedDate === b.frontmatter.lastUpdatedDate) return 0;
   return a.frontmatter.lastUpdatedDate > b.frontmatter.lastUpdatedDate ? -1 : 1;
 });

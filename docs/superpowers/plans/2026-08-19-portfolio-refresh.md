@@ -2,17 +2,21 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Rebuild davidplarsen.com from a single-page Panda-CSS scroll site into a routed Astro 5 site with a persistent left-sidebar nav and audit-log status bar (the "system ledger" motif), driven by Astro content collections.
+**Goal:** Rebuild davidplarsen.com from a single-page Panda-CSS scroll site into a routed Astro 7 site with a persistent left-sidebar nav and audit-log status bar (the "system ledger" motif), driven by Astro content collections.
 
-**Architecture:** Astro 5 static site with `<ClientRouter/>` view transitions. Two chrome elements (`Sidebar.astro`, `AuditBar.astro`) carry `transition:persist` so they never remount across route changes. Two React islands (`MobileNav.tsx`, `AuditLogMobile.tsx`) handle the interactive mobile equivalents, hydrated only under `client:media="(max-width: 768px)"`. All content — projects and the resume-flavored "audit log" — comes from Astro 5 content-layer collections (`getCollection`), replacing `Astro.glob()` and `jobData.ts`. Panda CSS is removed in favor of a small `tokens.css` + `global.css` plus scoped `<style>` blocks (Astro) and co-located `.module.css` files (React).
+**Architecture:** Astro 7 static site with `<ClientRouter/>` view transitions. Two chrome elements (`Sidebar.astro`, `AuditBar.astro`) carry `transition:persist` so they never remount across route changes. Two React islands (`MobileNav.tsx`, `AuditLogMobile.tsx`) handle the interactive mobile equivalents, hydrated only under `client:media="(max-width: 768px)"`. All content — projects and the resume-flavored "audit log" — comes from Astro's content-layer collections (`getCollection`), replacing `Astro.glob()` and `jobData.ts`. Panda CSS is removed in favor of a small `tokens.css` + `global.css` plus scoped `<style>` blocks (Astro) and co-located `.module.css` files (React).
 
-**Tech Stack:** Astro 5, React 18 (islands only), `@fontsource/geist-sans` + `@fontsource/geist-mono`, `@radix-ui/react-collapsible` (kept, for `ExpandableChip`), `@react-icons/all-files` (kept, for tech-stack icons and existing icons), native CSS (custom properties + scoped `<style>` + CSS Modules). No new dependencies beyond the two Geist font packages.
+**Tech Stack:** Astro 7, React 18 (islands only), `@fontsource/geist-sans` + `@fontsource/geist-mono`, `@radix-ui/react-collapsible` (kept, for `ExpandableChip`), `@react-icons/all-files` (kept, for tech-stack icons and existing icons), native CSS (custom properties + scoped `<style>` + CSS Modules). No new dependencies beyond the two Geist font packages.
+
+**Version note (added during execution, Task 1):** the spec calls for "Astro 5." When Task 1 ran, the official `@astrojs/upgrade` tool offered a jump straight to Astro 7 (latest) rather than pinning to the 5.x line. The user was asked and explicitly chose latest (v7) over pinning to 5. Astro 7 carries forward every v5 API this plan depends on (content-layer `glob()` loader, `getCollection()`, `render()`, `<ClientRouter/>`, `transition:persist`, `client:media`) — nothing in this plan's design changes — but the jump also pulls in v6 and v7 breaking changes that didn't exist when the plan was first written. Those are folded into Task 1 below and called out inline wherever they touch a later task's file paths or code.
 
 **Spec:** `docs/superpowers/specs/2026-08-14-portfolio-refresh-design.md` (primary spec), informed by the raw wireframes/tokens in `.instructions/portfolio-refresh.md` and the two mockups `.instructions/Portfolio-desktop.png` / `.instructions/Portfolio-mobile.png`.
 
 ## Global Constraints
 
-- **Astro:** upgrade `astro` from `4.15.2` to Astro **5**, bundled into this rebuild (spec §2).
+- **Astro:** upgrade `astro` from `4.15.2` to Astro **7** (latest — see version note above), bundled into this rebuild (spec §2).
+- **Node 22.12.0+ is required** by Astro 6/7 (spec's Node floor is superseded by this). `deploy.yml`'s `node-version` must be bumped to `22` in Task 1, unconditionally.
+- **Content collection config lives at `src/content.config.ts`** (project root of `src/`), not `src/content/config.ts` — the nested location was removed in Astro 6. `z` is imported from `astro/zod`, not `astro:content` (also removed in Astro 6). Every task below referencing `src/content/config.ts` means `src/content.config.ts`.
 - **No new test framework.** None exists today; verification is `astro check` (type-check) + manual browser QA (spec §9). Every task below ends with an `astro check` run and a described manual check instead of an automated test.
 - **Panda CSS is removed entirely** by the end of this plan: `panda.config.ts`, `styled-system/`, `@pandacss/dev`, the `panda codegen` `prepare` step, `textStyles.ts`, `postcss.config.cjs` (spec §7). Removal happens only in Task 18, after nothing references it (see Task ordering note below).
 - **Design tokens** (spec §3), exact values:
@@ -30,58 +34,102 @@
 - **Sidebar:** fixed `280px` width, persistent across navigation via `transition:persist` (compiles to `data-astro-transition-persist`) (spec §4).
 - **React only where real interactivity is needed:** the existing `react-routing-tabs` demo pages (untouched), the mobile nav drawer, the audit-log bottom sheet, and `ExpandableChip`-style expand/collapse. Everything else — including the desktop sidebar's active-dot animation and the desktop audit bar's prev/next cycling — is plain Astro + a small inline script, not React (spec §2).
 - **Non-goals:** no contact form/backend, no live Lighthouse CI wired to the landing stat cards, no CMS (spec §9).
-- **Deployment unchanged:** GitHub Actions `withastro/action` → GitHub Pages, `davidplarsen.com` via `CNAME` (spec §8). Confirm Node version compatibility in Task 1; bump `deploy.yml`'s `node-version` only if Astro 5 requires it.
+- **Deployment unchanged:** GitHub Actions `withastro/action` → GitHub Pages, `davidplarsen.com` via `CNAME` (spec §8). `deploy.yml`'s `node-version` is bumped to `22` in Task 1 (see Node floor above).
 - **Accessibility:** keyboard focus order, `aria-current` on the active route, and focus trapping in the mobile drawer/sheet are built into the chrome components as they're written (Tasks 6, 8, 9), not bolted on later.
 
 **Task ordering note:** Tasks 1–9 are additive (new files only; nothing is deleted, the old Panda-based site keeps building and running throughout). Tasks 10–16 cut the site over route by route from the old single-page composition to the new routed pages — both can coexist harmlessly in the repo during this window. Tasks 17–18 delete everything the old site used once nothing routes to it anymore, and remove Panda CSS. Task 19 is final verification. This ordering means `yarn build` succeeds after every single task in this plan.
 
 ---
 
-### Task 1: Upgrade to Astro 5
+### Task 1: Upgrade to Astro 7
 
 **Files:**
 - Modify: `package.json`
-- Modify: `astro.config.mjs` (only if the upgrade tool or the build flags something)
-- Modify: `.github/workflows/deploy.yml` (only if Node version needs bumping)
+- Modify: `astro.config.mjs` (only if the build flags something)
+- Modify: `.github/workflows/deploy.yml` (bump `node-version` to `22`)
+- Modify: `postcss.config.cjs` → **only if** the build errors on it (see Step 3) — otherwise untouched until Task 18
 
 **Interfaces:**
-- Produces: a working `astro@5.x` install that the rest of this plan builds on. No app code changes in this task.
+- Produces: a working `astro@7.x` install that the rest of this plan builds on. No app code changes in this task beyond what's needed to keep the pre-existing Panda-based site building (Step 3).
 
-- [ ] **Step 1: Run the official Astro upgrade tool**
+- [ ] **Step 1: Bump the Astro packages directly**
+
+The official `@astrojs/upgrade` CLI is interactive (prompts `Yes/No` on breaking changes) and doesn't run non-interactively in this environment, so set the versions directly instead — same end state:
 
 ```bash
-yarn dlx @astrojs/upgrade
+yarn up astro@^7.2.4 @astrojs/react@^6.0.4 @astrojs/sitemap@^3.7.3 @astrojs/mdx@^7.0.7 @astrojs/check@^0.9.10
 ```
 
-This bumps `astro` to the latest 5.x and updates `@astrojs/react`, `@astrojs/sitemap`, `@astrojs/mdx`, and `@astrojs/check` to versions compatible with Astro 5, all in one step (safer than hand-picking version numbers).
+(Re-check these are still the latest patch versions with `yarn npm info astro --fields version` etc. before running, in case newer patches shipped since this plan was written.)
 
-- [ ] **Step 2: Check Node version compatibility**
+- [ ] **Step 2: Bump the deploy workflow's Node version**
 
-Astro 5 requires Node `^18.20.8 || ^20.3.0 || >=22.0.0`. Run:
+Astro 6+ requires Node `22.12.0` or higher (dropped Node 18/20 support). Edit `.github/workflows/deploy.yml`:
+
+```yaml
+node-version: 22 # The specific version of Node that should be used to build your site. Defaults to 20. (optional)
+```
+
+Confirm the local dev machine also satisfies this:
 
 ```bash
 node --version
 ```
 
-`.github/workflows/deploy.yml` currently pins `node-version: 20` (resolves to latest Node 20.x via `actions/setup-node`, which satisfies `>=20.3.0`). No change is needed unless the upgrade tool or `astro check` reports otherwise — if it does, bump `node-version` in `.github/workflows/deploy.yml` to `22`.
+- [ ] **Step 3: Fix `Astro.glob()` removal in `Projects.astro`**
 
-- [ ] **Step 3: Build and type-check**
+`Astro.glob()` was removed entirely as of Astro 6 (not just deprecated), and `src/components/Projects/Projects.astro:24` is the only place in the codebase that calls it — the build will hard-fail on this before you even get to Step 4 otherwise. This component is deleted outright in Task 17 once the real `/projects` pages exist (Task 13), so this is a minimal compatibility shim to keep the old single-page site building in the meantime, not a rewrite:
+
+```astro
+---
+// src/components/Projects/Projects.astro — only the frontmatter changes shown; JSX below is unchanged
+import Header from "../../layouts/Header.astro";
+import Section from "../../layouts/Section.astro";
+import { css } from "../../../styled-system/css";
+import Project from "../../layouts/Project.astro";
+import { type ProjectFrontmatter } from "../../layouts/ProjectDescription.astro";
+import { demoMap } from "./Demos/demoMap";
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+
+const styles = {
+  /* ...unchanged... */
+};
+
+const projectModules = import.meta.glob<{
+  frontmatter: ProjectFrontmatter;
+  Content: AstroComponentFactory;
+}>("../../content/projects/*.md", { eager: true });
+
+const projectData = Object.values(projectModules).sort((a, b) => {
+  if (a.frontmatter.lastUpdatedDate === b.frontmatter.lastUpdatedDate) return 0;
+  return a.frontmatter.lastUpdatedDate > b.frontmatter.lastUpdatedDate ? -1 : 1;
+});
+---
+```
+
+The rest of the file (the `<Section>`/`<Project>` JSX below the frontmatter) is untouched — it already consumes `projectData` the same way regardless of how it was fetched.
+
+- [ ] **Step 4: Build and type-check, fixing anything the stricter Astro 7 compiler flags**
 
 ```bash
 yarn build
 ```
 
-Expected: succeeds (the `prepare` script still runs `panda codegen` at this point — leave it alone, Panda isn't removed until Task 18). If `astro.config.mjs`'s `image.service.entrypoint` config triggers a deprecation warning under Astro 5, remove that block (sharp is the default image service in Astro 5); otherwise leave `astro.config.mjs` untouched.
+The `prepare` script still runs `panda codegen` at this point — leave it alone, Panda isn't removed until Task 18. Astro 7 ships a stricter, Rust-based compiler (unclosed tags and invalid HTML nesting are now hard errors instead of being silently auto-corrected) and a new default Markdown pipeline. Watch for and fix, in order:
 
-- [ ] **Step 4: Manual check**
+1. **Compiler errors on existing `.astro` files** (unclosed/misnested tags) — fix the specific tag the error points at; don't restructure the surrounding component beyond that.
+2. **`astro.config.mjs`'s `image.service.entrypoint` block** — if the build warns this is deprecated/unnecessary, remove it (sharp is the default image service already); otherwise leave `astro.config.mjs` untouched.
+3. **Markdown rendering differences** in `src/content/projects/*.md` bodies (e.g. `barkeep.md`'s embedded `<a href="..." target="_blank">` tag) — Astro 7 defaults to a new Markdown pipeline instead of remark/rehype. If any project body's raw HTML no longer renders correctly (check visually once Task 3/14 wire these up — this step only needs the *build* to succeed, not full visual review), install `@astrojs/markdown-remark` and configure it as the markdown renderer in `astro.config.mjs` to restore the old behavior. Don't pre-emptively install it — only if something actually breaks.
+
+- [ ] **Step 5: Manual check**
 
 Run `yarn dev` and load `http://localhost:4321/`. The existing single-page site should render exactly as before (no visual changes expected in this task).
 
-- [ ] **Step 5: Commit**
+- [ ] **Step 6: Commit**
 
 ```bash
-git add package.json yarn.lock astro.config.mjs .github/workflows/deploy.yml
-git commit -m "chore: upgrade to Astro 5"
+git add package.json yarn.lock astro.config.mjs .github/workflows/deploy.yml src/components/Projects/Projects.astro
+git commit -m "chore: upgrade to Astro 7"
 ```
 
 ---
@@ -208,7 +256,7 @@ git commit -m "feat: add design tokens and global CSS foundation"
 ### Task 3: Content collection config and projects data migration
 
 **Files:**
-- Create: `src/content/config.ts`
+- Create: `src/content.config.ts`
 - Modify: `src/content/projects/barkeep.md`
 - Modify: `src/content/projects/gearpatch.md`
 - Modify: `src/content/projects/greener.md`
@@ -216,15 +264,18 @@ git commit -m "feat: add design tokens and global CSS foundation"
 - Modify: `src/content/projects/react-routing-tabs.md`
 
 **Interfaces:**
-- Produces: the `projects` collection (Astro 5 content-layer `glob()` loader), with schema fields `id, title, description, initialCompletionDate, lastUpdatedDate, links, tech, role, challenges` — consumed by Task 13 (list page) and Task 14 (detail page).
+- Produces: the `projects` collection (content-layer `glob()` loader), with schema fields `id, title, description, initialCompletionDate, lastUpdatedDate, links, tech, role, challenges` — consumed by Task 13 (list page) and Task 14 (detail page).
 - Produces: the `auditLog` collection registration (schema defined here, entries authored in Task 4).
-- The old `Astro.glob("../../content/projects/*.md")` call in `src/components/Projects/Projects.astro` (deleted in Task 17) is **not** touched by this task — it keeps working against the raw files' frontmatter shape until then, since none of the fields it reads (`id`, `title`, `links`, `lastUpdatedDate`) are removed, only added to.
+- The `import.meta.glob(...)` call in `src/components/Projects/Projects.astro` (Task 1's compatibility shim, deleted in Task 17) is **not** touched by this task — it keeps working against the raw files' frontmatter shape until then, since none of the fields it reads (`id`, `title`, `links`, `lastUpdatedDate`) are removed, only added to.
 
 - [ ] **Step 1: Write the content collection config**
 
+Note the file lives at `src/content.config.ts` (directly under `src/`), not inside `src/content/` — Astro 6+ removed the nested `src/content/config.ts` location. `z` comes from `astro/zod`, not `astro:content` (also removed in Astro 6).
+
 ```ts
-// src/content/config.ts
-import { defineCollection, z } from "astro:content";
+// src/content.config.ts
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 import { glob } from "astro/loaders";
 
 const projects = defineCollection({
@@ -331,12 +382,12 @@ challenges: "Most tab libraries assume the tab index lives in component state; w
 yarn astro check
 ```
 
-Expected: no errors. `astro check` will validate the new frontmatter against the Zod schema in `src/content/config.ts` — a missing `role`/`challenges` field on any file, or a `type` value outside `"github" | "npm"`, will fail here.
+Expected: no errors. `astro check` will validate the new frontmatter against the Zod schema in `src/content.config.ts` — a missing `role`/`challenges` field on any file, or a `type` value outside `"github" | "npm"`, will fail here.
 
 - [ ] **Step 9: Commit**
 
 ```bash
-git add src/content
+git add src/content.config.ts src/content/projects
 git commit -m "feat: add content collection schema, role/challenges to project data"
 ```
 
@@ -360,7 +411,7 @@ git commit -m "feat: add content collection schema, role/challenges to project d
 - Create: `src/content/audit-log-utils.ts`
 
 **Interfaces:**
-- Consumes: the `auditLog` collection schema from Task 3 (`src/content/config.ts`).
+- Consumes: the `auditLog` collection schema from Task 3 (`src/content.config.ts`).
 - Produces: `getSortedAuditEntries(): Promise<AuditEntry[]>` and `getEmployerFacts(entries: AuditEntry[]): EmployerFacts[]`, where `AuditEntry = CollectionEntry<"auditLog">` and `EmployerFacts = { employer: string; location?: string; startDate: Date; endDate?: Date }`. Consumed by Task 7 (`AuditBar.astro`), Task 9 (`AuditLogMobile.tsx`), and Task 15 (`/work` page + `FactsTable.astro`).
 
 - [ ] **Step 1: Author the twelve audit-log entries**
@@ -534,7 +585,7 @@ date: "2026-08-19"
 message: "Refreshed entire site architecture, improved navigation physics."
 ---
 
-Rebuilt this portfolio on Astro 5 with routed pages, a persistent sidebar
+Rebuilt this portfolio on Astro 7 with routed pages, a persistent sidebar
 and audit-log status bar, and a content-collection-driven data model —
 replacing the old single-page scroll and PandaCSS styling system
 entirely.
@@ -1579,7 +1630,7 @@ import EyebrowLabel from "../shared/EyebrowLabel.astro";
   <EyebrowLabel text="FRONTEND ARCHITECTURE & SYSTEMS" />
   <h1>Engineering UI Systems with Zero Runtime Overhead</h1>
   <p class="subhead">
-    A static-first portfolio built on Astro 5, with persistent routed chrome
+    A static-first portfolio built on Astro 7, with persistent routed chrome
     and zero client-side framework overhead on the content — React is
     reserved for the handful of places it actually earns its keep.
   </p>
@@ -3065,10 +3116,10 @@ This rebuild is a breaking change to the site's structure, matching the preceden
 left-sidebar navigation and an audit-log status bar replace the old single-page
 anchor-scroll layout.
 
-- Upgraded Astro 4.15.2 → Astro 5
+- Upgraded Astro 4.15.2 → Astro 7
 - Replaced the single-page scroll layout with routed pages (`/`, `/about`,
   `/projects`, `/projects/[slug]`, `/work`, `/contact`)
-- Replaced `Astro.glob()` content loading with Astro 5 content-layer
+- Replaced `Astro.glob()` content loading with Astro content-layer
   collections; added a new audit-log collection driving the persistent
   status bar, the mobile ticker/sheet, and the `/work` page
 - Removed Panda CSS entirely in favor of CSS custom properties, scoped
