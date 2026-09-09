@@ -1,0 +1,22 @@
+---
+interface Props {
+  text: string;
+  as?: "span" | "h2" | "h3";
+}
+
+const { text, as: Tag = "span" } = Astro.props;
+---
+
+<Tag class="eyebrow">[{text}]</Tag>
+
+<style>
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--color-accent);
+    text-transform: uppercase;
+  }
+</style>
