@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { slug: project.data.id },
+  }));
+}
+
+const { slug } = Astro.params;
+---
+
+<BaseLayout title={`${slug} — David P Larsen`} description="Project detail.">
+  <h1>Project detail (placeholder): {slug}</h1>
+</BaseLayout>
