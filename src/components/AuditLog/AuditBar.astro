@@ -1,0 +1,111 @@
+---
+import { getSortedAuditEntries } from "../../content/audit-log-utils";
+
+const entries = (await getSortedAuditEntries()).slice(0, 5).map((entry) => ({
+  version: entry.data.version,
+  message: entry.data.message,
+}));
+---
+
+<div class="audit-bar" transition:persist data-audit-bar>
+  <div class="entry">
+    <span class="version" data-audit-version>{entries[0]?.version}</span>
+    <span class="message" data-audit-message>{entries[0]?.message}</span>
+  </div>
+
+  <div class="controls">
+    <button type="button" class="arrow" data-audit-prev aria-label="Previous entry">◀</button>
+    <button type="button" class="arrow" data-audit-next aria-label="Next entry">▶</button>
+    <a class="view-log" href="/work">[VIEW FULL LOG]</a>
+  </div>
+</div>
+
+<style>
+  .audit-bar {
+    display: none;
+    position: fixed;
+    left: var(--sidebar-width);
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 2rem;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-canvas);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+  }
+
+  @media (min-width: 769px) {
+    .audit-bar {
+      display: flex;
+    }
+  }
+
+  .entry {
+    display: flex;
+    gap: 0.75rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .version {
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  .message {
+    color: var(--color-text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .arrow {
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0.15rem 0.5rem;
+    font-family: var(--font-mono);
+  }
+
+  .view-log {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 700;
+  }
+</style>
+
+<script define:vars={{ entries }}>
+  let index = 0;
+
+  function render() {
+    const bar = document.querySelector("[data-audit-bar]");
+    if (!bar) return;
+    const entry = entries[index];
+    bar.querySelector("[data-audit-version]").textContent = entry.version;
+    bar.querySelector("[data-audit-message]").textContent = entry.message;
+  }
+
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    if (target.closest("[data-audit-prev]")) {
+      index = (index - 1 + entries.length) % entries.length;
+      render();
+    } else if (target.closest("[data-audit-next]")) {
+      index = (index + 1) % entries.length;
+      render();
+    }
+  });
+</script>
