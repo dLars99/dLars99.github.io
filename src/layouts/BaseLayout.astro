@@ -1,0 +1,57 @@
+---
+import { ClientRouter } from "astro:transitions";
+import Head from "./Head.astro";
+import Sidebar from "../components/Nav/Sidebar.astro";
+import AuditBar from "../components/AuditLog/AuditBar.astro";
+import MobileNav from "../components/Nav/MobileNav.tsx";
+import AuditLogMobile from "../components/AuditLog/AuditLogMobile.tsx";
+import { getSortedAuditEntries } from "../content/audit-log-utils";
+import "../styles/tokens.css";
+import "../styles/global.css";
+import "@fontsource/geist-sans";
+import "@fontsource/geist-mono";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+const mobileEntries = (await getSortedAuditEntries()).slice(0, 5).map((entry) => ({
+  version: entry.data.version,
+  message: entry.data.message,
+}));
+---
+
+<html lang="en">
+  <Head title={title} description={description}>
+    <ClientRouter />
+  </Head>
+
+  <body>
+    <Sidebar />
+    <MobileNav client:media="(max-width: 768px)" />
+    <AuditLogMobile client:media="(max-width: 768px)" entries={mobileEntries} />
+
+    <main class="content-stage">
+      <slot />
+    </main>
+
+    <AuditBar />
+  </body>
+</html>
+
+<style>
+  .content-stage {
+    min-height: 100vh;
+    padding: 4rem 2rem 6rem;
+  }
+
+  @media (min-width: 769px) {
+    .content-stage {
+      margin-left: var(--sidebar-width);
+      padding: 3rem 3rem 5rem;
+    }
+  }
+</style>
