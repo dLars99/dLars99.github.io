@@ -3152,3 +3152,7 @@ git commit -m "docs: log 2.0.0 portfolio refresh in changelog"
 - **Spec coverage:** every numbered section of the design spec maps to a task — §2 routing/transitions/content-layer (Tasks 3, 10), §2 React-island scoping (Tasks 6–9 split desktop/mobile), §3 tokens/fonts (Task 2), §4 nav/chrome desktop+mobile (Tasks 6–9), §5 all five pages (Tasks 11–16), §6 data model (Tasks 3–4), §7 styling migration (Tasks 2, 12, 14, 15, 18), §8 deployment (Task 1, confirmed unchanged), §9 testing/a11y/non-goals (Task 19; non-goals deliberately not built anywhere), §10 component carryover (Task 17's deletions map 1:1 to the carryover table's "Removed"/"Replaced" rows).
 - **Type consistency:** `AuditEntry`/`EmployerFacts` (Task 4) are used with matching shapes in Tasks 7, 9, 15. `ProjectLink`/`LinkType` (Task 14) match the existing `demoMap` and collection schema (Task 3). `CollectionEntry<"projects">` and `CollectionEntry<"auditLog">` prop types are consistent everywhere they're consumed.
 - **Known deferred decision:** Task 13 explicitly flags that project-card screenshots are out of scope for v1 rather than guessing — surfaced to the user, not silently dropped.
+
+## Follow-ups (post-launch, not part of this plan)
+
+- Iterate on the landing page copy (Task 11: hero headline/subhead, stat card values, capabilities list names/descriptions) — current content is a reasonable v1 pass but written to unblock the structural rebuild, not final.

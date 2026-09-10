@@ -1,0 +1,77 @@
+---
+const capabilities = [
+  {
+    name: "Design System Engine",
+    description: "A token-driven CSS system with zero utility-class runtime, persistent routed chrome, and view-transition-safe state.",
+    href: "/projects/portfolio",
+  },
+  {
+    name: "High-Density Grids",
+    description: "Ingredient-filtered search over a dense relational recipe schema, ranked by partial match instead of exact filters.",
+    href: "/projects/barkeep",
+  },
+  {
+    name: "Stateful Micro-Physics",
+    description: "A mobile-first log and alerts panel driven by live weather state, prioritized for the data checked most often.",
+    href: "/projects/greener",
+  },
+  {
+    name: "Accessible Routing Primitives",
+    description: "Roving-tabindex tab components wired to a router without breaking WAI-ARIA tab semantics.",
+    href: "/projects/rrt",
+  },
+];
+---
+
+<div class="capabilities">
+  <h2>Capabilities &amp; System Design Primitives</h2>
+  <ul>
+    {
+      capabilities.map((capability) => (
+        <li>
+          <a href={capability.href}>
+            <span class="name">{capability.name}</span>
+            <span class="description">{capability.description}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  h2 {
+    font-size: 1.125rem;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  li {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem 0;
+    text-decoration: none;
+  }
+
+  .name {
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .description {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+</style>
