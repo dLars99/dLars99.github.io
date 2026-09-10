@@ -1,0 +1,126 @@
+---
+const navItems = [
+  { label: "ABOUT", href: "/about" },
+  { label: "PROJECTS", href: "/projects" },
+  { label: "WORK", href: "/work" },
+  { label: "CONTACT", href: "/contact" },
+];
+---
+
+<nav class="sidebar" transition:persist data-sidebar-nav aria-label="Primary">
+  <a class="wordmark" href="/">DAVID P. LARSEN</a>
+
+  <ul class="nav-list">
+    <span class="dot" data-nav-dot aria-hidden="true"></span>
+    {
+      navItems.map((item) => (
+        <li>
+          <a class="nav-link" href={item.href} data-nav-link>
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    padding: 2.5rem 2rem;
+    display: none;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  @media (min-width: 769px) {
+    .sidebar {
+      display: flex;
+    }
+  }
+
+  .wordmark {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    color: var(--color-text-primary);
+  }
+
+  .nav-list {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-list li {
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    padding-left: 1.25rem;
+  }
+
+  .nav-link[aria-current="page"] {
+    color: var(--color-text-primary);
+    font-weight: 700;
+  }
+
+  .dot {
+    position: absolute;
+    left: 0;
+    top: 1.1rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    transform: translateY(calc(var(--active-index, 0) * 2.5rem));
+    transition: transform var(--motion-base) ease;
+    display: none;
+  }
+</style>
+
+<script>
+  const routes = ["/about", "/projects", "/work", "/contact"];
+
+  function updateActiveNav() {
+    const nav = document.querySelector<HTMLElement>("[data-sidebar-nav]");
+    if (!nav) return;
+
+    const path = window.location.pathname.replace(/\/$/, "") || "/";
+    const activeIndex = routes.findIndex(
+      (route) => path === route || path.startsWith(`${route}/`)
+    );
+
+    nav.style.setProperty("--active-index", String(Math.max(activeIndex, 0)));
+
+    const dot = nav.querySelector<HTMLElement>("[data-nav-dot]");
+    if (dot) dot.style.display = activeIndex === -1 ? "none" : "block";
+
+    nav.querySelectorAll<HTMLAnchorElement>("[data-nav-link]").forEach((link, index) => {
+      if (index === activeIndex) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  updateActiveNav();
+  document.addEventListener("astro:page-load", updateActiveNav);
+</script>
