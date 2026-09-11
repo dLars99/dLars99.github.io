@@ -1,0 +1,55 @@
+---
+import EyebrowLabel from "../shared/EyebrowLabel.astro";
+
+const focusAreas = [
+  { key: "State Management", value: "React/Context" },
+  { key: "API Design", value: "Node/Express & REST" },
+  { key: "Data", value: "PostgreSQL/MongoDB" },
+  { key: "Languages", value: "TypeScript" },
+];
+---
+
+<div class="engineering-focus">
+  <EyebrowLabel as="h2" text="ENGINEERING FOCUS" />
+  <dl>
+    {
+      focusAreas.map((area) => (
+        <div class="row">
+          <dt>{area.key}</dt>
+          <dd>{area.value}</dd>
+        </div>
+      ))
+    }
+  </dl>
+</div>
+
+<style>
+  .engineering-focus {
+    max-width: 60ch;
+    margin-top: 2rem;
+  }
+
+  dl {
+    margin: 1rem 0 0;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  dt {
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  dd {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+</style>
