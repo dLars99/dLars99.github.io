@@ -1,7 +1,42 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import EyebrowLabel from "../components/shared/EyebrowLabel.astro";
+import LedgerEntry from "../components/Work/LedgerEntry.astro";
+import FactsTable from "../components/Work/FactsTable.astro";
+import { getSortedAuditEntries, getEmployerFacts } from "../content/audit-log-utils";
+
+const entries = await getSortedAuditEntries();
+const facts = getEmployerFacts(entries);
 ---
 
 <BaseLayout title="Work — David P Larsen" description="Work history and audit log for David Larsen.">
-  <h1>Work (placeholder)</h1>
+  <div class="work-grid">
+    <div class="ledger">
+      <EyebrowLabel as="h2" text="AUDIT LOG" />
+      {entries.map((entry) => <LedgerEntry entry={entry} />)}
+    </div>
+
+    <div class="panel">
+      <EyebrowLabel as="h2" text="COMPANIES" />
+      <FactsTable facts={facts} />
+    </div>
+  </div>
 </BaseLayout>
+
+<style>
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 769px) {
+    .work-grid {
+      grid-template-columns: 1.4fr 1fr;
+    }
+  }
+
+  .panel {
+    align-self: flex-start;
+  }
+</style>
