@@ -1,16 +1,13 @@
----
-import { css } from "../../../../styled-system/css";
-
-const styles = {
-  width: "100%",
-  mx: "auto",
-  maxWidth: "prose",
-  mb: 4,
-};
----
-
-<div class={css(styles)}>
-  <p>
-    <slot />
-  </p>
+<div class="bio-block">
+  <p><slot /></p>
 </div>
+
+<style>
+  .bio-block {
+    width: 100%;
+    max-width: 60ch;
+    margin-bottom: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+</style>
