@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+import { format } from "date-fns";
+import ExpandableChip from "../ExpandableChip";
+
+interface Props {
+  entry: CollectionEntry<"auditLog">;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { version, date, message, employer } = entry.data;
+---
+
+<ExpandableChip client:visible name={`${version} — ${message}`}>
+  <div class="entry-body">
+    <p class="meta">
+      {format(date, "MMMM d, y")}
+      {employer ? ` · ${employer}` : null}
+    </p>
+    <div class="content">
+      <Content />
+    </div>
+  </div>
+</ExpandableChip>
+
+<style>
+  .entry-body {
+    padding: 0 1.25rem 1.25rem;
+  }
+
+  .meta {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    margin: 0 0 0.75rem;
+  }
+
+  .content {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+</style>
