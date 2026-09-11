@@ -1,17 +1,89 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import EyebrowLabel from "../../components/shared/EyebrowLabel.astro";
+import ProjectLinks from "../../components/Projects/ProjectLinks/ProjectLinks.astro";
+import TechStack from "../../components/Projects/TechStack/TechStack.astro";
+import { demoMap } from "../../components/Projects/Demos/demoMap";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
   return projects.map((project) => ({
     params: { slug: project.data.id },
+    props: { project },
   }));
 }
 
-const { slug } = Astro.params;
+const { project } = Astro.props;
+const { Content } = await render(project);
+const { title, description, role, challenges, tech, links, id } = project.data;
+const Demo = demoMap[id];
 ---
 
-<BaseLayout title={`${slug} — David P Larsen`} description="Project detail.">
-  <h1>Project detail (placeholder): {slug}</h1>
+<BaseLayout title={`${title} — David P Larsen`} description={description}>
+  <EyebrowLabel as="h2" text={title.toUpperCase()} />
+  <p class="description">{description}</p>
+
+  <ProjectLinks links={links} />
+
+  <div class="detail-grid">
+    <div class="stage">
+      {Demo ? <Demo firstPosition="left" /> : null}
+    </div>
+
+    <div class="panel">
+      <section>
+        <h3>My Role &amp; Approach</h3>
+        <p>{role}</p>
+      </section>
+
+      <section>
+        <h3>Interface Challenges &amp; Solutions</h3>
+        <p>{challenges}</p>
+      </section>
+
+      <TechStack tech={tech} />
+    </div>
+  </div>
+
+  <div class="body">
+    <Content />
+  </div>
 </BaseLayout>
+
+<style>
+  .description {
+    max-width: 60ch;
+    color: var(--color-text-secondary);
+    margin: 0.5rem 0 1.5rem;
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 769px) {
+    .detail-grid {
+      grid-template-columns: 1.4fr 1fr;
+    }
+  }
+
+  .panel section {
+    margin-bottom: 1.5rem;
+  }
+
+  .panel h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .body {
+    max-width: 60ch;
+    margin-top: 2rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+</style>
