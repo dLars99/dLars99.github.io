@@ -1,0 +1,42 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { title, description, id } = project.data;
+---
+
+<article class="card">
+  <h2>{title}</h2>
+  <p>{description}</p>
+  <a class="details-link" href={`/projects/${id}`}>[VIEW DETAILS]</a>
+</article>
+
+<style>
+  .card {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem;
+    color: var(--color-text-primary);
+  }
+
+  p {
+    margin: 0 0 0.75rem;
+    color: var(--color-text-secondary);
+  }
+
+  .details-link {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+</style>
