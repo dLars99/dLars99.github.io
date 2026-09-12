@@ -1,7 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import EyebrowLabel from "../components/shared/EyebrowLabel.astro";
+import ContactLinks from "../components/Contact/ContactLinks.astro";
 ---
 
 <BaseLayout title="Contact — David P Larsen" description="Contact David Larsen.">
-  <h1>Contact (placeholder)</h1>
+  <EyebrowLabel as="h2" text="CONTACT" />
+  <div class="contact-body">
+    <ContactLinks />
+  </div>
 </BaseLayout>
+
+<style>
+  .contact-body {
+    margin-top: 1.5rem;
+  }
+</style>
