@@ -1,6 +1,6 @@
 import React, { type FC, type ReactNode } from "react";
 import { Tabpanel } from "react-routing-tabs";
-import { css } from "../../../../styled-system/css";
+import styles from "./TabpanelLayout.module.css";
 import "../styleOverrides.css";
 
 export interface TabpanelLayoutProps {
@@ -8,25 +8,9 @@ export interface TabpanelLayoutProps {
 }
 
 export const TabpanelLayout: FC<TabpanelLayoutProps> = ({ children }) => {
-  const styles = {
-    p: 4,
-    "& h1": {
-      fontSize: "20px",
-      color: "blue",
-    },
-    "& h2": {
-      fontSize: "20px",
-      color: "blue",
-    },
-    "& p": {
-      my: 2,
-      lineHeight: 1.4,
-    },
-  };
-
   return (
     <Tabpanel>
-      <article className={css(styles)}>{children}</article>
+      <article className={styles.article}>{children}</article>
     </Tabpanel>
   );
 };

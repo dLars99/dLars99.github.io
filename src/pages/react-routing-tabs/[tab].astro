@@ -1,8 +1,6 @@
 ---
 import type { GetStaticPaths } from "astro";
-import "@fontsource/nunito-sans";
-import "../../index.css";
-import { css } from "../../../styled-system/css";
+import "@fontsource/geist-sans";
 import { RrtDemo } from "../../components/RrtDemo";
 import { routerConfig } from "../../components/RrtDemo/DemoTabs";
 import Head from "../../layouts/Head.astro";
@@ -11,14 +9,6 @@ export const getStaticPaths = (() => {
   const tabRoutes = routerConfig.map((route) => route.route);
   return tabRoutes.map((tabRoute) => ({ params: { tab: tabRoute } }));
 }) satisfies GetStaticPaths;
-
-const styles = {
-  bg: "black",
-  color: "white",
-  height: "100vh",
-  width: "100vw",
-  overflow: "hidden",
-};
 ---
 
 <html lang="en">
@@ -29,10 +19,24 @@ const styles = {
   />
 
   <body>
-    <main class={css(styles)}>
-      <div class={css({ mx: "auto" })}>
+    <main class="stage">
+      <div class="stage-inner">
         <RrtDemo client:only />
       </div>
     </main>
   </body>
 </html>
+
+<style>
+  .stage {
+    background: black;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .stage-inner {
+    margin: 0 auto;
+  }
+</style>

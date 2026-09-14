@@ -3,10 +3,9 @@
   "type": "module",
   "version": "1.2.2",
   "scripts": {
-    "prepare": "panda codegen",
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "yarn prepare && astro check && astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -17,7 +16,6 @@
     "@astrojs/sitemap": "^3.7.3",
     "@fontsource/geist-mono": "^5.3.0",
     "@fontsource/geist-sans": "^5.3.0",
-    "@fontsource/nunito-sans": "^5.0.13",
     "@radix-ui/react-collapsible": "^1.1.0",
     "@react-icons/all-files": "^4.1.0",
     "astro": "^7.2.4",
@@ -30,7 +28,6 @@
     "typescript": "^5.5.2"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.41.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/parser": "^7.14.1",

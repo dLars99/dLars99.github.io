@@ -4,7 +4,6 @@ import Log from "../../../images/greener/greener-log.png";
 import Schedule from "../../../images/greener/greener-schedule.png";
 import Alerts from "../../../images/greener/greener-alerts.png";
 import type { DisplayImage } from "../../../layouts/StaggeredImages.astro";
-import { css } from "../../../../styled-system/css";
 import { Image } from "astro:assets";
 
 const images: DisplayImage[] = [
@@ -34,41 +33,42 @@ const images: DisplayImage[] = [
     width: 250,
   },
 ];
-
-const styles = {
-  wrappedImages: {
-    display: "flex",
-    flexFlow: "row wrap",
-    flex: "1 1 250px",
-    justifyContent: "space-evenly",
-    width: "100%",
-  },
-  image: {
-    mb: 4,
-    width: "250px",
-  },
-  caption: {
-    mt: 1,
-    mx: "auto",
-    width: "fit-content",
-  },
-};
 ---
 
-<div class={css(styles.wrappedImages)}>
+<div class="wrapped-images">
   {
     images.map((image) => (
-      <figure class={css(styles.image)}>
+      <figure class="image">
         <Image
           alt={image.alt}
           height={image.height}
           src={image.src}
           width={image.width}
         />
-        <figcaption class={css(styles.caption)}>
+        <figcaption class="caption">
           {image.caption || image.alt}
         </figcaption>
       </figure>
     ))
   }
 </div>
+
+<style>
+  .wrapped-images {
+    display: flex;
+    flex-flow: row wrap;
+    flex: 1 1 250px;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  .image {
+    margin: 0 0 1rem;
+    width: 250px;
+  }
+
+  .caption {
+    margin: 0.25rem auto 0;
+    width: fit-content;
+  }
+</style>
