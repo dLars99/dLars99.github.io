@@ -1,18 +1,8 @@
 import React, { type FC } from "react";
 import { RoutingTabs, TabList, TabPanelWindow } from "react-routing-tabs";
-import { css } from "../../../styled-system/css";
+import styles from "./DemoTabs.module.css";
 
 export interface DemoTabsProps {}
-
-const styles = {
-  bg: "background",
-  color: "black",
-  borderRadius: "4px",
-  maxWidth: "60ch",
-  width: ["95%", "calc(65ch + 2rem)"],
-  mx: "auto",
-  mt: 40,
-};
 
 export const routerConfig = [
   {
@@ -35,7 +25,7 @@ export const routerConfig = [
 
 export const DemoTabs: FC<DemoTabsProps> = ({}) => {
   return (
-    <div className={css(styles)}>
+    <div className={styles.wrapper}>
       <RoutingTabs config={routerConfig}>
         <TabList />
 
