@@ -4,6 +4,8 @@ import EyebrowLabel from "../components/shared/EyebrowLabel.astro";
 import LedgerEntry from "../components/Work/LedgerEntry.astro";
 import FactsTable from "../components/Work/FactsTable.astro";
 import { getSortedAuditEntries, getEmployerFacts } from "../content/audit-log-utils";
+import { FaFilePdf } from "@react-icons/all-files/fa/FaFilePdf";
+import resume from "../assets/files/David Larsen Resume Downloadable.pdf";
 
 const entries = await getSortedAuditEntries();
 const facts = getEmployerFacts(entries);
@@ -12,6 +14,9 @@ const facts = getEmployerFacts(entries);
 <BaseLayout title="Work — David P Larsen" description="Work history and audit log for David Larsen.">
   <div class="work-grid">
     <div class="ledger">
+      <a class="resume-link" href={resume} download>
+        <FaFilePdf aria-hidden="true" /> Downloadable resume
+      </a>
       <EyebrowLabel as="h2" text="AUDIT LOG" />
       {entries.map((entry) => <LedgerEntry entry={entry} />)}
     </div>
@@ -38,5 +43,16 @@ const facts = getEmployerFacts(entries);
 
   .panel {
     align-self: flex-start;
+  }
+
+  .resume-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--color-accent);
+    text-decoration: none;
   }
 </style>
