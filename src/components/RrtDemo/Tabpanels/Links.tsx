@@ -1,19 +1,8 @@
 import React, { type FC } from "react";
 import { TabpanelLayout } from "./TabpanelLayout";
-import { css } from "../../../../styled-system/css";
+import styles from "./Links.module.css";
 
 export interface LinksProps {}
-
-const styles = {
-  color: "blue.300",
-  cursor: "pointer",
-  "&:hover": {
-    textDecoration: "underline",
-  },
-  "&:visited": {
-    color: "blue.600",
-  },
-};
 
 export const Links: FC<LinksProps> = () => (
   <TabpanelLayout>
@@ -23,7 +12,7 @@ export const Links: FC<LinksProps> = () => (
 
     <p>
       <a
-        className={css(styles)}
+        className={styles.link}
         href="https://github.com/dLars99/react-routing-tabs"
       >
         GitHub
@@ -32,7 +21,7 @@ export const Links: FC<LinksProps> = () => (
 
     <p>
       <a
-        className={css(styles)}
+        className={styles.link}
         href="https://www.npmjs.com/package/react-routing-tabs"
       >
         NPM
@@ -40,7 +29,7 @@ export const Links: FC<LinksProps> = () => (
     </p>
 
     <p>
-      <a className={css(styles)} href="/">
+      <a className={styles.link} href="/">
         More about the author
       </a>
     </p>

@@ -1,39 +1,39 @@
 ---
 import { Image } from "astro:assets";
-import { css } from "../../../../styled-system/css";
 import RrtImage from "../../../images/rrt/rrt.png";
-
-const styles = {
-  figure: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    mx: "auto",
-    "& a": {
-      color: "blue.300",
-      cursor: "pointer",
-      "&:hover": {
-        textDecoration: "underline",
-      },
-      "&:visited": {
-        color: "blue.600",
-      },
-    },
-  },
-};
 ---
 
 <div>
-  <figure class={css(styles.figure)}>
+  <figure class="figure">
     <a href="react-routing-tabs">
       <Image
         alt="A recursive screenshot showing the 'This Website' card in the 'Projects' section"
         src={RrtImage}
         width={500}
       />
-      <figcaption class={css({ mt: 1 })}>
-        Click to go to the working demo
-      </figcaption>
+      <figcaption>Click to go to the working demo</figcaption>
     </a>
   </figure>
 </div>
+
+<style>
+  .figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .figure a {
+    color: var(--color-accent);
+    cursor: pointer;
+  }
+
+  .figure a:hover {
+    text-decoration: underline;
+  }
+
+  figcaption {
+    margin-top: 0.25rem;
+  }
+</style>

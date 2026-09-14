@@ -1,0 +1,14 @@
+.article {
+  padding: 1rem;
+}
+
+.article h1,
+.article h2 {
+  font-size: 20px;
+  color: blue;
+}
+
+.article p {
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}

@@ -1,0 +1,13 @@
+.wrapper {
+  color: black;
+  border-radius: 4px;
+  max-width: 60ch;
+  width: 95%;
+  margin: 10rem auto 0;
+}
+
+@media (min-width: 769px) {
+  .wrapper {
+    width: calc(65ch + 2rem);
+  }
+}

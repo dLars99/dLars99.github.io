@@ -1,7 +1,5 @@
 ---
-import "@fontsource/nunito-sans";
-import "../index.css";
-import { css } from "../../styled-system/css";
+import "@fontsource/geist-sans";
 import { RrtDemo } from "../components/RrtDemo";
 import Head from "../layouts/Head.astro";
 ---
@@ -14,18 +12,24 @@ import Head from "../layouts/Head.astro";
   />
 
   <body>
-    <main
-      class={css({
-        bg: "black",
-        color: "white",
-        height: "100vh",
-        width: "100vw",
-        overflow: "hidden",
-      })}
-    >
-      <div class={css({ mx: "auto" })}>
+    <main class="stage">
+      <div class="stage-inner">
         <RrtDemo client:only />
       </div>
     </main>
   </body>
 </html>
+
+<style>
+  .stage {
+    background: black;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .stage-inner {
+    margin: 0 auto;
+  }
+</style>
