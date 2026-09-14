@@ -3413,7 +3413,6 @@ __metadata:
     react-routing-tabs: "npm:^0.2.0"
     sharp: "npm:^0.33.5"
     typescript: "npm:^5.5.2"
-    use-breakpoint: "npm:^4.0.1"
   languageName: unknown
   linkType: soft
 
@@ -10278,16 +10277,6 @@ __metadata:
   dependencies:
     punycode: "npm:^2.1.0"
   checksum: 10c0/4ef57b45aa820d7ac6496e9208559986c665e49447cb072744c13b66925a362d96dd5a46c4530a6b8e203e5db5fe849369444440cb22ecfc26c679359e5dfa3c
-  languageName: node
-  linkType: hard
-
-"use-breakpoint@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "use-breakpoint@npm:4.0.1"
-  peerDependencies:
-    react: ">=18"
-    react-dom: ">=18"
-  checksum: 10c0/74e1aea0e3f1918bcebfbcbe2c18369aa44dd481d68da123bc4d9b2125971b24d861fc93f22984f2cf051cb2cd1f3a611f5f6f6032b19fb4d60889eb80703e05
   languageName: node
   linkType: hard
 
