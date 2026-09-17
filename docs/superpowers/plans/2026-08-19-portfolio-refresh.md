@@ -3080,9 +3080,11 @@ git commit -m "chore: remove Panda CSS entirely"
 
 ### Task 19: Final accessibility and production build verification
 
-**Files:** none (verification only)
+**Files:** `src/components/Nav/MobileNav.tsx`, `src/components/AuditLog/AuditLogMobile.tsx` (bug fix found during this task — see execution note)
 
 **Interfaces:** none — this task consumes the finished site and confirms it against spec §9's testing requirements.
+
+**Execution note:** no headless browser is available in this environment (installing one plus a test runner would exceed the plan's "no new test framework" constraint, decided in Task 10 and held consistently since). Steps 2–4 below were therefore done as a careful code-level re-audit rather than live browser interaction — build/HTTP verification (routes, referenced assets, island hydration scoping) plus a fresh read of every interactive component's logic, not a substitute if you want to actually click through it yourself. That re-audit caught a real bug this plan's own code had shipped since Tasks 8–9: `MobileNav.tsx` and `AuditLogMobile.tsx` each had a `useEffect(() => { if (!isOpen) triggerRef.current?.focus(); }, [isOpen])` intended to restore focus to the trigger button when the overlay/sheet closes — but since `isOpen` starts `false`, this effect also fires on initial mount, stealing focus to the hamburger/ticker button the instant the page loads on a mobile viewport. Fixed by moving the focus restoration into the existing focus-trap effect's cleanup function instead (which only runs on the true open→closed transition, never on mount, since that effect's body returns early — registering no cleanup — when `isOpen` is `false`). This is why this task's `git status` is not clean the way the plan originally assumed — see Step 5.
 
 - [ ] **Step 1: Full production build and preview**
 
@@ -3116,7 +3118,7 @@ Add a temporary `console.log("sidebar mounted")` at the top of `Sidebar.astro`'s
 git status
 ```
 
-Expected: clean tree (all work from this task was verification-only, nothing to commit) other than the temporary console.log added and removed in Step 4, which should already be reverted.
+Expected: clean tree (all work from this task was verification-only, nothing to commit) other than the temporary console.log added and removed in Step 4, which should already be reverted. In execution, the code-level re-audit (see execution note above) found and fixed a real focus-management bug, so `git status` showed those two file changes instead — reviewed and committed alongside this task rather than treated as a plan violation.
 
 - [ ] **Step 6: Update `CHANGELOG.md`**
 
@@ -3153,12 +3155,47 @@ git commit -m "docs: log 2.0.0 portfolio refresh in changelog"
 
 ---
 
+### Task 20: Iterate on landing page copy
+
+**Files:**
+- Modify: `src/components/Landing/Hero.astro`
+- Modify: `src/components/Landing/StatCards.astro`
+- Modify: `src/components/Landing/CapabilitiesList.astro`
+
+**Interfaces:**
+- No new interfaces — same three components, content-only changes.
+
+**Context:** Task 11's hero headline/subhead, the three stat card values/captions, and the four capability names/descriptions were written to unblock the structural rebuild (get a real, working landing page in place), not as final positioning/marketing copy. This task revisits that content on its own merits.
+
+- [ ] **Step 1: Review current copy with the user**
+
+Read the current content of all three files and go through it against what the landing page should actually say — headline/subhead framing, whether the three stat values (`0KB JS`, `100/100`, `<16ms`) are the right ones to lead with, and whether the four capabilities (Design System Engine, High-Density Grids, Stateful Micro-Physics, Accessible Routing Primitives) are the right set, pointed at the right projects.
+
+- [ ] **Step 2: Apply the approved copy**
+
+Update `Hero.astro`, `StatCards.astro`, and `CapabilitiesList.astro` with whatever copy comes out of Step 1.
+
+- [ ] **Step 3: Verify**
+
+```bash
+yarn astro check
+```
+
+- [ ] **Step 4: Manual check**
+
+`yarn dev`, visit `/`, confirm the new copy renders correctly and all capability links still resolve.
+
+- [ ] **Step 5: Commit**
+
+```bash
+git add src/components/Landing/Hero.astro src/components/Landing/StatCards.astro src/components/Landing/CapabilitiesList.astro
+git commit -m "content: revise landing page copy"
+```
+
+---
+
 ## Self-Review Notes
 
 - **Spec coverage:** every numbered section of the design spec maps to a task — §2 routing/transitions/content-layer (Tasks 3, 10), §2 React-island scoping (Tasks 6–9 split desktop/mobile), §3 tokens/fonts (Task 2), §4 nav/chrome desktop+mobile (Tasks 6–9), §5 all five pages (Tasks 11–16), §6 data model (Tasks 3–4), §7 styling migration (Tasks 2, 12, 14, 15, 18), §8 deployment (Task 1, confirmed unchanged), §9 testing/a11y/non-goals (Task 19; non-goals deliberately not built anywhere), §10 component carryover (Task 17's deletions map 1:1 to the carryover table's "Removed"/"Replaced" rows).
 - **Type consistency:** `AuditEntry`/`EmployerFacts` (Task 4) are used with matching shapes in Tasks 7, 9, 15. `ProjectLink`/`LinkType` (Task 14) match the existing `demoMap` and collection schema (Task 3). `CollectionEntry<"projects">` and `CollectionEntry<"auditLog">` prop types are consistent everywhere they're consumed.
 - **Known deferred decision:** Task 13 explicitly flags that project-card screenshots are out of scope for v1 rather than guessing — surfaced to the user, not silently dropped.
-
-## Follow-ups (post-launch, not part of this plan)
-
-- Iterate on the landing page copy (Task 11: hero headline/subhead, stat card values, capabilities list names/descriptions) — current content is a reasonable v1 pass but written to unblock the structural rebuild, not final.

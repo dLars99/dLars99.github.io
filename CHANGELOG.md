@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-09-14
+
+### Changed
+
+**BREAKING** -- Rebuilt the site around a routed "system ledger" motif: persistent
+left-sidebar navigation and an audit-log status bar replace the old single-page
+anchor-scroll layout.
+
+- Upgraded Astro 4.15.2 → Astro 7
+- Replaced the single-page scroll layout with routed pages (`/`, `/about`,
+  `/projects`, `/projects/[slug]`, `/work`, `/contact`)
+- Replaced `Astro.glob()` content loading with Astro content-layer
+  collections; added a new audit-log collection driving the persistent
+  status bar, the mobile ticker/sheet, and the `/work` page
+- Removed Panda CSS entirely in favor of CSS custom properties, scoped
+  `<style>` blocks, and CSS Modules
+- Removed the `NavBubble` component
+
+### Removed
+
+- `jobData.ts`, replaced by the audit-log content collection
+
 ## [1.2.2] - 2025-04-14
 
 ### Fixed

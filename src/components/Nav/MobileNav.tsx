@@ -40,11 +40,10 @@ const MobileNav: FC = () => {
     }
 
     document.addEventListener("keydown", handleKeydown);
-    return () => document.removeEventListener("keydown", handleKeydown);
-  }, [isOpen]);
-
-  useEffect(() => {
-    if (!isOpen) triggerRef.current?.focus();
+    return () => {
+      document.removeEventListener("keydown", handleKeydown);
+      triggerRef.current?.focus();
+    };
   }, [isOpen]);
 
   const currentPath = typeof window !== "undefined" ? window.location.pathname : "";
