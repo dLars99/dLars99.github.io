@@ -1,0 +1,103 @@
+---
+const values = [
+  {
+    name: "Speed matters",
+    description: "Nobody likes waiting for a spinner. Pages should open fast, inputs should react instantly, and layouts shouldn't jump around.",
+  },
+  {
+    name: "Clarity over cleverness",
+    description: "If a user has to guess how a button works, the design failed. Simple and obvious beats fancy every time.",
+  },
+  {
+    name: "Solid on any screen",
+    description: "It needs to work just as well on a cheap phone over spotty cell service as it does on a massive monitor.",
+  },
+  {
+    name: "No junk code",
+    description: "Build it clean, keep it lightweight, and don't load megabytes of libraries just to render a basic page.",
+  },
+  {
+    name: "Right tool for the job",
+    description: "I spend most of my time in React and Next.js, but that doesn't mean every project needs a heavy framework. If plain HTML, CSS, and native web features do it better and faster, that's what gets built.",
+    wide: true,
+  },
+];
+---
+
+<div class="values">
+  <h2>Things I Care About</h2>
+  <ul>
+    {
+      values.map((value) => (
+        <li class:list={["value", { "value-wide": value.wide }]}>
+          <div class="value-inner">
+            <span class="value-name">{value.name}</span>
+            <span class="value-description">{value.description}</span>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  h2 {
+    font-size: 1.125rem;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .value {
+    position: relative;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .value:nth-child(even) {
+    padding-left: 1rem;
+  }
+
+  .value:nth-child(even)::before {
+    content: "";
+    position: absolute;
+    left: -1rem;
+    top: 30%;
+    bottom: 30%;
+    width: 1px;
+    background: var(--color-border);
+  }
+
+  .value-wide {
+    grid-column: 1 / -1;
+  }
+
+  .value-wide .value-inner {
+    max-width: 65ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .value-name {
+    display: block;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.375rem;
+  }
+
+  .value-description {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+</style>
