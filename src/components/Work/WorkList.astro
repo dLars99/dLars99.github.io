@@ -1,0 +1,28 @@
+---
+import WorkCard from "./WorkCard.astro";
+import { getCollection } from "astro:content";
+import { FaFilePdf } from "@react-icons/all-files/fa/FaFilePdf";
+import resume from "../../assets/files/David Larsen Resume Downloadable.pdf";
+
+const roles = (await getCollection("work")).sort(
+  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf()
+);
+---
+
+<a class="resume-link" href={resume} download>
+  <FaFilePdf aria-hidden="true" /> Downloadable resume
+</a>
+{roles.map((work) => <WorkCard work={work} />)}
+
+<style>
+  .resume-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+</style>

@@ -97,7 +97,7 @@ const AuditLogMobile: FC<Props> = ({ entries }) => {
                 {entry.message}
               </div>
             ))}
-            <a className={styles.exploreLink} href="/work">
+            <a className={styles.exploreLink} href="/log">
               [EXPLORE FULL LOG -&gt;]
             </a>
           </div>

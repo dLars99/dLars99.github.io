@@ -3200,14 +3200,56 @@ git commit -m "content: revise landing page copy"
 
 ### Task 21: Review the audit-log motif's role across the site
 
-**Files:** TBD — depends on what comes out of the review; likely candidates are `.instructions/portfolio-refresh.md`, `docs/superpowers/specs/2026-08-14-portfolio-refresh-design.md`, and any page/component copy that leans on the "system ledger" framing (landing page, `/work`, `EyebrowLabel` usage, etc.).
+**Files:**
+- Modify: `src/content.config.ts` (new `work` collection; drop `location` from `auditLog` schema)
+- Modify: `src/content/audit-log-utils.ts` (drop `getEmployerFacts`/`EmployerFacts`, now dead)
+- Modify: `src/content/audit-log/{01-bootcamp-start,04-safe-health-join,06-fanpower-join,09-little-caesars-join}.md` (drop `location:`)
+- Create: `src/content/work/{little-caesars,fanpower,safe-health,nashville-software-school}.md`
+- Create: `src/components/shared/DetailDrawer.astro`
+- Create: `src/components/Projects/ProjectList.astro`
+- Modify: `src/pages/projects/index.astro`, `src/pages/projects/[slug].astro`
+- Create: `src/components/Work/WorkCard.astro`, `src/components/Work/WorkList.astro`
+- Delete: `src/pages/work.astro`; Create: `src/pages/work/index.astro`, `src/pages/work/[slug].astro`
+- Move: `src/components/Work/LedgerEntry.astro` → `src/components/AuditLog/LedgerEntry.astro`
+- Delete: `src/components/Work/FactsTable.astro`
+- Create: `src/pages/log.astro`
+- Modify: `src/components/AuditLog/AuditBar.astro`, `src/components/AuditLog/AuditLogMobile.tsx` (`/work` → `/log`)
 
-**Interfaces:** none yet — this is a review/direction task, not an implementation task. It may produce follow-up implementation work once scoped.
+**Interfaces:**
+- Produces: the `work` collection (`CollectionEntry<"work">`: `id, company, title, location, startDate, endDate?, highlights[]`), consumed by `WorkCard`, `WorkList`, and `work/[slug].astro`.
+- Produces: `<DetailDrawer closeHref={string} closeLabel?={string}>` (backdrop + centered panel + close button + Escape-to-close), consumed by both `projects/[slug].astro` and `work/[slug].astro`.
 
-**Context:** The original raw instructions (`.instructions/portfolio-refresh.md:5`) state the site goal as "a high-density, editorial portfolio ... built around a persistent 'system ledger' motif." That line was read (both in the earlier brainstorming session that produced the design spec, and carried through this plan) as the audit log being the *foundation* of the whole site's concept — driving the landing page tone decision in Task 20, for instance. The user has flagged this as a misreading: the audit-log status bar is one piece of persistent chrome, a peer to the left sidebar nav (spec §4 lists "Global Audit Log Status Bar" and "Left Sidebar Navigation" as separate, equally-weighted component rules), not the organizing idea for the entire site's voice and content. This task revisits how central the audit-log conceit should actually be — in the site's copy, in its framing, and possibly in how prominently it's featured structurally — before that motif gets baked further into Task 20's landing copy or anywhere else.
+**Context:** The original raw instructions (`.instructions/portfolio-refresh.md:5`) state the site goal as "a high-density, editorial portfolio ... built around a persistent 'system ledger' motif." That line was read (both in the earlier brainstorming session that produced the design spec, and carried through this plan) as the audit log being the *foundation* of the whole site's concept — driving the landing page tone decision in Task 20, for instance.
 
-- [ ] **Step 1: Discuss with the user** what the audit log's actual role should be — a nice unifying detail vs. a load-bearing concept — and what should change as a result (copy, emphasis, nothing structural, etc.).
-- [ ] **Step 2: Scope and apply** whatever comes out of that discussion, updating this plan with concrete files/steps once direction is clear.
+**Execution notes (this task ran as a live discussion, not a pre-written checklist):**
+
+1. **About page:** set aside by the user — out of scope for this task.
+2. **Mock review:** the user asked to check the actual mockups (`.instructions/Portfolio-desktop.png`, `.instructions/Portfolio-mobile.png`) directly rather than trust the text spec. Finding: the mocks only depict the Projects list/detail page and the mobile audit-log drawer — there is no mock for About or Work. The "two-column, main-stage-plus-right-panel" layout the design spec wrote for About and Work was extrapolated from the Project *detail* mock during the earlier brainstorming session and applied to two pages that were never actually designed. Confirmed this as the root cause, not a misread of otherwise-correct instructions.
+3. **Work/audit-log conflation:** per spec, `/work` *was* the full audit log (§5: "The full Audit Log... `[VIEW FULL LOG]` and `[EXPLORE FULL LOG ->]` both land here"), and the desktop `[VIEW FULL LOG]` button was always speced to navigate (never a desktop drawer — the drawer was mobile-only, per spec §4 and the mocks). The user judged this conflation itself wrong: Work (a primary nav destination, read by recruiters) and the audit log (a lighter piece of persistent chrome) should never have been the same page/content.
+4. **Decided structure:** `/work` becomes a traditional resume — list of employer cards, click through to a role detail. `/projects` keeps its card list. Both detail views (`/projects/[slug]`, `/work/[slug]`) changed from full standalone pages to a **drawer-over-the-list** pattern: the list route and the detail route render the *same* list markup, with the detail route additionally rendering a backdrop + centered panel (`DetailDrawer.astro`) over it — fully static (no client-side fetch/JS framework), so direct links/sharing/bookmarking for individual projects and roles keep working exactly as before, while the interaction now visually matches the mocks' drawer treatment with a real close affordance (click backdrop, click the × button, or Escape) instead of the previous full-page-navigation-with-no-way-back behavior the user flagged as broken.
+5. **Audit log's new home:** `/log` — a new route, not a sidebar nav item, reachable only via `[VIEW FULL LOG]` (desktop bar) / `[EXPLORE FULL LOG ->]` (mobile drawer). Same ledger content and `ExpandableChip` entries as the old `/work`, just relocated; `LedgerEntry.astro` moved from `Work/` to `AuditLog/` to match.
+6. **Work's real data:** rather than invent new content, the real resume bullet points from the deleted `jobData.ts` (Task 17) were restored — same companies, dates, locations, and achievement bullets as the original pre-rebuild site, now living in the new `work` content collection instead of a hardcoded `.ts` array.
+7. **Dead code removed:** `FactsTable.astro` and `getEmployerFacts()`/`EmployerFacts` (computed company/dates/location from audit-log entries) are no longer needed now that Work has its own real per-employer data; the `location` field also came off the `auditLog` schema since nothing reads it anymore.
+8. **Container queries, not viewport breakpoints:** the project detail panel's internal two-column layout (demo stage + role/challenges panel) uses `@container` on `DetailDrawer`'s content wrapper rather than a `@media` viewport breakpoint — same reasoning as the Task 20 fix for the Values grid divider: the panel's actual width (capped well under the viewport) is what determines whether two columns fit, not the raw viewport size.
+
+- [ ] **Step 1 (done):** Confirmed with the user what the audit log's actual role should be, using the raw mockups as ground truth rather than the text spec alone.
+- [ ] **Step 2 (done):** Implemented the restructure described above — content collection, drawer component, Projects/Work page rewrites, new `/log` route, chrome link updates, dead-code removal.
+- [ ] **Step 3: Verify**
+
+```bash
+yarn astro check && yarn build
+```
+
+- [ ] **Step 4: Manual check**
+
+`yarn dev`; visit `/projects`, click into a project, confirm the drawer opens over the dimmed list with a working close (×, backdrop click, Escape) and the URL is still `/projects/<slug>` (shareable). Repeat for `/work` → a role. Visit `/log` directly and confirm it's the full ledger. Click `[VIEW FULL LOG]` on the desktop bar and `[EXPLORE FULL LOG ->]` on the mobile drawer and confirm both land on `/log`, not `/work`.
+
+- [ ] **Step 5: Commit**
+
+```bash
+git add -A
+git commit -m "feat: split Work and the audit log, rebuild Projects/Work detail as drawers"
+```
 
 ---
 
