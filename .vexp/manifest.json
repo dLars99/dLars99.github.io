@@ -7,15 +7,16 @@
     "CHANGELOG.md": "4395d71cd199508e91487d86fb76f409ec91524b328f363c7850b240c3f78c82",
     "README.md": "03ad634b4a090517e2653182e81bc7208092de704f86d76abb0c70dbc7c32bfd",
     "astro.config.mjs": "44288e10892cf50c09722e832dbc4f62770cc15fb848858d9ed3100b8232133e",
-    "docs/superpowers/plans/2026-08-19-portfolio-refresh.md": "32d434899bf56863fb8643a2ec3e9bf672676d21cff8b621e526a036ac71811f",
+    "docs/superpowers/plans/2026-08-19-portfolio-refresh.md": "8b2a131b793adce0c1f5e577863c3c5d44cb43190aef6af27faa33af394e7730",
     "docs/superpowers/specs/2026-08-14-portfolio-refresh-design.md": "bdc10c6266ec61f59b0b8ad2ab9df0b2659fcf1b2fb7914fe3d08b4b219f071a",
     "prettierrc.mjs": "3e4a7e6d3b639b94f1d03fc9fb960b80213c327d3eb313d993617b93d410c67b",
     "src/components/About/Bio/Bio.astro": "4e971ff3b49050b04173b2a776aaa0021e2f52504764ef5b1f98f4d25ca41b5f",
     "src/components/About/BioBlock/BioBlock.astro": "cd760bbe9305ab400dbefc457700e540e6c5692aaceeefdf98a71aaaad25adcc",
     "src/components/About/EngineeringFocus.astro": "c5c5c7284430f0c601df6fec40317fe477a5d1ff2ebe128d64609c78b2b460c1",
-    "src/components/AuditLog/AuditBar.astro": "5aa6d332a445fdb89e7cb468067fd8b8a04d3d1cc0d331f4706ac83d05aa6bd0",
+    "src/components/AuditLog/AuditBar.astro": "5c8cc99ce0bc20b24c970fc6b2ef05d035eed928a8b091b38c619149e797ccff",
     "src/components/AuditLog/AuditLogMobile.module.css": "e958adc9fdd89613998a65e5773e689aa9ae9675ddab74282ca45317caccdbc0",
-    "src/components/AuditLog/AuditLogMobile.tsx": "09f83cac5668fee54df29784710a5ba32f7d32b9dfc12513137803015f6ca759",
+    "src/components/AuditLog/AuditLogMobile.tsx": "66b1ba7c81f8cb25bed3e39fd6848af4eb1e4c1408e7e1b7a0a673a96accdda6",
+    "src/components/AuditLog/LedgerEntry.astro": "f5bb15b916e4b23587a1368988a8ce0a58ee63ad773b5148bfa2dd866b06ca5d",
     "src/components/Contact/ContactLinks.astro": "c3ec8d78c7abe127425c142fd617a24d5e87f3c30062469d894fa65fb06b51e3",
     "src/components/ExpandableChip/ExpandableChip.module.css": "642d0724127f248e3d008399eb58404129f3e17d0470ac31c2b2fc88870da519",
     "src/components/ExpandableChip/index.tsx": "568d30ac5b01125bcb3c67ddae944559dc89d20fa66a5eb52bcf93631e06d6b2",
@@ -33,6 +34,7 @@
     "src/components/Projects/Demos/demoMap.ts": "17901946aa43ce2fbcd136cbd639dead8504bba9b12698e0088d4588c7700e39",
     "src/components/Projects/ProjectCard.astro": "100f38765fa60319e11702ed2c9a63828b7f0f1ea89b6b123f4a861c0f47b34b",
     "src/components/Projects/ProjectLinks/ProjectLinks.astro": "46299d0a9b175643f3d6a925b30bc6a326f0cc0177b899ebcfe8b391ce1c4f1a",
+    "src/components/Projects/ProjectList.astro": "58f089152242e425698778a9d84a28c3f6afa577527add038d0ce98692628335",
     "src/components/Projects/TechStack/TechStack.astro": "4a0c9661fb24dd13afbab181fbd3ae808d7c0cba43566ee2485054a3070f667a",
     "src/components/Projects/TechStack/techIconMap.ts": "e3b1680f14e036bb2b644af8b56ff22e68d23f03af7a809546c3101bed774bbd",
     "src/components/RrtDemo/DemoTabs.module.css": "2af471cebab7c7d20d21bd635c9a8666babbcfa1b9817103be1309e2d6857ec6",
@@ -46,20 +48,21 @@
     "src/components/RrtDemo/Tabpanels/TabpanelLayout.tsx": "54e9dacc177e1d52a269fbd1d67b8f9a42d990d4a1261bfce1fe9c29566d112b",
     "src/components/RrtDemo/index.tsx": "abe365388975cd9d186dd0b84fb45a1d1dd5699bb9e94cb96118d41e9f743b30",
     "src/components/RrtDemo/styleOverrides.css": "8be3aab212d57ce8886a87c5dba3a06c93807ad53cab096bdbc28f08e13fb2c5",
-    "src/components/Work/FactsTable.astro": "b9751da71d610ee22d0ef2dd36a3adbecfe7b4913e3f2f08a5293849392727dc",
-    "src/components/Work/LedgerEntry.astro": "f5bb15b916e4b23587a1368988a8ce0a58ee63ad773b5148bfa2dd866b06ca5d",
+    "src/components/Work/WorkCard.astro": "d0bfff0a23abd7d48cf82495edc22deba603487e80f1453356161c53382b5509",
+    "src/components/Work/WorkList.astro": "a90e72f53e33916343da07d706396d43314209fc01638d2a047bc2cd403c92b9",
+    "src/components/shared/DetailDrawer.astro": "b12dacbd75bf427e3c1ffa82c1dd2bb14836208ce40d3757ca802c24f19ebb40",
     "src/components/shared/EyebrowLabel.astro": "42447a627a8db663ad3abb2ebb1dea9923d1b478417abdc06cd85fc7d736ab12",
-    "src/content.config.ts": "019b9820caffcb9161a8dee89a6870fef35c6382f611b81b8dfce51e1c6d9b11",
-    "src/content/audit-log-utils.ts": "7efb03cbc16f509bc894d8a2d67c03961638156745a842d0379adad376d383d1",
-    "src/content/audit-log/01-bootcamp-start.md": "b1591b05174406b86404c016fae5b1be70ff7a1275e7cfbf56cd9b12d9651e29",
+    "src/content.config.ts": "129e82ba12d393c25545b0f2a2341872a8b3412932a32fdbadd1ceab39ad3b8d",
+    "src/content/audit-log-utils.ts": "c8edb1e6f7f93516c9d449a9e9e4bd0948f04ce2d2507c39af6654b4acd0eb34",
+    "src/content/audit-log/01-bootcamp-start.md": "3949335eb36cc88d9d9dc8a875d7e45c8b71a3fd6a853d79dfe99aea884a2adf",
     "src/content/audit-log/02-greener-capstone.md": "96bfa7925c1e7d4b0e4a7edfa5d5a224aba5e011da01bcdc584187c2191bbfa5",
     "src/content/audit-log/03-gearpatch-capstone.md": "9cf54cf3b882e20f0b36134a0a6b5a5adfae8233ffb670b14d4f920e146a3ea7",
-    "src/content/audit-log/04-safe-health-join.md": "df988ff73a1f284f582c98feab29bc51b07de4f922a510bb1d76218bbed29d10",
+    "src/content/audit-log/04-safe-health-join.md": "ecffc096cf026f917322c00c37ff18ee4e862c9af6be5abd495edd5c23c33653",
     "src/content/audit-log/05-vcb-chatbot.md": "3c296a6bc70822ac93bbeee520dc913d76d74b1877791e05b820b1e3993a4b84",
-    "src/content/audit-log/06-fanpower-join.md": "7b87f9e1f9114b19e219934db8d7f3b6a50a45f2fd131540a1d75f5149adafd4",
+    "src/content/audit-log/06-fanpower-join.md": "6da8de221c73d304ff85d31e18da9fc77fa2fb36498f38a8bc926c19e2f94439",
     "src/content/audit-log/07-ad-platform-launch.md": "8c985d809f1e3b18421f39a0bceff30edd94f7541325c6be1e072964843d2b6f",
     "src/content/audit-log/08-js-migration.md": "1e769bbaacec4e0aa3e33bd8a585bccece6b176523cb8857d679a8b3a1368045",
-    "src/content/audit-log/09-little-caesars-join.md": "e2fc83167ce63b388ee8dcf210843a22b8f91d6f7de8934a91e841ee1bdf42da",
+    "src/content/audit-log/09-little-caesars-join.md": "35987bc23499d63b50dd73109dfcbc97a57b0be0a3970f2c18b26cf3f35eda3d",
     "src/content/audit-log/10-admin-architecture.md": "24333a4ab89c96377c26ca0efd5a09cca0ee811f894a1789bd87fdaca133d062",
     "src/content/audit-log/11-senior-promotion.md": "365ba6afe98f94d59681c1f99b64679dc457946a9dc8e1d72e63a6c8dacb0f9f",
     "src/content/audit-log/12-portfolio-refresh.md": "bcd6f68e14648561302df5babd2c2c955ebd6d4ba3a8a5d01df051fe88aacdfd",
@@ -68,6 +71,10 @@
     "src/content/projects/greener.md": "0bf156667c8017095b709a0ca86ae8bd5ecfefee3a64b8448a868cebac0ef114",
     "src/content/projects/portfolio.md": "7306af40bb98679188ed4febaf624724e433414a3fe457d4eba1de49726b86b6",
     "src/content/projects/react-routing-tabs.md": "ef531094321d3812d0c9a87fc50b722ed6be9e81bfadc6d9caf38630b02fb84e",
+    "src/content/work/fanpower.md": "9c8a5b79e04a2543ceefef55924edaa5297c1f3168dafb14eb0b57e04da1d68a",
+    "src/content/work/little-caesars.md": "977016eea39b95152943b7297d474e2734743a72c980c28d5a5db3edff98c3df",
+    "src/content/work/nashville-software-school.md": "022553743624c26463908e554a63df2a07dbdf762e4dccd162602d37a74d44f6",
+    "src/content/work/safe-health.md": "32fe3e72fa8dcb92ecbc687329768414e5b9f2f3d0cfe2f8538e6d41c852ad11",
     "src/data/siteMetadata.ts": "43e668b3631adb8f13b53ae75d8fd23f3804c8093a222492aea5b7d824a24249",
     "src/env.d.ts": "17463cf6483a2e85174f06f8b306954bc288a2ecde8b3436aca986bdd9d71cb3",
     "src/layouts/BaseLayout.astro": "ff1c3f2796259d839aae983bd09028956dc30f833ba9eaa8af53f404826f7a19",
@@ -76,20 +83,22 @@
     "src/pages/about.astro": "f7548d5cc0411b653287ba00ccc62c1ec8b1f9a68e89dc816beda91d998cc5b2",
     "src/pages/contact.astro": "305cd6074557ba80d0b9d240ce6a4e25378df4653e0091e97a9b517325efef92",
     "src/pages/index.astro": "a4f6377e838d410df157d99263b0bd1afa90c734ff238a29464dcaaaa3c3ce45",
-    "src/pages/projects/[slug].astro": "704c6873d494e4830d23bbde8a1cadaf2493be9cc72c85477232dfd64611fe05",
-    "src/pages/projects/index.astro": "9916492f98449b6372158410f8133b778784e7a8972c7bcd4297e69dff81756e",
+    "src/pages/log.astro": "4695a3b9a70983d23f36ff338a0dcfd0b816892fa9c408935840167926518310",
+    "src/pages/projects/[slug].astro": "feb09b0ce17385568e7657061e381b52ea1f931358aee24e72d9f7dd2cfd4c91",
+    "src/pages/projects/index.astro": "fca2471672b99d6c8b971653fec3adceba03bcb7292ae912e5654cfe801399ed",
     "src/pages/react-routing-tabs.astro": "f906ae727af433bc18e593f104114186dc4bb308d384a5960941607734bfa146",
     "src/pages/react-routing-tabs/[tab].astro": "846167310bb2bb9d623e159bfd4486aa9ddd2464964ac3c31646018140512cfe",
-    "src/pages/work.astro": "c1a86d4f0352300ffef1bb6d12addcddce37b4204408dc32dae163be544dcd42",
+    "src/pages/work/[slug].astro": "4ba158c37d9bd778cf6d0d0bb31e70c2bf7715c635f636897eb50f562d51df80",
+    "src/pages/work/index.astro": "d3f565607517ffd4d1666a53af2948919a5aa4a5a0d16ad704f6b6fc4b4147af",
     "src/styles/global.css": "727fce60c05d3919e2fd269333f25125a8fe6e53e41db2062b92cc87833406b0",
     "src/styles/tokens.css": "43970df0719a849521a0e4edac342baccb5908ab438deb0a293e19b1e4dc1ce4"
   },
-  "indexed_at_commit": "10e92dd388848b9c6c9a729339b4c0a835fffb72",
-  "indexed_at_timestamp": "2026-10-13T02:00:17.835448586+00:00",
+  "indexed_at_commit": "4e0d5d1101acd63640910b50fa6c8c0ececf4150",
+  "indexed_at_timestamp": "2026-10-13T02:50:13.271812251+00:00",
   "languages": {
     "astro": {
       "calls": 0,
-      "nodes": 47
+      "nodes": 54
     },
     "css": {
       "calls": 0,
@@ -97,19 +106,19 @@
     },
     "markdown": {
       "calls": 0,
-      "nodes": 104
+      "nodes": 108
     },
     "typescript": {
       "calls": 0,
-      "nodes": 26
+      "nodes": 24
     }
   },
   "parser_version": "3.3.2",
   "schema_version": 3,
   "stats": {
-    "total_edges": 215,
-    "total_files": 83,
-    "total_nodes": 241
+    "total_edges": 214,
+    "total_files": 92,
+    "total_nodes": 250
   },
   "vexp_version": "3.3.3"
 }

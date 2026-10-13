@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type FC } from "react";
 import styles from "./MobileNav.module.css";
 
 const navItems = [
+  { label: "HOME", href: "/" },
   { label: "ABOUT", href: "/about" },
   { label: "PROJECTS", href: "/projects" },
   { label: "WORK", href: "/work" },
@@ -46,7 +47,10 @@ const MobileNav: FC = () => {
     };
   }, [isOpen]);
 
-  const currentPath = typeof window !== "undefined" ? window.location.pathname : "";
+  const currentPath =
+    typeof window !== "undefined"
+      ? window.location.pathname.replace(/\/$/, "") || "/"
+      : "";
 
   return (
     <>
@@ -78,7 +82,12 @@ const MobileNav: FC = () => {
                 key={item.href}
                 className={styles.link}
                 href={item.href}
-                aria-current={currentPath.startsWith(item.href) ? "page" : undefined}
+                aria-current={
+                  currentPath === item.href ||
+                  currentPath.startsWith(`${item.href}/`)
+                    ? "page"
+                    : undefined
+                }
               >
                 {item.label}
               </a>
