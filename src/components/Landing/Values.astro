@@ -55,6 +55,7 @@ const values = [
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 0 2rem;
     border-top: 1px solid var(--color-border);
+    container-type: inline-size;
   }
 
   .value {
@@ -63,18 +64,21 @@ const values = [
     border-bottom: 1px solid var(--color-border);
   }
 
-  .value:nth-child(even) {
-    padding-left: 1rem;
-  }
+  /* 632px = 2 * 300px columns + 2rem gap, matching the grid's own 2-column threshold. */
+  @container (min-width: 632px) {
+    .value:nth-child(even) {
+      padding-left: 1rem;
+    }
 
-  .value:nth-child(even)::before {
-    content: "";
-    position: absolute;
-    left: -1rem;
-    top: 30%;
-    bottom: 30%;
-    width: 1px;
-    background: var(--color-border);
+    .value:nth-child(even)::before {
+      content: "";
+      position: absolute;
+      left: -1rem;
+      top: 30%;
+      bottom: 30%;
+      width: 1px;
+      background: var(--color-border);
+    }
   }
 
   .value-wide {
