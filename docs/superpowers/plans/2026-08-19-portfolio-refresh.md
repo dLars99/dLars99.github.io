@@ -3160,12 +3160,16 @@ git commit -m "docs: log 2.0.0 portfolio refresh in changelog"
 **Files:**
 - Modify: `src/components/Landing/Hero.astro`
 - Modify: `src/components/Landing/StatCards.astro`
-- Modify: `src/components/Landing/CapabilitiesList.astro`
+- Delete: `src/components/Landing/CapabilitiesList.astro`
+- Create: `src/components/Landing/Values.astro`
+- Modify: `src/pages/index.astro` (swap the `CapabilitiesList` import/usage for `Values`)
 
 **Interfaces:**
-- No new interfaces — same three components, content-only changes.
+- No new interfaces beyond the `CapabilitiesList` → `Values` rename, driven by content: the section is no longer capabilities-with-project-links, so the old name and shape stopped fitting.
 
 **Context:** Task 11's hero headline/subhead, the three stat card values/captions, and the four capability names/descriptions were written to unblock the structural rebuild (get a real, working landing page in place), not as final positioning/marketing copy. This task revisits that content on its own merits.
+
+**Execution note:** reviewed with the user via an iterative visual mockup (an Artifact reproducing the real page's tokens/layout) rather than guessing at copy blind. Two full rewrites were rejected before landing on direction — first a "warmer" pass that read as trying too hard to be casual, then a hero that undersold the role and described this site's own implementation instead of the person. Final direction: plain, direct, no forced personality; hero states the professional identity directly (verbatim copy supplied by the user); the old "4 abstract capabilities linking to projects" concept was replaced entirely with a user-supplied "Things I Care About" values list (5 items, card grid, one item full-width, hairline row dividers plus a short partial-height vertical divider between columns — no project links). `CapabilitiesList.astro` was renamed to `Values.astro` to match, and `src/pages/index.astro` updated accordingly.
 
 - [ ] **Step 1: Review current copy with the user**
 
@@ -3173,7 +3177,7 @@ Read the current content of all three files and go through it against what the l
 
 - [ ] **Step 2: Apply the approved copy**
 
-Update `Hero.astro`, `StatCards.astro`, and `CapabilitiesList.astro` with whatever copy comes out of Step 1.
+Update `Hero.astro`, `StatCards.astro`, and (as `Values.astro`, replacing `CapabilitiesList.astro`) the bottom section with whatever comes out of Step 1.
 
 - [ ] **Step 3: Verify**
 
@@ -3183,14 +3187,27 @@ yarn astro check
 
 - [ ] **Step 4: Manual check**
 
-`yarn dev`, visit `/`, confirm the new copy renders correctly and all capability links still resolve.
+`yarn dev`, visit `/`, confirm the new copy renders correctly.
 
 - [ ] **Step 5: Commit**
 
 ```bash
-git add src/components/Landing/Hero.astro src/components/Landing/StatCards.astro src/components/Landing/CapabilitiesList.astro
+git add src/components/Landing/Hero.astro src/components/Landing/StatCards.astro src/components/Landing/Values.astro src/components/Landing/CapabilitiesList.astro src/pages/index.astro
 git commit -m "content: revise landing page copy"
 ```
+
+---
+
+### Task 21: Review the audit-log motif's role across the site
+
+**Files:** TBD — depends on what comes out of the review; likely candidates are `.instructions/portfolio-refresh.md`, `docs/superpowers/specs/2026-08-14-portfolio-refresh-design.md`, and any page/component copy that leans on the "system ledger" framing (landing page, `/work`, `EyebrowLabel` usage, etc.).
+
+**Interfaces:** none yet — this is a review/direction task, not an implementation task. It may produce follow-up implementation work once scoped.
+
+**Context:** The original raw instructions (`.instructions/portfolio-refresh.md:5`) state the site goal as "a high-density, editorial portfolio ... built around a persistent 'system ledger' motif." That line was read (both in the earlier brainstorming session that produced the design spec, and carried through this plan) as the audit log being the *foundation* of the whole site's concept — driving the landing page tone decision in Task 20, for instance. The user has flagged this as a misreading: the audit-log status bar is one piece of persistent chrome, a peer to the left sidebar nav (spec §4 lists "Global Audit Log Status Bar" and "Left Sidebar Navigation" as separate, equally-weighted component rules), not the organizing idea for the entire site's voice and content. This task revisits how central the audit-log conceit should actually be — in the site's copy, in its framing, and possibly in how prominently it's featured structurally — before that motif gets baked further into Task 20's landing copy or anywhere else.
+
+- [ ] **Step 1: Discuss with the user** what the audit log's actual role should be — a nice unifying detail vs. a load-bearing concept — and what should change as a result (copy, emphasis, nothing structural, etc.).
+- [ ] **Step 2: Scope and apply** whatever comes out of that discussion, updating this plan with concrete files/steps once direction is clear.
 
 ---
 
