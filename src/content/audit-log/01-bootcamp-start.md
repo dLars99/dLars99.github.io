@@ -2,7 +2,6 @@
 version: "v0.1.0"
 date: "2020-05-15"
 employer: "Nashville Software School"
-location: "Nashville, TN"
 message: "Enrolled in a full-stack engineering bootcamp; began building foundational patterns in JavaScript, React, and relational data modeling."
 ---
 

@@ -1,0 +1,23 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import { getCollection } from "astro:content";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => (a.data.lastUpdatedDate < b.data.lastUpdatedDate ? 1 : -1)
+);
+---
+
+<p class="intro">
+  Though I consider myself an engineer far more than I consider myself a
+  designer, and I don't get a lot of time for side projects, I am able to
+  dabble once in a while. Here are some of those dabblings.
+</p>
+{projects.map((project) => <ProjectCard project={project} />)}
+
+<style>
+  .intro {
+    max-width: 60ch;
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+  }
+</style>

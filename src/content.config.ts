@@ -30,8 +30,20 @@ const auditLog = defineCollection({
     date: z.coerce.date(),
     message: z.string(),
     employer: z.string().optional(),
-    location: z.string().optional(),
   }),
 });
 
-export const collections = { projects, auditLog };
+const work = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/work" }),
+  schema: z.object({
+    id: z.string(),
+    company: z.string(),
+    title: z.string(),
+    location: z.string(),
+    startDate: z.coerce.date(),
+    endDate: z.coerce.date().optional(),
+    highlights: z.array(z.string()),
+  }),
+});
+
+export const collections = { projects, auditLog, work };
