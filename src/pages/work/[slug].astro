@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import WorkList from "../../components/Work/WorkList.astro";
+import DetailDrawer from "../../components/shared/DetailDrawer.astro";
+import EyebrowLabel from "../../components/shared/EyebrowLabel.astro";
+import { getCollection } from "astro:content";
+import { format } from "date-fns";
+
+export async function getStaticPaths() {
+  const roles = await getCollection("work");
+  return roles.map((work) => ({
+    params: { slug: work.data.id },
+    props: { work },
+  }));
+}
+
+const { work } = Astro.props;
+const { company, title, location, startDate, endDate, highlights } = work.data;
+const dateFormat = "MMMM y";
+const dates = `${format(startDate, dateFormat)} – ${endDate ? format(endDate, dateFormat) : "Present"}`;
+---
+
+<BaseLayout title={`${company} — David P Larsen`} description={`${title} at ${company}.`}>
+  <WorkList />
+
+  <DetailDrawer closeHref="/work" closeLabel="Close role detail">
+    <EyebrowLabel as="h2" text={company.toUpperCase()} />
+    <p class="meta">{title} · {dates} · {location}</p>
+    <ul class="highlights">
+      {highlights.map((highlight) => <li>{highlight}</li>)}
+    </ul>
+  </DetailDrawer>
+</BaseLayout>
+
+<style>
+  .meta {
+    margin: 0.5rem 0 1.5rem;
+    color: var(--color-text-secondary);
+  }
+
+  .highlights {
+    margin: 0;
+    padding-left: 1.25rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .highlights li {
+    margin-bottom: 0.75rem;
+  }
+</style>

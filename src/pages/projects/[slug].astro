@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectList from "../../components/Projects/ProjectList.astro";
+import DetailDrawer from "../../components/shared/DetailDrawer.astro";
 import EyebrowLabel from "../../components/shared/EyebrowLabel.astro";
 import ProjectLinks from "../../components/Projects/ProjectLinks/ProjectLinks.astro";
 import TechStack from "../../components/Projects/TechStack/TechStack.astro";
@@ -21,34 +23,38 @@ const Demo = demoMap[id];
 ---
 
 <BaseLayout title={`${title} — David P Larsen`} description={description}>
-  <EyebrowLabel as="h2" text={title.toUpperCase()} />
-  <p class="description">{description}</p>
+  <ProjectList />
 
-  <ProjectLinks links={links} />
+  <DetailDrawer closeHref="/projects" closeLabel="Close project detail">
+    <EyebrowLabel as="h2" text={title.toUpperCase()} />
+    <p class="description">{description}</p>
 
-  <div class="detail-grid">
-    <div class="stage">
-      {Demo ? <Demo firstPosition="left" /> : null}
+    <ProjectLinks links={links} />
+
+    <div class="detail-grid">
+      <div class="stage">
+        {Demo ? <Demo firstPosition="left" /> : null}
+      </div>
+
+      <div class="panel">
+        <section>
+          <h3>My Role &amp; Approach</h3>
+          <p>{role}</p>
+        </section>
+
+        <section>
+          <h3>Interface Challenges &amp; Solutions</h3>
+          <p>{challenges}</p>
+        </section>
+
+        <TechStack tech={tech} />
+      </div>
     </div>
 
-    <div class="panel">
-      <section>
-        <h3>My Role &amp; Approach</h3>
-        <p>{role}</p>
-      </section>
-
-      <section>
-        <h3>Interface Challenges &amp; Solutions</h3>
-        <p>{challenges}</p>
-      </section>
-
-      <TechStack tech={tech} />
+    <div class="body">
+      <Content />
     </div>
-  </div>
-
-  <div class="body">
-    <Content />
-  </div>
+  </DetailDrawer>
 </BaseLayout>
 
 <style>
@@ -65,9 +71,9 @@ const Demo = demoMap[id];
     margin-top: 1.5rem;
   }
 
-  @media (min-width: 769px) {
+  @container (min-width: 560px) {
     .detail-grid {
-      grid-template-columns: 1.4fr 1fr;
+      grid-template-columns: 1fr 1fr;
     }
   }
 
