@@ -2,12 +2,21 @@
 interface Props {
   text: string;
   as?: "span" | "h2" | "h3";
+  variant?: "primary" | "secondary";
+  class?: string;
 }
 
-const { text, as: Tag = "span" } = Astro.props;
+const {
+  text,
+  as: Tag = "span",
+  variant = "primary",
+  class: className,
+  ...rest
+} = Astro.props;
+const labelText = variant === "primary" ? `[ ${text} ]` : text;
 ---
 
-<Tag class="eyebrow">[{text}]</Tag>
+<Tag {...rest} class:list={["eyebrow", className]}>{labelText}</Tag>
 
 <style>
   .eyebrow {

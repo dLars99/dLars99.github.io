@@ -1,8 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import EyebrowLabel from "../components/shared/EyebrowLabel.astro";
 import Bio from "../components/About/Bio/Bio.astro";
 import WorkingTogether from "../components/About/WorkingTogether.astro";
+import EyebrowLabel from "../components/shared/EyebrowLabel.astro";
 ---
 
 <BaseLayout
@@ -10,19 +10,19 @@ import WorkingTogether from "../components/About/WorkingTogether.astro";
   description="About David Larsen, full-stack engineer."
 >
   <div class="about-stack">
-    <section>
-      <Bio />
-    </section>
+    <EyebrowLabel as="h2" class="about-eyebrow" text="About" />
+
+    <Bio />
+
     <hr />
-    <section>
-      <WorkingTogether />
-    </section>
+
+    <WorkingTogether />
   </div>
 </BaseLayout>
 
 <style>
-  .about-stack {
-    max-width: 60ch;
+  .about-eyebrow {
+    margin-top: 0;
   }
 
   hr {

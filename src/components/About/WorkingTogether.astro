@@ -10,27 +10,35 @@ const traits = [
   {
     title: "Design-Aware",
     description:
-      "I speak fluent layout, spacing, and typography. I can jump into Figma, refine micro-interactions on the fly, or build straight in the browser when mockups don't cover every edge case.",
+      "I pay close attention to layout and typography. When mockups miss edge cases or blank states, I prefer to solve them directly in the browser rather than waiting for another design pass.",
   },
   {
     title: "Pragmatic Communication",
     description:
-      "Clear, direct, and asynchronous-friendly. I write thorough PR descriptions, document system choices, and keep team friction as low as possible.",
+      "I keep team friction low with direct, asynchronous communication and thorough PR descriptions that give context up front.",
   },
 ];
 ---
 
-<EyebrowLabel as="h2" text="WORKING TOGETHER" />
-<ul>
-  {
-    traits.map((trait) => (
-      <li>
-        <h3>{trait.title}</h3>
-        <p>{trait.description}</p>
-      </li>
-    ))
-  }
-</ul>
+<section aria-labelledby="working-together">
+  <EyebrowLabel
+    as="h3"
+    id="working-together"
+    text="WORKING TOGETHER"
+    variant="secondary"
+  />
+
+  <ul>
+    {
+      traits.map((trait) => (
+        <li>
+          <h3>{trait.title}</h3>
+          <p>{trait.description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</section>
 
 <style>
   ul {
@@ -58,7 +66,8 @@ const traits = [
     height: 0.5rem;
     border-radius: 50%;
     background: var(--color-accent);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 25%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--color-accent) 25%, transparent);
   }
 
   /* Connector line between markers */

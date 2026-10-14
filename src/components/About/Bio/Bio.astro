@@ -1,34 +1,55 @@
 ---
-import EyebrowLabel from "../../shared/EyebrowLabel.astro";
 import BioBlock from "../BioBlock/BioBlock.astro";
 ---
 
-<EyebrowLabel as="h2" text="BIOGRAPHY" />
+<section aria-labelledby="bio">
+  <h3 class="headline" id="bio">Frontend developer. Product builder.</h3>
 
-<BioBlock>
-  <p>Hi. I'm David.</p>
-</BioBlock>
+  <BioBlock>
+    <p>
+      Hi, I’m David. I build frontend software for startups and nimble teams.
+    </p>
+  </BioBlock>
 
-<BioBlock>
-  I am a fullstack developer with over 4 years' experience developing
-  professional applications utilizing JavaScript/Typescript frameworks.
-</BioBlock>
+  <BioBlock>
+    For over six years, I’ve worked on early-stage products where I take rough
+    concepts and turn them into fast, responsive web applications. I do my best
+    work in small teams with short feedback loops, where everyone cares about
+    how the product actually feels to use. I care most about the details users
+    feel but rarely notice: layouts that hold up, pages that load fast, and
+    complex workflows that feel simple.
+  </BioBlock>
 
-<BioBlock>
-  I have extensive experience using React for frontend development, along with a
-  variety of styling frameworks. I also have experience developing backends in
-  Node/Express, with a tiny bit of C#/.NET experience. I have utilized SQL and
-  NoSQL databases, particularly through PostgreSQL and MongoDB.
-</BioBlock>
+  <BioBlock>
+    My day-to-day focus is building interfaces with React, Next.js, and modern
+    CSS, but I’m pragmatic about stack choices. If native browser features solve
+    a problem better, I’ll reach for those instead. On the backend, I’ve built
+    services with Node, Express, PostgreSQL, and MongoDB, along with some
+    C#/.NET work.
+  </BioBlock>
 
-<BioBlock>
-  Before I was a developer, I split time between IT Support and professional
-  music, including 5 years pursuing music full-time. Support gave me a superb
-  troubleshooting and problem solving skills. Music gave me the creative itch to
-  move beyond support into development.
-</BioBlock>
+  <BioBlock>
+    My path into development wasn’t traditional. Before writing code full-time,
+    I split my time between IT support and playing music professionally,
+    including five years as a full-time musician. Support taught me to
+    troubleshoot calmly and methodically. Music gave me the creative itch that
+    pulled me from fixing things to building them.
+  </BioBlock>
 
-<BioBlock>
-  I also love to disconnect with a good book or by getting outdoors or playing
-  with my golden retriever. Actually, he insists on playing.
-</BioBlock>
+  <BioBlock>
+    Offline, I’m usually reading, outside, or playing with my golden retriever.
+    Mostly the last one. He insists.
+  </BioBlock>
+</section>
+
+<style>
+  .headline {
+    font-family: var(--font-sans);
+    font-size: 2.25rem;
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+  }
+</style>
