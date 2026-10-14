@@ -2,6 +2,8 @@
 id: "barkeep"
 title: "Barkeep"
 description: "A cocktail catalog for personal use"
+image: "../../images/barkeep/barkeep-homepage.png"
+imageAlt: "Barkeep homepage"
 initialCompletionDate: "2022-07-12"
 lastUpdatedDate: "2022-12-30"
 links:

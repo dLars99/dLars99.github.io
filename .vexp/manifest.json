@@ -34,7 +34,7 @@
     "src/components/Projects/Demos/demoMap.ts": "17901946aa43ce2fbcd136cbd639dead8504bba9b12698e0088d4588c7700e39",
     "src/components/Projects/ProjectCard.astro": "100f38765fa60319e11702ed2c9a63828b7f0f1ea89b6b123f4a861c0f47b34b",
     "src/components/Projects/ProjectLinks/ProjectLinks.astro": "46299d0a9b175643f3d6a925b30bc6a326f0cc0177b899ebcfe8b391ce1c4f1a",
-    "src/components/Projects/ProjectList.astro": "58f089152242e425698778a9d84a28c3f6afa577527add038d0ce98692628335",
+    "src/components/Projects/ProjectList.astro": "1fe5c20a59ffde54753711c4a510cac5a5fba4cecaf88ccff34b0eb97b845544",
     "src/components/Projects/TechStack/TechStack.astro": "4a0c9661fb24dd13afbab181fbd3ae808d7c0cba43566ee2485054a3070f667a",
     "src/components/Projects/TechStack/techIconMap.ts": "e3b1680f14e036bb2b644af8b56ff22e68d23f03af7a809546c3101bed774bbd",
     "src/components/RrtDemo/DemoTabs.module.css": "2af471cebab7c7d20d21bd635c9a8666babbcfa1b9817103be1309e2d6857ec6",
@@ -94,8 +94,8 @@
     "src/styles/global.css": "727fce60c05d3919e2fd269333f25125a8fe6e53e41db2062b92cc87833406b0",
     "src/styles/tokens.css": "43970df0719a849521a0e4edac342baccb5908ab438deb0a293e19b1e4dc1ce4"
   },
-  "indexed_at_commit": "72fe92e9c7f77f724cd1a15f0486ccd3e73920d8",
-  "indexed_at_timestamp": "2026-10-14T11:27:03.051462239+00:00",
+  "indexed_at_commit": "12638357fe49f6c0829836142349cb88ad369769",
+  "indexed_at_timestamp": "2026-10-14T11:38:40.445798104+00:00",
   "languages": {
     "astro": {
       "calls": 0,
@@ -117,7 +117,7 @@
   "parser_version": "3.3.2",
   "schema_version": 3,
   "stats": {
-    "total_edges": 179,
+    "total_edges": 177,
     "total_files": 93,
     "total_nodes": 252
   },

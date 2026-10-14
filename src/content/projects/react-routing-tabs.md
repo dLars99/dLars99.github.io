@@ -2,6 +2,8 @@
 id: "rrt"
 title: "React Routing Tabs"
 description: "An open-source tab library of my creation"
+image: "../../images/rrt/rrt.png"
+imageAlt: "React Routing Tabs demo"
 initialCompletionDate: "2024-05-17"
 lastUpdatedDate: "2024-05-20"
 links:

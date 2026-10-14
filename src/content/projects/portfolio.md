@@ -1,7 +1,9 @@
 ---
 id: "portfolio"
 title: "This Website"
-description: "My personal developer portfolio site"
+description: "My personal developer portfolio site."
+image: "../../images/portfolio/portfolio.png"
+imageAlt: "Portfolio site"
 initialCompletionDate: "2024-07-31"
 lastUpdatedDate: "2024-07-31"
 links:

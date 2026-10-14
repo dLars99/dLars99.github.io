@@ -2,6 +2,8 @@
 id: "gearpatch"
 title: "GearPatch"
 description: "A peer-to-peer network for renting musical equipment"
+image: "../../images/gearpatch/gearpatch-homepage.png"
+imageAlt: "GearPatch homepage"
 initialCompletionDate: "2020-11-04"
 lastUpdatedDate: "2020-11-16"
 links:
