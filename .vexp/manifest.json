@@ -4,12 +4,12 @@
     ".claude/hooks/vexp-hint.sh": "694b7450ae04a934c65392193ab2fa1c8271fdb08f721c5264a5bdad031a398a",
     ".claude/hooks/vexp-restore.sh": "2b33a5020918440b26398592963f2ddb5614476b1c1f9faef0aff62b29825a0b",
     ".github/copilot-instructions.md": "d4abbccf51047a90feb64848ac4a0363841a88870cd89dad8b5ec5abda5d90a5",
+    ".prettierrc.mjs": "3e4a7e6d3b639b94f1d03fc9fb960b80213c327d3eb313d993617b93d410c67b",
     "CHANGELOG.md": "4395d71cd199508e91487d86fb76f409ec91524b328f363c7850b240c3f78c82",
     "README.md": "03ad634b4a090517e2653182e81bc7208092de704f86d76abb0c70dbc7c32bfd",
     "astro.config.mjs": "44288e10892cf50c09722e832dbc4f62770cc15fb848858d9ed3100b8232133e",
     "docs/superpowers/plans/2026-08-19-portfolio-refresh.md": "8b2a131b793adce0c1f5e577863c3c5d44cb43190aef6af27faa33af394e7730",
     "docs/superpowers/specs/2026-08-14-portfolio-refresh-design.md": "bdc10c6266ec61f59b0b8ad2ab9df0b2659fcf1b2fb7914fe3d08b4b219f071a",
-    "prettierrc.mjs": "3e4a7e6d3b639b94f1d03fc9fb960b80213c327d3eb313d993617b93d410c67b",
     "src/components/About/Bio/Bio.astro": "dd0b3eb891b670c730a3ba7a3ef2050d3464f2144a632d1254bc106575c0e9e0",
     "src/components/About/BioBlock/BioBlock.astro": "cd760bbe9305ab400dbefc457700e540e6c5692aaceeefdf98a71aaaad25adcc",
     "src/components/About/WorkingTogether.astro": "4a717fda30806870f34604b5ff152f20681a1cec416876a77adeedb10797665b",
@@ -51,7 +51,7 @@
     "src/components/Work/WorkCard.astro": "d0bfff0a23abd7d48cf82495edc22deba603487e80f1453356161c53382b5509",
     "src/components/Work/WorkList.astro": "a90e72f53e33916343da07d706396d43314209fc01638d2a047bc2cd403c92b9",
     "src/components/shared/DetailDrawer.astro": "b12dacbd75bf427e3c1ffa82c1dd2bb14836208ce40d3757ca802c24f19ebb40",
-    "src/components/shared/EyebrowLabel.astro": "42447a627a8db663ad3abb2ebb1dea9923d1b478417abdc06cd85fc7d736ab12",
+    "src/components/shared/EyebrowLabel.astro": "77f67ee772b2fdc973a8311e64d1ceb9c5968167e15eceae783860f233ed5064",
     "src/content.config.ts": "129e82ba12d393c25545b0f2a2341872a8b3412932a32fdbadd1ceab39ad3b8d",
     "src/content/audit-log-utils.ts": "c8edb1e6f7f93516c9d449a9e9e4bd0948f04ce2d2507c39af6654b4acd0eb34",
     "src/content/audit-log/01-bootcamp-start.md": "3949335eb36cc88d9d9dc8a875d7e45c8b71a3fd6a853d79dfe99aea884a2adf",
@@ -77,7 +77,7 @@
     "src/content/work/safe-health.md": "32fe3e72fa8dcb92ecbc687329768414e5b9f2f3d0cfe2f8538e6d41c852ad11",
     "src/data/siteMetadata.ts": "43e668b3631adb8f13b53ae75d8fd23f3804c8093a222492aea5b7d824a24249",
     "src/env.d.ts": "17463cf6483a2e85174f06f8b306954bc288a2ecde8b3436aca986bdd9d71cb3",
-    "src/layouts/BaseLayout.astro": "ff1c3f2796259d839aae983bd09028956dc30f833ba9eaa8af53f404826f7a19",
+    "src/layouts/BaseLayout.astro": "a9203c6d367fe2b6b74d2cd839ccdcb4c22e73faf149fb09507018424bc55caa",
     "src/layouts/Head.astro": "73e8ed3a35b62602e1fe90dccae86a2f4fa869e9105563245a93965d54a5b488",
     "src/layouts/StaggeredImages.astro": "290de1000eb19aa2f93ac1668a2b872a8fd10a633fa0a04ec6c528aecde5b4bb",
     "src/pages/about.astro": "62e4e12bfac2bef0b560a341dad455ee6893b270a143cb0d16e5654119f8b917",
@@ -93,8 +93,8 @@
     "src/styles/global.css": "727fce60c05d3919e2fd269333f25125a8fe6e53e41db2062b92cc87833406b0",
     "src/styles/tokens.css": "43970df0719a849521a0e4edac342baccb5908ab438deb0a293e19b1e4dc1ce4"
   },
-  "indexed_at_commit": "32e94428eb14d9a914d434b9bfa66b05d09c5187",
-  "indexed_at_timestamp": "2026-10-14T02:55:25.392841990+00:00",
+  "indexed_at_commit": "1392a7f1f6ea51bbeacf6d2bfa69d3b6e2f0c9c6",
+  "indexed_at_timestamp": "2026-10-14T03:00:05.195975792+00:00",
   "languages": {
     "astro": {
       "calls": 0,
@@ -116,7 +116,7 @@
   "parser_version": "3.3.2",
   "schema_version": 3,
   "stats": {
-    "total_edges": 210,
+    "total_edges": 175,
     "total_files": 92,
     "total_nodes": 250
   },
