@@ -10,9 +10,9 @@
     "docs/superpowers/plans/2026-08-19-portfolio-refresh.md": "8b2a131b793adce0c1f5e577863c3c5d44cb43190aef6af27faa33af394e7730",
     "docs/superpowers/specs/2026-08-14-portfolio-refresh-design.md": "bdc10c6266ec61f59b0b8ad2ab9df0b2659fcf1b2fb7914fe3d08b4b219f071a",
     "prettierrc.mjs": "3e4a7e6d3b639b94f1d03fc9fb960b80213c327d3eb313d993617b93d410c67b",
-    "src/components/About/Bio/Bio.astro": "4e971ff3b49050b04173b2a776aaa0021e2f52504764ef5b1f98f4d25ca41b5f",
+    "src/components/About/Bio/Bio.astro": "dd0b3eb891b670c730a3ba7a3ef2050d3464f2144a632d1254bc106575c0e9e0",
     "src/components/About/BioBlock/BioBlock.astro": "cd760bbe9305ab400dbefc457700e540e6c5692aaceeefdf98a71aaaad25adcc",
-    "src/components/About/EngineeringFocus.astro": "c5c5c7284430f0c601df6fec40317fe477a5d1ff2ebe128d64609c78b2b460c1",
+    "src/components/About/WorkingTogether.astro": "4a717fda30806870f34604b5ff152f20681a1cec416876a77adeedb10797665b",
     "src/components/AuditLog/AuditBar.astro": "5c8cc99ce0bc20b24c970fc6b2ef05d035eed928a8b091b38c619149e797ccff",
     "src/components/AuditLog/AuditLogMobile.module.css": "e958adc9fdd89613998a65e5773e689aa9ae9675ddab74282ca45317caccdbc0",
     "src/components/AuditLog/AuditLogMobile.tsx": "66b1ba7c81f8cb25bed3e39fd6848af4eb1e4c1408e7e1b7a0a673a96accdda6",
@@ -24,8 +24,8 @@
     "src/components/Landing/StatCards.astro": "8af07f422e3cf8a70528bdc035e762cbfcb06108c462ee93d5a438f392dbfdb8",
     "src/components/Landing/Values.astro": "7fdd79134d9f094de5af8ab85e43097da5c604bf07655c23153a825b79755a9c",
     "src/components/Nav/MobileNav.module.css": "1000849f34f6ea221ea8835f4c548f99f783bcd0c8acb84ea571cb637934e2cb",
-    "src/components/Nav/MobileNav.tsx": "91d39df2bd148e7bdeccda788745083e4e50ff2f03299b09145704463b5237a6",
-    "src/components/Nav/Sidebar.astro": "59ad12d6e6411c04b7fd8055454ddbb10fd081545c75ca286bab41eb819c2564",
+    "src/components/Nav/MobileNav.tsx": "29cd9dc307dab30843509f8c71ae62a599a3cdc179cd4f669cf4554a77d4396c",
+    "src/components/Nav/Sidebar.astro": "2b90487aac4bde5835ec56ca49cee94eeab4b45af88495027a94d066c691a996",
     "src/components/Projects/Demos/Barkeep.astro": "51d931e42a2525e88ec36dd4cd35209918647e605d7fab6f102773c8de6b3a8a",
     "src/components/Projects/Demos/GearPatch.astro": "45eba9e18eb913704653d24f35a5a17ebc521ad36d699e63bbbf0b3648df0f4f",
     "src/components/Projects/Demos/Greener.astro": "12eb54a929df2b3a2f99c94ee5b68c7f563a838b8a42d632adb038b86900f183",
@@ -80,7 +80,7 @@
     "src/layouts/BaseLayout.astro": "ff1c3f2796259d839aae983bd09028956dc30f833ba9eaa8af53f404826f7a19",
     "src/layouts/Head.astro": "73e8ed3a35b62602e1fe90dccae86a2f4fa869e9105563245a93965d54a5b488",
     "src/layouts/StaggeredImages.astro": "290de1000eb19aa2f93ac1668a2b872a8fd10a633fa0a04ec6c528aecde5b4bb",
-    "src/pages/about.astro": "f7548d5cc0411b653287ba00ccc62c1ec8b1f9a68e89dc816beda91d998cc5b2",
+    "src/pages/about.astro": "62e4e12bfac2bef0b560a341dad455ee6893b270a143cb0d16e5654119f8b917",
     "src/pages/contact.astro": "305cd6074557ba80d0b9d240ce6a4e25378df4653e0091e97a9b517325efef92",
     "src/pages/index.astro": "a4f6377e838d410df157d99263b0bd1afa90c734ff238a29464dcaaaa3c3ce45",
     "src/pages/log.astro": "4695a3b9a70983d23f36ff338a0dcfd0b816892fa9c408935840167926518310",
@@ -93,8 +93,8 @@
     "src/styles/global.css": "727fce60c05d3919e2fd269333f25125a8fe6e53e41db2062b92cc87833406b0",
     "src/styles/tokens.css": "43970df0719a849521a0e4edac342baccb5908ab438deb0a293e19b1e4dc1ce4"
   },
-  "indexed_at_commit": "4e0d5d1101acd63640910b50fa6c8c0ececf4150",
-  "indexed_at_timestamp": "2026-10-13T02:50:13.271812251+00:00",
+  "indexed_at_commit": "32e94428eb14d9a914d434b9bfa66b05d09c5187",
+  "indexed_at_timestamp": "2026-10-14T02:55:25.392841990+00:00",
   "languages": {
     "astro": {
       "calls": 0,
@@ -116,7 +116,7 @@
   "parser_version": "3.3.2",
   "schema_version": 3,
   "stats": {
-    "total_edges": 214,
+    "total_edges": 210,
     "total_files": 92,
     "total_nodes": 250
   },
