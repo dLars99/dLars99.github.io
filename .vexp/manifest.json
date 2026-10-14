@@ -10,7 +10,7 @@
     "astro.config.mjs": "44288e10892cf50c09722e832dbc4f62770cc15fb848858d9ed3100b8232133e",
     "docs/superpowers/plans/2026-08-19-portfolio-refresh.md": "8b2a131b793adce0c1f5e577863c3c5d44cb43190aef6af27faa33af394e7730",
     "docs/superpowers/specs/2026-08-14-portfolio-refresh-design.md": "bdc10c6266ec61f59b0b8ad2ab9df0b2659fcf1b2fb7914fe3d08b4b219f071a",
-    "src/components/About/Bio/Bio.astro": "dd0b3eb891b670c730a3ba7a3ef2050d3464f2144a632d1254bc106575c0e9e0",
+    "src/components/About/Bio/Bio.astro": "384bd1dd094b2d4fa684aebe8aae93704ddd76a39edd154835d51948b78a4f37",
     "src/components/About/BioBlock/BioBlock.astro": "cd760bbe9305ab400dbefc457700e540e6c5692aaceeefdf98a71aaaad25adcc",
     "src/components/About/WorkingTogether.astro": "4a717fda30806870f34604b5ff152f20681a1cec416876a77adeedb10797665b",
     "src/components/AuditLog/AuditBar.astro": "5c8cc99ce0bc20b24c970fc6b2ef05d035eed928a8b091b38c619149e797ccff",
@@ -52,6 +52,7 @@
     "src/components/Work/WorkList.astro": "a90e72f53e33916343da07d706396d43314209fc01638d2a047bc2cd403c92b9",
     "src/components/shared/DetailDrawer.astro": "b12dacbd75bf427e3c1ffa82c1dd2bb14836208ce40d3757ca802c24f19ebb40",
     "src/components/shared/EyebrowLabel.astro": "77f67ee772b2fdc973a8311e64d1ceb9c5968167e15eceae783860f233ed5064",
+    "src/components/shared/Headline.astro": "8437571d8d4a4917c1a1227dc157d06d09e53afd55581f45421f926b4cbe5c62",
     "src/content.config.ts": "129e82ba12d393c25545b0f2a2341872a8b3412932a32fdbadd1ceab39ad3b8d",
     "src/content/audit-log-utils.ts": "c8edb1e6f7f93516c9d449a9e9e4bd0948f04ce2d2507c39af6654b4acd0eb34",
     "src/content/audit-log/01-bootcamp-start.md": "3949335eb36cc88d9d9dc8a875d7e45c8b71a3fd6a853d79dfe99aea884a2adf",
@@ -94,11 +95,11 @@
     "src/styles/tokens.css": "43970df0719a849521a0e4edac342baccb5908ab438deb0a293e19b1e4dc1ce4"
   },
   "indexed_at_commit": "1392a7f1f6ea51bbeacf6d2bfa69d3b6e2f0c9c6",
-  "indexed_at_timestamp": "2026-10-14T03:00:05.195975792+00:00",
+  "indexed_at_timestamp": "2026-10-14T11:18:04.542807552+00:00",
   "languages": {
     "astro": {
       "calls": 0,
-      "nodes": 54
+      "nodes": 56
     },
     "css": {
       "calls": 0,
@@ -116,9 +117,9 @@
   "parser_version": "3.3.2",
   "schema_version": 3,
   "stats": {
-    "total_edges": 175,
-    "total_files": 92,
-    "total_nodes": 250
+    "total_edges": 176,
+    "total_files": 93,
+    "total_nodes": 252
   },
   "vexp_version": "3.3.3"
 }
