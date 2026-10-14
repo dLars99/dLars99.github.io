@@ -2,31 +2,30 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import EyebrowLabel from "../components/shared/EyebrowLabel.astro";
 import Bio from "../components/About/Bio/Bio.astro";
-import EngineeringFocus from "../components/About/EngineeringFocus.astro";
+import WorkingTogether from "../components/About/WorkingTogether.astro";
 ---
 
 <BaseLayout title="About — David P Larsen" description="About David Larsen, full-stack engineer.">
-  <div class="about-grid">
-    <div class="column">
+  <div class="about-stack">
+    <section>
       <EyebrowLabel as="h2" text="BIOGRAPHY" />
       <Bio />
-    </div>
-    <div class="column">
-      <EngineeringFocus />
-    </div>
+    </section>
+    <hr />
+    <section>
+      <WorkingTogether />
+    </section>
   </div>
 </BaseLayout>
 
 <style>
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+  .about-stack {
+    max-width: 60ch;
   }
 
-  @media (min-width: 769px) {
-    .about-grid {
-      grid-template-columns: 1fr 1fr;
-    }
+  hr {
+    margin: 2rem 0;
+    border: 0;
+    border-top: 1px solid var(--color-border);
   }
 </style>

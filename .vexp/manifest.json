@@ -24,8 +24,8 @@
     "src/components/Landing/StatCards.astro": "8af07f422e3cf8a70528bdc035e762cbfcb06108c462ee93d5a438f392dbfdb8",
     "src/components/Landing/Values.astro": "7fdd79134d9f094de5af8ab85e43097da5c604bf07655c23153a825b79755a9c",
     "src/components/Nav/MobileNav.module.css": "1000849f34f6ea221ea8835f4c548f99f783bcd0c8acb84ea571cb637934e2cb",
-    "src/components/Nav/MobileNav.tsx": "91d39df2bd148e7bdeccda788745083e4e50ff2f03299b09145704463b5237a6",
-    "src/components/Nav/Sidebar.astro": "59ad12d6e6411c04b7fd8055454ddbb10fd081545c75ca286bab41eb819c2564",
+    "src/components/Nav/MobileNav.tsx": "29cd9dc307dab30843509f8c71ae62a599a3cdc179cd4f669cf4554a77d4396c",
+    "src/components/Nav/Sidebar.astro": "2b90487aac4bde5835ec56ca49cee94eeab4b45af88495027a94d066c691a996",
     "src/components/Projects/Demos/Barkeep.astro": "51d931e42a2525e88ec36dd4cd35209918647e605d7fab6f102773c8de6b3a8a",
     "src/components/Projects/Demos/GearPatch.astro": "45eba9e18eb913704653d24f35a5a17ebc521ad36d699e63bbbf0b3648df0f4f",
     "src/components/Projects/Demos/Greener.astro": "12eb54a929df2b3a2f99c94ee5b68c7f563a838b8a42d632adb038b86900f183",
@@ -93,8 +93,8 @@
     "src/styles/global.css": "727fce60c05d3919e2fd269333f25125a8fe6e53e41db2062b92cc87833406b0",
     "src/styles/tokens.css": "43970df0719a849521a0e4edac342baccb5908ab438deb0a293e19b1e4dc1ce4"
   },
-  "indexed_at_commit": "4e0d5d1101acd63640910b50fa6c8c0ececf4150",
-  "indexed_at_timestamp": "2026-10-13T02:50:13.271812251+00:00",
+  "indexed_at_commit": "9494801fff0d9b52c8275009e85ea1a7a1599dd0",
+  "indexed_at_timestamp": "2026-10-14T00:45:26.969953863+00:00",
   "languages": {
     "astro": {
       "calls": 0,
@@ -116,7 +116,7 @@
   "parser_version": "3.3.2",
   "schema_version": 3,
   "stats": {
-    "total_edges": 214,
+    "total_edges": 210,
     "total_files": 92,
     "total_nodes": 250
   },
