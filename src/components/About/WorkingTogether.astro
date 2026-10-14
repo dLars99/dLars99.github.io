@@ -20,25 +20,19 @@ const traits = [
 ];
 ---
 
-<div class="working-together">
-  <EyebrowLabel as="h2" text="WORKING TOGETHER" />
-  <ul>
-    {
-      traits.map((trait) => (
-        <li>
-          <h3>{trait.title}</h3>
-          <p>{trait.description}</p>
-        </li>
-      ))
-    }
-  </ul>
-</div>
+<EyebrowLabel as="h2" text="WORKING TOGETHER" />
+<ul>
+  {
+    traits.map((trait) => (
+      <li>
+        <h3>{trait.title}</h3>
+        <p>{trait.description}</p>
+      </li>
+    ))
+  }
+</ul>
 
 <style>
-  .working-together {
-    max-width: 60ch;
-  }
-
   ul {
     list-style: none;
     margin: 1rem 0 0;

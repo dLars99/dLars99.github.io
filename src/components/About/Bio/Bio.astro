@@ -1,39 +1,34 @@
 ---
+import EyebrowLabel from "../../shared/EyebrowLabel.astro";
 import BioBlock from "../BioBlock/BioBlock.astro";
 ---
 
-<div class="bio">
-  <BioBlock>
-    <p>Hi. I'm David.</p>
-  </BioBlock>
+<EyebrowLabel as="h2" text="BIOGRAPHY" />
 
-  <BioBlock>
-    I am a fullstack developer with over 4 years' experience developing
-    professional applications utilizing JavaScript/Typescript frameworks.
-  </BioBlock>
+<BioBlock>
+  <p>Hi. I'm David.</p>
+</BioBlock>
 
-  <BioBlock>
-    I have extensive experience using React for frontend development, along with
-    a variety of styling frameworks. I also have experience developing backends
-    in Node/Express, with a tiny bit of C#/.NET experience. I have utilized SQL
-    and NoSQL databases, particularly through PostgreSQL and MongoDB.
-  </BioBlock>
+<BioBlock>
+  I am a fullstack developer with over 4 years' experience developing
+  professional applications utilizing JavaScript/Typescript frameworks.
+</BioBlock>
 
-  <BioBlock>
-    Before I was a developer, I split time between IT Support and professional
-    music, including 5 years pursuing music full-time. Support gave me a superb
-    troubleshooting and problem solving skills. Music gave me the creative itch
-    to move beyond support into development.
-  </BioBlock>
+<BioBlock>
+  I have extensive experience using React for frontend development, along with a
+  variety of styling frameworks. I also have experience developing backends in
+  Node/Express, with a tiny bit of C#/.NET experience. I have utilized SQL and
+  NoSQL databases, particularly through PostgreSQL and MongoDB.
+</BioBlock>
 
-  <BioBlock>
-    I also love to disconnect with a good book or by getting outdoors or playing
-    with my golden retriever. Actually, he insists on playing.
-  </BioBlock>
-</div>
+<BioBlock>
+  Before I was a developer, I split time between IT Support and professional
+  music, including 5 years pursuing music full-time. Support gave me a superb
+  troubleshooting and problem solving skills. Music gave me the creative itch to
+  move beyond support into development.
+</BioBlock>
 
-<style>
-  .bio {
-    max-width: 60ch;
-  }
-</style>
+<BioBlock>
+  I also love to disconnect with a good book or by getting outdoors or playing
+  with my golden retriever. Actually, he insists on playing.
+</BioBlock>
