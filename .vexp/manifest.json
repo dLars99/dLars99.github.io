@@ -51,7 +51,7 @@
     "src/components/Work/WorkCard.astro": "d0bfff0a23abd7d48cf82495edc22deba603487e80f1453356161c53382b5509",
     "src/components/Work/WorkList.astro": "a90e72f53e33916343da07d706396d43314209fc01638d2a047bc2cd403c92b9",
     "src/components/shared/DetailDrawer.astro": "b12dacbd75bf427e3c1ffa82c1dd2bb14836208ce40d3757ca802c24f19ebb40",
-    "src/components/shared/EyebrowLabel.astro": "77f67ee772b2fdc973a8311e64d1ceb9c5968167e15eceae783860f233ed5064",
+    "src/components/shared/EyebrowLabel.astro": "17b21ed70e36d6216bf19e866195a88e0b4f34611c120155b284db6af28cf693",
     "src/components/shared/Headline.astro": "8437571d8d4a4917c1a1227dc157d06d09e53afd55581f45421f926b4cbe5c62",
     "src/content.config.ts": "129e82ba12d393c25545b0f2a2341872a8b3412932a32fdbadd1ceab39ad3b8d",
     "src/content/audit-log-utils.ts": "c8edb1e6f7f93516c9d449a9e9e4bd0948f04ce2d2507c39af6654b4acd0eb34",
@@ -81,12 +81,12 @@
     "src/layouts/BaseLayout.astro": "a9203c6d367fe2b6b74d2cd839ccdcb4c22e73faf149fb09507018424bc55caa",
     "src/layouts/Head.astro": "73e8ed3a35b62602e1fe90dccae86a2f4fa869e9105563245a93965d54a5b488",
     "src/layouts/StaggeredImages.astro": "290de1000eb19aa2f93ac1668a2b872a8fd10a633fa0a04ec6c528aecde5b4bb",
-    "src/pages/about.astro": "62e4e12bfac2bef0b560a341dad455ee6893b270a143cb0d16e5654119f8b917",
+    "src/pages/about.astro": "820f7ea50aec8b760191c00ed84bec4bc270228f620ec229f4ab0525dcaf29e6",
     "src/pages/contact.astro": "305cd6074557ba80d0b9d240ce6a4e25378df4653e0091e97a9b517325efef92",
     "src/pages/index.astro": "a4f6377e838d410df157d99263b0bd1afa90c734ff238a29464dcaaaa3c3ce45",
     "src/pages/log.astro": "4695a3b9a70983d23f36ff338a0dcfd0b816892fa9c408935840167926518310",
     "src/pages/projects/[slug].astro": "feb09b0ce17385568e7657061e381b52ea1f931358aee24e72d9f7dd2cfd4c91",
-    "src/pages/projects/index.astro": "fca2471672b99d6c8b971653fec3adceba03bcb7292ae912e5654cfe801399ed",
+    "src/pages/projects/index.astro": "18dc43ca88f8b53b82d6ad5bbf1629ad176e12da6dfecce7ec8853a071e13448",
     "src/pages/react-routing-tabs.astro": "f906ae727af433bc18e593f104114186dc4bb308d384a5960941607734bfa146",
     "src/pages/react-routing-tabs/[tab].astro": "846167310bb2bb9d623e159bfd4486aa9ddd2464964ac3c31646018140512cfe",
     "src/pages/work/[slug].astro": "4ba158c37d9bd778cf6d0d0bb31e70c2bf7715c635f636897eb50f562d51df80",
@@ -94,8 +94,8 @@
     "src/styles/global.css": "727fce60c05d3919e2fd269333f25125a8fe6e53e41db2062b92cc87833406b0",
     "src/styles/tokens.css": "43970df0719a849521a0e4edac342baccb5908ab438deb0a293e19b1e4dc1ce4"
   },
-  "indexed_at_commit": "1392a7f1f6ea51bbeacf6d2bfa69d3b6e2f0c9c6",
-  "indexed_at_timestamp": "2026-10-14T11:18:04.542807552+00:00",
+  "indexed_at_commit": "72fe92e9c7f77f724cd1a15f0486ccd3e73920d8",
+  "indexed_at_timestamp": "2026-10-14T11:27:03.051462239+00:00",
   "languages": {
     "astro": {
       "calls": 0,
@@ -117,7 +117,7 @@
   "parser_version": "3.3.2",
   "schema_version": 3,
   "stats": {
-    "total_edges": 176,
+    "total_edges": 179,
     "total_files": 93,
     "total_nodes": 252
   },
