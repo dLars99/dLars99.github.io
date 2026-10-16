@@ -1,6 +1,15 @@
 import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
 import { glob } from "astro/loaders";
+import { execSync } from "node:child_process";
+
+function getLastCommitDate() {
+  try {
+    return execSync("git log -1 --format=%cs").toString().trim();
+  } catch {
+    return new Date().toISOString().slice(0, 10);
+  }
+}
 
 const projects = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
@@ -11,7 +20,7 @@ const projects = defineCollection({
     image: image(),
     imageAlt: z.string(),
     initialCompletionDate: z.string(),
-    lastUpdatedDate: z.string(),
+    lastUpdatedDate: z.string().optional(),
     links: z.array(
       z.object({
         name: z.string(),
@@ -22,6 +31,15 @@ const projects = defineCollection({
     tech: z.array(z.string()),
     role: z.string(),
     challenges: z.string(),
+  }).transform((project, ctx) => {
+    // This site's own entry tracks the deployed commit
+    const lastUpdatedDate =
+      project.id === "portfolio" ? getLastCommitDate() : project.lastUpdatedDate;
+    if (!lastUpdatedDate) {
+      ctx.addIssue({ code: "custom", message: "lastUpdatedDate is required" });
+      return z.NEVER;
+    }
+    return { ...project, lastUpdatedDate };
   }),
 });
 

@@ -2,17 +2,36 @@
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import Headline from "../shared/Headline.astro";
+import { format, parseISO } from "date-fns";
 
 interface Props {
   project: CollectionEntry<"projects">;
 }
 
 const { project } = Astro.props;
-const { title, description, id, image, imageAlt } = project.data;
+const {
+  title,
+  description,
+  id,
+  image,
+  imageAlt,
+  initialCompletionDate,
+  lastUpdatedDate,
+} = project.data;
+const formatDate = (date: string) => format(parseISO(date), "MMM d, y");
 ---
 
 <article class="card">
   <Headline>{title}</Headline>
+
+  <p class="meta">
+    Launched <time datetime={initialCompletionDate}
+      >{formatDate(initialCompletionDate)}</time
+    >
+    {" · "}Last updated <time datetime={lastUpdatedDate}
+      >{formatDate(lastUpdatedDate)}</time
+    >
+  </p>
 
   <p>{description}</p>
 
@@ -36,6 +55,12 @@ const { title, description, id, image, imageAlt } = project.data;
 
   p {
     margin: 0 0 1rem;
+    color: var(--color-text-secondary);
+  }
+
+  .meta {
+    margin: 0 0 0.75rem;
+    font-size: 0.875rem;
     color: var(--color-text-secondary);
   }
 
