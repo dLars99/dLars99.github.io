@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ProjectList from "../../components/Projects/ProjectList.astro";
 import DetailDrawer from "../../components/shared/DetailDrawer.astro";
 import EyebrowLabel from "../../components/shared/EyebrowLabel.astro";
+import Headline from "../../components/shared/Headline.astro";
 import ProjectLinks from "../../components/Projects/ProjectLinks/ProjectLinks.astro";
 import TechStack from "../../components/Projects/TechStack/TechStack.astro";
 import { demoMap } from "../../components/Projects/Demos/demoMap";
@@ -25,39 +26,50 @@ const Demo = demoMap[id];
 <BaseLayout title={`${title} — David P Larsen`} description={description}>
   <ProjectList />
 
-  <DetailDrawer closeHref="/projects" closeLabel="Close project detail">
+  <DetailDrawer
+    closeHref="/projects"
+    closeLabel="Close project detail"
+    maxWidth="36rem"
+  >
     <EyebrowLabel as="h2" text={title.toUpperCase()} />
-    <p class="description">{description}</p>
+
+    <hr class="title-divider" />
+
+    <div class="body">
+      <Content />
+    </div>
 
     <ProjectLinks links={links} />
 
     <div class="detail-grid">
-      <div class="stage">
-        {Demo ? <Demo firstPosition="left" /> : null}
-      </div>
-
       <div class="panel">
         <section>
-          <h3>My Role &amp; Approach</h3>
+          <Headline as="h3" size="md">My Role &amp; Approach</Headline>
           <p>{role}</p>
         </section>
 
         <section>
-          <h3>Interface Challenges &amp; Solutions</h3>
+          <Headline as="h3" size="md">Challenges &amp; Solutions</Headline>
           <p>{challenges}</p>
         </section>
 
         <TechStack tech={tech} />
       </div>
-    </div>
 
-    <div class="body">
-      <Content />
+      <div class="stage">
+        {Demo ? <Demo firstPosition="left" /> : null}
+      </div>
     </div>
   </DetailDrawer>
 </BaseLayout>
 
 <style>
+  .title-divider {
+    border: none;
+    border-top: 2px solid var(--color-accent);
+    margin: 0.5rem 0 1rem;
+  }
+
   .description {
     max-width: 60ch;
     color: var(--color-text-secondary);
@@ -68,28 +80,14 @@ const Demo = demoMap[id];
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
-    margin-top: 1.5rem;
-  }
-
-  @container (min-width: 560px) {
-    .detail-grid {
-      grid-template-columns: 1fr 1fr;
-    }
   }
 
   .panel section {
     margin-bottom: 1.5rem;
   }
 
-  .panel h3 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-  }
-
   .body {
     max-width: 60ch;
     margin-top: 2rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
   }
 </style>

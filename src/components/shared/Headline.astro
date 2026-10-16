@@ -3,21 +3,29 @@ interface Props {
   as?: "h1" | "h2" | "h3" | "h4";
   id?: string;
   class?: string;
+  size?: "md" | "lg";
 }
 
-const { as: Tag = "h3", class: className, ...rest } = Astro.props;
+const { as: Tag = "h3", class: className, size = "lg", ...rest } = Astro.props;
 ---
 
-<Tag {...rest} class:list={["headline", className]}><slot /></Tag>
+<Tag {...rest} class:list={["headline", `headline-${size}`, className]}><slot /></Tag>
 
 <style>
   .headline {
     font-family: var(--font-sans);
-    font-size: 2.25rem;
     font-weight: 300;
     line-height: 1.15;
     letter-spacing: -0.02em;
     margin-bottom: 1rem;
     margin-top: 0.5rem;
+  }
+
+  .headline-lg {
+    font-size: 2.25rem;
+  }
+
+  .headline-md {
+    font-size: 1.5rem;
   }
 </style>

@@ -32,7 +32,7 @@
     "src/components/Projects/Demos/Portfolio.astro": "975aaa03aa0ace5561931211ace9a529af67fae4e8e9b7b995040409a444aa91",
     "src/components/Projects/Demos/Rrt.astro": "4d70d9e80d7206d587ab5ad0e385c58f5026161184c782a3b6eca426d49c8c61",
     "src/components/Projects/Demos/demoMap.ts": "17901946aa43ce2fbcd136cbd639dead8504bba9b12698e0088d4588c7700e39",
-    "src/components/Projects/ProjectCard.astro": "100f38765fa60319e11702ed2c9a63828b7f0f1ea89b6b123f4a861c0f47b34b",
+    "src/components/Projects/ProjectCard.astro": "e4715b8433750b2047256d0d84b9ab94229d6c1ae88512e0f6ed6146106af609",
     "src/components/Projects/ProjectLinks/ProjectLinks.astro": "46299d0a9b175643f3d6a925b30bc6a326f0cc0177b899ebcfe8b391ce1c4f1a",
     "src/components/Projects/ProjectList.astro": "1fe5c20a59ffde54753711c4a510cac5a5fba4cecaf88ccff34b0eb97b845544",
     "src/components/Projects/TechStack/TechStack.astro": "4a0c9661fb24dd13afbab181fbd3ae808d7c0cba43566ee2485054a3070f667a",
@@ -53,7 +53,7 @@
     "src/components/shared/DetailDrawer.astro": "b12dacbd75bf427e3c1ffa82c1dd2bb14836208ce40d3757ca802c24f19ebb40",
     "src/components/shared/EyebrowLabel.astro": "17b21ed70e36d6216bf19e866195a88e0b4f34611c120155b284db6af28cf693",
     "src/components/shared/Headline.astro": "8437571d8d4a4917c1a1227dc157d06d09e53afd55581f45421f926b4cbe5c62",
-    "src/content.config.ts": "129e82ba12d393c25545b0f2a2341872a8b3412932a32fdbadd1ceab39ad3b8d",
+    "src/content.config.ts": "6cc9460de8a406e81a78640e31447e056940cd152b04d570622217074b214976",
     "src/content/audit-log-utils.ts": "c8edb1e6f7f93516c9d449a9e9e4bd0948f04ce2d2507c39af6654b4acd0eb34",
     "src/content/audit-log/01-bootcamp-start.md": "3949335eb36cc88d9d9dc8a875d7e45c8b71a3fd6a853d79dfe99aea884a2adf",
     "src/content/audit-log/02-greener-capstone.md": "96bfa7925c1e7d4b0e4a7edfa5d5a224aba5e011da01bcdc584187c2191bbfa5",
@@ -67,11 +67,11 @@
     "src/content/audit-log/10-admin-architecture.md": "24333a4ab89c96377c26ca0efd5a09cca0ee811f894a1789bd87fdaca133d062",
     "src/content/audit-log/11-senior-promotion.md": "365ba6afe98f94d59681c1f99b64679dc457946a9dc8e1d72e63a6c8dacb0f9f",
     "src/content/audit-log/12-portfolio-refresh.md": "bcd6f68e14648561302df5babd2c2c955ebd6d4ba3a8a5d01df051fe88aacdfd",
-    "src/content/projects/barkeep.md": "3120ffe8701947b72e25a9a78ea4096dba504e9f4ff6388ec25190f986712d4a",
-    "src/content/projects/gearpatch.md": "155393d8fa4e4c0e0688f3e66e80303849a236fbd1ae1b77079eb64e1c949e32",
-    "src/content/projects/greener.md": "0bf156667c8017095b709a0ca86ae8bd5ecfefee3a64b8448a868cebac0ef114",
-    "src/content/projects/portfolio.md": "7306af40bb98679188ed4febaf624724e433414a3fe457d4eba1de49726b86b6",
-    "src/content/projects/react-routing-tabs.md": "ef531094321d3812d0c9a87fc50b722ed6be9e81bfadc6d9caf38630b02fb84e",
+    "src/content/projects/barkeep.md": "01b3e211b213b3cb78e5c2035d954c49a3970d22733b09b6dd77b51a4d4ab351",
+    "src/content/projects/gearpatch.md": "b3f4cd4abbf35249c274ef1e09389d0b9c3fd56a61c848c504d499d9daeb5842",
+    "src/content/projects/greener.md": "7e4b0b29470a9f359c9c2a7bf191ebc46392b24c8174a2c0540f6d6e18f31a68",
+    "src/content/projects/portfolio.md": "289a748f2e3b63b385b746d71457f714927cc466bdeb646e887d36fce10a0af7",
+    "src/content/projects/react-routing-tabs.md": "e5bd5eb5a36f8eed00f9291bc2f23f6441da2f2170fbce74e3bd299348b19d47",
     "src/content/work/fanpower.md": "9c8a5b79e04a2543ceefef55924edaa5297c1f3168dafb14eb0b57e04da1d68a",
     "src/content/work/little-caesars.md": "977016eea39b95152943b7297d474e2734743a72c980c28d5a5db3edff98c3df",
     "src/content/work/nashville-software-school.md": "022553743624c26463908e554a63df2a07dbdf762e4dccd162602d37a74d44f6",
@@ -92,10 +92,10 @@
     "src/pages/work/[slug].astro": "4ba158c37d9bd778cf6d0d0bb31e70c2bf7715c635f636897eb50f562d51df80",
     "src/pages/work/index.astro": "d3f565607517ffd4d1666a53af2948919a5aa4a5a0d16ad704f6b6fc4b4147af",
     "src/styles/global.css": "727fce60c05d3919e2fd269333f25125a8fe6e53e41db2062b92cc87833406b0",
-    "src/styles/tokens.css": "43970df0719a849521a0e4edac342baccb5908ab438deb0a293e19b1e4dc1ce4"
+    "src/styles/tokens.css": "2d82fddcc9ab9fe4b6bc92b0d1bae1adf6ba6ac1971923c036dc7a8ccf741d45"
   },
-  "indexed_at_commit": "12638357fe49f6c0829836142349cb88ad369769",
-  "indexed_at_timestamp": "2026-10-14T11:38:40.445798104+00:00",
+  "indexed_at_commit": "772022626a3e574e0b53e608ea6a9a303314eb79",
+  "indexed_at_timestamp": "2026-10-14T12:03:16.338708698+00:00",
   "languages": {
     "astro": {
       "calls": 0,
@@ -103,7 +103,7 @@
     },
     "css": {
       "calls": 0,
-      "nodes": 64
+      "nodes": 65
     },
     "markdown": {
       "calls": 0,
@@ -117,9 +117,9 @@
   "parser_version": "3.3.2",
   "schema_version": 3,
   "stats": {
-    "total_edges": 177,
+    "total_edges": 164,
     "total_files": 93,
-    "total_nodes": 252
+    "total_nodes": 253
   },
   "vexp_version": "3.3.3"
 }
