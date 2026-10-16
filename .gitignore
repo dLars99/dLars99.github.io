@@ -38,3 +38,6 @@ pnpm-debug.log*
 # ai
 .instructions
 .superpowers
+
+# vexp
+.vexp/manifest.json
