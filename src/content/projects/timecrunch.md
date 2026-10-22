@@ -15,7 +15,7 @@ links:
     },
   ]
 tech: ["Tauri", "Rust", "React", "TypeScript", "SQLite", "Zustand", "Vite", "Azure"]
-role: "Solo build: I wrote the requirements outline and a phased MVP plan up front, then built it with AI coding agents into a local-first Tauri desktop app, with signed macOS and Windows builds shipped from GitHub Actions, incorporating Azure to obtain the Windows application signature."
+role: "Vibe coding at its finest: I wrote the requirements outline and a phased MVP plan up front, then built it with AI coding agents into a local-first Tauri desktop app, with signed macOS and Windows builds shipped from GitHub Actions, incorporating Azure to obtain the Windows application signature."
 challenges: "The core problem to solve was keeping time accurate while constantly switching between tasks, making those transitions effortless for the user. Timer start and pause transitions live in the Rust backend behind Tauri IPC rather than in React state, so starting one task automatically pauses another and the totals are written straight to SQLite. If the app crashes mid-timer, the next launch detects the interrupted timer and asks whether to keep or discard the time instead of silently guessing, and closing the app warns first and logs anything still running."
 ---
 
