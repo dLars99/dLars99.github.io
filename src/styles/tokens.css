@@ -1,8 +1,9 @@
 :root {
-  --color-canvas: #F3F1EC;
-  --color-accent: #10B981;
+  --color-canvas: #F5F4EE;
+  --color-accent: #3B8754;
   --color-text-primary: #111111;
   --color-text-secondary: #666666;
+  --color-fill-primary: #2A5A38;
   --color-border: #DDDDDD;
 
   --font-sans: "Geist Sans", Arial, sans-serif;

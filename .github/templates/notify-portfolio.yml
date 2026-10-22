@@ -1,0 +1,23 @@
+# Copy to a project's .github/workflows/; needs the PORTFOLIO_PROJECT_ID variable and PORTFOLIO_DISPATCH_TOKEN secret
+name: Notify portfolio
+
+on:
+  push:
+
+jobs:
+  notify:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send project-updated event
+        env:
+          GH_TOKEN: ${{ secrets.PORTFOLIO_DISPATCH_TOKEN }}
+          TZ: America/Chicago
+          PROJECT_ID: ${{ vars.PORTFOLIO_PROJECT_ID }}
+          COMMIT_TIME: ${{ github.event.head_commit.timestamp }}
+        run: |
+          [[ -n "$PROJECT_ID" ]] || { echo "PORTFOLIO_PROJECT_ID variable is not set"; exit 1; }
+          gh api repos/dLars99/dLars99.github.io/dispatches \
+            -f event_type=project-updated \
+            -f "client_payload[id]=$PROJECT_ID" \
+            -f "client_payload[date]=$(date -d "$COMMIT_TIME" +%F)"
