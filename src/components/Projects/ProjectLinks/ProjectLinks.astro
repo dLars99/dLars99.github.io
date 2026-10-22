@@ -31,8 +31,6 @@ const linkDisplayNames = {
 const getAltText = (name: string, type: LinkType) =>
   `Link to ${name} on ${linkDisplayNames[type]}`;
 
-console.log({ links });
-
 const getLinkText = (link: ProjectLink) =>
   (link.showNameOnLink ? link.name + " " : "") + linkDisplayNames[link.type];
 ---
