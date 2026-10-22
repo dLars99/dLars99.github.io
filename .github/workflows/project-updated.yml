@@ -1,0 +1,52 @@
+name: Update project date
+
+# Triggered by a project repo's notify workflow via repository_dispatch
+on:
+  repository_dispatch:
+    types: [project-updated]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: project-updated-${{ github.event.client_payload.id }}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
+
+      - name: Update lastUpdatedDate
+        id: update
+        env:
+          PROJECT_ID: ${{ github.event.client_payload.id }}
+          DATE: ${{ github.event.client_payload.date }}
+        run: |
+          [[ "$PROJECT_ID" =~ ^[a-z0-9-]+$ ]] || { echo "Invalid id: $PROJECT_ID"; exit 1; }
+          [[ "$DATE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] || { echo "Invalid date: $DATE"; exit 1; }
+
+          file="src/content/projects/$PROJECT_ID.md"
+          [[ -f "$file" ]] || { echo "No project file: $file"; exit 1; }
+
+          current=$(sed -n 's/^lastUpdatedDate: "\(.*\)"$/\1/p' "$file")
+          [[ -n "$current" ]] || { echo "No lastUpdatedDate in $file"; exit 1; }
+
+          if [[ "$DATE" > "$current" ]]; then
+            sed -i "s/^lastUpdatedDate: \".*\"$/lastUpdatedDate: \"$DATE\"/" "$file"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "$file already at $current; skipping"
+          fi
+
+      - name: Open pull request
+        if: steps.update.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          base: master
+          branch: project-date/${{ github.event.client_payload.id }}
+          commit-message: "chore: update ${{ github.event.client_payload.id }} last updated date"
+          title: "chore: update ${{ github.event.client_payload.id }} last updated date"
+          body: "Set `lastUpdatedDate` to ${{ github.event.client_payload.date }} after an update to the ${{ github.event.client_payload.id }} repo."

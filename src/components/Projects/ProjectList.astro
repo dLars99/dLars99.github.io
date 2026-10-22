@@ -1,23 +1,29 @@
 ---
+import EyebrowLabel from "../shared/EyebrowLabel.astro";
 import ProjectCard from "./ProjectCard.astro";
 import { getCollection } from "astro:content";
 
-const projects = (await getCollection("projects")).sort(
-  (a, b) => (a.data.lastUpdatedDate < b.data.lastUpdatedDate ? 1 : -1)
+const projects = (await getCollection("projects")).sort((a, b) =>
+  a.data.lastUpdatedDate < b.data.lastUpdatedDate ? 1 : -1,
 );
 ---
 
+<EyebrowLabel as="h2" class="header-eyebrow" text="Projects" />
+
 <p class="intro">
-  Though I consider myself an engineer far more than I consider myself a
-  designer, and I don't get a lot of time for side projects, I am able to
-  dabble once in a while. Here are some of those dabblings.
+  A collection of small personal tools and weekend builds. I use these to
+  scratch a specific itch or test out an idea quickly, prioritizing functional
+  utility over an over-engineered setup. You'll find a couple of exceptions
+  here, like this portfolio, where the build is more deliberate and fully
+  realized.
 </p>
+
 {projects.map((project) => <ProjectCard project={project} />)}
 
 <style>
   .intro {
     max-width: 60ch;
     color: var(--color-text-secondary);
-    margin-bottom: 2rem;
+    margin-bottom: 0;
   }
 </style>

@@ -2,11 +2,13 @@
 import { Image } from "astro:assets";
 import npmImage from "../../../images/icons/npm.png";
 import githubImage from "../../../images/icons/github.png";
+import EyebrowLabel from "../../shared/EyebrowLabel.astro";
 
 export type ProjectLink = {
   name: string;
   url: string;
   type: LinkType;
+  showNameOnLink?: boolean;
 };
 
 type LinkType = "github" | "npm";
@@ -28,14 +30,27 @@ const linkDisplayNames = {
 };
 const getAltText = (name: string, type: LinkType) =>
   `Link to ${name} on ${linkDisplayNames[type]}`;
+
+const getLinkText = (link: ProjectLink) =>
+  (link.showNameOnLink ? link.name + " " : "") + linkDisplayNames[link.type];
 ---
 
 {
   links.length > 0 && (
     <div class="links">
       {links.map((link) => (
-        <a href={link.url} target="_blank" rel="noreferrer">
-          <Image alt={getAltText(link.name, link.type)} src={images[link.type]} width={32} height={32} />
+        <a class="link" href={link.url} target="_blank" rel="noreferrer">
+          <Image
+            alt={getAltText(link.name, link.type)}
+            src={images[link.type]}
+            width={32}
+            height={32}
+          />
+          <EyebrowLabel
+            as="span"
+            text={getLinkText(link)}
+            variant="secondary"
+          />
         </a>
       ))}
     </div>
@@ -48,5 +63,13 @@ const getAltText = (name: string, type: LinkType) =>
     align-items: center;
     gap: 1.5rem;
     margin: 1rem 0;
+    width: 100%;
+  }
+
+  .link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
   }
 </style>
