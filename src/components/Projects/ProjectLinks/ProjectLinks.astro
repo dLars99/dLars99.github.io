@@ -8,6 +8,7 @@ export type ProjectLink = {
   name: string;
   url: string;
   type: LinkType;
+  showNameOnLink?: boolean;
 };
 
 type LinkType = "github" | "npm";
@@ -29,6 +30,11 @@ const linkDisplayNames = {
 };
 const getAltText = (name: string, type: LinkType) =>
   `Link to ${name} on ${linkDisplayNames[type]}`;
+
+console.log({ links });
+
+const getLinkText = (link: ProjectLink) =>
+  (link.showNameOnLink ? link.name + " " : "") + linkDisplayNames[link.type];
 ---
 
 {
@@ -44,7 +50,7 @@ const getAltText = (name: string, type: LinkType) =>
           />
           <EyebrowLabel
             as="span"
-            text={linkDisplayNames[link.type]}
+            text={getLinkText(link)}
             variant="secondary"
           />
         </a>

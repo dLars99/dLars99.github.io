@@ -26,6 +26,7 @@ const projects = defineCollection({
         name: z.string(),
         url: z.string(),
         type: z.enum(["github", "npm"]),
+        showNameOnLink: z.boolean().optional(),
       })
     ),
     tech: z.array(z.string()),
