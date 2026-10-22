@@ -14,9 +14,9 @@ links:
       type: "github",
     },
   ]
-tech: ["SQL", "C#", ".NET", "React"]
+tech: ["React", "SQL", "C#", ".NET"]
 role: "Fullstack solo build for my Nashville Software School capstone: a C#/.NET API backed by SQL, and the React client that consumes it, built in about ten days."
-challenges: "Tracking a rental's lifecycle (requested, confirmed, returned) needed to update both the renter's and owner's views consistently without a real-time layer. I modeled rental status as a single source of truth on the server and re-fetched on every state-changing action to keep both sides honest."
+challenges: "Tracking a rental's lifecycle (requested, confirmed, returned) needed to update both the renter's and owner's views consistently without a real-time layer. I modeled rental status as a single source of truth on the server and re-fetched on every state-changing action to keep both sides honest. Nowadays, if I were to revive this project, I would handle that with server-side events."
 ---
 
 GearPatch is a platform for musicians to make some money on their extra
