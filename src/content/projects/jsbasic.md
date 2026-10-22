@@ -4,7 +4,7 @@ title: "jsBASIC"
 description: "An in-browser BASIC interpreter for no reason whatsoever"
 image: "../../images/jsbasic/jsbasic.png"
 imageAlt: "jsBASIC editor"
-initialCompletionDate: "2026-02-17"
+initialCompletionDate: "2026-04-28"
 lastUpdatedDate: "2026-05-01"
 links:
   [
