@@ -14,7 +14,7 @@ links:
     },
   ]
 tech: ["Astro", "React", "TypeScript"]
-role: "I designed and built this site solo: the routed Astro architecture, the persistent sidebar/changelog chrome, all content, and every component in it."
+process: "For this third version, I started with agent-assisted wireframes and desktop/mobile mockups, wrote a design spec and a task-by-task implementation plan, then rebuilt the site with AI coding agents: upgrading from Astro 4 to 7, replacing Panda CSS with plain CSS Modules, and moving all content into Astro content collections."
 challenges: "The main interface challenge was keeping the left sidebar and audit log bar visually persistent across routed page swaps instead of remounting on every navigation, while still shipping the rest of the page as plain static HTML. I used Astro's View Transitions persistence together with a small client-side script that updates the active-route state after each swap. To automate low-level maintenance, I set up workflow actions to auto-update the 'Last Updated Date' for each project."
 ---
 

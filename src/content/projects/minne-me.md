@@ -8,7 +8,7 @@ initialCompletionDate: "2026-07-24"
 lastUpdatedDate: "2026-10-11"
 links: []
 tech: ["Node.js", "JavaScript", "Cheerio", "Nodemailer", "GitHub Actions"]
-role: "Solo build: I evaluated the available event APIs, wrote the requirements and data-source research up front, then built it with AI coding agents into a zero-cost Node.js pipeline that runs on a GitHub Actions schedule and commits its own history back to the repo."
+process: "I evaluated the available event APIs, wrote the requirements and data-source research up front, then built it with AI coding agents into a zero-cost Node.js pipeline that runs on a GitHub Actions schedule and commits its own history back to the repo. I verified all code, including making security corrections where the agent-created code initially tried to include hard-coded PII."
 challenges: "Minneapolis.org is the best source of civic and cultural events, but its pages don't provide much reliable structure. The schema.org markup has no dates and puts the event title in the address field, so the scraper reads labeled blocks out of the rendered HTML and runs the date text through a flexible normalizer for ranges, multiple showtimes, and dates that cross into the next year. Nothing on the site says which events are popular, so the main 'keystone' events come from a hardcoded list of recurring local institutions and the site's own seasonal roundups. A history file catches events that come back year after year. GitHub's scheduler can also start runs hours late, so the workflow fires twice to cover daylight saving time and checks the history to make sure only one digest goes out each week."
 ---
 

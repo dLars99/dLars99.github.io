@@ -20,7 +20,7 @@ links:
     },
   ]
 tech: ["React"]
-role: "I designed and published react-routing-tabs as a standalone open-source package, including the accessibility model and the demo pages embedded on this site."
+process: "I designed and published react-routing-tabs as a standalone open-source package, including the accessibility model and the demo pages embedded on this site."
 challenges: "Most tab libraries assume the tab index lives in component state; wiring that same state through a router without breaking WAI-ARIA tab semantics (roving tabindex, aria-selected, arrow-key navigation) took more care than the tabs UI itself."
 ---
 

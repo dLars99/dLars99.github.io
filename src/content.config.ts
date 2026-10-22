@@ -30,7 +30,7 @@ const projects = defineCollection({
       })
     ),
     tech: z.array(z.string()),
-    role: z.string(),
+    process: z.string(),
     challenges: z.string(),
   }).transform((project, ctx) => {
     // This site's own entry tracks the deployed commit

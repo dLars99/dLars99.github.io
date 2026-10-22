@@ -22,7 +22,7 @@ links:
     },
   ]
 tech: ["React", "Express", "TypeScript ","PostgreSQL"]
-role: "I designed and built both the Express/PostgreSQL API and the React client end-to-end, including the ingredient-based search schema and the recipe data model."
+process: "I designed and built both the Express/PostgreSQL API and the React client end-to-end, including the ingredient-based search schema and the recipe data model."
 challenges: "The core interface challenge was letting someone filter by a variable number of ingredients they already have on hand, then rank partial matches usefully instead of just showing exact matches. I solved it in the SQL with a scored ingredient-overlap query rather than a strict WHERE-IN filter."
 ---
 

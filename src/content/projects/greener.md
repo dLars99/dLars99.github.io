@@ -15,7 +15,7 @@ links:
     },
   ]
 tech: ["React", "Javascript", "vanilla CSS"]
-role: "Frontend capstone, solo build: a mobile-first, client-only React app for logging lawn care and surfacing weather-driven reminders."
+process: "Frontend capstone for Nashville Software School: a mobile-first, client-only React app for logging lawn care and surfacing weather-driven reminders."
 challenges: "The trickiest interface problem was surfacing a \"live\" seasonal task schedule and live weather alerts. Given my limited knowledge and the limited technical breadth of the project, I found that frequently checking that status upon different renders gave me the results I wanted without the negative impact I otherwise feared."
 ---
 
