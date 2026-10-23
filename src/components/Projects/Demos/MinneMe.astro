@@ -1,0 +1,16 @@
+---
+import MinneMeImage from "../../../images/minne-me/minne-me.png";
+import type { DisplayImage } from "../../../layouts/ProjectImages.astro";
+import ProjectImages from "../../../layouts/ProjectImages.astro";
+
+const images: DisplayImage[] = [
+  {
+    src: MinneMeImage,
+    alt: "A Minne Me email digest titled 'Minneapolis Events — Next 14 Days' with a keystone event card for the Twin Cities Marathon Weekend",
+    caption: "A Minne Me weekly email",
+    width: 500,
+  },
+];
+---
+
+<ProjectImages images={images} />

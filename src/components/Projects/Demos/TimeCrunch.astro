@@ -1,0 +1,37 @@
+---
+import Tracker from "../../../images/timecrunch/timecrunch.png";
+import Interruption from "../../../images/timecrunch/timecrunch-interruption.png";
+import PastTasks from "../../../images/timecrunch/timecrunch-past-tasks.png";
+import Report from "../../../images/timecrunch/timecrunch-report.png";
+import type { DisplayImage } from "../../../layouts/ProjectImages.astro";
+import ProjectImages from "../../../layouts/ProjectImages.astro";
+
+const images: DisplayImage[] = [
+  {
+    src: Tracker,
+    alt: "TimeCrunch task tracker with a new task form and a running timer for the current task",
+    caption: "Task tracker with an active timer, running on Windows",
+    width: 500,
+  },
+  {
+    src: Interruption,
+    alt: "TimeCrunch interruption form with minutes, description, project, and Log Interruption buttons",
+    caption: "Logging an interruption",
+    width: 500,
+  },
+  {
+    src: PastTasks,
+    alt: "TimeCrunch past task search listing a running task and a finished task with durations and actions",
+    caption: "Searching past tasks",
+    width: 500,
+  },
+  {
+    src: Report,
+    alt: "TimeCrunch project totals report with hours per project and an Export CSV button",
+    caption: "Project totals report with CSV export",
+    width: 500,
+  },
+];
+---
+
+<ProjectImages images={images} />
