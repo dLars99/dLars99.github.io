@@ -3,7 +3,7 @@ import Menu from "../../../images/barkeep/barkeep-homepage.png";
 import DrinkMatch from "../../../images/barkeep/barkeep-drink-match.png";
 import DrinkDetail from "../../../images/barkeep/barkeep-drink-detail.png";
 import NewDrink from "../../../images/barkeep/barkeep-new-drink.png";
-import StaggeredImages from "../../../layouts/StaggeredImages.astro";
+import ProjectImages from "../../../layouts/ProjectImages.astro";
 
 const images = [
   {
@@ -31,8 +31,6 @@ const images = [
     width: 500,
   },
 ];
-
-const { firstPosition } = Astro.props;
 ---
 
-<StaggeredImages firstPosition={firstPosition} images={images} />
+<ProjectImages images={images} />
