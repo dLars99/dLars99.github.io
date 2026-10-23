@@ -6,6 +6,7 @@ import Jsbasic from "./Jsbasic.astro";
 import MinneMe from "./MinneMe.astro";
 import Portfolio from "./Portfolio.astro";
 import Rrt from "./Rrt.astro";
+import TimeCrunch from "./TimeCrunch.astro";
 
 export const demoMap: Record<string, AstroComponentFactory> = {
   barkeep: Barkeep,
@@ -15,4 +16,5 @@ export const demoMap: Record<string, AstroComponentFactory> = {
   "minne-me": MinneMe,
   portfolio: Portfolio,
   rrt: Rrt,
+  timecrunch: TimeCrunch,
 };
