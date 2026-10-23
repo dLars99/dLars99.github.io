@@ -19,6 +19,7 @@ const projects = defineCollection({
     description: z.string(),
     image: image(),
     imageAlt: z.string(),
+    imageOrientation: z.enum(["horizontal", "vertical"]).default("horizontal"),
     initialCompletionDate: z.string(),
     lastUpdatedDate: z.string().optional(),
     links: z.array(

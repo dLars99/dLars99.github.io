@@ -4,6 +4,7 @@ title: "TimeCrunch"
 description: "A realtime time tracker for development tasks"
 image: "../../images/timecrunch/timecrunch-icon.png"
 imageAlt: "TimeCrunch app icon"
+imageOrientation: "vertical"
 initialCompletionDate: "2026-03-27"
 lastUpdatedDate: "2026-04-23"
 links:
