@@ -4,6 +4,7 @@ title: "Greener"
 description: "Helping you grow a greener lawn"
 image: "../../images/greener/greener-dashboard.png"
 imageAlt: "Greener dashboard"
+imageOrientation: "vertical"
 initialCompletionDate: "2020-08-08"
 lastUpdatedDate: "2020-08-17"
 links:
