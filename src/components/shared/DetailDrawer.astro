@@ -10,7 +10,7 @@ const { closeHref, closeLabel = "Close", maxWidth = "48rem" } = Astro.props;
 
 <a class="drawer-backdrop" href={closeHref} aria-label={closeLabel}></a>
 <div class="drawer-panel" role="dialog" aria-modal="true" style={`--drawer-max-width: ${maxWidth}`}>
-  <a class="drawer-close" href={closeHref} aria-label={closeLabel}>✕</a>
+  <a class="drawer-close" href={closeHref} data-drawer-close aria-label={closeLabel}>✕</a>
   <div class="drawer-content">
     <slot />
   </div>
@@ -89,10 +89,13 @@ const { closeHref, closeLabel = "Close", maxWidth = "48rem" } = Astro.props;
   }
 </style>
 
-<script define:vars={{ closeHref }}>
+<script>
+  import { navigate } from "astro:transitions/client";
+
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      window.location.href = closeHref;
+    const close = document.querySelector<HTMLAnchorElement>("[data-drawer-close]");
+    if (event.key === "Escape" && close) {
+      navigate(close.href);
     }
   });
 </script>

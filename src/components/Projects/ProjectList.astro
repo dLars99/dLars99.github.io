@@ -27,3 +27,23 @@ const projects = (await getCollection("projects")).sort((a, b) =>
     margin-bottom: 0;
   }
 </style>
+
+<script>
+  // Keep the list's scroll position when opening or closing a project drawer
+  let savedScroll: number | null = null;
+  const isProjects = (url: URL) => url.pathname.startsWith("/projects");
+
+  document.addEventListener("astro:before-swap", (event) => {
+    const { from, to, navigationType } = event;
+    savedScroll =
+      navigationType !== "traverse" && isProjects(from) && isProjects(to)
+        ? window.scrollY
+        : null;
+  });
+
+  document.addEventListener("astro:after-swap", () => {
+    if (savedScroll !== null) {
+      window.scrollTo({ top: savedScroll, behavior: "instant" });
+    }
+  });
+</script>
