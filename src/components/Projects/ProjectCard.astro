@@ -15,40 +15,49 @@ const {
   id,
   image,
   imageAlt,
+  imageOrientation,
   initialCompletionDate,
   lastUpdatedDate,
 } = project.data;
+const isVertical = imageOrientation === "vertical";
+const isPortrait = image.height > image.width;
 const formatDate = (date: string) => format(parseISO(date), "MMM d, y");
 ---
 
-<article class="card">
-  <Headline>{title}</Headline>
+<article class:list={["card", { vertical: isVertical, portrait: isPortrait }]}>
+  <div class="layout">
+    <div class="body">
+      <Headline>{title}</Headline>
 
-  <p class="meta">
-    Launched <time datetime={initialCompletionDate}
-      >{formatDate(initialCompletionDate)}</time
-    >
-    {" · "}Last updated <time datetime={lastUpdatedDate}
-      >{formatDate(lastUpdatedDate)}</time
-    >
-  </p>
+      <p class="meta">
+        Launched <time datetime={initialCompletionDate}
+          >{formatDate(initialCompletionDate)}</time
+        >
+        {" · "}Last updated <time datetime={lastUpdatedDate}
+          >{formatDate(lastUpdatedDate)}</time
+        >
+      </p>
 
-  <p>{description}</p>
+      <p>{description}</p>
+    </div>
 
-  <div class="media">
     <a class="details-link" href={`/projects/${id}`}>[ VIEW DETAILS ]</a>
+
     <Image
       class="thumbnail"
       src={image}
       alt={imageAlt}
-      widths={[400, 800]}
-      sizes="(min-width: 769px) 800px, 100vw"
+      widths={isVertical ? [280, 560] : [400, 800]}
+      sizes={isVertical
+        ? "(min-width: 769px) 100px, 280px"
+        : "(min-width: 769px) 300px, 100vw"}
     />
   </div>
 </article>
 
 <style>
   .card {
+    container-type: inline-size;
     padding: 1.5rem 0;
     border-bottom: 1px solid var(--color-border);
   }
@@ -58,27 +67,37 @@ const formatDate = (date: string) => format(parseISO(date), "MMM d, y");
     color: var(--color-text-secondary);
   }
 
+  .layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .body p:last-child {
+    margin-bottom: 0;
+  }
+
   .meta {
     margin: 0 0 0.75rem;
     font-size: 0.875rem;
     color: var(--color-text-secondary);
   }
 
-  .media {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
   .thumbnail {
     display: block;
     width: 100%;
+    max-width: 480px;
     height: auto;
     border-radius: 0.75rem;
   }
 
+  .vertical .thumbnail {
+    max-width: 280px;
+  }
+
   .details-link {
+    align-self: flex-start;
+    justify-self: start;
     font-family: var(--font-mono);
     font-size: 0.8125rem;
     font-weight: 300;
@@ -95,18 +114,36 @@ const formatDate = (date: string) => format(parseISO(date), "MMM d, y");
     filter: brightness(1.1);
   }
 
-  @media (min-width: 769px) {
-    .media {
-      position: relative;
-      display: block;
+  @container (min-width: 500px) {
+    .layout {
+      display: grid;
+      grid-template-columns: clamp(180px, 35%, 300px) 1fr;
+      align-items: center;
+      gap: 1rem 1.5rem;
+    }
+
+    .thumbnail {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .body {
+      grid-column: 2;
+      grid-row: 1;
     }
 
     .details-link {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1;
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .vertical .thumbnail {
+      max-width: 100px;
+      justify-self: center;
+    }
+
+    .portrait .thumbnail {
+      grid-row: 1 / span 2;
     }
   }
 </style>

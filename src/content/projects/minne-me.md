@@ -4,6 +4,7 @@ title: "Minne Me"
 description: "A weekly email digest of upcoming Minneapolis events"
 image: "../../images/minne-me/minne-me-icon.svg"
 imageAlt: "Minne Me app icon"
+imageOrientation: "vertical"
 initialCompletionDate: "2026-07-24"
 lastUpdatedDate: "2026-10-11"
 links: []
