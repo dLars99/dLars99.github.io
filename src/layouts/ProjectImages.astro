@@ -54,6 +54,8 @@ const { images } = Astro.props;
   }
 
   figcaption {
+    /* keep long captions from widening the figure past its image */
+    contain: inline-size;
     margin-top: 0.25rem;
     font-size: 0.8125rem;
     color: var(--color-text-secondary);

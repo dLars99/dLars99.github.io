@@ -1,0 +1,23 @@
+---
+import JsBasicImage from "../../../images/jsbasic/jsbasic.png";
+import JsBasicRuntime from "../../../images/jsbasic/jsbasic-runtime.png";
+import type { DisplayImage } from "../../../layouts/ProjectImages.astro";
+import ProjectImages from "../../../layouts/ProjectImages.astro";
+
+const images: DisplayImage[] = [
+  {
+    src: JsBasicImage,
+    alt: "The jsBASIC editor with a short BASIC program and the Run, Stop, and instruction limit controls",
+    caption: "The jsBASIC editor",
+    width: 500,
+  },
+  {
+    src: JsBasicRuntime,
+    alt: "jsBASIC with an active runtime window showing a BASIC program that prints 'Hello from jsBASIC!' and the number '42",
+    caption: "The jsBASIC runtime",
+    width: 500,
+  },
+];
+---
+
+<ProjectImages images={images} />
