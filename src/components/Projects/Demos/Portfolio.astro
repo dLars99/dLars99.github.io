@@ -1,28 +1,16 @@
 ---
-import { Image } from "astro:assets";
 import PortfolioImage from "../../../images/portfolio/portfolio.png";
+import type { DisplayImage } from "../../../layouts/ProjectImages.astro";
+import ProjectImages from "../../../layouts/ProjectImages.astro";
+
+const images: DisplayImage[] = [
+  {
+    src: PortfolioImage,
+    alt: "A recursive screenshot showing the 'This Website' card in the 'Projects' section",
+    caption: "A screenshot of this page",
+    width: 500,
+  },
+];
 ---
 
-<div>
-  <figure class="figure">
-    <Image
-      alt="A recursive screenshot showing the 'This Website' card in the 'Projects' section"
-      src={PortfolioImage}
-      width={500}
-    />
-    <figcaption>A screenshot of this page</figcaption>
-  </figure>
-</div>
-
-<style>
-  .figure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-  }
-
-  figcaption {
-    margin-top: 0.25rem;
-  }
-</style>
+<ProjectImages images={images} />
