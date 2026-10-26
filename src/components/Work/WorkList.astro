@@ -26,3 +26,9 @@ const roles = (await getCollection("work")).sort(
     text-decoration: none;
   }
 </style>
+
+<script>
+  import { preserveListScroll } from "../shared/preserveListScroll";
+
+  preserveListScroll("/work");
+</script>
