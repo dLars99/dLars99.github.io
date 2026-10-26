@@ -27,8 +27,13 @@ const roles = (await getCollection("work")).sort(
     margin-top: 1rem;
     font-family: var(--font-mono);
     font-size: 0.8125rem;
-    color: var(--color-accent);
+    color: var(--color-text-primary);
     text-decoration: none;
+    transition: color var(--motion-base) ease-out;
+  }
+
+  .resume-link:hover {
+    color: var(--color-accent);
   }
 </style>
 

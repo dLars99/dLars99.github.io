@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { format } from "date-fns";
+import DetailsLink from "../shared/DetailsLink.astro";
 
 interface Props {
   work: CollectionEntry<"work">;
@@ -15,7 +16,7 @@ const dates = `${format(startDate, dateFormat)} – ${endDate ? format(endDate, 
 <article class="card">
   <h2>{company}</h2>
   <p class="meta">{title} · {dates} · {location}</p>
-  <a class="details-link" href={`/work/${id}`}>[VIEW DETAILS]</a>
+  <DetailsLink href={`/work/${id}`}>[ VIEW DETAILS ]</DetailsLink>
 </article>
 
 <style>
@@ -38,13 +39,5 @@ const dates = `${format(startDate, dateFormat)} – ${endDate ? format(endDate, 
     margin: 0 0 0.75rem;
     font-size: 0.875rem;
     color: var(--color-text-secondary);
-  }
-
-  .details-link {
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    font-weight: 700;
-    color: var(--color-accent);
-    text-decoration: none;
   }
 </style>
