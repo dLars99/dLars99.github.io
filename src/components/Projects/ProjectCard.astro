@@ -62,6 +62,10 @@ const formatDate = (date: string) => format(parseISO(date), "MMM d, y");
     border-bottom: 1px solid var(--color-border);
   }
 
+  .card:last-of-type {
+    border-bottom: none;
+  }
+
   p {
     margin: 0 0 1rem;
     color: var(--color-text-secondary);

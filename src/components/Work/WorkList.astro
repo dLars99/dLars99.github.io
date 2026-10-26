@@ -3,11 +3,14 @@ import WorkCard from "./WorkCard.astro";
 import { getCollection } from "astro:content";
 import { FaFilePdf } from "@react-icons/all-files/fa/FaFilePdf";
 import resume from "../../assets/files/David Larsen Resume Downloadable.pdf";
+import EyebrowLabel from "../shared/EyebrowLabel.astro";
 
 const roles = (await getCollection("work")).sort(
-  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf()
+  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
 );
 ---
+
+<EyebrowLabel as="h2" class="header-eyebrow" text="Work" />
 
 <a class="resume-link" href={resume} download>
   <FaFilePdf aria-hidden="true" /> Downloadable resume
@@ -16,10 +19,12 @@ const roles = (await getCollection("work")).sort(
 
 <style>
   .resume-link {
-    display: inline-flex;
+    display: flex;
+    width: fit-content;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
     font-family: var(--font-mono);
     font-size: 0.8125rem;
     color: var(--color-accent);
