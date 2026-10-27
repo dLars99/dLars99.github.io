@@ -1,9 +1,12 @@
 ---
 id: "little-caesars"
 company: "Little Caesars"
-title: "Senior Software Engineer"
+roles:
+  - title: "Senior Software Engineer"
+    startDate: "2024-12-20"
+  - title: "Software Engineer II"
+    startDate: "2022-09-15"
 location: "Detroit, MI (Remote)"
-startDate: "2022-09-15"
 highlights:
   - "Led long-term frontend development for two project teams"
   - "Led development of UI interface for management of product offerings through third-party platforms, opening significant new streams of revenue"

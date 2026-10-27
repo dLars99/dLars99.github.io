@@ -60,11 +60,27 @@ const work = defineCollection({
   schema: z.object({
     id: z.string(),
     company: z.string(),
-    title: z.string(),
     location: z.string(),
-    startDate: z.coerce.date(),
-    endDate: z.coerce.date().optional(),
+    roles: z.array(
+      z.object({
+        title: z.string(),
+        startDate: z.coerce.date(),
+        endDate: z.coerce.date().optional(),
+      })
+    ).min(1),
     highlights: z.array(z.string()),
+  }).transform((job) => {
+    // Newest role first; job-level title and dates derive from roles
+    const roles = [...job.roles].sort(
+      (a, b) => b.startDate.valueOf() - a.startDate.valueOf()
+    );
+    return {
+      ...job,
+      roles,
+      title: roles[0].title,
+      startDate: roles[roles.length - 1].startDate,
+      endDate: roles[0].endDate,
+    };
   }),
 });
 
