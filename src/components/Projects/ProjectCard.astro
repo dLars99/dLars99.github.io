@@ -42,9 +42,7 @@ const formatDate = (date: string) => format(parseISO(date), "MMM d, y");
       <p>{description}</p>
     </div>
 
-    <DetailsLink class="details-link" href={`/projects/${id}`}
-      >[ VIEW DETAILS ]</DetailsLink
-    >
+    <DetailsLink class="details-link" href={`/projects/${id}`} />
 
     <Image
       class="thumbnail"
