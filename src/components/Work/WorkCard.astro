@@ -8,14 +8,25 @@ interface Props {
 }
 
 const { work } = Astro.props;
-const { id, company, title, location, startDate, endDate } = work.data;
+const { id, company, roles, location } = work.data;
 const dateFormat = "MMMM y";
-const dates = `${format(startDate, dateFormat)} – ${endDate ? format(endDate, dateFormat) : "Present"}`;
+const formatDates = (startDate: Date, endDate?: Date) =>
+  `${format(startDate, dateFormat)} – ${endDate ? format(endDate, dateFormat) : "Present"}`;
 ---
 
 <article class="card">
   <h2>{company}</h2>
-  <p class="meta">{title} · {dates} · {location}</p>
+  <ul class="roles" role="list">
+    {
+      roles.map(({ title, startDate, endDate }) => (
+        <li class="meta">
+          <span class="role-title">{title}</span> ·{" "}
+          {formatDates(startDate, endDate)}
+        </li>
+      ))
+    }
+  </ul>
+  <p class="meta location">{location}</p>
   <DetailsLink href={`/work/${id}`}>[ VIEW DETAILS ]</DetailsLink>
 </article>
 
@@ -35,9 +46,25 @@ const dates = `${format(startDate, dateFormat)} – ${endDate ? format(endDate, 
     color: var(--color-text-primary);
   }
 
+  .roles {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
   .meta {
-    margin: 0 0 0.75rem;
+    margin: 0;
     font-size: 0.875rem;
     color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .role-title {
+    font-weight: 600;
+  }
+
+  .location {
+    margin: 0.25rem 0 0.75rem;
+    font-size: 0.8125rem;
   }
 </style>

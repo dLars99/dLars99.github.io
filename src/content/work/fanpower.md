@@ -2,11 +2,12 @@
 id: "fanpower"
 company: "FanPower (formerly Pickup)"
 roles:
-  - title: "Software Engineer / Team Lead"
+  - title: "Team Lead"
+    startDate: "2022-01-15"
+    endDate: "2022-09-15"
+  - title: "Software Engineer"
     startDate: "2021-08-15"
     endDate: "2022-01-15"
-  - title: "Software Engineer"
-    startDate: "2022-09-15"
 location: "New York, NY (Remote)"
 highlights:
   - "Defined engineering scope and supervised an Agile team building a new internal ad-management platform on Node.js/Express REST backend APIs and a React frontend, providing more targeted engagement through the core product"

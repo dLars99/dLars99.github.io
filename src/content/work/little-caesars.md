@@ -6,6 +6,7 @@ roles:
     startDate: "2024-12-20"
   - title: "Software Engineer II"
     startDate: "2022-09-15"
+    endDate: "2024-12-20"
 location: "Detroit, MI (Remote)"
 highlights:
   - "Led long-term frontend development for two project teams"
