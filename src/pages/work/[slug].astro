@@ -15,17 +15,29 @@ export async function getStaticPaths() {
 }
 
 const { work } = Astro.props;
-const { company, title, location, startDate, endDate, highlights } = work.data;
+const { company, roles, location, highlights } = work.data;
 const dateFormat = "MMMM y";
-const dates = `${format(startDate, dateFormat)} – ${endDate ? format(endDate, dateFormat) : "Present"}`;
+const formatDates = (startDate: Date, endDate?: Date) =>
+  `${format(startDate, dateFormat)} – ${endDate ? format(endDate, dateFormat) : "Present"}`;
+const titles = roles.map(({ title }) => title).join(", ");
 ---
 
-<BaseLayout title={`${company} — David P Larsen`} description={`${title} at ${company}.`}>
+<BaseLayout title={`${company} — David P Larsen`} description={`${titles} at ${company}.`}>
   <WorkList />
 
   <DetailDrawer closeHref="/work" closeLabel="Close role detail">
     <EyebrowLabel as="h2" text={company.toUpperCase()} />
-    <p class="meta">{title} · {dates} · {location}</p>
+    <ul class="roles" role="list">
+      {
+        roles.map(({ title, startDate, endDate }) => (
+          <li class="meta">
+            <span class="role-title">{title}</span> ·{" "}
+            {formatDates(startDate, endDate)}
+          </li>
+        ))
+      }
+    </ul>
+    <p class="meta location">{location}</p>
     <ul class="highlights">
       {highlights.map((highlight) => <li>{highlight}</li>)}
     </ul>
@@ -33,9 +45,24 @@ const dates = `${format(startDate, dateFormat)} – ${endDate ? format(endDate, 
 </BaseLayout>
 
 <style>
+  .roles {
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+  }
+
   .meta {
-    margin: 0.5rem 0 1.5rem;
+    margin: 0;
     color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .role-title {
+    font-weight: 600;
+  }
+
+  .location {
+    margin: 0.25rem 0 1.5rem;
   }
 
   .highlights {
