@@ -8,6 +8,7 @@ roles:
     startDate: "2022-09-15"
     endDate: "2024-12-20"
 location: "Detroit, MI (Remote)"
+companyDescription: "Third-largest pizza chain in the world, operating in all 50 U.S. states and 31 countries and territories."
 highlights:
   - "Led long-term frontend development for two project teams"
   - "Led development of UI interface for management of product offerings through third-party platforms, opening significant new streams of revenue"

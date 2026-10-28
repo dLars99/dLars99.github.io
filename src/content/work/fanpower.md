@@ -9,6 +9,7 @@ roles:
     startDate: "2021-08-15"
     endDate: "2022-01-15"
 location: "New York, NY (Remote)"
+companyDescription: "Sports fan engagement platform built on a picker game and SMS, integrated with dozens of publishing partners including USA Today and NASCAR."
 highlights:
   - "Defined engineering scope and supervised an Agile team building a new internal ad-management platform on Node.js/Express REST backend APIs and a React frontend, providing more targeted engagement through the core product"
   - "Defined engineering scope and led development of a new admin application in Retool, streamlining content generation with 60% fewer user interactions"

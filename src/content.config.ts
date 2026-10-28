@@ -61,6 +61,7 @@ const work = defineCollection({
     id: z.string(),
     company: z.string(),
     location: z.string(),
+    companyDescription: z.string().optional(),
     roles: z.array(
       z.object({
         title: z.string(),
