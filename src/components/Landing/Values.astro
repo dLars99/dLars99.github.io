@@ -2,23 +2,28 @@
 const values = [
   {
     name: "Speed matters",
-    description: "Nobody likes waiting for a spinner. Pages should open fast, inputs should react instantly, and layouts shouldn't jump around.",
+    description:
+      "Nobody likes waiting for a spinner. Pages should open fast, inputs should react instantly, and layouts shouldn't jump around.",
   },
   {
     name: "Clarity over cleverness",
-    description: "If a user has to guess how a button works, the design failed. Simple and obvious beats fancy every time.",
+    description:
+      "If a user has to guess how a button works, the design failed. Simple and obvious beats fancy every time.",
   },
   {
     name: "Solid on any screen",
-    description: "It needs to work just as well on a cheap phone over spotty cell service as it does on a massive monitor.",
+    description:
+      "It needs to work just as well on a cheap phone over spotty cell service as it does on a massive monitor.",
   },
   {
     name: "No junk code",
-    description: "Build it clean, keep it lightweight, and don't load megabytes of libraries just to render a basic page.",
+    description:
+      "Build it clean, keep it lightweight, and don't load megabytes of libraries just to render a basic page.",
   },
   {
     name: "Right tool for the job",
-    description: "I spend most of my time in React and Next.js, but that doesn't mean every project needs a heavy framework. If plain HTML, CSS, and native web features do it better and faster, that's what gets built.",
+    description:
+      "I spend most of my time in React and Next.js, but that doesn't mean every project needs a heavy framework. If plain HTML, CSS, and native web features do it better and faster, that's what gets built.",
     wide: true,
   },
 ];
@@ -62,6 +67,10 @@ const values = [
     position: relative;
     padding: 1.25rem 0;
     border-bottom: 1px solid var(--color-border);
+  }
+
+  .value:last-of-type {
+    border-bottom: none;
   }
 
   /* 632px = 2 * 300px columns + 2rem gap, matching the grid's own 2-column threshold. */
