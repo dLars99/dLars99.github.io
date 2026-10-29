@@ -33,17 +33,17 @@ const titles = roles.map(({ title }) => title).join(", ");
     <ul class="roles" role="list">
       {
         roles.map(({ title, startDate, endDate }) => (
-          <li class="meta">
-            <span class="role-title">{title}</span> ·{" "}
-            {formatDates(startDate, endDate)}
+          <li class="role">
+            <span class="role-title">{title}</span>
+            <span class="role-dates">{formatDates(startDate, endDate)}</span>
           </li>
         ))
       }
     </ul>
-    <p class="meta location">{location}</p>
+    <p class="location">{location}</p>
     {
       companyDescription && (
-        <p class="meta company-description">{companyDescription}</p>
+        <p class="company-description">{companyDescription}</p>
       )
     }
     <ul class="highlights">
@@ -55,28 +55,79 @@ const titles = roles.map(({ title }) => title).join(", ");
 <style>
   .roles {
     list-style: none;
-    margin: 0.5rem 0 0;
+    margin: 1.5rem 0 0;
     padding: 0;
   }
 
-  .meta {
-    margin: 0;
-    color: var(--color-text-secondary);
-    line-height: 1.5;
+  .role {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.25rem 1rem;
+    padding-left: 1.75rem;
+    padding-bottom: 1.25rem;
+  }
+
+  /* timeline dot */
+  .role::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.45em;
+    width: 0.625rem;
+    height: 0.625rem;
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+    background: var(--color-canvas);
+  }
+
+  /* connector to the next role */
+  .role:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: calc(0.3125rem + 1px);
+    top: calc(0.45em + 0.875rem);
+    bottom: 0.25rem;
+    width: 2px;
+    transform: translateX(-50%);
+    background: var(--color-accent);
+  }
+
+  .role:first-child::before {
+    background: var(--color-accent);
   }
 
   .role-title {
+    font-size: 1.125rem;
     font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+
+  .role:first-child .role-title {
+    color: var(--color-text-primary);
+  }
+
+  .role-dates,
+  .location {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+    color: var(--color-text-secondary);
   }
 
   .location {
-    margin: 0.5rem 0 1rem;
+    margin: 0.25rem 0 1.5rem 1.75rem;
   }
 
   .company-description {
-    margin: 0 0 0.5rem;
-    line-height: 1.6;
+    margin: 0 0 1.5rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--color-accent);
+    color: var(--color-text-secondary);
     font-style: italic;
+    line-height: 1.6;
   }
 
   .highlights {
@@ -88,5 +139,9 @@ const titles = roles.map(({ title }) => title).join(", ");
 
   .highlights li {
     margin-bottom: 0.75rem;
+  }
+
+  .highlights li::marker {
+    color: var(--color-accent);
   }
 </style>
