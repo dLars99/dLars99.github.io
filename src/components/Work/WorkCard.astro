@@ -1,21 +1,33 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { format } from "date-fns";
+import DetailsLink from "../shared/DetailsLink.astro";
 
 interface Props {
   work: CollectionEntry<"work">;
 }
 
 const { work } = Astro.props;
-const { id, company, title, location, startDate, endDate } = work.data;
+const { id, company, roles, location } = work.data;
 const dateFormat = "MMMM y";
-const dates = `${format(startDate, dateFormat)} – ${endDate ? format(endDate, dateFormat) : "Present"}`;
+const formatDates = (startDate: Date, endDate?: Date) =>
+  `${format(startDate, dateFormat)} – ${endDate ? format(endDate, dateFormat) : "Present"}`;
 ---
 
 <article class="card">
   <h2>{company}</h2>
-  <p class="meta">{title} · {dates} · {location}</p>
-  <a class="details-link" href={`/work/${id}`}>[VIEW DETAILS]</a>
+  <ul class="roles" role="list">
+    {
+      roles.map(({ title, startDate, endDate }) => (
+        <li class="meta">
+          <span class="role-title">{title}</span> ·{" "}
+          {formatDates(startDate, endDate)}
+        </li>
+      ))
+    }
+  </ul>
+  <p class="meta location">{location}</p>
+  <DetailsLink href={`/work/${id}`} />
 </article>
 
 <style>
@@ -24,23 +36,35 @@ const dates = `${format(startDate, dateFormat)} – ${endDate ? format(endDate, 
     border-bottom: 1px solid var(--color-border);
   }
 
+  .card:last-of-type {
+    border-bottom: none;
+  }
+
   h2 {
     font-size: 1.25rem;
     margin: 0 0 0.5rem;
     color: var(--color-text-primary);
   }
 
-  .meta {
-    margin: 0 0 0.75rem;
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
+  .roles {
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
-  .details-link {
-    font-family: var(--font-mono);
+  .meta {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .role-title {
+    font-weight: 600;
+  }
+
+  .location {
+    margin: 0.25rem 0 0.75rem;
     font-size: 0.8125rem;
-    font-weight: 700;
-    color: var(--color-accent);
-    text-decoration: none;
   }
 </style>
