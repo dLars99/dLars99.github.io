@@ -87,11 +87,10 @@ const titles = roles.map(({ title }) => title).join(", ");
   .role:not(:last-child)::after {
     content: "";
     position: absolute;
-    left: calc(0.3125rem + 1px);
+    left: calc(0.3125rem - 1px);
     top: calc(0.45em + 0.875rem);
-    bottom: 0.25rem;
+    bottom: calc(0.25rem - 0.45em);
     width: 2px;
-    transform: translateX(-50%);
     background: var(--color-accent);
   }
 
