@@ -1,0 +1,31 @@
+---
+interface Props {
+  href: string;
+  class?: string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<a {...rest} class:list={["details-link", className]}>[ VIEW DETAILS ]</a>
+
+<style>
+  .details-link {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 300;
+    color: var(--color-canvas);
+    background: var(--color-fill-primary);
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.25);
+    transition: filter var(--motion-base) ease-out;
+  }
+
+  .details-link:hover,
+  .details-link:focus-visible {
+    filter: brightness(1.1);
+  }
+</style>

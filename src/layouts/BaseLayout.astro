@@ -41,19 +41,18 @@ const mobileEntries = (await getSortedAuditEntries())
     </main>
 
     <AuditBar />
+    <style>
+      .content-stage {
+        min-height: 100vh;
+        padding: 4rem 2rem 6rem;
+      }
+
+      @media (min-width: 769px) {
+        .content-stage {
+          margin-left: var(--sidebar-width);
+          padding: 2.5rem 3rem 4rem;
+        }
+      }
+    </style>
   </body>
 </html>
-
-<style>
-  .content-stage {
-    min-height: 100vh;
-    padding: 4rem 2rem 6rem;
-  }
-
-  @media (min-width: 769px) {
-    .content-stage {
-      margin-left: var(--sidebar-width);
-      padding: 2.5rem 3rem 5rem;
-    }
-  }
-</style>
