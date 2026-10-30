@@ -1,0 +1,34 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {
+  href: string;
+  label: string;
+}
+
+const { label, class: className, ...rest } = Astro.props;
+---
+
+<a {...rest} class:list={["action-link", className]}>[ {label} ]</a>
+
+<style>
+  .action-link {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 300;
+    color: var(--color-canvas);
+    background: var(--color-fill-primary);
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.25);
+    transition: filter var(--motion-base) ease-out;
+  }
+
+  .action-link:hover,
+  .action-link:focus-visible {
+    filter: brightness(1.1);
+  }
+</style>
