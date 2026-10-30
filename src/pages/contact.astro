@@ -1,18 +1,32 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import EyebrowLabel from "../components/shared/EyebrowLabel.astro";
+import Headline from "../components/shared/Headline.astro";
 import ContactLinks from "../components/Contact/ContactLinks.astro";
 ---
 
-<BaseLayout title="Contact — David P Larsen" description="Contact David Larsen.">
-  <EyebrowLabel as="h2" text="CONTACT" />
-  <div class="contact-body">
-    <ContactLinks />
-  </div>
+<BaseLayout
+  title="Contact — David P Larsen"
+  description="Contact David Larsen."
+>
+  <EyebrowLabel text="CONTACT" />
+  <Headline as="h2" class="headline">Let’s build something together.</Headline>
+  <p class="intro">
+    I’m always open to discussing early-stage frontend work, product building,
+    and technical discussions.
+  </p>
+  <ContactLinks />
 </BaseLayout>
 
 <style>
-  .contact-body {
-    margin-top: 1.5rem;
+  .headline {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .intro {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    margin: 0 0 2rem;
   }
 </style>
