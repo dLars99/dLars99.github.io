@@ -70,32 +70,37 @@ const titles = roles.map(({ title }) => title).join(", ");
     padding-bottom: 1.25rem;
   }
 
-  /* timeline dot */
+  /* open dot for past roles */
   .role::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 0.45em;
-    width: 0.625rem;
-    height: 0.625rem;
-    border: 2px solid var(--color-accent);
+    top: calc(0.45em + 0.0625rem);
+    box-sizing: border-box;
+    width: 0.5rem;
+    height: 0.5rem;
+    border: 1.5px solid var(--color-accent);
     border-radius: 50%;
     background: var(--color-canvas);
+  }
+
+  /* ringed dot for the current role */
+  .role:first-child::before {
+    border: none;
+    background: var(--color-accent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--color-accent) 25%, transparent);
   }
 
   /* connector to the next role */
   .role:not(:last-child)::after {
     content: "";
     position: absolute;
-    left: calc(0.3125rem - 1px);
-    top: calc(0.45em + 0.875rem);
-    bottom: calc(0.25rem - 0.45em);
-    width: 2px;
-    background: var(--color-accent);
-  }
-
-  .role:first-child::before {
-    background: var(--color-accent);
+    left: calc(0.25rem - 0.5px);
+    top: calc(0.45em + 0.9125rem);
+    bottom: calc(0.3875rem - 0.45em);
+    width: 1px;
+    background: var(--color-border);
   }
 
   .role-title {
