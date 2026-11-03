@@ -1,7 +1,7 @@
 ---
 date: "2020-08-17"
 employer: "Nashville Software School"
-message: "Shipped frontend capstone: a mobile-first lawn-care tracker with automated seasonal scheduling and live weather alerts."
+message: "Shipped frontend capstone: a mobile-first lawn care tracker with automated seasonal scheduling and live weather alerts."
 ---
 
 Built solo in about two weeks. The app logs lawn-care chores, runs a

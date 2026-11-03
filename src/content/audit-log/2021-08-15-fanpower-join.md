@@ -5,6 +5,4 @@ employer: "FanPower"
 message: "Joined FanPower (formerly Pickup) as Software Engineer / Team Lead. Took ownership of engineering scope for a new internal ad platform."
 ---
 
-Stepped into a team-lead role, defining engineering scope and supervising
-an Agile team building a new internal ad-management platform on a
-Node.js/Express REST backend with a React frontend.
+Stepped from a Junior role to full Software Engineer while also expanding my scope from simple frontend duties to fullstack maintenance and implementation.
