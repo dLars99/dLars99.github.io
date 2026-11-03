@@ -8,9 +8,9 @@ const entries = await getSortedAuditEntries();
 ---
 
 <BaseLayout
-  title="Audit Log — David P Larsen"
-  description="Full commit-style audit log for David Larsen's portfolio and career."
+  title="Accomplishment Changelog — David P Larsen"
+  description="Full commit-style accomplishment changelog for David Larsen's portfolio and career."
 >
-  <EyebrowLabel as="h2" text="AUDIT LOG" />
+  <EyebrowLabel as="h2" text="ACCOMPLISHMENT CHANGELOG" />
   {entries.map((entry) => <LedgerEntry entry={entry} />)}
 </BaseLayout>

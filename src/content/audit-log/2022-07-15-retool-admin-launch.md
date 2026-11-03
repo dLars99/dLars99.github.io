@@ -1,7 +1,7 @@
 ---
-date: "2022-01-10"
+date: "2022-07-15"
 employer: "FanPower"
-message: "Launched the internal ad-management platform, unlocking more targeted engagement through the core product."
+message: "Launched a completely rebuilt admin platform, greatly streamlining content creation."
 ---
 
 Also led development of a companion admin app in Retool, cutting the
