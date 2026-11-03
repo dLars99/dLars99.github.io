@@ -1,5 +1,4 @@
 ---
-version: "v4.2.0"
 date: "2026-08-29"
 message: "Refreshed entire site architecture, improved navigation physics."
 ---

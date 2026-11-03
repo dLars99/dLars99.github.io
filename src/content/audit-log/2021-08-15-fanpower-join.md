@@ -1,5 +1,5 @@
 ---
-version: "v2.0.0"
+bump: "major"
 date: "2021-08-15"
 employer: "FanPower"
 message: "Joined FanPower (formerly Pickup) as Software Engineer / Team Lead. Took ownership of engineering scope for a new internal ad platform."

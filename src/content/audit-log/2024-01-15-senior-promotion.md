@@ -1,5 +1,5 @@
 ---
-version: "v4.0.0"
+bump: "major"
 date: "2024-01-15"
 employer: "Little Caesars"
 message: "Promoted to Senior Software Engineer. Took on principal engineering duties for React and dependency upgrades across both platforms."

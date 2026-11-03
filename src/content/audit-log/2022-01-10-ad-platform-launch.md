@@ -1,5 +1,4 @@
 ---
-version: "v2.3.0"
 date: "2022-01-10"
 employer: "FanPower"
 message: "Launched the internal ad-management platform, unlocking more targeted engagement through the core product."

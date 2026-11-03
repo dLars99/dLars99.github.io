@@ -1,5 +1,4 @@
 ---
-version: "v3.5.0"
 date: "2023-04-01"
 employer: "Little Caesars"
 message: "Architected new admin UI component patterns, cutting time spent on new features and maintenance by up to 75%."
