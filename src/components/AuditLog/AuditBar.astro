@@ -86,7 +86,21 @@ const entries = (await getSortedAuditEntries()).slice(0, 5).map((entry) => ({
 </style>
 
 <script define:vars={{ entries }}>
+  const ROTATE_INTERVAL_MS = 7000;
   let index = 0;
+  let timer;
+
+  function startRotation() {
+    window.clearInterval(timer);
+    if (entries.length <= 1) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    timer = window.setInterval(() => {
+      // Pick a random entry other than the current one
+      index = (index + 1 + Math.floor(Math.random() * (entries.length - 1))) % entries.length;
+      render();
+    }, ROTATE_INTERVAL_MS);
+  }
 
   function render() {
     const bar = document.querySelector("[data-audit-bar]");
@@ -103,11 +117,15 @@ const entries = (await getSortedAuditEntries()).slice(0, 5).map((entry) => ({
     if (target.closest("[data-audit-prev]")) {
       index = (index - 1 + entries.length) % entries.length;
       render();
+      startRotation();
     } else if (target.closest("[data-audit-next]")) {
       index = (index + 1) % entries.length;
       render();
+      startRotation();
     }
   });
+
+  startRotation();
 </script>
 
 <script>

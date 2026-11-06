@@ -10,7 +10,7 @@ interface Props {
   entries: AuditLogEntry[];
 }
 
-const ROTATE_INTERVAL_MS = 4000;
+const ROTATE_INTERVAL_MS = 7000;
 
 const AuditLogMobile: FC<Props> = ({ entries }) => {
   const [tickerIndex, setTickerIndex] = useState(0);
