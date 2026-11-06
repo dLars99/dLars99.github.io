@@ -1,11 +1,11 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
 import { format } from "date-fns";
 import ExpandableChip from "../ExpandableChip";
+import type { AuditEntry } from "../../content/audit-log-utils";
 
 interface Props {
-  entry: CollectionEntry<"auditLog">;
+  entry: AuditEntry;
 }
 
 const { entry } = Astro.props;
@@ -13,7 +13,7 @@ const { Content } = await render(entry);
 const { version, date, message, employer } = entry.data;
 ---
 
-<ExpandableChip client:visible name={`${version} — ${message}`}>
+<ExpandableChip client:visible prefix={version} name={message}>
   <div class="entry-body">
     <p class="meta">
       {format(date, "MMMM d, y")}
@@ -27,7 +27,7 @@ const { version, date, message, employer } = entry.data;
 
 <style>
   .entry-body {
-    padding: 0 1.25rem 1.25rem;
+    padding: 0 1.25rem;
   }
 
   .meta {

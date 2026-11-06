@@ -48,7 +48,7 @@ const projects = defineCollection({
 const auditLog = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/audit-log" }),
   schema: z.object({
-    version: z.string(),
+    bump: z.enum(["major", "minor", "patch"]).default("minor"),
     date: z.coerce.date(),
     message: z.string(),
     employer: z.string().optional(),
