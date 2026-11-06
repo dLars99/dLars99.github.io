@@ -36,6 +36,15 @@
   color: var(--color-text-secondary);
 }
 
+.tickerVersion,
+.tickerMessage {
+  transition: opacity var(--motion-base) ease;
+}
+
+.fading {
+  opacity: 0;
+}
+
 .backdrop {
   position: fixed;
   inset: 0;

@@ -11,10 +11,13 @@ interface Props {
 }
 
 const ROTATE_INTERVAL_MS = 7000;
+// Matches --motion-base
+const FADE_MS = 200;
 
 const AuditLogMobile: FC<Props> = ({ entries }) => {
   const [tickerIndex, setTickerIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [isFading, setIsFading] = useState(false);
   const sheetRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
@@ -23,13 +26,21 @@ const AuditLogMobile: FC<Props> = ({ entries }) => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
+    let fadeTimeout: number | undefined;
     const id = window.setInterval(() => {
-      // Pick a random entry other than the current one
-      setTickerIndex(
-        (index) => (index + 1 + Math.floor(Math.random() * (entries.length - 1))) % entries.length,
-      );
+      setIsFading(true);
+      fadeTimeout = window.setTimeout(() => {
+        // Pick a random entry other than the current one
+        setTickerIndex(
+          (index) => (index + 1 + Math.floor(Math.random() * (entries.length - 1))) % entries.length,
+        );
+        setIsFading(false);
+      }, FADE_MS);
     }, ROTATE_INTERVAL_MS);
-    return () => window.clearInterval(id);
+    return () => {
+      window.clearInterval(id);
+      window.clearTimeout(fadeTimeout);
+    };
   }, [entries.length]);
 
   useEffect(() => {
@@ -78,8 +89,12 @@ const AuditLogMobile: FC<Props> = ({ entries }) => {
         aria-label="Open audit log"
         onClick={() => setIsOpen(true)}
       >
-        <span className={styles.tickerVersion}>{current?.version}</span>
-        <span className={styles.tickerMessage}>{current?.message}</span>
+        <span className={`${styles.tickerVersion} ${isFading ? styles.fading : ""}`}>
+          {current?.version}
+        </span>
+        <span className={`${styles.tickerMessage} ${isFading ? styles.fading : ""}`}>
+          {current?.message}
+        </span>
         <span aria-hidden="true">▶</span>
       </button>
 
