@@ -85,7 +85,7 @@ const entries = (await getSortedAuditEntries()).slice(0, 5).map((entry) => ({
   }
 </style>
 
-<script define:vars={{ entries }}>
+<script is:inline define:vars={{ entries }}>
   const ROTATE_INTERVAL_MS = 7000;
   const SLIDE_PX = 12;
   let index = 0;
