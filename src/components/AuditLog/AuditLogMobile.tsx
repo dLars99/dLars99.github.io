@@ -24,7 +24,10 @@ const AuditLogMobile: FC<Props> = ({ entries }) => {
     if (prefersReducedMotion) return;
 
     const id = window.setInterval(() => {
-      setTickerIndex((index) => (index + 1) % entries.length);
+      // Pick a random entry other than the current one
+      setTickerIndex(
+        (index) => (index + 1 + Math.floor(Math.random() * (entries.length - 1))) % entries.length,
+      );
     }, ROTATE_INTERVAL_MS);
     return () => window.clearInterval(id);
   }, [entries.length]);
