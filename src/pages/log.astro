@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CloseButton from "../components/shared/CloseButton.astro";
 import EyebrowLabel from "../components/shared/EyebrowLabel.astro";
 import LedgerEntry from "../components/AuditLog/LedgerEntry.astro";
 import { getSortedAuditEntries } from "../content/audit-log-utils";
@@ -11,6 +12,23 @@ const entries = await getSortedAuditEntries();
   title="Accomplishment Changelog — David P Larsen"
   description="Full commit-style accomplishment changelog for David Larsen's portfolio and career."
 >
+  <CloseButton href="/" label="Close log" data-log-close />
   <EyebrowLabel as="h2" text="ACCOMPLISHMENT CHANGELOG" />
   {entries.map((entry) => <LedgerEntry entry={entry} />)}
 </BaseLayout>
+
+<script>
+  import { closeLog } from "../components/AuditLog/closeLog";
+
+  document.addEventListener(
+    "click",
+    (event) => {
+      const target = event.target;
+      if (target instanceof Element && target.closest("[data-log-close]")) {
+        event.preventDefault();
+        closeLog();
+      }
+    },
+    { capture: true },
+  );
+</script>

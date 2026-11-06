@@ -16,7 +16,7 @@ const entries = (await getSortedAuditEntries()).slice(0, 5).map((entry) => ({
   <div class="controls">
     <button type="button" class="arrow" data-audit-prev aria-label="Previous entry">◀</button>
     <button type="button" class="arrow" data-audit-next aria-label="Next entry">▶</button>
-    <a class="view-log" href="/log">[VIEW FULL LOG]</a>
+    <a class="view-log" href="/log" data-view-log>[VIEW FULL LOG]</a>
   </div>
 </div>
 
@@ -108,4 +108,24 @@ const entries = (await getSortedAuditEntries()).slice(0, 5).map((entry) => ({
       render();
     }
   });
+</script>
+
+<script>
+  import { closeLog, isLogPage } from "./closeLog";
+
+  document.addEventListener(
+    "click",
+    (event) => {
+      const target = event.target;
+      if (
+        target instanceof Element &&
+        target.closest("[data-view-log]") &&
+        isLogPage()
+      ) {
+        event.preventDefault();
+        closeLog();
+      }
+    },
+    { capture: true },
+  );
 </script>
