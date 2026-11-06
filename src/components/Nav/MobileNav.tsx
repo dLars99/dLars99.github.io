@@ -11,6 +11,7 @@ const navItems = [
 
 const MobileNav: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -23,7 +24,7 @@ const MobileNav: FC = () => {
 
     function handleKeydown(event: KeyboardEvent) {
       if (event.key === "Escape") {
-        setIsOpen(false);
+        setIsClosing(true);
         return;
       }
       if (event.key !== "Tab" || !focusable || focusable.length === 0) return;
@@ -47,6 +48,23 @@ const MobileNav: FC = () => {
     };
   }, [isOpen]);
 
+  const isShown = isOpen && !isClosing;
+
+  function handleTriggerClick() {
+    if (isShown) {
+      setIsClosing(true);
+    } else {
+      setIsOpen(true);
+      setIsClosing(false);
+    }
+  }
+
+  function handleAnimationEnd() {
+    if (!isClosing) return;
+    setIsOpen(false);
+    setIsClosing(false);
+  }
+
   const currentPath =
     typeof window !== "undefined"
       ? window.location.pathname.replace(/\/$/, "") || "/"
@@ -58,21 +76,25 @@ const MobileNav: FC = () => {
         ref={triggerRef}
         type="button"
         className={styles.trigger}
-        aria-expanded={isOpen}
+        aria-expanded={isShown}
         aria-controls="mobile-nav-overlay"
-        aria-label={isOpen ? "Close navigation" : "Open navigation"}
-        onClick={() => setIsOpen((open) => !open)}
+        aria-label={isShown ? "Close navigation" : "Open navigation"}
+        onClick={handleTriggerClick}
       >
-        {isOpen ? "✕" : "☰"}
+        {isShown ? "✕" : "☰"}
       </button>
 
       {isOpen && (
         <>
-          <div className={styles.backdrop} onClick={() => setIsOpen(false)} />
+          <div
+            className={`${styles.backdrop} ${isClosing ? styles.closing : ""}`}
+            onClick={() => setIsClosing(true)}
+          />
           <div
             id="mobile-nav-overlay"
             ref={overlayRef}
-            className={styles.overlay}
+            className={`${styles.overlay} ${isClosing ? styles.closing : ""}`}
+            onAnimationEnd={handleAnimationEnd}
             role="dialog"
             aria-modal="true"
             aria-label="Primary navigation"

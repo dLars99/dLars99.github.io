@@ -2,19 +2,28 @@
   margin: 1.5rem 0;
   border: 1px solid var(--color-border);
   border-radius: 6px;
+  transition: border-color var(--motion-moderate) ease-in-out;
+}
+
+.root[data-state="open"] {
+  border-color: var(--color-accent);
 }
 
 .innerFlex {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.25rem;
+  padding: 0.5rem 1.25rem;
 }
 
 .title {
   font-size: 1rem;
   font-weight: 700;
   margin: 0;
+}
+
+.prefix {
+  color: var(--color-accent);
 }
 
 .button {
@@ -25,6 +34,11 @@
   align-items: center;
   justify-content: center;
   padding: 0.5rem;
+  color: var(--color-accent);
+}
+
+.button:hover {
+  color: var(--color-text-primary);
 }
 
 .contentAnimation {
@@ -43,6 +57,7 @@
   from {
     height: 0;
   }
+
   to {
     height: var(--radix-collapsible-content-height);
   }
@@ -52,6 +67,7 @@
   from {
     height: var(--radix-collapsible-content-height);
   }
+
   to {
     height: 0;
   }

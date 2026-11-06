@@ -1,4 +1,6 @@
 ---
+import CloseButton from "./CloseButton.astro";
+
 interface Props {
   closeHref: string;
   closeLabel?: string;
@@ -10,7 +12,7 @@ const { closeHref, closeLabel = "Close", maxWidth = "48rem" } = Astro.props;
 
 <a class="drawer-backdrop" href={closeHref} aria-label={closeLabel}></a>
 <div class="drawer-panel" role="dialog" aria-modal="true" style={`--drawer-max-width: ${maxWidth}`}>
-  <a class="drawer-close" href={closeHref} data-drawer-close aria-label={closeLabel}>✕</a>
+  <CloseButton href={closeHref} label={closeLabel} data-drawer-close />
   <div class="drawer-content">
     <slot />
   </div>
@@ -56,23 +58,6 @@ const { closeHref, closeLabel = "Close", maxWidth = "48rem" } = Astro.props;
     to {
       transform: translateX(0);
     }
-  }
-
-  .drawer-close {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    margin: -0.5rem -0.5rem -1.5rem auto; /* no flow height, so content starts at the padding */
-    border: 1px solid var(--color-border);
-    border-radius: 50%;
-    background: var(--color-canvas);
-    color: var(--color-text-primary);
-    text-decoration: none;
   }
 
   .drawer-content {

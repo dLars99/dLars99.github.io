@@ -1,5 +1,4 @@
 ---
-version: "v0.9.0"
 date: "2020-11-06"
 employer: "Nashville Software School"
 message: "Shipped fullstack capstone: a peer-to-peer equipment rental marketplace with a C#/.NET API and React client, built in 10 days."

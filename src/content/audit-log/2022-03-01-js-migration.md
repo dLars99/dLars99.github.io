@@ -1,8 +1,7 @@
 ---
-version: "v2.6.0"
-date: "2022-05-01"
+date: "2022-03-01"
 employer: "FanPower"
-message: "Migrated the core content picker off Rails onto an all-JavaScript stack, cutting page load times by up to 50%."
+message: "Completed migration of the core content picker off Rails onto an all-JavaScript stack, cutting page load times by up to 50%."
 ---
 
 Wrote the REST API routes and React UI components that let the whole

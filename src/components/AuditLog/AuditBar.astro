@@ -8,7 +8,7 @@ const entries = (await getSortedAuditEntries()).slice(0, 5).map((entry) => ({
 ---
 
 <div class="audit-bar" transition:persist data-audit-bar>
-  <div class="entry">
+  <div class="entry" data-audit-entry>
     <span class="version" data-audit-version>{entries[0]?.version}</span>
     <span class="message" data-audit-message>{entries[0]?.message}</span>
   </div>
@@ -16,7 +16,7 @@ const entries = (await getSortedAuditEntries()).slice(0, 5).map((entry) => ({
   <div class="controls">
     <button type="button" class="arrow" data-audit-prev aria-label="Previous entry">◀</button>
     <button type="button" class="arrow" data-audit-next aria-label="Next entry">▶</button>
-    <a class="view-log" href="/log">[VIEW FULL LOG]</a>
+    <a class="view-log" href="/log" data-view-log>[VIEW FULL LOG]</a>
   </div>
 </div>
 
@@ -86,7 +86,22 @@ const entries = (await getSortedAuditEntries()).slice(0, 5).map((entry) => ({
 </style>
 
 <script define:vars={{ entries }}>
+  const ROTATE_INTERVAL_MS = 7000;
+  const SLIDE_PX = 12;
   let index = 0;
+  let timer;
+  let animationId = 0;
+
+  function startRotation() {
+    window.clearInterval(timer);
+    if (entries.length <= 1) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    timer = window.setInterval(() => {
+      // Pick a random entry other than the current one
+      show((index + 1 + Math.floor(Math.random() * (entries.length - 1))) % entries.length, 0);
+    }, ROTATE_INTERVAL_MS);
+  }
 
   function render() {
     const bar = document.querySelector("[data-audit-bar]");
@@ -96,16 +111,74 @@ const entries = (await getSortedAuditEntries()).slice(0, 5).map((entry) => ({
     bar.querySelector("[data-audit-message]").textContent = entry.message;
   }
 
+  // shift: 0 = fade in place, -1 = slide left (next), 1 = slide right (prev)
+  async function show(nextIndex, shift) {
+    index = nextIndex;
+    const entryEl = document.querySelector("[data-audit-bar] [data-audit-entry]");
+    const duration = parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue("--motion-base"),
+    );
+    // Reduced motion sets the token to ~0ms
+    if (!entryEl || !(duration >= 1)) {
+      render();
+      return;
+    }
+
+    const id = ++animationId;
+    const offset = shift * SLIDE_PX;
+    entryEl.getAnimations().forEach((animation) => animation.cancel());
+
+    const out = entryEl.animate(
+      [{ opacity: 1, transform: "translateX(0)" }, { opacity: 0, transform: `translateX(${offset}px)` }],
+      { duration, easing: "ease-in", fill: "forwards" },
+    );
+    try {
+      await out.finished;
+    } catch {
+      return;
+    }
+    if (id !== animationId) return;
+
+    render();
+    out.cancel();
+    entryEl.animate(
+      [{ opacity: 0, transform: `translateX(${-offset}px)` }, { opacity: 1, transform: "translateX(0)" }],
+      { duration, easing: "ease-out" },
+    );
+  }
+
   document.addEventListener("click", (event) => {
     const target = event.target;
     if (!(target instanceof Element)) return;
 
     if (target.closest("[data-audit-prev]")) {
-      index = (index - 1 + entries.length) % entries.length;
-      render();
+      show((index - 1 + entries.length) % entries.length, 1);
+      startRotation();
     } else if (target.closest("[data-audit-next]")) {
-      index = (index + 1) % entries.length;
-      render();
+      show((index + 1) % entries.length, -1);
+      startRotation();
     }
   });
+
+  startRotation();
+</script>
+
+<script>
+  import { closeLog, isLogPage } from "./closeLog";
+
+  document.addEventListener(
+    "click",
+    (event) => {
+      const target = event.target;
+      if (
+        target instanceof Element &&
+        target.closest("[data-view-log]") &&
+        isLogPage()
+      ) {
+        event.preventDefault();
+        closeLog();
+      }
+    },
+    { capture: true },
+  );
 </script>
